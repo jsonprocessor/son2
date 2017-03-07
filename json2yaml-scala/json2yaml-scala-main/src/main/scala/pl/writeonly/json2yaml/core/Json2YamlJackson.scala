@@ -1,4 +1,4 @@
-package pl.writeonly.json2yaml
+package pl.writeonly.json2yaml.core
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper

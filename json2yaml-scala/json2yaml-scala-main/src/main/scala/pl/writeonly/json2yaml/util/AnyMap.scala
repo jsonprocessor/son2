@@ -1,4 +1,8 @@
-package pl.writeonly.json2yaml
+package pl.writeonly.json2yaml.util
+
+import java.util
+
+import scala.collection.immutable.AbstractMap
 
 class AnyMap(val any: Any) extends AbstractMap[String, Any] {
   val clazz = any.getClass;

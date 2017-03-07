@@ -1,4 +1,4 @@
-package pl.scalare.util.asap
+package pl.writeonly.json2yaml.core
 
 import org.scalatest.{FunSpec, GivenWhenThen}
 

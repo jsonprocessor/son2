@@ -1,4 +1,4 @@
-package pl.writeonly.json2yaml
+package pl.writeonly.json2yaml.core
 
 import com.google.gson.JsonParser
 import org.yaml.snakeyaml.Yaml

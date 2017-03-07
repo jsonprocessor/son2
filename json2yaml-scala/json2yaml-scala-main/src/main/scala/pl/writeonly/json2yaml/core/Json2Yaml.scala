@@ -1,7 +1,10 @@
-package pl.writeonly.json2yaml
+package pl.writeonly.json2yaml.core
 
 import pl.writeonly.json2yaml.util.AppLogging
 
+import scala.util.{Failure, Success, Try}
+
+import scala.util.control.Exception._
 
 trait Json2Yaml extends AppLogging {
 

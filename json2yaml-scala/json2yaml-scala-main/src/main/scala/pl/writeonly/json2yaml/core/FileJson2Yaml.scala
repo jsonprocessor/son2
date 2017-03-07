@@ -1,10 +1,10 @@
-package pl.writeonly.json2yaml
+package pl.writeonly.json2yaml.core
 
 import java.io._
 
-import pl.scalare.util.asap.Control.{toConsumerAny, using}
-
 import scala.io.Source
+
+import pl.writeonly.json2yaml.util.Control._
 
 abstract class FileJson2Yaml(val onml: Json2Yaml) {
 
@@ -33,7 +33,7 @@ abstract class FileJson2Yaml(val onml: Json2Yaml) {
     val yaml = onml.applyTry(line)
     out.append(yaml)
   }
-  protected def appendLine(out: AbstractStringBuilder, line: String): Unit = {
+  protected def appendLine(out: StringBuilder, line: String): Unit = {
     val yaml = onml.applyTry(line)
     out.append(yaml)
   }
