@@ -14,9 +14,11 @@ abstract class FileJson2Yaml(val onml: Json2Yaml) {
 
   def convertFile(in: File, out: File): Unit = convertStream(new FileInputStream(in), new FileOutputStream(out))
 
-  def convert(in : String ) : String = {
-    val bytes = convertBytes(in.getBytes(UTF_8))
-    new String(bytes, UTF_8)
+  def convert(in : String) : String = {
+    Option(in).map { s =>
+      val bytes = convertBytes(in.getBytes(UTF_8))
+      new String(bytes, UTF_8)
+    }.orNull
   }
 
   def convertString(in : String ) : String
