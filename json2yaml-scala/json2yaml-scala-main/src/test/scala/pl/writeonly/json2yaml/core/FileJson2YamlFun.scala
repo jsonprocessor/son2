@@ -2,7 +2,7 @@ package pl.writeonly.json2yaml.core
 
 import org.scalatest.FunSpec
 
-class FileJson2YamlSpec extends FunSpec {
+class FileJson2YamlFun extends FunSpec {
   describe("A FileJson2YamlSpec") {
     var onml:FileJson2Yaml = new FileJson2YamlImpl(new Json2YamlJackson())
 

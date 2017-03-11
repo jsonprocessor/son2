@@ -2,7 +2,7 @@ package pl.writeonly.json2yaml.core
 
 import org.scalatest.{FeatureSpec, GivenWhenThen}
 
-class MainJson2YamlSpec extends FeatureSpec with GivenWhenThen {
+class FileJson2YamlFeature extends FeatureSpec with GivenWhenThen {
 
   info("As a TV set owner")
   info("I want to be able to turn the TV on and off")
@@ -13,14 +13,12 @@ class MainJson2YamlSpec extends FeatureSpec with GivenWhenThen {
     scenario("User presses power button when TV is off") {
 
       Given("a TV set that is switched off")
-      it s
-//      val tv = new TVSet
-//      assert(!tv.isOn)
+      var onml:FileJson2Yaml = new FileJson2YamlImpl(new Json2YamlJackson())
+
+      When("should produce null when consume null")
+//      onml.convert(null, null)
 //
-//      When("the power button is pressed")
-//      tv.pressPowerButton()
-//
-//      Then("the TV should switch on")
+      Then("the TV should switch on")
 //      assert(tv.isOn)
     }
 
