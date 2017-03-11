@@ -3,6 +3,8 @@
 **iml
 *class
 **class
+*timestamp
+**timestamp
 *log
 /lib/
 /classes/
