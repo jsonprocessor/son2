@@ -1,8 +1,8 @@
 package pl.writeonly.json2yaml.core
 
-import org.scalatest.{FunSpec, GivenWhenThen}
+import org.scalatest.FunSpec
 
-class Json2YamlJacksonSpec extends FunSpec with GivenWhenThen {
+class Json2YamlJacksonSpec extends FunSpec {
 
   describe("A Json2YamlJackson") {
     val onml: Json2Yaml = new Json2YamlJackson()
