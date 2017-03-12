@@ -6,7 +6,7 @@ import java.nio.file.Paths
 import org.scalatest.{FeatureSpec, GivenWhenThen}
 
 import pl.writeonly.json2yaml.core._
-
+import pl.writeonly.json2yaml.main._
 
 class FileJson2YamlFeature extends FeatureSpec with GivenWhenThen {
 
@@ -48,10 +48,11 @@ class FileJson2YamlFeature extends FeatureSpec with GivenWhenThen {
       var onml: FileJson2Yaml = new FileJson2YamlImpl(new Json2YamlJackson())
 
       val resource = getClass.getResource(PATH_LOG).toURI
-      val pathname = Paths.get(resource).toString
+      val in = Paths.get(resource).toString
+      val out = outName("pathname")
 
       When("should produce null when consume null")
-      onml.convertFile(pathname, outName("pathname"))
+      onml.convertFile(in, out)
     }
 
     scenario("Apply with uri") {
