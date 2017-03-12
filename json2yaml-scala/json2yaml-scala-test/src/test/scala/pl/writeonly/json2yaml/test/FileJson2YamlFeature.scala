@@ -12,14 +12,23 @@ class FileJson2YamlFeature extends FeatureSpec with GivenWhenThen {
 
   info("FileJson2YamlImpl with Json2YamlJackson")
 
+  val given = () => new FileJson2YamlImpl(new Json2YamlJackson)
+
+  val NAME = "writeonly-init"
+  val PREFIX = NAME + "."
+  val PATH_LOG = "/" + PREFIX + "log"
+  val YAML = MainJson2Yaml.YAML
+
+  val outName = (name: String) => NAME + "file." + name + YAML
+
   feature("Json2Yaml convert") {
     scenario("Apply with null pathname") {
       Given("converter FileJson2Yaml")
-      var onml: FileJson2Yaml = new FileJson2YamlImpl(new Json2YamlJackson())
+      val file = given()
       When("should produce null when consume null")
       val name: String = null
       val caught = intercept[NullPointerException] {
-        onml.convertFile(name, name)
+        file.convertFile(name, name)
       }
       Then("null == messag")
       val message = caught.getMessage
@@ -28,64 +37,57 @@ class FileJson2YamlFeature extends FeatureSpec with GivenWhenThen {
 
     scenario("Apply with empty pathname") {
       Given("converter FileJson2Yaml")
-      var onml: FileJson2Yaml = new FileJson2YamlImpl(new Json2YamlJackson())
+      val file = given()
 
-      When("should produce null when consume null")
+      When("should produce empty when consume empty")
       assertThrows[FileNotFoundException] {
-        onml.convertFile("", "")
+        file.convertFile("", "")
       }
     }
 
-    val NAME = "writeonly-init"
-    val PREFIX = NAME + "."
-    val PATH_LOG = "/" + PREFIX + "log"
-    val YAML = MainJson2Yaml.YAML
-
-    val outName = (name: String) => NAME + name + YAML
-
     scenario("Apply with pathname") {
       Given("converter FileJson2Yaml")
-      var onml: FileJson2Yaml = new FileJson2YamlImpl(new Json2YamlJackson())
+      val file = given()
 
       val resource = getClass.getResource(PATH_LOG).toURI
       val in = Paths.get(resource).toString
       val out = outName("pathname")
 
       When("should produce null when consume null")
-      onml.convertFile(in, out)
+      file.convertFile(in, out)
     }
 
     scenario("Apply with uri") {
       Given("converter FileJson2Yaml")
-      var onml: FileJson2Yaml = new FileJson2YamlImpl(new Json2YamlJackson())
+      val file = given()
 
       val in = getClass.getResource(PATH_LOG).toURI
       val out = new File(outName("uri")).toURI
 
       When("should produce null when consume null")
-      onml.convertFile(in, out)
+      file.convertFile(in, out)
     }
 
     scenario("Apply with file") {
       Given("converter FileJson2Yaml")
-      var onml: FileJson2Yaml = new FileJson2YamlImpl(new Json2YamlJackson())
+      val file = given()
 
       val in = new File(getClass.getResource(PATH_LOG).toURI)
       val out = new File(outName("file"))
 
-      When("should produce null when consume null")
-      onml.convertFile(in, out)
+      When("should produce out when consume in")
+      file.convertFile(in, out)
     }
 
-    scenario("Apply with stream") {
-      Given("converter FileJson2Yaml")
-      var onml: FileJson2Yaml = new FileJson2YamlImpl(new Json2YamlJackson())
-      val in = getClass.getResourceAsStream(PATH_LOG)
-      val out = new FileOutputStream(outName("stream"))
-
-      When("should produce null when consume null")
-      onml.convertStream(in, out)
-    }
+//    scenario("Apply with stream") {
+//      Given("converter FileJson2Yaml")
+//      val file = given()
+//      val in = getClass.getResourceAsStream(PATH_LOG)
+//      val out = new FileOutputStream(outName("stream"))
+//
+//      When("should produce null when consume null")
+//      file.convertStream(in, out)
+//    }
 
   }
 }

@@ -14,10 +14,17 @@ class MainJson2YamlFeature extends FeatureSpec with GivenWhenThen {
 
   val given = () => new MainJson2Yaml(new FileJson2YamlImpl(new Json2YamlJackson))
 
-  feature("Json2Yaml convert") {
+  val NAME = "writeonly-init"
+  val PREFIX = NAME + "."
+  val PATH_LOG = "/" + PREFIX + "log"
+  val YAML = MainJson2Yaml.YAML
+
+  val outName = (name: String) => NAME + "main." + name + YAML
+
+  feature("MainJson2Yaml with two pathname") {
     scenario("Apply with null pathname") {
       Given("converter FileJson2Yaml")
-      var main: given()
+      val main = given()
       When("should produce null when consume null")
       val name: String = null
       val caught = intercept[NullPointerException] {
@@ -30,30 +37,61 @@ class MainJson2YamlFeature extends FeatureSpec with GivenWhenThen {
 
     scenario("Apply with empty pathname") {
       Given("converter FileJson2Yaml")
-      var main: MainJson2Yaml = new MainJson2Yaml(new FileJson2YamlImpl(new Json2YamlJackson))
-      When("should produce null when consume null")
+      val main = given()
+      When("should produce empty when consume empty")
       assertThrows[FileNotFoundException] {
         main.convertFile("", "")
       }
     }
 
-    val NAME = "writeonly-init"
-    val PREFIX = NAME + "."
-    val PATH_LOG = "/" + PREFIX + "log"
-    val YAML = MainJson2Yaml.YAML
+    scenario("Apply with pathname") {
+      Given("converter FileJson2Yaml")
+      val main = given()
 
-    val outName = (name: String) => NAME + name + YAML
+      val resource = getClass.getResource(PATH_LOG).toURI
+      val in = Paths.get(resource).toString
+      val out = outName("pathname")
+
+      When("should produce null when consume null")
+      main.convertFile(in, out)
+    }
+  }
+
+  feature("MainJson2Yaml with one pathname") {
+    scenario("Apply with null pathname") {
+      Given("converter FileJson2Yaml")
+      val main = given()
+      When("should produce null when consume null")
+      val name: String = null
+      val caught = intercept[NullPointerException] {
+        main.convertFile(name)
+      }
+      Then("null == messag")
+      val message = caught.getMessage
+      assert(null == message)
+    }
+
+    scenario("Apply with empty pathname") {
+      Given("converter FileJson2Yaml")
+      val main = given()
+      When("should produce null empty consume empty")
+      assertThrows[FileNotFoundException] {
+        main.convertFile("")
+      }
+    }
 
     scenario("Apply with pathname") {
       Given("converter FileJson2Yaml")
-      var main: MainJson2Yaml = new MainJson2Yaml(new FileJson2YamlImpl(new Json2YamlJackson))
+      val main = given()
 
       val resource = getClass.getResource(PATH_LOG).toURI
-      val pathname = Paths.get(resource).toString
+      val in = Paths.get(resource).toString
+      val out = outName("pathname")
 
       When("should produce null when consume null")
-      main.convertFile(pathname, outName("pathname"))
+      main.convertFile(in)
     }
   }
+
 }
 
