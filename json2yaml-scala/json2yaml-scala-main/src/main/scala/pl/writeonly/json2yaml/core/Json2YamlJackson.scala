@@ -5,7 +5,7 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLMapper
 import pl.writeonly.json2yaml.util.AppLogging
 
 object Json2YamlJackson extends AppLogging {
-  new FileJson2YamlSource(new Json2YamlJackson).convert(args(0), args(1))
+  new FileJson2YamlSource(new Json2YamlJackson).convertFile(args(0), args(1))
 }
 
 class Json2YamlJackson extends Json2Yaml {

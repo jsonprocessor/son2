@@ -20,6 +20,25 @@
         <scalatest.version>3.0.1</scalatest.version>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>pl.writeonly.json2yaml</groupId>
+            <artifactId>json2yaml-scala-main</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.typesafe.scala-logging</groupId>
+            <artifactId>scala-logging_2.11</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest_2.11</artifactId>
+        </dependency>
+    </dependencies>
+
     <build>
         <sourceDirectory>src/main/scala</sourceDirectory>
         <testSourceDirectory>src/test/scala</testSourceDirectory>
@@ -62,22 +81,4 @@
         </plugins>
     </build>
 
-    <dependencies>
-        <dependency>
-            <groupId>pl.writeonly.json2yaml</groupId>
-            <artifactId>json2yaml-scala-main</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.scala-lang</groupId>
-            <artifactId>scala-library</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.typesafe.scala-logging</groupId>
-            <artifactId>scala-logging_2.11</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.scalatest</groupId>
-            <artifactId>scalatest_2.11</artifactId>
-        </dependency>
-    </dependencies>
 </project>

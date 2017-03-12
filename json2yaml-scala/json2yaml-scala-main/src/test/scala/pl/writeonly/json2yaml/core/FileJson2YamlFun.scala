@@ -8,7 +8,7 @@ class FileJson2YamlFun extends FunSpec {
 
     describe("when left") {
       it("should produce null when consume null") {
-        val yaml = onml.convert(null)
+        val yaml = onml.convertString(null)
         assert(null == yaml)
       }
 //      it("should produce empty comment when consume empty string") {

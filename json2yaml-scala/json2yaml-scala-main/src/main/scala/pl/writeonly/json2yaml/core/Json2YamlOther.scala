@@ -5,7 +5,7 @@ import org.yaml.snakeyaml.Yaml
 import pl.writeonly.json2yaml.util.AppLogging
 
 object Json2YamlOther extends AppLogging {
-  new FileJson2YamlSource(new Json2YamlOther).convert(args(0), args(1))
+  new FileJson2YamlSource(new Json2YamlOther).convertFile(args(0), args(1))
 }
 
 class Json2YamlOther extends Json2Yaml {
