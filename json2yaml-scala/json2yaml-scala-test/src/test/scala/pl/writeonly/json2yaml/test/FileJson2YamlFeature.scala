@@ -31,14 +31,14 @@ class FileJson2YamlFeature extends FeatureSpec with GivenWhenThen {
       assert(null == message)
     }
 
-//    scenario("User presses power button when TV is on") {
-//      Given("a TV set that is switched on")
-//      var onml: FileJson2Yaml = new FileJson2YamlImpl(new Json2YamlJackson())
-//
-//      When("should produce null when consume null")
+    scenario("User presses power button when TV is on") {
+      Given("a TV set that is switched on")
+      var onml: FileJson2Yaml = new FileJson2YamlImpl(new Json2YamlJackson())
+
+      When("should produce null when consume null")
 //      onml.convertFile("", "")
-//      Then("the TV should switch off")
-//    }
+      Then("the TV should switch off")
+    }
 
 //    scenario("User presses power button when TV is on") {
 //      Given("a TV set that is switched on")
