@@ -6,30 +6,29 @@ import java.net.URI
 import scala.io.Source
 import pl.writeonly.json2yaml.util.Control._
 
+object FileJson2Yaml {
+  val UTF_8  = "UTF-8"
+}
+
 abstract class FileJson2Yaml(val onml: Json2Yaml) {
 
-  val UTF_8  = "UTF-8"
 
   def convertFile(in: String, out: String): Unit = convertFile(new File(in), new File(out))
 
-  def convertFile(in: URI, out: URI): Unit = convertFile(new File(in), new File(out))
+  def convertFile(in: URI, out: URI): Unit
 
-  def convertFile(in: File, out: File): Unit = convertStream(new FileInputStream(in), new FileOutputStream(out))
+  def convertFile(in: File, out: File): Unit
 
   def convertString(in : String) : String = {
     Option(in).map { s =>
-      val bytes = convertBytes(in.getBytes(UTF_8))
-      new String(bytes, UTF_8)
+      val bytes = convertBytes(in.getBytes(FileJson2Yaml.UTF_8))
+      new String(bytes, FileJson2Yaml.UTF_8)
     }.orNull
   }
 
   def convertStringNative(in : String ) : String
 
-  def convertBytes(in : Array[Byte]): Array[Byte] = {
-    val out = new ByteArrayOutputStream()
-    convertStream(new ByteArrayInputStream(in), out)
-    out.toByteArray
-  }
+  def convertBytes(in : Array[Byte]): Array[Byte]
 
   def convertStream(in: InputStream, out: OutputStream): Unit
 
@@ -45,14 +44,24 @@ abstract class FileJson2Yaml(val onml: Json2Yaml) {
 
 class FileJson2YamlImpl(onml: Json2Yaml) extends FileJson2Yaml(onml) {
 
+  override def convertFile(in: URI, out: URI): Unit = convertFile(new File(in), new File(out))
+
+  override def convertFile(in: File, out: File): Unit = convertStream(new FileInputStream(in), new FileOutputStream(out))
+
   override def convertStream(in: InputStream, out: OutputStream): Unit = {
-    convertNative(new InputStreamReader(in, UTF_8), new OutputStreamWriter(out, UTF_8))
+    convertNative(new InputStreamReader(in, FileJson2Yaml.UTF_8), new OutputStreamWriter(out, FileJson2Yaml.UTF_8))
   }
 
   override def convertStringNative(in : String): String = {
     val out = new StringWriter()
     convertNative(new StringReader(in), out)
     out.toString
+  }
+
+  override def convertBytes(in : Array[Byte]): Array[Byte] = {
+    val out = new ByteArrayOutputStream()
+    convertStream(new ByteArrayInputStream(in), out)
+    out.toByteArray
   }
 
   def convertNative(in: Reader, out: Writer): Unit = {
@@ -80,9 +89,37 @@ class FileJson2YamlSource(onml: Json2Yaml) extends FileJson2Yaml(onml) {
     sb.toString
   }
 
+  override def convertBytes(in: Array[Byte]): Array[Byte] = {
+      val sb = new StringBuilder()
+      Source.fromRawBytes(in).getLines().foreach { line =>
+        appendLine(sb, line)
+      }
+      sb.toString.getBytes
+    }
+
+  override def convertFile(in: URI, out: URI): Unit = {
+    using(new PrintWriter(new File(out))) { pw =>
+      using(Source.fromURI(in)) { source =>
+        source.getLines().foreach { line =>
+          appendLine(pw, line)
+        }
+      }
+    }
+  }
+
+  override def convertFile(in: File, out: File): Unit = {
+    using(new PrintWriter(out)) { pw =>
+      using(Source.fromFile(in)) { source =>
+        source.getLines().foreach { line =>
+          appendLine(pw, line)
+        }
+      }
+    }
+  }
+
   override def convertStream(in: InputStream, out: OutputStream): Unit = {
     using(new PrintWriter(out)) { pw =>
-      using(Source.fromInputStream(in, UTF_8)) { source =>
+      using(Source.fromInputStream(in, FileJson2Yaml.UTF_8)) { source =>
         source.getLines().foreach { line =>
           appendLine(pw, line)
         }
