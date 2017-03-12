@@ -40,18 +40,18 @@ class FileJson2YamlFeature extends FeatureSpec with GivenWhenThen {
       Then("the TV should switch off")
     }
 
-//    scenario("User presses power button when TV is on") {
-//      Given("a TV set that is switched on")
-//      var onml: FileJson2Yaml = new FileJson2YamlImpl(new Json2YamlJackson())
-//      val name = "writeonly-init"
-//      val resource = getClass.getResource("/"+name+".log").toURI
-//      val pathname = Paths.get(resource).toString
+    scenario("User presses power button when TV is on2") {
+      Given("a TV set that is switched on")
+      var onml: FileJson2Yaml = new FileJson2YamlImpl(new Json2YamlJackson())
+      val name = "writeonly-init"
+      val resource = getClass.getResource("/"+name+".log").toURI
+      val pathname = Paths.get(resource).toString
 //
-//      When("should produce null when consume null")
+      When("should produce null when consume null")
 //      onml.convertFile(pathname, name + ".yaml")
-//      Then("the TV should switch off")
+      Then("the TV should switch off")
 ////      assert("" == message, message)
-//    }
+    }
   }
 }
 
