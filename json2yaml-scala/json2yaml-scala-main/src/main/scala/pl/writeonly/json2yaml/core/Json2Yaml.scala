@@ -8,11 +8,13 @@ import scala.util.control.Exception._
 
 trait Json2Yaml extends AppLogging {
 
+  def comment(jsonString:String) = "#" + jsonString + "\n"
+
   def applyOpt(jsonString: String): String = map(jsonString) { s =>
     val result = catching(classOf[RuntimeException]) opt {
       apply(jsonString)
     }
-    result.getOrElse("#" + jsonString)
+    result.getOrElse(comment(jsonString))
   }
 
   def applyEither(jsonString: String): String = map(jsonString) { s =>
@@ -23,7 +25,7 @@ trait Json2Yaml extends AppLogging {
       case Right(yaml) => yaml
       case Left(exception) => {
         logger.error(jsonString, exception)
-        "#" + jsonString
+        comment(jsonString)
       }
     }
   }
@@ -33,7 +35,7 @@ trait Json2Yaml extends AppLogging {
       case Success(yaml) => yaml
       case Failure(exception) => {
         logger.error(jsonString, exception)
-        "#" + jsonString
+        comment(jsonString)
       }
     }
   }

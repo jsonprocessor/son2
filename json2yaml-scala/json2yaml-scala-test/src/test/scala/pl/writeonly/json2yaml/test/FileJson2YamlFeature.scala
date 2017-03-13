@@ -19,7 +19,8 @@ class FileJson2YamlFeature extends FeatureSpec with GivenWhenThen {
   val PATH_LOG = "/" + PREFIX + "log"
   val YAML = MainJson2Yaml.YAML
 
-  val outName = (name: String) => NAME + "file." + name + YAML
+
+  val outName = (name: String) => "yaml/"+PREFIX + "file." + name + YAML
 
   feature("Json2Yaml convert") {
     scenario("Apply with null pathname") {

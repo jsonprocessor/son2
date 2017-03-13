@@ -14,11 +14,11 @@ class Json2YamlJacksonFun extends FunSpec {
       }
       it("should produce empty comment when consume empty string") {
         val yaml = onml.applyTry("")
-        assert("#" == yaml)
+        assert("#\n" == yaml)
       }
       it("should produce a when consume a") {
         val yaml = onml.applyTry("a")
-        assert("#a" == yaml)
+        assert("#a\n" == yaml)
       }
     }
 
