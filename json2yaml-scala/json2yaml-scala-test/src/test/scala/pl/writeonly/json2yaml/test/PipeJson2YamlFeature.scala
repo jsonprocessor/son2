@@ -1,34 +1,41 @@
 package pl.writeonly.json2yaml.test
 
-import java.nio.file.Paths
-
 import org.scalatest.{FeatureSpec, GivenWhenThen}
 
 import sys.process._
 
-import pl.writeonly.json2yaml.main._
-
 class PipeJson2YamlFeature extends FeatureSpec with GivenWhenThen {
 
-  val NAME = "writeonly-init"
-  val PREFIX = "yaml/"+ NAME + "."
-  val PATH_LOG = "/" + PREFIX + "log"
-  val YAML = MainJson2Yaml.YAML
-  val ONML = "java -jar ../json2yaml-scala-main-2.8.3-SNAPSHOT.jar"
+  val ONML = "java -jar ../json2yaml-scala-main/target/json2yaml-scala-main-2.8.3-SNAPSHOT.jar"
   val CAT = "cat"
 
-  val outName = (name: String) => PREFIX + "pipe." + name + YAML
+  val outName = (name: String) =>  Features.outputPathname("pipe", name)
 
-//  feature("PipeJson2Yaml convert") {
-//    scenario("Apply with null pathname") {
+  feature("PipeJson2Yaml convert") {
+
+    scenario("Apply one exclamation") {
+      Given("converter FileJson2Yaml")
+      val in = Features.inputPathname
+      val file = ONML + " " + in + " " + outName("one")
+      When("should produce null when consume null")
+      val result = file.!
+      Then("0 == result")
+      assert(0 == result)
+    }
+
+
+//    scenario("Apply one exclamation") {
 //      Given("converter FileJson2Yaml")
-//      val resource = getClass.getResource(PATH_LOG).toURI
-//      val in = Paths.get(resource).toString
-//      val file = CAT + " " + in + " | " + ONML + " > "  +outName("cat")
+//      val in = Features.inputPathname
+//      val file = ONML + " " + in + " " + outName("two")
 //      When("should produce null when consume null")
-//      val result = file.!
-//      Then("null == messag")
-//      assert(null == result)
+//      val caught = intercept[RuntimeException] {
+//        val result = file.!!
+//        result
+//      }
+//      Then("0 == result")
+//      val message = caught.getMessage
+//      assert(null == message)
 //    }
-//  }
+  }
 }

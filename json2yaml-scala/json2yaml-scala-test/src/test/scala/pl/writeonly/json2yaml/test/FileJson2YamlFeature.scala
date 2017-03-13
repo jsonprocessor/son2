@@ -14,13 +14,7 @@ class FileJson2YamlFeature extends FeatureSpec with GivenWhenThen {
 
   val given = () => new FileJson2YamlImpl(new Json2YamlJackson)
 
-  val NAME = "writeonly-init"
-  val PREFIX = NAME + "."
-  val PATH_LOG = "/" + PREFIX + "log"
-  val YAML = MainJson2Yaml.YAML
-
-
-  val outName = (name: String) => "yaml/"+PREFIX + "file." + name + YAML
+  val outName = (name: String) => Features.outputPathname("file", name)
 
   feature("Json2Yaml convert") {
     scenario("Apply with null pathname") {
@@ -50,8 +44,7 @@ class FileJson2YamlFeature extends FeatureSpec with GivenWhenThen {
       Given("converter FileJson2Yaml")
       val file = given()
 
-      val resource = getClass.getResource(PATH_LOG).toURI
-      val in = Paths.get(resource).toString
+      val in = Features.inputPathname
       val out = outName("pathname")
 
       When("should produce null when consume null")
@@ -62,7 +55,7 @@ class FileJson2YamlFeature extends FeatureSpec with GivenWhenThen {
       Given("converter FileJson2Yaml")
       val file = given()
 
-      val in = getClass.getResource(PATH_LOG).toURI
+      val in = Features.inputURI
       val out = new File(outName("uri")).toURI
 
       When("should produce null when consume null")
@@ -73,7 +66,7 @@ class FileJson2YamlFeature extends FeatureSpec with GivenWhenThen {
       Given("converter FileJson2Yaml")
       val file = given()
 
-      val in = new File(getClass.getResource(PATH_LOG).toURI)
+      val in = new File(Features.inputURI)
       val out = new File(outName("file"))
 
       When("should produce out when consume in")

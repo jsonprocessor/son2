@@ -14,12 +14,7 @@ class MainJson2YamlFeature extends FeatureSpec with GivenWhenThen {
 
   val given = () => new MainJson2Yaml(new FileJson2YamlImpl(new Json2YamlJackson))
 
-  val NAME = "writeonly-init"
-  val PREFIX = NAME + "."
-  val PATH_LOG = "/" + PREFIX + "log"
-  val YAML = MainJson2Yaml.YAML
-
-  val outName = (name: String) => "yaml/" + PREFIX + "main." + name + YAML
+  val outName = (name: String) =>  Features.outputPathname("main", name)
 
   feature("MainJson2Yaml with two pathname") {
     scenario("Apply with null pathname") {
@@ -47,8 +42,7 @@ class MainJson2YamlFeature extends FeatureSpec with GivenWhenThen {
     scenario("Apply with pathname") {
       Given("converter FileJson2Yaml")
       val main = given()
-      val resource = getClass.getResource(PATH_LOG).toURI
-      val in = Paths.get(resource).toString
+      val in = Features.inputPathname
       val out = outName("pathname")
 
       When("should produce null when consume null")
@@ -82,8 +76,7 @@ class MainJson2YamlFeature extends FeatureSpec with GivenWhenThen {
     scenario("Apply with pathname") {
       Given("converter FileJson2Yaml")
       val main = given()
-      val resource = getClass.getResource(PATH_LOG).toURI
-      val in = Paths.get(resource).toString
+      val in = Features.inputPathname
 
       When("should produce null when consume null")
       main.convertFile(in)
