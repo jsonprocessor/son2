@@ -1,7 +1,6 @@
 package pl.writeonly.json2yaml.test
 
-import java.io.{File, FileNotFoundException, FileOutputStream}
-import java.nio.file.Paths
+import java.io.FileNotFoundException
 
 import org.scalatest.{FeatureSpec, GivenWhenThen}
 
@@ -20,11 +19,13 @@ class FileJson2YamlFeature extends FeatureSpec with GivenWhenThen {
     scenario("Apply with null pathname") {
       Given("converter FileJson2Yaml")
       val file = given()
-      When("should produce null when consume null")
       val name: String = null
+
+      When("should produce null when consume null")
       val caught = intercept[NullPointerException] {
         file.convertFile(name, name)
       }
+
       Then("null == messag")
       val message = caught.getMessage
       assert(null == message)
@@ -43,7 +44,6 @@ class FileJson2YamlFeature extends FeatureSpec with GivenWhenThen {
     scenario("Apply with pathname") {
       Given("converter FileJson2Yaml")
       val file = given()
-
       val in = Features.inputPathname
       val out = outName("pathname")
 
@@ -54,9 +54,8 @@ class FileJson2YamlFeature extends FeatureSpec with GivenWhenThen {
     scenario("Apply with uri") {
       Given("converter FileJson2Yaml")
       val file = given()
-
       val in = Features.inputURI
-      val out = new File(outName("uri")).toURI
+      val out = Features.toURI(outName("uri"))
 
       When("should produce null when consume null")
       file.convertFile(in, out)
@@ -65,24 +64,12 @@ class FileJson2YamlFeature extends FeatureSpec with GivenWhenThen {
     scenario("Apply with file") {
       Given("converter FileJson2Yaml")
       val file = given()
-
-      val in = new File(Features.inputURI)
-      val out = new File(outName("file"))
+      val in = Features.inputFile
+      val out = Features.toFile(outName("file"))
 
       When("should produce out when consume in")
       file.convertFile(in, out)
     }
-
-//    scenario("Apply with stream") {
-//      Given("converter FileJson2Yaml")
-//      val file = given()
-//      val in = getClass.getResourceAsStream(PATH_LOG)
-//      val out = new FileOutputStream(outName("stream"))
-//
-//      When("should produce null when consume null")
-//      file.convertStream(in, out)
-//    }
-
   }
 }
 

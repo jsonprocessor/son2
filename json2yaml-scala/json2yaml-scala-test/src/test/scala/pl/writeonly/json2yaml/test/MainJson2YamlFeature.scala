@@ -1,7 +1,6 @@
 package pl.writeonly.json2yaml.test
 
-import java.io.{File, FileNotFoundException, FileOutputStream}
-import java.nio.file.Paths
+import java.io.FileNotFoundException
 
 import org.scalatest.{FeatureSpec, GivenWhenThen}
 
@@ -20,11 +19,13 @@ class MainJson2YamlFeature extends FeatureSpec with GivenWhenThen {
     scenario("Apply with null pathname") {
       Given("converter FileJson2Yaml")
       val main = given()
+
       When("should produce null when consume null")
       val name: String = null
       val caught = intercept[NullPointerException] {
         main.convertFile(name, name)
       }
+
       Then("null == messag")
       val message = caught.getMessage
       assert(null == message)
@@ -33,6 +34,7 @@ class MainJson2YamlFeature extends FeatureSpec with GivenWhenThen {
     scenario("Apply with empty pathname") {
       Given("converter FileJson2Yaml")
       val main = given()
+
       When("should produce empty when consume empty")
       assertThrows[FileNotFoundException] {
         main.convertFile("", "")
@@ -55,10 +57,12 @@ class MainJson2YamlFeature extends FeatureSpec with GivenWhenThen {
       Given("converter FileJson2Yaml")
       val main = given()
       val name: String = null
+
       When("should produce null when consume null")
       val caught = intercept[NullPointerException] {
         main.convertFile(name)
       }
+
       Then("null == messag")
       val message = caught.getMessage
       assert(null == message)
@@ -67,6 +71,7 @@ class MainJson2YamlFeature extends FeatureSpec with GivenWhenThen {
     scenario("Apply with empty pathname") {
       Given("converter FileJson2Yaml")
       val main = given()
+
       When("should produce null empty consume empty")
       assertThrows[FileNotFoundException] {
         main.convertFile("")

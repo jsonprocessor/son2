@@ -2,6 +2,7 @@ package pl.writeonly.json2yaml.core
 
 import org.scalatest.{FunSpec, Ignore}
 
+
 @Ignore
 class Json2YamlOtherFun extends FunSpec {
 

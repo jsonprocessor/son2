@@ -23,19 +23,13 @@ class PipeJson2YamlFeature extends FeatureSpec with GivenWhenThen {
       assert(0 == result)
     }
 
-
-//    scenario("Apply one exclamation") {
-//      Given("converter FileJson2Yaml")
-//      val in = Features.inputPathname
-//      val file = ONML + " " + in + " " + outName("two")
-//      When("should produce null when consume null")
-//      val caught = intercept[RuntimeException] {
-//        val result = file.!!
-//        result
-//      }
-//      Then("0 == result")
-//      val message = caught.getMessage
-//      assert(null == message)
-//    }
+    scenario("Apply two exclamation") {
+      Given("converter FileJson2Yaml")
+      val in = Features.inputPathname
+      val file = ONML + " " + in + " " + outName("two")
+      When("should produce null when consume null")
+        val result = file.!!
+      Then("0 == result")
+      assert("" == result)    }
   }
 }

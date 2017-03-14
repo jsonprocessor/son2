@@ -1,5 +1,6 @@
 package pl.writeonly.json2yaml.test
 
+import java.io.File
 import java.nio.file.Paths
 
 object Features {
@@ -15,7 +16,15 @@ object Features {
 
   def inputURI = getClass.getResource(PATH_LOG).toURI
 
+  def inputFile = new File(Features.inputURI)
+
   def inputPathname = Paths.get(inputURI).toString
+
+
+  def toFile(pathname:String) = new File(pathname)
+
+  def toURI(pathname:String) = toFile(pathname).toURI
+
 
 
 }

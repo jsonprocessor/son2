@@ -1,8 +1,9 @@
 package pl.writeonly.json2yaml.core
 
+import pl.writeonly.json2yaml.util.AppLogging
 import com.google.gson.JsonParser
 import org.yaml.snakeyaml.Yaml
-import pl.writeonly.json2yaml.util.AppLogging
+
 
 object Json2YamlOther extends AppLogging {
   new FileJson2YamlSource(new Json2YamlOther).convertFile(args(0), args(1))
