@@ -2,7 +2,6 @@ package pl.writeonly.json2yaml.core
 
 import org.scalatest.{FunSpec, Ignore}
 
-
 @Ignore
 class Json2YamlOtherFun extends FunSpec {
 
@@ -22,7 +21,6 @@ class Json2YamlOtherFun extends FunSpec {
         val yaml = onml.applyTry("a")
         assert("#a" == yaml)
       }
-
     }
 
     describe("when right") {
