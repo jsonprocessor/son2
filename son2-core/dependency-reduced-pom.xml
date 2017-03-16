@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <parent>
-    <artifactId>json2yaml-scala</artifactId>
-    <groupId>pl.writeonly.json2yaml</groupId>
+    <artifactId>son2</artifactId>
+    <groupId>pl.writeonly.son2</groupId>
     <version>2.8.3-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>json2yaml-scala-main</artifactId>
+  <artifactId>son2-core</artifactId>
   <build>
     <sourceDirectory>src/main/scala</sourceDirectory>
     <testSourceDirectory>src/test/scala</testSourceDirectory>

@@ -3,12 +3,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>pl.writeonly.json2yaml</groupId>
-        <artifactId>json2yaml-scala</artifactId>
+        <groupId>pl.writeonly.son2</groupId>
+        <artifactId>son2</artifactId>
         <version>2.8.3-SNAPSHOT</version>
     </parent>
 
-    <artifactId>json2yaml-scala-test</artifactId>
+    <artifactId>son2-test</artifactId>
     <packaging>jar</packaging>
 
     <properties>
