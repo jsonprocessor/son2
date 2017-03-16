@@ -5,11 +5,11 @@ import com.google.gson.JsonParser
 import org.yaml.snakeyaml.Yaml
 
 
-object Json2YamlOther extends AppLogging {
-  new FileJson2YamlSource(new Json2YamlOther).convertFile(args(0), args(1))
+object Son2Other extends AppLogging {
+  new FileSon2Source(new Son2Other).convertFile(args(0), args(1))
 }
 
-class Json2YamlOther extends Json2Yaml {
+class Son2Other extends Son2 {
   override protected def apply(jsonString: String): String = {
     val jsonObject = new JsonParser().parse(jsonString).getAsJsonObject()
     new Yaml().dump(jsonObject)

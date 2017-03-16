@@ -54,7 +54,7 @@
               <transformers>
                 <transformer />
                 <transformer>
-                  <mainClass>pl.writeonly.son2.main.MainJson2Yaml</mainClass>
+                  <mainClass>pl.writeonly.son2.main.MainSon2</mainClass>
                 </transformer>
               </transformers>
             </configuration>

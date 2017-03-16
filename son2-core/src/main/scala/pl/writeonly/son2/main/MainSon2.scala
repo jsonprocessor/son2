@@ -1,14 +1,14 @@
 package pl.writeonly.son2.main
 
-import pl.writeonly.son2.core.{FileJson2Yaml, FileJson2YamlImpl, Json2YamlJackson}
+import pl.writeonly.son2.core.{FileSon2, FileSon2Impl, Son2Yaml}
 import pl.writeonly.son2.util.AppLogging
 
-object MainJson2Yaml extends AppLogging {
+object MainSon2 extends AppLogging {
   val YAML  = ".yaml"
 
-  val onml = new Json2YamlJackson
-  val file = new FileJson2YamlImpl(onml)
-  val main = new MainJson2Yaml(file)
+  val onml = new Son2Yaml
+  val file = new FileSon2Impl(onml)
+  val main = new MainSon2(file)
 
   args.length match {
     case 0 => main.convertFile()
@@ -18,12 +18,12 @@ object MainJson2Yaml extends AppLogging {
 
 }
 
-class MainJson2Yaml(val file : FileJson2Yaml) {
+class MainSon2(val file : FileSon2) {
 
   def convertFile(in: String, out:String):Unit = file.convertFile(in, out)
 
   //FIXME
-  def convertFile(in: String):Unit = convertFile(in, in + MainJson2Yaml.YAML)
+  def convertFile(in: String):Unit = convertFile(in, in + MainSon2.YAML)
 
   def convertFile():Unit = file.convertStream(System.in, System.out)
 

@@ -6,7 +6,7 @@ import scala.util.{Failure, Success, Try}
 
 import scala.util.control.Exception._
 
-trait Json2Yaml extends AppLogging {
+trait Son2 extends AppLogging {
 
   def comment(jsonString:String) = "#" + jsonString + "\n"
 

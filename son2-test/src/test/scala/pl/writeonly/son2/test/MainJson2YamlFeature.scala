@@ -11,7 +11,7 @@ class MainJson2YamlFeature extends FeatureSpec with GivenWhenThen {
 
   info("MainJson2YamlImpl with Json2YamlJackson")
 
-  val given = () => new MainJson2Yaml(new FileJson2YamlImpl(new Json2YamlJackson))
+  val given = () => new MainSon2(new FileSon2Impl(new Son2Yaml))
 
   val outName = (name: String) =>  Features.outputPathname("main", name)
 

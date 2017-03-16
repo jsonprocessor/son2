@@ -11,7 +11,7 @@ class FileJson2YamlFeature extends FeatureSpec with GivenWhenThen {
 
   info("FileJson2YamlImpl with Json2YamlJackson")
 
-  val given = () => new FileJson2YamlImpl(new Json2YamlJackson)
+  val given = () => new FileSon2Impl(new Son2Yaml)
 
   val outName = (name: String) => Features.outputPathname("file", name)
 

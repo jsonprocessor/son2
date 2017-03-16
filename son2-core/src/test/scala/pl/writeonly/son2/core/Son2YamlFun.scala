@@ -2,10 +2,10 @@ package pl.writeonly.son2.core
 
 import org.scalatest.FunSpec
 
-class Json2YamlJacksonFun extends FunSpec {
+class Son2YamlFun extends FunSpec {
 
   describe("A Json2YamlJackson") {
-    val onml: Json2Yaml = new Json2YamlJackson()
+    val onml: Son2 = new Son2Yaml()
 
     describe("when left") {
       it("should produce null when consume null") {
