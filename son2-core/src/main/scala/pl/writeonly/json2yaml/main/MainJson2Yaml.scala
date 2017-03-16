@@ -22,6 +22,7 @@ class MainJson2Yaml(val file : FileJson2Yaml) {
 
   def convertFile(in: String, out:String):Unit = file.convertFile(in, out)
 
+  //FIXME
   def convertFile(in: String):Unit = convertFile(in, in + MainJson2Yaml.YAML)
 
   def convertFile():Unit = file.convertStream(System.in, System.out)
