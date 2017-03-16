@@ -20,6 +20,7 @@
 
     <modules>
         <module>son2-core</module>
+        <module>son2-bulk</module>
         <module>son2-test</module>
     </modules>
 
@@ -50,6 +51,11 @@
             <dependency>
                 <groupId>pl.writeonly.son2</groupId>
                 <artifactId>son2-core</artifactId>
+                <version>${son2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>pl.writeonly.son2</groupId>
+                <artifactId>son2-bulk</artifactId>
                 <version>${son2.version}</version>
             </dependency>
             <dependency>
