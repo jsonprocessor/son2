@@ -1,11 +1,11 @@
-package pl.writeonly.json2yaml.test
+package pl.writeonly.son2.test
 
 import java.io.FileNotFoundException
 
 import org.scalatest.{FeatureSpec, GivenWhenThen}
 
-import pl.writeonly.json2yaml.core._
-import pl.writeonly.json2yaml.main._
+import pl.writeonly.son2.core._
+import pl.writeonly.son2.main._
 
 class FileJson2YamlFeature extends FeatureSpec with GivenWhenThen {
 

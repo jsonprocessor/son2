@@ -1,10 +1,10 @@
-package pl.writeonly.json2yaml.core
+package pl.writeonly.son2.core
 
 import java.io._
 import java.net.URI
 
 import scala.io.Source
-import pl.writeonly.json2yaml.util.Control._
+import pl.writeonly.son2.util.Control._
 
 object FileJson2Yaml {
   val UTF_8  = "UTF-8"

@@ -1,8 +1,8 @@
-package pl.writeonly.json2yaml.core
+package pl.writeonly.son2.core
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper
-import pl.writeonly.json2yaml.util.AppLogging
+import pl.writeonly.son2.util.AppLogging
 
 object Json2YamlJackson extends AppLogging {
   new FileJson2YamlSource(new Json2YamlJackson).convertFile(args(0), args(1))

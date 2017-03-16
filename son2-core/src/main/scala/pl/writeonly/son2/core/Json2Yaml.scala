@@ -1,6 +1,6 @@
-package pl.writeonly.json2yaml.core
+package pl.writeonly.son2.core
 
-import pl.writeonly.json2yaml.util.AppLogging
+import pl.writeonly.son2.util.AppLogging
 
 import scala.util.{Failure, Success, Try}
 

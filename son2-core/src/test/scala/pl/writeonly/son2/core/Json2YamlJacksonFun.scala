@@ -1,4 +1,4 @@
-package pl.writeonly.json2yaml.core
+package pl.writeonly.son2.core
 
 import org.scalatest.FunSpec
 

@@ -1,4 +1,4 @@
-package pl.writeonly.json2yaml.util
+package pl.writeonly.son2.util
 
 import java.util.function.Consumer
 

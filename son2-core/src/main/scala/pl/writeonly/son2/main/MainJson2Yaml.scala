@@ -1,7 +1,7 @@
-package pl.writeonly.json2yaml.main
+package pl.writeonly.son2.main
 
-import pl.writeonly.json2yaml.core.{FileJson2Yaml, FileJson2YamlImpl, Json2YamlJackson}
-import pl.writeonly.json2yaml.util.AppLogging
+import pl.writeonly.son2.core.{FileJson2Yaml, FileJson2YamlImpl, Json2YamlJackson}
+import pl.writeonly.son2.util.AppLogging
 
 object MainJson2Yaml extends AppLogging {
   val YAML  = ".yaml"

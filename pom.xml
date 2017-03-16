@@ -12,6 +12,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <jackson.version>2.8.3</jackson.version>
+        <son2.version>2.8.3-SNAPSHOT</son2.version>
         <scala.version>2.11.8</scala.version>
         <scala-logging.version>3.5.0</scala-logging.version>
         <scalatest.version>3.0.1</scalatest.version>
@@ -47,9 +48,9 @@
             </dependency>
 
             <dependency>
-                <groupId>pl.writeonly.json2yaml</groupId>
-                <artifactId>json2yaml-scala-main</artifactId>
-                <version>2.8.3-SNAPSHOT</version>
+                <groupId>pl.writeonly.son2</groupId>
+                <artifactId>son2-core</artifactId>
+                <version>${son2.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
@@ -69,11 +70,6 @@
                 <version>${jackson.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>org.yaml</groupId>
-                <artifactId>snakeyaml</artifactId>
-                <version>1.18</version>
-            </dependency>
             <dependency>
                 <groupId>com.google.code.gson</groupId>
                 <artifactId>gson</artifactId>
