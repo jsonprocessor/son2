@@ -3,8 +3,8 @@ package pl.writeonly.son2.test
 import java.io.FileNotFoundException
 
 import org.scalatest.{FeatureSpec, GivenWhenThen}
-
 import pl.writeonly.son2.core._
+import pl.writeonly.son2.file.FileSon2Impl
 import pl.writeonly.son2.main._
 
 class MainJson2YamlFeature extends FeatureSpec with GivenWhenThen {

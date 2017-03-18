@@ -1,11 +1,10 @@
-package pl.writeonly.son2.core
+package pl.writeonly.son2.file
 
 import java.io._
 import java.net.URI
 
-import pl.writeonly.son2.util.Control.using
-
-import pl.writeonly.son2.util.Control.toConsumerAny
+import pl.writeonly.son2.core.Son2
+import pl.writeonly.son2.util.Control.{toConsumerAny, using}
 
 class FileSon2Impl(son2: Son2) extends FileSon2(son2) {
 

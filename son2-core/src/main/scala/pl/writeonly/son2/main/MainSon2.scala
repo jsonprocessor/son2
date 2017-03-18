@@ -3,6 +3,7 @@ package pl.writeonly.son2.main
 import java.io.FileInputStream
 
 import pl.writeonly.son2.core._
+import pl.writeonly.son2.file.{FileSon2Impl, FileSon2Source}
 import pl.writeonly.son2.util.AppLogging
 
 object MainSon2 extends AppLogging {

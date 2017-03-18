@@ -1,10 +1,9 @@
-package pl.writeonly.son2.core
+package pl.writeonly.son2.file
 
 import java.io._
 import java.net.URI
 
-import scala.io.Source
-import pl.writeonly.son2.util.Control._
+import pl.writeonly.son2.core.Son2
 
 object FileSon2 {
   val UTF_8  = "UTF-8"

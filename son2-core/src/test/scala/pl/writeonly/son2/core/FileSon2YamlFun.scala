@@ -1,6 +1,7 @@
 package pl.writeonly.son2.core
 
 import org.scalatest.FunSpec
+import pl.writeonly.son2.file.{FileSon2, FileSon2Impl}
 
 class FileSon2YamlFun extends FunSpec {
   describe("A FileJson2YamlSpec") {

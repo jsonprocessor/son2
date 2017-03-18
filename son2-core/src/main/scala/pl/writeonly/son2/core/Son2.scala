@@ -48,6 +48,4 @@ class Son2 extends AppLogging {
 
   def comment(jsonString:String) = jsonString
 
-
-
 }

@@ -1,8 +1,5 @@
 package pl.writeonly.son2.core
 
-/**
-  * Created by enkime on 18.03.17.
-  */
-class Son2Cvs {
+class Son2Cvs extends Son2 {
 
 }

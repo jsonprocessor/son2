@@ -6,7 +6,7 @@ import sys.process._
 
 class PipeJson2YamlFeature extends FeatureSpec with GivenWhenThen {
 
-  val ONML = "java -jar ../json2yaml-scala-main/target/json2yaml-scala-main-2.8.3-SNAPSHOT.jar"
+  val SON2 = "java -jar ../son2-core/target/son2-core-2.8.3-SNAPSHOT.jar"
   val CAT = "cat"
 
   val outName = (name: String) =>  Features.outputPathname("pipe", name)
@@ -16,7 +16,7 @@ class PipeJson2YamlFeature extends FeatureSpec with GivenWhenThen {
     scenario("Apply one exclamation") {
       Given("converter FileJson2Yaml")
       val in = Features.inputPathname
-      val file = ONML + " " + in + " " + outName("one")
+      val file = SON2 + " " + in + " " + outName("one")
       When("should produce null when consume null")
       val result = file.!
       Then("0 == result")
@@ -26,7 +26,7 @@ class PipeJson2YamlFeature extends FeatureSpec with GivenWhenThen {
     scenario("Apply two exclamation") {
       Given("converter FileJson2Yaml")
       val in = Features.inputPathname
-      val file = ONML + " " + in + " " + outName("two")
+      val file = SON2 + " " + in + " " + outName("two")
       When("should produce null when consume null")
         val result = file.!!
       Then("0 == result")

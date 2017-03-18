@@ -6,9 +6,9 @@ import java.nio.file.Paths
 object Features {
   val NAME = "writeonly-init"
   val PREFIX = NAME + ""
-  val PATH_LOG = "/" + PREFIX + "log"
+  val PATH_LOG = "/" + PREFIX + ".log"
   val YAML = ".yaml"
-  val ONML = "java -jar ../json2yaml-scala-main-2.8.3-SNAPSHOT.jar"
+  val SON2 = "java -jar ../son2-core-2.8.3-SNAPSHOT.jar"
   val CAT = "cat"
   val DIR = "yaml"
 
@@ -20,11 +20,8 @@ object Features {
 
   def inputPathname = Paths.get(inputURI).toString
 
-
   def toFile(pathname:String) = new File(pathname)
 
   def toURI(pathname:String) = toFile(pathname).toURI
-
-
 
 }

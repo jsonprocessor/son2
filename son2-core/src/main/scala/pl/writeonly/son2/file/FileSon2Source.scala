@@ -1,8 +1,9 @@
-package pl.writeonly.son2.core
+package pl.writeonly.son2.file
 
 import java.io.{File, InputStream, OutputStream, PrintWriter}
 import java.net.URI
 
+import pl.writeonly.son2.core.Son2
 import pl.writeonly.son2.util.Control.using
 
 import scala.io.Source
