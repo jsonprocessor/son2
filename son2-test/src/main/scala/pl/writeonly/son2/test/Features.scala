@@ -10,9 +10,9 @@ object Features {
   val YAML = ".yaml"
   val SON2 = "java -jar ../son2-core-2.8.3-SNAPSHOT.jar"
   val CAT = "cat"
-  val DIR = "yaml"
+  val DIR = "dir"
 
-  def outputPathname(feature: String, scenario: String) = DIR +"/"+ PREFIX + feature + "" + scenario + YAML
+  def outputPathname(feature: String, scenario: String, extension :String ) = DIR +"/"+ PREFIX + feature + "" + scenario + "." + extension
 
   def inputURI = getClass.getResource(PATH_LOG).toURI
 
