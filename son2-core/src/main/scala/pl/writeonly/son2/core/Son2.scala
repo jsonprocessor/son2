@@ -6,9 +6,7 @@ import scala.util.{Failure, Success, Try}
 
 import scala.util.control.Exception._
 
-trait Son2 extends AppLogging {
-
-  def comment(jsonString:String) = "#" + jsonString + "\n"
+class Son2 extends AppLogging {
 
   def applyOpt(jsonString: String): String = map(jsonString) { s =>
     val result = catching(classOf[RuntimeException]) opt {
@@ -46,6 +44,10 @@ trait Son2 extends AppLogging {
       .getOrElse(null)
   }
 
-  protected def apply(jsonString: String): String
+  def apply(jsonString: String) = jsonString
+
+  def comment(jsonString:String) = jsonString
+
+
 
 }

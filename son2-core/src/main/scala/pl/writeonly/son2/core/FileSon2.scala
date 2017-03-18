@@ -12,7 +12,6 @@ object FileSon2 {
 
 abstract class FileSon2(val onml: Son2) {
 
-
   def convertFile(in: String, out: String): Unit = convertFile(new File(in), new File(out))
 
   def convertFile(in: URI, out: URI): Unit
