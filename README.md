@@ -17,7 +17,7 @@ and next add line
 
 to file ~/.bachrc
 
-# Usage
+## Usage
 
 son2 format [input] [output]
 

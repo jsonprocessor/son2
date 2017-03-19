@@ -12,14 +12,16 @@ object MainSon2 extends AppLogging {
 
   val son2 = args.length match {
     case 0 => Option.empty
-    case _ => args(0) match {
-      case "y" => Option(new Son2Yaml)
-      case "x" => Option(new Son2Xml)
+    case _ => args(0).toLowerCase match {
+      case y if ("yaml".startsWith(y)) => Option(new Son2Yaml)
+      case x if ("xml".startsWith(x)) => Option(new Son2Xml)
+      case c if ("csv".startsWith(c)) => Option(new Son2Csv)
+      case p if ("properties".startsWith(p)) => Option(new Son2Properties)
       case _ => Option.empty
     }
   }
 
-  son2.map(s => {
+  son2.map {s =>
     val file = new FileSon2Impl(s)
     val source = new FileSon2Source(s)
     args.length match {
@@ -27,10 +29,11 @@ object MainSon2 extends AppLogging {
       case 2 => source.convertStream(new FileInputStream(args(1)), System.out)
       case _ => file.convertFile(args(1), args(2))
     }
-  }).getOrElse(() => {
-    val source = new FileSon2Source(new Son2)
-    source.convertStream(getClass.getResourceAsStream("help"), System.out)
-  })
+  }.getOrElse {
+    val file = new FileSon2Source(new Son2)
+    val in = getClass().getClassLoader().getResourceAsStream("README.md")
+    file.convertStream(in, System.out)
+  }
 }
 
 class MainSon2(file : FileSon2Impl) {

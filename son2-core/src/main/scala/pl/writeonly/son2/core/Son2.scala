@@ -44,8 +44,8 @@ class Son2 extends AppLogging {
       .getOrElse(null)
   }
 
-  def apply(jsonString: String) = jsonString
+  def apply(jsonString: String) = jsonString + "\n"
 
-  def comment(jsonString:String) = jsonString
+  def comment(jsonString:String) = jsonString + "\n"
 
 }
