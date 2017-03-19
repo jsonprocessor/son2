@@ -16,18 +16,6 @@ class FileSon2Impl(son2: Son2) extends FileSon2(son2) {
     convertNative(new InputStreamReader(in, FileSon2.UTF_8), new OutputStreamWriter(out, FileSon2.UTF_8))
   }
 
-  override def convertStringNative(in : String): String = {
-    val out = new StringWriter()
-    convertNative(new StringReader(in), out)
-    out.toString
-  }
-
-  override def convertBytes(in : Array[Byte]): Array[Byte] = {
-    val out = new ByteArrayOutputStream()
-    convertStream(new ByteArrayInputStream(in), out)
-    out.toByteArray
-  }
-
   def convertNative(in: Reader, out: Writer): Unit = {
     using(new BufferedWriter(out)) { bw =>
       using(new BufferedReader(in)) { br =>
@@ -40,5 +28,17 @@ class FileSon2Impl(son2: Son2) extends FileSon2(son2) {
     in.lines().forEach { (line: String) =>
       appendLine(out, line)
     }
+  }
+
+  override def convertStringNative(in: String): String = {
+    val out = new StringWriter()
+    convertNative(new StringReader(in), out)
+    out.toString
+  }
+
+  override def convertBytes(in: Array[Byte]): Array[Byte] = {
+    val out = new ByteArrayOutputStream()
+    convertStream(new ByteArrayInputStream(in), out)
+    out.toByteArray
   }
 }

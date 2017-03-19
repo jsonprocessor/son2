@@ -5,7 +5,7 @@ import com.google.gson.JsonParser
 import org.yaml.snakeyaml.Yaml
 
 class Son2Other extends Son2 {
-  override def apply(jsonString: String): String = {
+  override def convert(jsonString: String): String = {
     val jsonObject = new JsonParser().parse(jsonString).getAsJsonObject()
     new Yaml().dump(jsonObject)
   }

@@ -10,7 +10,7 @@ import scala.io.Source
 
 class FileSon2Source(onml: Son2) extends FileSon2(onml) {
 
-  def convertStringNative(in:String):String = {
+  def convertStringNative(in: String): String = {
     val sb = new StringBuilder()
     Source.fromString(in).getLines().foreach { line =>
       appendLine(sb, line)

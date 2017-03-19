@@ -21,7 +21,7 @@ object MainSon2 extends AppLogging {
     }
   }
 
-  son2.map {s =>
+  son2.map { s =>
     val file = new FileSon2Impl(s)
     val source = new FileSon2Source(s)
     args.length match {
@@ -36,10 +36,12 @@ object MainSon2 extends AppLogging {
   }
 }
 
-class MainSon2(file : FileSon2Impl) {
+class MainSon2(file: FileSon2Impl) {
   def convertStream() = file.convertStream(System.in, System.out)
-  def convertFile(in : String) = file.convertFile(in, in + MainSon2.YAML)
-  def convertFile(in : String, out:String) = file.convertFile(in, out)
+
+  def convertFile(in: String) = file.convertFile(in, in + MainSon2.YAML)
+
+  def convertFile(in: String, out: String) = file.convertFile(in, out)
 
 }
 

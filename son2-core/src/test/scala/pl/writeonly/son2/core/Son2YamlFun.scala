@@ -8,10 +8,6 @@ class Son2YamlFun extends FunSpec {
     val onml: Son2 = new Son2Yaml()
 
     describe("when left") {
-      it("should produce null when consume null") {
-        val yaml = onml.applyTry(null)
-        assert(null == yaml)
-      }
       it("should produce empty comment when consume empty string") {
         val yaml = onml.applyTry("")
         assert("#\n" == yaml)

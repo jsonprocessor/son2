@@ -4,11 +4,11 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.dataformat.csv.CsvMapper
 
 class Son2Csv extends Son2 {
-  override def apply(jsonString: String): String = {
+  override def convert(jsonString: String): String = {
     val jsonNodeTree = new ObjectMapper().readTree(jsonString)
     new CsvMapper().writeValueAsString(jsonNodeTree)
   }
 
-  override def comment(jsonString:String) = "#" + jsonString + "\n"
+  override def comment(jsonString: String) = "#" + jsonString + "\n"
 }
 
