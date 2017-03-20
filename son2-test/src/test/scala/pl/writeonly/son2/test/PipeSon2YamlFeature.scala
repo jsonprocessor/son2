@@ -2,15 +2,15 @@ package pl.writeonly.son2.test
 
 import org.scalatest.{FeatureSpec, GivenWhenThen}
 
-import scala.sys.process._
+import sys.process._
 
-class PipeJson2XmlFeature extends FeatureSpec with GivenWhenThen {
+class PipeSon2YamlFeature extends FeatureSpec with GivenWhenThen {
 
   val SON2 = "java -jar ../son2-core/target/son2-core-2.8.3-SNAPSHOT.jar"
-  val SON2ML = SON2 + " x"
+  val SON2ML = SON2 + " y"
   val CAT = "cat"
 
-  val outName = (name: String) =>  Features.outputPathname("pipe", name, "xml")
+  val outName = (name: String) =>  Features.outputPathname("pipe", name, "yaml")
 
   feature("PipeJson2Yaml convert") {
 

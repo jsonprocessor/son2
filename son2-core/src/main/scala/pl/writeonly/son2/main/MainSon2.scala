@@ -13,7 +13,7 @@ object MainSon2 extends AppLogging {
   val son2 = args.length match {
     case 0 => Option.empty
     case _ => args(0).toLowerCase match {
-      case o if ("object".startsWith(o)) => Option(new Son2Pretty)
+      case o if ("object".startsWith(o)) => Option(new Son2Object)
       case y if ("yaml".startsWith(y)) => Option(new Son2Yaml)
       case x if ("xml".startsWith(x)) => Option(new Son2Xml)
       case c if ("csv".startsWith(c)) => Option(new Son2Csv)

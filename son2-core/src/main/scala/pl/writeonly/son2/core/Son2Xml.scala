@@ -8,7 +8,8 @@ import com.fasterxml.jackson.dataformat.xml.util.DefaultXmlPrettyPrinter
 class Son2Xml extends Son2 {
   override def convert(jsonString: String): String = {
     val jsonNodeTree = new ObjectMapper().readTree(jsonString)
-    new XmlMapper().setDefaultPrettyPrinter(new DefaultXmlPrettyPrinter).writeValueAsString(jsonNodeTree)
+//    new XmlMapper().setDefaultPrettyPrinter(new DefaultXmlPrettyPrinter).writeValueAsString(jsonNodeTree)
+    new XmlMapper().writerWithDefaultPrettyPrinter().writeValueAsString(jsonNodeTree)
   }
 
   override def comment(jsonString: String) = "<!-- " + jsonString + " -->"

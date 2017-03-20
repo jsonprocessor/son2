@@ -6,7 +6,8 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLMapper
 class Son2Yaml extends Son2 {
   override def convert(jsonString: String): String = {
     val jsonNodeTree = new ObjectMapper().readTree(jsonString)
-    new YAMLMapper().writeValueAsString(jsonNodeTree)
+//    new YAMLMapper().writeValueAsString(jsonNodeTree)
+    new YAMLMapper().writerWithDefaultPrettyPrinter().writeValueAsString(jsonNodeTree)
   }
 
   override def comment(jsonString: String) = "#" + jsonString

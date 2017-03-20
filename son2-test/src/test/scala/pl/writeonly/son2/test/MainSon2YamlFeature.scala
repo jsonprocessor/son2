@@ -7,17 +7,17 @@ import pl.writeonly.son2.core._
 import pl.writeonly.son2.file.FileSon2Impl
 import pl.writeonly.son2.main._
 
-class MainJson2XmlFeature extends FeatureSpec with GivenWhenThen {
+class MainSon2YamlFeature extends FeatureSpec with GivenWhenThen {
 
-  info("MainJson2XmlImpl with Json2XmlJackson")
+  info("MainJson2YamlImpl with Json2YamlJackson")
 
-  val given = () => new MainSon2(new FileSon2Impl(new Son2Xml))
+  val given = () => new MainSon2(new FileSon2Impl(new Son2Yaml))
 
-  val outName = (name: String) =>  Features.outputPathname("main", name, "xml")
+  val outName = (name: String) =>  Features.outputPathname("main", name, "yaml")
 
-  feature("MainJson2Xml with two pathname") {
+  feature("MainJson2Yaml with two pathname") {
     scenario("Apply with null pathname") {
-      Given("converter FileJson2Xml")
+      Given("converter FileJson2Yaml")
       val main = given()
 
       When("should produce null when consume null")
@@ -32,7 +32,7 @@ class MainJson2XmlFeature extends FeatureSpec with GivenWhenThen {
     }
 
     scenario("Apply with empty pathname") {
-      Given("converter FileJson2Xml")
+      Given("converter FileJson2Yaml")
       val main = given()
 
       When("should produce empty when consume empty")
@@ -42,7 +42,7 @@ class MainJson2XmlFeature extends FeatureSpec with GivenWhenThen {
     }
 
     scenario("Apply with pathname") {
-      Given("converter FileJson2Xml")
+      Given("converter FileJson2Yaml")
       val main = given()
       val in = Features.inputPathname
       val out = outName("pathname")
@@ -52,9 +52,9 @@ class MainJson2XmlFeature extends FeatureSpec with GivenWhenThen {
     }
   }
 
-  feature("MainJson2Xml with one pathname") {
+  feature("MainJson2Yaml with one pathname") {
     scenario("Apply with null pathname") {
-      Given("converter FileJson2Xml")
+      Given("converter FileJson2Yaml")
       val main = given()
       val name: String = null
 
@@ -69,7 +69,7 @@ class MainJson2XmlFeature extends FeatureSpec with GivenWhenThen {
     }
 
     scenario("Apply with empty pathname") {
-      Given("converter FileJson2Xml")
+      Given("converter FileJson2Yaml")
       val main = given()
 
       When("should produce null empty consume empty")
@@ -79,7 +79,7 @@ class MainJson2XmlFeature extends FeatureSpec with GivenWhenThen {
     }
 
     scenario("Apply with pathname") {
-      Given("converter FileJson2Xml")
+      Given("converter FileJson2Yaml")
       val main = given()
       val in = Features.inputPathname
 
