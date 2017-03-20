@@ -21,7 +21,7 @@ to file ~/.bachrc
 
 son2 format [input] [output]
 
-format
-* y => YAML
-* x => XML
+format:
+*  y, yaml => YAML
+*  x, xml  => XML
 
