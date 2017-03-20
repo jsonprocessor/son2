@@ -8,37 +8,42 @@ import scala.util.control.Exception._
 
 class Son2 extends AppLogging {
 
-  def convert(jsonString: String) = jsonString + "\n"
+  final def convertln(jsonString: String) = convert(jsonString) + "\n"
 
-  def comment(jsonString: String) = jsonString + "\n"
+  final def commentln(jsonString: String) = comment(jsonString)  + "\n"
+
+  protected def convert(jsonString: String) = jsonString
+
+  protected def comment(jsonString: String) = jsonString
+
 
   def apply(jsonString:String) = applyOpt(jsonString)
 
   def applyOpt(jsonString: String): String = {
     catching(classOf[Exception])
-      .opt(convert(jsonString))
-      .getOrElse(comment(jsonString))
+      .opt(convertln(jsonString))
+      .getOrElse(commentln(jsonString))
   }
 
 
   def applyEither(jsonString: String): String = {
     val result: Either[Throwable, String] = catching(classOf[ArithmeticException])
-      .either(convert(jsonString))
+      .either(convertln(jsonString))
     result match {
       case Right(yaml) => yaml
       case Left(exception) => {
         logger.error(jsonString, exception)
-        comment(jsonString)
+        commentln(jsonString)
       }
     }
   }
 
   def applyTry(jsonString: String): String = {
-    Try(convert(jsonString)) match {
+    Try(convertln(jsonString)) match {
       case Success(yaml) => yaml
       case Failure(exception) => {
         logger.error(jsonString, exception)
-        comment(jsonString)
+        commentln(jsonString)
       }
     }
   }

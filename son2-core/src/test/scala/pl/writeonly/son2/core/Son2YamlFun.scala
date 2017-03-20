@@ -1,7 +1,8 @@
 package pl.writeonly.son2.core
 
-import org.scalatest.FunSpec
+import org.scalatest.{FunSpec, Ignore}
 
+@Ignore
 class Son2YamlFun extends FunSpec {
 
   describe("A Json2YamlJackson") {

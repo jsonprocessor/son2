@@ -9,5 +9,5 @@ class Son2Yaml extends Son2 {
     new YAMLMapper().writeValueAsString(jsonNodeTree)
   }
 
-  override def comment(jsonString: String) = "#" + jsonString + "\n"
+  override def comment(jsonString: String) = "#" + jsonString
 }
