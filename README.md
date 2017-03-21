@@ -29,7 +29,9 @@ to file ~/.bashrc
 ## Usage
 
 son2 format input output
+
 son2 format < input > output
+
 cat input | son2 format | tee output
 
 format:
