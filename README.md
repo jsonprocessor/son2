@@ -22,11 +22,15 @@ and next add line
 
 > alias son2x="son2 x"
 
-to file ~/.bachrc
+to file ~/.bashrc
+
+
 
 ## Usage
 
-son2 format [input] [output]
+son2 format input output
+son2 format < input > output
+cat input | son2 format | tee output
 
 format:
 *  o, object => JSON
