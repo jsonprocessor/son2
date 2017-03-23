@@ -19,7 +19,7 @@
     </properties>
 
     <modules>
-        <module>son2-core</module>
+        <module>son2-main</module>
         <module>son2-test</module>
     </modules>
 
