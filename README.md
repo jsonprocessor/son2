@@ -14,7 +14,7 @@ mvn clean install
 
 and next add line
 
-> alias son2="java -jar project_dir/son2/son2core/target/son2-core-2.8.3-SNAPSHOT.jar"
+> alias son2="java -jar project_dir/son2/son2-main/target/son2-main-2.8.3-SNAPSHOT.jar"
 
 > alias son2o="son2 o"
 
