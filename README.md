@@ -28,14 +28,5 @@ to file ~/.bashrc
 
 ## Usage
 
-son2 format input output
-
-son2 format < input > output
-
-cat input | son2 format | tee output
-
-format:
-*  o, object => JSON
-*  y, yaml => YAML
-*  x, xml  => XML
+[usage](https://github.com/writeonly/son2/tree/master/son2-main/src/main/resources/README.md)
 
