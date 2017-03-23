@@ -8,14 +8,28 @@ class StreamerYamlFun extends FunSpec {
   describe("A FileJson2YamlSpec") {
     var streamer: Streamer = new StreamerImpl(new ProviderYaml())
 
-    describe("when left") {
-      it("should produce empty comment when consume empty string") {
-        val yaml = streamer.convertString("")
-        assert("" == yaml)
+    describe("convert strings") {
+      describe("when left") {
+        it("should produce empty comment when consume empty string") {
+          val yaml = streamer.convertString("")
+          assert("" == yaml)
+        }
+        it("should produce a when consume a") {
+          val yaml = streamer.convertString("a")
+          assert("#a\n" == yaml)
+        }
       }
-      it("should produce a when consume a") {
-        val yaml = streamer.convertString("a")
-        assert("#a\n" == yaml)
+    }
+    describe("convert native strings") {
+      describe("when left") {
+        it("should produce empty comment when consume empty string") {
+          val yaml = streamer.convertStringNative("")
+          assert("" == yaml)
+        }
+        it("should produce a when consume a") {
+          val yaml = streamer.convertStringNative("a")
+          assert("#a\n" == yaml)
+        }
       }
     }
   }

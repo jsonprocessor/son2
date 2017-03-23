@@ -23,7 +23,7 @@
     <dependencies>
         <dependency>
             <groupId>pl.writeonly.son2</groupId>
-            <artifactId>son2-bulk</artifactId>
+            <artifactId>son2-main</artifactId>
         </dependency>
         <dependency>
             <groupId>org.scalatest</groupId>
