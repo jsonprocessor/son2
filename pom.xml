@@ -20,7 +20,6 @@
 
     <modules>
         <module>son2-core</module>
-        <module>son2-bulk</module>
         <module>son2-test</module>
     </modules>
 

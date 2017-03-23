@@ -1,7 +1,6 @@
 package pl.writeonly.son2.core.providers
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import pl.writeonly.son2.core.liners.Liner
 
 class ProviderObject extends Provider {
   override def convert(s: String): String = {
