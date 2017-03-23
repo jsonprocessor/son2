@@ -1,11 +1,9 @@
-package pl.writeonly.son2.core
+package pl.writeonly.son2.core.providers
 
-import com.fasterxml.jackson.core.util.DefaultPrettyPrinter
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.dataformat.csv.CsvMapper
-import com.fasterxml.jackson.dataformat.yaml.YAMLMapper
+import pl.writeonly.son2.core.Liner
 
-class Son2Csv extends Son2 {
+class Son2Csv extends Liner {
   override def convert(jsonString: String): String = {
     val jsonNodeTree = new ObjectMapper().readTree(jsonString)
 //    new CsvMapper().setDefaultPrettyPrinter(new DefaultPrettyPrinter).writeValueAsString(jsonNodeTree)

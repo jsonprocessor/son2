@@ -6,7 +6,7 @@ import scala.util.{Failure, Success, Try}
 
 import scala.util.control.Exception._
 
-class Son2 extends AppLogging {
+class Liner extends AppLogging {
 
   final def convertln(jsonString: String) = convert(jsonString) + "\n"
 

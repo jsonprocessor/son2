@@ -6,7 +6,7 @@ import org.scalatest.{FunSpec, Ignore}
 class Json2YamlOtherFun extends FunSpec {
 
   describe("A Json2Yaml") {
-    val onml: Son2 = new Son2Other()
+    val onml: Liner = new Son2Other()
 
     describe("when left") {
       it("should produce null when consume null") {

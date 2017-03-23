@@ -4,13 +4,14 @@ import java.io.FileNotFoundException
 
 import org.scalatest.{FeatureSpec, GivenWhenThen}
 import pl.writeonly.son2.core._
-import pl.writeonly.son2.file.FileSon2Impl
+import pl.writeonly.son2.core.providers.Son2Object
+import pl.writeonly.son2.core.file.StreamerImpl
 
 class FileSon2ObjectFeature extends FeatureSpec with GivenWhenThen {
 
   info("FileJson2YamlImpl with Json2YamlJackson")
 
-  val given = () => new FileSon2Impl(new Son2Object)
+  val given = () => new StreamerImpl(new Son2Object)
 
   val outName = (name: String) => Features.outputPathname("file", name, "object")
 

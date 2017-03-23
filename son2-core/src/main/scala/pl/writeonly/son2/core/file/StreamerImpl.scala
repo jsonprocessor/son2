@@ -1,19 +1,19 @@
-package pl.writeonly.son2.file
+package pl.writeonly.son2.core.file
 
 import java.io._
 import java.net.URI
 
-import pl.writeonly.son2.core.Son2
+import pl.writeonly.son2.core.Liner
 import pl.writeonly.son2.util.Control.{toConsumerAny, using}
 
-class FileSon2Impl(son2: Son2) extends FileSon2(son2) {
+class StreamerImpl(son2: Liner) extends Streamer(son2) {
 
   override def convertFile(in: URI, out: URI): Unit = convertFile(new File(in), new File(out))
 
   override def convertFile(in: File, out: File): Unit = convertStream(new FileInputStream(in), new FileOutputStream(out))
 
   override def convertStream(in: InputStream, out: OutputStream): Unit = {
-    convertNative(new InputStreamReader(in, FileSon2.UTF_8), new OutputStreamWriter(out, FileSon2.UTF_8))
+    convertNative(new InputStreamReader(in, Streamer.UTF_8), new OutputStreamWriter(out, Streamer.UTF_8))
   }
 
   def convertNative(in: Reader, out: Writer): Unit = {

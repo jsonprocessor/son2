@@ -3,6 +3,8 @@ package pl.writeonly.son2.util
 import java.util.function.Consumer
 
 object Control {
+
+
   def using[A <: {def close() : Unit}, B](resource: A)(f: A => B): B =
     try {
       f(resource)

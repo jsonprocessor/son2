@@ -1,15 +1,15 @@
-package pl.writeonly.son2.file
+package pl.writeonly.son2.core.file
 
 import java.io._
 import java.net.URI
 
-import pl.writeonly.son2.core.Son2
+import pl.writeonly.son2.core.Liner
 
-object FileSon2 {
+object Streamer {
   val UTF_8 = "UTF-8"
 }
 
-abstract class FileSon2(val son2: Son2) {
+abstract class Streamer(val son2: Liner) {
 
   def convertFile(in: String, out: String): Unit = convertFile(new File(in), new File(out))
 
@@ -19,8 +19,8 @@ abstract class FileSon2(val son2: Son2) {
 
   def convertString(in: String): String = {
     Option(in).map { s =>
-      val bytes = convertBytes(in.getBytes(FileSon2.UTF_8))
-      new String(bytes, FileSon2.UTF_8)
+      val bytes = convertBytes(in.getBytes(Streamer.UTF_8))
+      new String(bytes, Streamer.UTF_8)
     }.orNull
   }
 
