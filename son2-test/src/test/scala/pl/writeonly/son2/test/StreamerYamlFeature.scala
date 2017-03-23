@@ -8,15 +8,15 @@ import pl.writeonly.son2.core.providers.ProviderYaml
 import pl.writeonly.son2.core.streamers.StreamerImpl
 import pl.writeonly.son2.main._
 
-class FileSon2YamlFeature extends FeatureSpec with GivenWhenThen {
+class StreamerYamlFeature extends FeatureSpec with GivenWhenThen {
 
-  info("FileJson2YamlImpl with Json2YamlJackson")
+  info("StreamerImpl with ProviderYaml")
 
   val given = () => new StreamerImpl(new ProviderYaml)
 
-  val outName = (name: String) => Features.outputPathname("file", name, "yaml")
+  val outName = (name: String) => Features.outputPathname("streamer", name, "yaml")
 
-  feature("Json2Yaml convert") {
+  feature(classOf[StreamerYamlFeature].getSimpleName) {
     scenario("Apply with null pathname") {
       Given("converter FileJson2Yaml")
       val file = given()

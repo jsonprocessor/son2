@@ -6,13 +6,13 @@ import scala.sys.process._
 
 class PipeSon2XmlFeature extends FeatureSpec with GivenWhenThen {
 
-  val SON2 = "java -jar ../son2-core/target/son2-core-2.8.3-SNAPSHOT.jar"
+  val SON2 = "java -jar ../son2-main/target/son2-main-2.8.3-SNAPSHOT.jar"
   val SON2ML = SON2 + " x"
   val CAT = "cat"
 
   val outName = (name: String) =>  Features.outputPathname("pipe", name, "xml")
 
-  feature("PipeJson2Yaml convert") {
+  feature(classOf[PipeSon2XmlFeature].getSimpleName) {
 
     scenario("Apply one exclamation") {
       Given("converter FileJson2Yaml")

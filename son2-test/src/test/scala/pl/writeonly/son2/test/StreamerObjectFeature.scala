@@ -4,20 +4,20 @@ import java.io.FileNotFoundException
 
 import org.scalatest.{FeatureSpec, GivenWhenThen}
 import pl.writeonly.son2.core._
-import pl.writeonly.son2.core.providers.ProviderXml
+import pl.writeonly.son2.core.providers.ProviderObject
 import pl.writeonly.son2.core.streamers.StreamerImpl
 
-class FileSon2XmlFeature extends FeatureSpec with GivenWhenThen {
+class StreamerObjectFeature extends FeatureSpec with GivenWhenThen {
 
-  info("FileJson2XmlFeature with Json2Xml")
+  info("FileJson2YamlImpl with Json2YamlJackson")
 
-  val given = () => new StreamerImpl(new ProviderXml)
+  val given = () => new StreamerImpl(new ProviderObject)
 
-  val outName = (name: String) => Features.outputPathname("file", name, "xml")
+  val outName = (name: String) => Features.outputPathname("streamer", name, "object")
 
-  feature("Json2Xml convert") {
+  feature(classOf[StreamerObjectFeature].getSimpleName) {
     scenario("Apply with null pathname") {
-      Given("converter FileJson2Xml")
+      Given("converter FileJson2Yaml")
       val file = given()
       val name: String = null
 
@@ -32,7 +32,7 @@ class FileSon2XmlFeature extends FeatureSpec with GivenWhenThen {
     }
 
     scenario("Apply with empty pathname") {
-      Given("converter FileJson2Xml")
+      Given("converter FileJson2Yaml")
       val file = given()
 
       When("should produce empty when consume empty")
@@ -42,7 +42,7 @@ class FileSon2XmlFeature extends FeatureSpec with GivenWhenThen {
     }
 
     scenario("Apply with pathname") {
-      Given("converter FileJson2Xml")
+      Given("converter FileJson2Yaml")
       val file = given()
       val in = Features.inputPathname
       val out = outName("pathname")
@@ -52,7 +52,7 @@ class FileSon2XmlFeature extends FeatureSpec with GivenWhenThen {
     }
 
     scenario("Apply with uri") {
-      Given("converter FileJson2Xml")
+      Given("converter FileJson2Yaml")
       val file = given()
       val in = Features.inputURI
       val out = Features.toURI(outName("uri"))
@@ -62,7 +62,7 @@ class FileSon2XmlFeature extends FeatureSpec with GivenWhenThen {
     }
 
     scenario("Apply with file") {
-      Given("converter FileJson2Xml")
+      Given("converter FileJson2Yaml")
       val file = given()
       val in = Features.inputFile
       val out = Features.toFile(outName("file"))

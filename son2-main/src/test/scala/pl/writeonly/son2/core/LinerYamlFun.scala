@@ -60,8 +60,6 @@ class LinerYamlFun extends FunSpec {
         assert("--- \"a\"\n" == yaml)
       }
 
-
     }
   }
-
 }
