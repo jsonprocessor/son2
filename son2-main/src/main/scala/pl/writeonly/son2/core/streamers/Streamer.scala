@@ -15,10 +15,8 @@ abstract class Streamer(val liner: Liner) {
   def convertFile(in: File, out: File): Unit
 
   def convertString(in: String): String = {
-    Option(in).map { s =>
       val bytes = convertBytes(in.getBytes(Control.UTF_8))
       new String(bytes, Control.UTF_8)
-    }.orNull
   }
 
   def convertStringNative(in: String): String
