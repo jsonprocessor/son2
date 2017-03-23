@@ -2,9 +2,9 @@ package pl.writeonly.son2.core
 
 import org.scalatest.FunSpec
 import pl.writeonly.son2.core.providers.ProviderYaml
-import pl.writeonly.son2.core.streamers.{Streamer, Streamer$, StreamerImpl}
+import pl.writeonly.son2.core.streamers.{Streamer, StreamerImpl}
 
-class FileSon2YamlFun extends FunSpec {
+class StreamerYamlFun extends FunSpec {
   describe("A FileJson2YamlSpec") {
     var onml: Streamer = new StreamerImpl(new ProviderYaml())
 
@@ -14,11 +14,11 @@ class FileSon2YamlFun extends FunSpec {
         assert(null == yaml)
       }
       //      it("should produce empty comment when consume empty string") {
-      //        val yaml = onml.applyTry("")
+      //        val yaml = onml.apply("")
       //        assert("#" == yaml)
       //      }
       //      it("should produce a when consume a") {
-      //        val yaml = onml.applyTry("a")
+      //        val yaml = onml.apply("a")
       //        assert("#a" == yaml)
       //      }
     }

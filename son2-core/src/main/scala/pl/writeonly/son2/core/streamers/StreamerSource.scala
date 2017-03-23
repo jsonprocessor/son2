@@ -3,7 +3,7 @@ package pl.writeonly.son2.core.streamers
 import java.io.{File, InputStream, OutputStream, PrintWriter}
 import java.net.URI
 
-import pl.writeonly.son2.core.Liner
+import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.core.providers.Provider
 import pl.writeonly.son2.util.Control
 import pl.writeonly.son2.util.Control.using
@@ -12,7 +12,7 @@ import scala.io.Source
 
 class StreamerSource(liner: Liner) extends Streamer(liner) {
 
-  def this(provider : Provider) = this(new Liner(provider))
+  def this(provider : Provider) = this(new LinerOpt(provider))
 
   def convertStringNative(in: String): String = {
     val sb = new StringBuilder()

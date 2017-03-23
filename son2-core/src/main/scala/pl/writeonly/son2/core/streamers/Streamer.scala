@@ -3,7 +3,7 @@ package pl.writeonly.son2.core.streamers
 import java.io._
 import java.net.URI
 
-import pl.writeonly.son2.core.Liner
+import pl.writeonly.son2.core.liners.Liner
 import pl.writeonly.son2.util.Control
 
 abstract class Streamer(val liner: Liner) {
@@ -28,13 +28,13 @@ abstract class Streamer(val liner: Liner) {
   def convertStream(in: InputStream, out: OutputStream): Unit
 
   protected def appendLine(out: Writer, line: String): Unit = {
-    val yaml = liner.applyTry(line)
-    out.append(yaml)
+    val result = liner.apply(line)
+    out.append(result)
   }
 
   protected def appendLine(out: StringBuilder, line: String): Unit = {
-    val yaml = liner.applyTry(line)
-    out.append(yaml)
+    val result = liner.apply(line)
+    out.append(result)
   }
 }
 
