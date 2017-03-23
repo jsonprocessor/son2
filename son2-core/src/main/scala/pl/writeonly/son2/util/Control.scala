@@ -4,6 +4,7 @@ import java.util.function.Consumer
 
 object Control {
 
+  val UTF_8 = "UTF-8"
 
   def using[A <: {def close() : Unit}, B](resource: A)(f: A => B): B =
     try {

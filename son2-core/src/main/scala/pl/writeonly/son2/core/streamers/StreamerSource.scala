@@ -1,14 +1,18 @@
-package pl.writeonly.son2.core.file
+package pl.writeonly.son2.core.streamers
 
 import java.io.{File, InputStream, OutputStream, PrintWriter}
 import java.net.URI
 
 import pl.writeonly.son2.core.Liner
+import pl.writeonly.son2.core.providers.Provider
+import pl.writeonly.son2.util.Control
 import pl.writeonly.son2.util.Control.using
 
 import scala.io.Source
 
-class StreamerSource(onml: Liner) extends Streamer(onml) {
+class StreamerSource(liner: Liner) extends Streamer(liner) {
+
+  def this(provider : Provider) = this(new Liner(provider))
 
   def convertStringNative(in: String): String = {
     val sb = new StringBuilder()
@@ -48,7 +52,7 @@ class StreamerSource(onml: Liner) extends Streamer(onml) {
 
   override def convertStream(in: InputStream, out: OutputStream): Unit = {
     using(new PrintWriter(out)) { pw =>
-      using(Source.fromInputStream(in, Streamer.UTF_8)) { source =>
+      using(Source.fromInputStream(in, Control.UTF_8)) { source =>
         source.getLines().foreach { line =>
           appendLine(pw, line)
         }

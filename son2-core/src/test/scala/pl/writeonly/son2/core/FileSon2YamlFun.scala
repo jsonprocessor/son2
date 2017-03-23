@@ -1,12 +1,12 @@
 package pl.writeonly.son2.core
 
 import org.scalatest.FunSpec
-import pl.writeonly.son2.core.providers.Son2Yaml
-import pl.writeonly.son2.core.file.{Streamer$, StreamerImpl}
+import pl.writeonly.son2.core.providers.ProviderYaml
+import pl.writeonly.son2.core.streamers.{Streamer, Streamer$, StreamerImpl}
 
 class FileSon2YamlFun extends FunSpec {
   describe("A FileJson2YamlSpec") {
-    var onml: Streamer = new StreamerImpl(new Son2Yaml())
+    var onml: Streamer = new StreamerImpl(new ProviderYaml())
 
     describe("when left") {
       it("should produce null when consume null") {

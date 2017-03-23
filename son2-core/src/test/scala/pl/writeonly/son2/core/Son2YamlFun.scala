@@ -1,13 +1,13 @@
 package pl.writeonly.son2.core
 
 import org.scalatest.{FunSpec, Ignore}
-import pl.writeonly.son2.core.providers.Son2Yaml
+import pl.writeonly.son2.core.providers.{Provider, ProviderYaml}
 
 @Ignore
 class Son2YamlFun extends FunSpec {
 
   describe("A Json2YamlJackson") {
-    val onml: Liner = new Son2Yaml()
+    val onml: Liner = new Liner(new ProviderYaml())
 
     describe("when left") {
       it("should produce empty comment when consume empty string") {

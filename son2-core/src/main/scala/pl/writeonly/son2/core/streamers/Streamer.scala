@@ -1,15 +1,12 @@
-package pl.writeonly.son2.core.file
+package pl.writeonly.son2.core.streamers
 
 import java.io._
 import java.net.URI
 
 import pl.writeonly.son2.core.Liner
+import pl.writeonly.son2.util.Control
 
-object Streamer {
-  val UTF_8 = "UTF-8"
-}
-
-abstract class Streamer(val son2: Liner) {
+abstract class Streamer(val liner: Liner) {
 
   def convertFile(in: String, out: String): Unit = convertFile(new File(in), new File(out))
 
@@ -19,8 +16,8 @@ abstract class Streamer(val son2: Liner) {
 
   def convertString(in: String): String = {
     Option(in).map { s =>
-      val bytes = convertBytes(in.getBytes(Streamer.UTF_8))
-      new String(bytes, Streamer.UTF_8)
+      val bytes = convertBytes(in.getBytes(Control.UTF_8))
+      new String(bytes, Control.UTF_8)
     }.orNull
   }
 
@@ -31,12 +28,12 @@ abstract class Streamer(val son2: Liner) {
   def convertStream(in: InputStream, out: OutputStream): Unit
 
   protected def appendLine(out: Writer, line: String): Unit = {
-    val yaml = son2.applyTry(line)
+    val yaml = liner.applyTry(line)
     out.append(yaml)
   }
 
   protected def appendLine(out: StringBuilder, line: String): Unit = {
-    val yaml = son2.applyTry(line)
+    val yaml = liner.applyTry(line)
     out.append(yaml)
   }
 }

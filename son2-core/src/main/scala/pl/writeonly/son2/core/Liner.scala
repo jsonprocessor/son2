@@ -1,21 +1,16 @@
 package pl.writeonly.son2.core
 
+import pl.writeonly.son2.core.providers.Provider
 import pl.writeonly.son2.util.AppLogging
 
 import scala.util.{Failure, Success, Try}
-
 import scala.util.control.Exception._
 
-class Liner extends AppLogging {
+class Liner(provider : Provider) extends AppLogging {
 
-  final def convertln(jsonString: String) = convert(jsonString) + "\n"
+  def convertln(jsonString: String) = provider.convert(jsonString) + "\n"
 
-  final def commentln(jsonString: String) = comment(jsonString)  + "\n"
-
-  protected def convert(jsonString: String) = jsonString
-
-  protected def comment(jsonString: String) = jsonString
-
+  def commentln(jsonString: String) = provider.comment(jsonString)  + "\n"
 
   def apply(jsonString:String) = applyOpt(jsonString)
 
