@@ -49,12 +49,12 @@
 
             <dependency>
                 <groupId>pl.writeonly.son2</groupId>
-                <artifactId>son2-core</artifactId>
+                <artifactId>son2-main</artifactId>
                 <version>${son2.version}</version>
             </dependency>
             <dependency>
                 <groupId>pl.writeonly.son2</groupId>
-                <artifactId>son2-bulk</artifactId>
+                <artifactId>son2-test</artifactId>
                 <version>${son2.version}</version>
             </dependency>
             <dependency>
