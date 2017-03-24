@@ -3,16 +3,14 @@ package pl.writeonly.son2.test
 import java.io.FileNotFoundException
 
 import org.scalatest.{FeatureSpec, GivenWhenThen}
-import pl.writeonly.son2.core._
 import pl.writeonly.son2.core.providers.ProviderYaml
-import pl.writeonly.son2.core.streamers.StreamerImpl
 import pl.writeonly.son2.main._
 
 class MainSon2YamlFeature extends FeatureSpec with GivenWhenThen {
 
   info("MainJson2YamlImpl with Json2YamlJackson")
 
-  val given = () => new MainSon2(new StreamerImpl(new ProviderYaml))
+  val given = () => new Piper(new ProviderYaml)
 
   val outName = (name: String) =>  Features.outputPathname("main", name, "yaml")
 
