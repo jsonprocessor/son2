@@ -24,8 +24,7 @@ class YamlProp extends PropSpec with TableDrivenPropertyChecks with Matchers {
 
   val toFailure = Table (
     "in",
-    "a",
-    "{"
+    "a"
   )
 
   val provider: Provider = new ProviderYaml()

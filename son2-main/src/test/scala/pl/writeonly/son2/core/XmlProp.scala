@@ -12,9 +12,7 @@ class XmlProp extends PropSpec with TableDrivenPropertyChecks with Matchers {
     ("in", "out"),
     ("0", "\n<IntNode>0</IntNode>"),
     ("\"a\"", "\n<TextNode>a</TextNode>"),
-    //("[]", "[<!-- [] -->]"),
     ("[0]", "\n<ArrayNode>0</ArrayNode>"),
-//    ("[0,1]", "<!-- [0,1] -->"),
     ("{}", "<ObjectNode/>\n"),
     ("{\"a\":0}", "<ObjectNode>\n  <a>0</a>\n</ObjectNode>\n"),
     ("{\"a\":0, \"b\":1}", "<ObjectNode>\n  <a>0</a>\n  <b>1</b>\n</ObjectNode>\n"),
@@ -25,7 +23,8 @@ class XmlProp extends PropSpec with TableDrivenPropertyChecks with Matchers {
   val toFailure = Table (
     "in",
     "a",
-    "{"
+    "[]",
+    "[0,1]"
   )
 
   val provider: Provider = new ProviderXml()

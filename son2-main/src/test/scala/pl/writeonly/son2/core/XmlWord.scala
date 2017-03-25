@@ -10,14 +10,24 @@ class XmlWord extends WordSpec with Matchers {
 
   val provider: Provider = new ProviderXml()
   "A Provider" should {
+    "produce JsonParseException when convert a" in {
+      assertThrows[JsonParseException] {
+        provider.convert("a")
+      }
+    }
     "produce JsonMappingException when convert empty string" in {
       assertThrows[JsonMappingException] {
         provider.convert("")
       }
     }
-    "produce JsonParseException when convert a" in {
-      assertThrows[JsonParseException] {
-        provider.convert("a")
+    "produce JsonMappingException when convert []" in {
+      assertThrows[JsonMappingException] {
+        provider.convert("[]")
+      }
+    }
+    "produce JsonMappingException when convert [0,1]" in {
+      assertThrows[JsonMappingException] {
+        provider.convert("[0,1]")
       }
     }
   }

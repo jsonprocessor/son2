@@ -10,14 +10,14 @@ class YamlWord extends WordSpec with Matchers {
 
   val provider: Provider = new ProviderYaml()
   "A Provider" should {
-    "produce JsonMappingException when convert empty string" in {
-      assertThrows[JsonMappingException] {
-        provider.convert("")
-      }
-    }
     "produce JsonParseException when convert a" in {
       assertThrows[JsonParseException] {
         provider.convert("a")
+      }
+    }
+    "produce JsonMappingException when convert empty string" in {
+      assertThrows[JsonMappingException] {
+        provider.convert("")
       }
     }
   }
