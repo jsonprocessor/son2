@@ -6,7 +6,7 @@ import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.core.providers.{Provider, ProviderYaml}
 import pl.writeonly.son2.core.streamers.{Streamer, StreamerImpl}
 
-class LinerYamlProp extends PropSpec with TableDrivenPropertyChecks with Matchers {
+class YamlProp extends PropSpec with TableDrivenPropertyChecks with Matchers {
 
   val toSuccess = Table(
     ("in", "out"),
@@ -25,7 +25,7 @@ class LinerYamlProp extends PropSpec with TableDrivenPropertyChecks with Matcher
   val toFailure = Table (
     "in",
     "a",
-    ""
+    "{"
   )
 
   val provider: Provider = new ProviderYaml()
@@ -38,12 +38,12 @@ class LinerYamlProp extends PropSpec with TableDrivenPropertyChecks with Matcher
   val liner: Liner = new LinerOpt(provider)
   property("convert son to yaml by liner") {
     forAll(toSuccess) { (in, out) =>
-      liner.convert(in) should be(out + "\n")
+      liner.apply(in) should be(out + "\n")
     }
   }
-  ignore("fail convert son to yaml by liner") {
+  property("fail convert son to yaml by liner") {
     forAll(toFailure) { in =>
-      liner.convert(in) should be("#" + in + "\n")
+      liner.apply(in) should be(provider.comment(in) + "\n")
     }
   }
 
@@ -53,9 +53,9 @@ class LinerYamlProp extends PropSpec with TableDrivenPropertyChecks with Matcher
       streamer.convertString(in) should be(out + "\n")
     }
   }
-  ignore("fail convert son to yaml by streamer") {
+  property("fail convert son to yaml by streamer") {
     forAll(toFailure) { in =>
-      streamer.convertString(in) should be("#" + in + "\n")
+      streamer.convertString(in) should be(provider.comment(in) + "\n")
     }
   }
 
@@ -64,9 +64,9 @@ class LinerYamlProp extends PropSpec with TableDrivenPropertyChecks with Matcher
       streamer.convertStringNative(in) should be(out + "\n")
     }
   }
-  ignore("fail convert son to yaml by native streamer") {
+  property("fail convert son to yaml by native streamer") {
     forAll(toFailure) { in =>
-      streamer.convertStringNative(in) should be("#" + in + "\n")
+      streamer.convertStringNative(in) should be(provider.comment(in) + "\n")
     }
   }
 }
