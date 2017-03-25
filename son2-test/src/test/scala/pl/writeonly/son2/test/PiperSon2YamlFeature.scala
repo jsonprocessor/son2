@@ -6,7 +6,7 @@ import org.scalatest.{FeatureSpec, GivenWhenThen}
 import pl.writeonly.son2.core.providers.ProviderYaml
 import pl.writeonly.son2.main._
 
-class MainSon2YamlFeature extends FeatureSpec with GivenWhenThen {
+class PiperSon2YamlFeature extends FeatureSpec with GivenWhenThen {
 
   info("MainJson2YamlImpl with Json2YamlJackson")
 

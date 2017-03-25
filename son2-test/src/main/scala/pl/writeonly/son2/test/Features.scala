@@ -4,7 +4,7 @@ import java.io.File
 import java.nio.file.Paths
 
 object Features {
-  val NAME = "writeonly-init"
+  val NAME = "writeonly"
   val PREFIX = NAME + ""
   val PATH_LOG = "/" + PREFIX + ".log"
   val YAML = ".yaml"

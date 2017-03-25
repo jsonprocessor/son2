@@ -4,15 +4,15 @@ import org.scalatest.{FeatureSpec, GivenWhenThen}
 
 import scala.sys.process._
 
-class PipeSon2XmlFeature extends FeatureSpec with GivenWhenThen {
+class CliSon2ObjectFeature extends FeatureSpec with GivenWhenThen {
 
   val SON2 = "java -jar ../son2-main/target/son2-main-2.8.3-SNAPSHOT.jar"
-  val SON2ML = SON2 + " x"
+  val SON2ML = SON2 + " o"
   val CAT = "cat"
 
-  val outName = (name: String) =>  Features.outputPathname("pipe", name, "xml")
+  val outName = (name: String) =>  Features.outputPathname("pipe", name, "object")
 
-  feature(classOf[PipeSon2XmlFeature].getSimpleName) {
+  feature(classOf[CliSon2ObjectFeature].getSimpleName) {
 
     scenario("Apply one exclamation") {
       Given("converter FileJson2Yaml")
