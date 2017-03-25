@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.JsonMappingException
 import org.scalatest.WordSpec
 import pl.writeonly.son2.core.providers.{Provider, ProviderYaml}
 
-class LinerYamlWord extends WordSpec {
+class ProviderYamlWord extends WordSpec {
 
   val provider: Provider = new ProviderYaml()
 

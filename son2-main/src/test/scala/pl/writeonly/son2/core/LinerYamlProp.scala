@@ -1,12 +1,12 @@
 package pl.writeonly.son2.core
 
 import org.scalatest.prop.TableDrivenPropertyChecks
-import org.scalatest.{FunSpec, GivenWhenThen, Matchers, PropSpec}
+import org.scalatest.{Matchers, PropSpec}
+import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.core.providers.{Provider, ProviderYaml}
+import pl.writeonly.son2.core.streamers.{Streamer, StreamerImpl}
 
-class LinerYamlProp extends PropSpec with TableDrivenPropertyChecks with Matchers with GivenWhenThen {
-
-  val provider: Provider = new ProviderYaml()
+class LinerYamlProp extends PropSpec with TableDrivenPropertyChecks with Matchers {
 
   val toSuccess = Table(
     ("in", "out"),
@@ -22,9 +22,51 @@ class LinerYamlProp extends PropSpec with TableDrivenPropertyChecks with Matcher
     ("{\"a\":[]}", "---\na: []\n")
   )
 
-  property("convert son to yaml") {
+  val toFailure = Table (
+    "in",
+    "a",
+    ""
+  )
+
+  val provider: Provider = new ProviderYaml()
+  property("convert son to yaml by provider") {
     forAll(toSuccess) { (in, out) =>
       provider.convert(in) should be(out)
+    }
+  }
+
+  val liner: Liner = new LinerOpt(provider)
+  property("convert son to yaml by liner") {
+    forAll(toSuccess) { (in, out) =>
+      liner.convert(in) should be(out + "\n")
+    }
+  }
+  ignore("fail convert son to yaml by liner") {
+    forAll(toFailure) { in =>
+      liner.convert(in) should be("#" + in + "\n")
+    }
+  }
+
+  val streamer: Streamer = new StreamerImpl(liner)
+  property("convert son to yaml by streamer") {
+    forAll(toSuccess) { (in, out) =>
+      streamer.convertString(in) should be(out + "\n")
+    }
+  }
+  ignore("fail convert son to yaml by streamer") {
+    forAll(toFailure) { in =>
+      streamer.convertString(in) should be("#" + in + "\n")
+    }
+  }
+
+  property("convert son to yaml by native streamer") {
+    forAll(toSuccess) { (in, out) =>
+      streamer.convertStringNative(in) should be(out + "\n")
+    }
+  }
+  ignore("fail convert son to yaml by native streamer") {
+    forAll(toFailure) { in =>
+      streamer.convertStringNative(in) should be("#" + in + "\n")
     }
   }
 }
