@@ -8,12 +8,12 @@ import scala.util.{Failure, Success, Try}
 
 class LinerTry(provider : Provider) extends Liner(provider) {
 
-  def apply(s: String): String = {
-    Try(convert(s)) match {
-      case Success(yaml) => yaml
+  def apply(line: String): String = {
+    Try(convert(line)) match {
+      case Success(converted) => converted
       case Failure(exception) => {
-        logger.error(s, exception)
-        comment(s)
+        logger.error(line, exception)
+        comment(line)
       }
     }
   }

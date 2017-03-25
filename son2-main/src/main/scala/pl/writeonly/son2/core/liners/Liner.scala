@@ -6,10 +6,10 @@ import pl.writeonly.son2.util.AppLogging
 
 abstract class Liner(val provider : Provider) extends AppLogging {
 
-  def convert(jsonString: String) = provider.convert(jsonString) + "\n"
+  def convert(line: String) = provider.convert(line) + "\n"
 
-  def comment(jsonString: String) = provider.comment(jsonString)  + "\n"
+  def comment(line: String) = provider.comment(line)  + "\n"
 
-  def apply(jsonString:String) : String
+  def apply(line:String) : String
 
 }

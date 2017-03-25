@@ -8,7 +8,7 @@ import com.fasterxml.jackson.dataformat.xml.XmlMapper
 
 class ProviderXml extends Provider {
   override def convert(s: String): String = {
-    val jsonNodeTree = new ObjectMapper().readTree(s)
+    val jsonNodeTree = readTree(s)
 //    new XmlMapper().setDefaultPrettyPrinter(new DefaultXmlPrettyPrinter).writeValueAsString(jsonNodeTree)
     new XmlMapper().writerWithDefaultPrettyPrinter().writeValueAsString(jsonNodeTree)
   }

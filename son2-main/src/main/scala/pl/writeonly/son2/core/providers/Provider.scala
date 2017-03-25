@@ -1,7 +1,12 @@
 package pl.writeonly.son2.core.providers
 
-trait Provider {
-  def convert(s: String) : String
+import com.fasterxml.jackson.databind.ObjectMapper
 
-  def comment(s: String) : String
+class Provider {
+
+  def readTree (s:String ) = new ObjectMapper().readTree(s)
+
+  def convert(s: String) = s
+
+  def comment(s: String) = s
 }

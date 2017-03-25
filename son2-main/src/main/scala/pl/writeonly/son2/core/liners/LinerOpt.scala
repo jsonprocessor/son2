@@ -6,9 +6,9 @@ import scala.util.control.Exception._
 
 class LinerOpt(provider : Provider) extends Liner(provider) {
 
-  def apply(s: String): String = {
+  def apply(line: String): String = {
     catching(classOf[Exception])
-      .opt(convert(s))
-      .getOrElse(comment(s))
+      .opt(convert(line))
+      .getOrElse(comment(line))
   }
 }

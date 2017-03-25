@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 
 class ProviderObject extends Provider {
   override def convert(s: String): String = {
-    val jsonNodeTree = new ObjectMapper().readTree(s)
+    val jsonNodeTree = readTree(s)
 //    new ObjectMapper().setDefaultPrettyPrinter(new DefaultPrettyPrinter).writeValueAsString(jsonNodeTree)
     new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(jsonNodeTree)
   }

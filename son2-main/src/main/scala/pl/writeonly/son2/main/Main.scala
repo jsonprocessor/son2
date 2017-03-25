@@ -28,7 +28,7 @@ object Main extends AppLogging {
       case _ => main.convertFile(args(1), args(2));
     }
   }.getOrElse {
-    val main = new Piper(new ProviderIdentity)
+    val main = new Piper(new Provider)
     main.convertResource("README.md")
   }
 }

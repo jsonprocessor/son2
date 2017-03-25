@@ -7,7 +7,7 @@ import com.fasterxml.jackson.dataformat.javaprop.JavaPropsMapper
 
 class ProviderJavaProps extends Provider {
   override def convert(s: String): String = {
-    val jsonNodeTree = new ObjectMapper().readTree(s)
+    val jsonNodeTree = readTree(s)
 //    new JavaPropsMapper().setDefaultPrettyPrinter(new DefaultPrettyPrinter).writeValueAsString(jsonNodeTree)
     new JavaPropsMapper().writerWithDefaultPrettyPrinter().writeValueAsString(jsonNodeTree)
   }

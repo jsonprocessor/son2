@@ -6,7 +6,7 @@ import pl.writeonly.son2.core.liners.Liner
 
 class ProviderYaml extends Provider {
   override def convert(s: String): String = {
-    val jsonNodeTree = new ObjectMapper().readTree(s)
+    val jsonNodeTree = readTree(s)
 //    new YAMLMapper().writeValueAsString(jsonNodeTree)
     new YAMLMapper().writerWithDefaultPrettyPrinter().writeValueAsString(jsonNodeTree)
   }

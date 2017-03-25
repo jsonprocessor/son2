@@ -6,14 +6,14 @@ import scala.util.control.Exception._
 
 class LinerEither(provider : Provider) extends Liner(provider) {
 
-  def apply(s: String): String = {
+  def apply(line: String): String = {
     val result: Either[Throwable, String] = catching(classOf[ArithmeticException])
-      .either(convert(s))
+      .either(convert(line))
     result match {
       case Right(result) => result
       case Left(exception) => {
-        logger.error(s, exception)
-        comment(s)
+        logger.error(line, exception)
+        comment(line)
       }
     }
   }

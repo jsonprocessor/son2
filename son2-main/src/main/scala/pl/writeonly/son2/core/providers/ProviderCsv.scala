@@ -8,7 +8,7 @@ import com.fasterxml.jackson.dataformat.csv.CsvMapper
 
 class ProviderCsv extends Provider {
   override def convert(s: String): String = {
-    val jsonNodeTree = new ObjectMapper().readTree(s)
+    val jsonNodeTree = readTree(s)
 //    new CsvMapper().setDefaultPrettyPrinter(new DefaultPrettyPrinter).writeValueAsString(jsonNodeTree)
     new CsvMapper().writerWithDefaultPrettyPrinter().writeValueAsString(jsonNodeTree)
   }
