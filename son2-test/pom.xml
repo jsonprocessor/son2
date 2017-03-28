@@ -62,12 +62,12 @@
                     <!--<filereports>WDF TestSuite.txt</filereports>-->
                 </configuration>
                 <executions>
-                    <execution>
+<!--                     <execution>
                         <id>test</id>
                         <goals>
                             <goal>test</goal>
                         </goals>
-                    </execution>
+                    </execution> -->
                 </executions>
             </plugin>
         </plugins>
