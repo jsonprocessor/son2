@@ -1,14 +1,16 @@
-package pl.writeonly.son2.core
+package pl.writeonly.son2.impl.core
 
 import com.fasterxml.jackson.core.JsonParseException
 import com.fasterxml.jackson.databind.JsonMappingException
 import org.scalatest.{Matchers, WordSpec}
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
-import pl.writeonly.son2.core.providers.{Provider, ProviderObject}
+import pl.writeonly.son2.core.providers.{Provider, ProviderXml}
+import pl.writeonly.son2.impl.core.liners.{Liner, LinerOpt}
+import pl.writeonly.son2.impl.core.providers.{Provider, ProviderXml}
 
-class ObjectWord extends WordSpec with Matchers {
+class XmlWord extends WordSpec with Matchers {
 
-  val provider: Provider = new ProviderObject()
+  val provider: Provider = new ProviderXml()
   "A Provider" should {
     "produce JsonParseException when convert a" in {
       assertThrows[JsonParseException] {
@@ -18,6 +20,16 @@ class ObjectWord extends WordSpec with Matchers {
     "produce JsonMappingException when convert empty string" in {
       assertThrows[JsonMappingException] {
         provider.convert("")
+      }
+    }
+    "produce JsonMappingException when convert []" in {
+      assertThrows[JsonMappingException] {
+        provider.convert("[]")
+      }
+    }
+    "produce JsonMappingException when convert [0,1]" in {
+      assertThrows[JsonMappingException] {
+        provider.convert("[0,1]")
       }
     }
   }

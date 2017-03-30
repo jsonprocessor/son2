@@ -1,14 +1,16 @@
-package pl.writeonly.son2.core
+package pl.writeonly.son2.impl.core
 
 import com.fasterxml.jackson.core.JsonParseException
 import com.fasterxml.jackson.databind.JsonMappingException
 import org.scalatest.{Matchers, WordSpec}
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
-import pl.writeonly.son2.core.providers.{Provider, ProviderCsv}
+import pl.writeonly.son2.core.providers.{Provider, ProviderObject}
+import pl.writeonly.son2.impl.core.liners.{Liner, LinerOpt}
+import pl.writeonly.son2.impl.core.providers.{Provider, ProviderObject}
 
-class CsvWord extends WordSpec with Matchers {
+class ObjectWord extends WordSpec with Matchers {
 
-  val provider: Provider = new ProviderCsv()
+  val provider: Provider = new ProviderObject()
   "A Provider" should {
     "produce JsonParseException when convert a" in {
       assertThrows[JsonParseException] {

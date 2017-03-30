@@ -1,10 +1,12 @@
-package pl.writeonly.son2.core
+package pl.writeonly.son2.impl.core
 
 import com.fasterxml.jackson.core.JsonParseException
 import com.fasterxml.jackson.databind.JsonMappingException
 import org.scalatest.{Matchers, WordSpec}
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
-import pl.writeonly.son2.core.providers.{Provider, ProviderYaml}
+import pl.writeonly.son2.core.providers.ProviderYaml
+import pl.writeonly.son2.impl.core.liners.{Liner, LinerOpt}
+import pl.writeonly.son2.impl.core.providers.{Provider, ProviderYaml}
 
 class YamlWord extends WordSpec with Matchers {
 

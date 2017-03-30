@@ -1,25 +1,28 @@
-package pl.writeonly.son2.core
+package pl.writeonly.son2.impl.core
 
 import org.scalatest.prop.TableDrivenPropertyChecks
 import org.scalatest.{Matchers, PropSpec}
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
-import pl.writeonly.son2.core.providers.{Provider, ProviderYaml}
+import pl.writeonly.son2.core.providers.{Provider, ProviderJavaProps, ProviderYaml}
 import pl.writeonly.son2.core.streamers.{Streamer, StreamerImpl}
+import pl.writeonly.son2.impl.core.liners.{Liner, LinerOpt}
+import pl.writeonly.son2.impl.core.providers.{Provider, ProviderJavaProps}
+import pl.writeonly.son2.impl.core.streamers.{Streamer, StreamerImpl}
 
-class YamlProp extends PropSpec with TableDrivenPropertyChecks with Matchers {
+class JavaPropsProp extends PropSpec with TableDrivenPropertyChecks with Matchers {
 
   val toSuccess = Table(
     ("in", "out"),
-    ("0", "--- 0\n"),
-    ("\"a\"", "--- \"a\"\n"),
-    ("[]", "--- []\n"),
-    ("[0]", "---\n- 0\n"),
-    ("[0,1]", "---\n- 0\n- 1\n"),
-    ("{}", "--- {}\n"),
-    ("{\"a\":0}", "---\na: 0\n"),
-    ("{\"a\":0, \"b\":1}", "---\na: 0\nb: 1\n"),
-    ("[{}]", "---\n- {}\n"),
-    ("{\"a\":[]}", "---\na: []\n")
+    ("0", "=0\n"),
+    ("\"a\"", "=a\n"),
+    ("[]", ""),
+    ("[0]", "1=0\n"),
+    ("[0,1]", "1=0\n2=1\n"),
+    ("{}", ""),
+    ("{\"a\":0}", "a=0\n"),
+    ("{\"a\":0, \"b\":1}", "a=0\nb=1\n"),
+    ("[{}]", ""),
+    ("{\"a\":[]}", "")
   )
 
   val toFailure = Table (
@@ -27,7 +30,7 @@ class YamlProp extends PropSpec with TableDrivenPropertyChecks with Matchers {
     "a"
   )
 
-  val provider: Provider = new ProviderYaml()
+  val provider: Provider = new ProviderJavaProps()
   property("convert son to yaml by provider") {
     forAll(toSuccess) { (in, out) =>
       provider.convert(in) should be(out)
