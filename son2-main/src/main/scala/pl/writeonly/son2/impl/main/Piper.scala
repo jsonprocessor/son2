@@ -2,15 +2,11 @@ package pl.writeonly.son2.impl.main
 
 import java.io.{FileInputStream, InputStream}
 
-import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
-import pl.writeonly.son2.core.streamers.{StreamerImpl, StreamerSource}
 import pl.writeonly.son2.impl.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.impl.core.providers.Provider
 import pl.writeonly.son2.impl.core.streamers.{StreamerImpl, StreamerSource}
 
-//import pl.writeonly.son2.core.Converter
-
-class ConverterImpl(val liner: Liner) /*extends Converter*/{
+class Piper(val liner: Liner){
 
   def this (provider: Provider) = this(new LinerOpt (provider))
 

@@ -1,12 +1,12 @@
-package pl.writeonly.son2.core.streamers
+package pl.writeonly.son2.impl.core.streamers
 
 import java.io._
 import java.net.URI
 
-import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
-import pl.writeonly.son2.core.providers.Provider
-import pl.writeonly.son2.util.Control
-import pl.writeonly.son2.util.Control.{toConsumerAny, using}
+import pl.writeonly.son2.impl.core.liners.{Liner, LinerOpt}
+import pl.writeonly.son2.impl.core.providers.Provider
+import pl.writeonly.son2.core.util.Control
+import pl.writeonly.son2.core.util.Control.{toConsumerAny, using}
 
 
 class StreamerImpl(liner: Liner) extends Streamer(liner) {

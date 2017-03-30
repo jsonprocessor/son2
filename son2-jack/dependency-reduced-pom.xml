@@ -6,7 +6,7 @@
     <version>2.8.3-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>son2-main</artifactId>
+  <artifactId>son2-jack</artifactId>
   <build>
     <sourceDirectory>src/main/scala</sourceDirectory>
     <testSourceDirectory>src/test/scala</testSourceDirectory>
@@ -53,9 +53,7 @@
             <configuration>
               <transformers>
                 <transformer />
-                <transformer>
-                  <mainClass>pl.writeonly.son2.impl.main.Main</mainClass>
-                </transformer>
+                <transformer />
               </transformers>
             </configuration>
           </execution>
@@ -95,8 +93,16 @@
       <scope>test</scope>
       <exclusions>
         <exclusion>
+          <artifactId>scala-library</artifactId>
+          <groupId>org.scala-lang</groupId>
+        </exclusion>
+        <exclusion>
           <artifactId>scalactic_2.11</artifactId>
           <groupId>org.scalactic</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>scala-reflect</artifactId>
+          <groupId>org.scala-lang</groupId>
         </exclusion>
         <exclusion>
           <artifactId>scala-xml_2.11</artifactId>

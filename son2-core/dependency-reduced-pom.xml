@@ -6,7 +6,7 @@
     <version>2.8.3-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>son2-main</artifactId>
+  <artifactId>son2-core</artifactId>
   <build>
     <sourceDirectory>src/main/scala</sourceDirectory>
     <testSourceDirectory>src/test/scala</testSourceDirectory>
@@ -53,9 +53,7 @@
             <configuration>
               <transformers>
                 <transformer />
-                <transformer>
-                  <mainClass>pl.writeonly.son2.impl.main.Main</mainClass>
-                </transformer>
+                <transformer />
               </transformers>
             </configuration>
           </execution>

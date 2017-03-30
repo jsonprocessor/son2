@@ -1,7 +1,7 @@
-package pl.writeonly.son2.main
+package pl.writeonly.son2.impl.main
 
-import pl.writeonly.son2.core.providers._
-import pl.writeonly.son2.util.AppLogging
+import pl.writeonly.son2.impl.core.providers._
+import pl.writeonly.son2.core.util.AppLogging
 
 object Main extends AppLogging {
 
@@ -21,14 +21,14 @@ object Main extends AppLogging {
   }
 
   providerOpt.map { p =>
-    val main = new ConverterImpl(p)
+    val main = new Piper(p)
     args.length match {
       case 1 => main.convertStream();
       case 2 => main.convertFile(args(1));
       case _ => main.convertFile(args(1), args(2));
     }
   }.getOrElse {
-    val main = new ConverterImpl(new ProviderImpl)
+    val main = new Piper(new ProviderImpl)
     main.convertResource("README.md")
   }
 }

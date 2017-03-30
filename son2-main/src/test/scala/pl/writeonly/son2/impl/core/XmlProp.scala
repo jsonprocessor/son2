@@ -2,9 +2,6 @@ package pl.writeonly.son2.impl.core
 
 import org.scalatest.prop.TableDrivenPropertyChecks
 import org.scalatest.{Matchers, PropSpec}
-import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
-import pl.writeonly.son2.core.providers.{Provider, ProviderXml}
-import pl.writeonly.son2.core.streamers.{Streamer, StreamerImpl}
 import pl.writeonly.son2.impl.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.impl.core.providers.{Provider, ProviderXml}
 import pl.writeonly.son2.impl.core.streamers.{Streamer, StreamerImpl}

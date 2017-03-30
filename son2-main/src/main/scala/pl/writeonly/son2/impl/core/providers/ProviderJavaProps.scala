@@ -1,4 +1,4 @@
-package pl.writeonly.son2.core.providers
+package pl.writeonly.son2.impl.core.providers
 
 import com.fasterxml.jackson.dataformat.javaprop.JavaPropsMapper
 

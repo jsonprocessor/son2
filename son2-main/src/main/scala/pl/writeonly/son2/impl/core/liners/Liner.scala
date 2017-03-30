@@ -1,7 +1,7 @@
-package pl.writeonly.son2.core.liners
+package pl.writeonly.son2.impl.core.liners
 
-import pl.writeonly.son2.core.providers.Provider
-import pl.writeonly.son2.util.AppLogging
+import pl.writeonly.son2.impl.core.providers.Provider
+import pl.writeonly.son2.core.util.AppLogging
 
 
 abstract class Liner(val provider : Provider) extends AppLogging {
