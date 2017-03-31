@@ -19,7 +19,7 @@ object Main extends AppLogging {
     case _ => Option.empty
   }
 
-
+  val self = this
 
 
 

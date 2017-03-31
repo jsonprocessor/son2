@@ -1,4 +1,4 @@
-package pl.writeonly.son2.test
+package pl.writeonly.son2.test.impl
 
 import java.io.File
 import java.nio.file.Paths

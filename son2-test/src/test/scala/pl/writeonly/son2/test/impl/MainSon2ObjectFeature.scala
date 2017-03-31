@@ -1,28 +1,26 @@
-package pl.writeonly.son2.test
+package pl.writeonly.son2.test.impl
 
 import java.io.FileNotFoundException
 
 import org.scalatest.{FeatureSpec, GivenWhenThen}
-import pl.writeonly.son2.impl.core.providers.ProviderObject
-import pl.writeonly.son2.impl.main.Piper
+import pl.writeonly.son2.impl.main.Main
 
-class PiperSon2ObjectFeature extends FeatureSpec with GivenWhenThen {
+class MainSon2ObjectFeature extends FeatureSpec with GivenWhenThen {
 
-  info("MainJson2YamlImpl with Json2YamlJackson")
+  info(classOf[MainSon2ObjectFeature].getSimpleName)
 
-  val given = () => new Piper(new ProviderObject)
+  val FORMAT = "object"
 
-  val outName = (name: String) =>  Features.outputPathname("main", name, "object")
+  val outName = (name: String) =>  Features.outputPathname("main", name, FORMAT)
 
   feature("MainSon2Objec with two pathname") {
     scenario("Apply with null pathname") {
       Given("converter FileJson2Yaml")
-      val main = given()
+      val name: String = null
 
       When("should produce null when consume null")
-      val name: String = null
       val caught = intercept[NullPointerException] {
-        main.convertFile(name, name)
+        Main.main(Array(FORMAT, name, name))
       }
 
       Then("null == messag")
@@ -32,34 +30,31 @@ class PiperSon2ObjectFeature extends FeatureSpec with GivenWhenThen {
 
     scenario("Apply with empty pathname") {
       Given("converter FileJson2Yaml")
-      val main = given()
 
       When("should produce empty when consume empty")
       assertThrows[FileNotFoundException] {
-        main.convertFile("", "")
+        Main.main(Array(FORMAT, "", ""))
       }
     }
 
     scenario("Apply with pathname") {
       Given("converter FileJson2Yaml")
-      val main = given()
       val in = Features.inputPathname
       val out = outName("pathname")
 
       When("should produce null when consume null")
-      main.convertFile(in, out)
+      Main.main(Array(FORMAT, in, out))
     }
   }
 
   feature("MainJson2Yaml with one pathname") {
     scenario("Apply with null pathname") {
       Given("converter FileJson2Yaml")
-      val main = given()
       val name: String = null
 
       When("should produce null when consume null")
       val caught = intercept[NullPointerException] {
-        main.convertFile(name)
+        Main.main(Array(FORMAT, name))
       }
 
       Then("null == messag")
@@ -69,22 +64,19 @@ class PiperSon2ObjectFeature extends FeatureSpec with GivenWhenThen {
 
     scenario("Apply with empty pathname") {
       Given("converter FileJson2Yaml")
-      val main = given()
 
       When("should produce null empty consume empty")
       assertThrows[FileNotFoundException] {
-        main.convertFile("")
+        Main.main(Array(FORMAT, ""))
       }
     }
 
     scenario("Apply with pathname") {
       Given("converter FileJson2Yaml")
-      val main = given()
       val in = Features.inputPathname
 
       When("should produce null when consume null")
-      main.convertFile(in)
+      Main.main(Array(FORMAT, in))
     }
   }
 }
-

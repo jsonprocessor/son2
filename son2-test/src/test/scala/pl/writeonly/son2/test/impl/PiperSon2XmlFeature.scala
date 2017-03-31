@@ -1,4 +1,4 @@
-package pl.writeonly.son2.test
+package pl.writeonly.son2.test.impl
 
 import java.io.FileNotFoundException
 
@@ -12,17 +12,17 @@ class PiperSon2XmlFeature extends FeatureSpec with GivenWhenThen {
 
   val given = () => new Piper(new ProviderXml)
 
-  val outName = (name: String) =>  Features.outputPathname("main", name, "xml")
+  val outName = (name: String) =>  Features.outputPathname("piper", name, "xml")
 
   feature("MainJson2Xml with two pathname") {
     scenario("Apply with null pathname") {
       Given("converter FileJson2Xml")
-      val main = given()
+      val piper = given()
 
       When("should produce null when consume null")
       val name: String = null
       val caught = intercept[NullPointerException] {
-        main.convertFile(name, name)
+        piper.convertFile(name, name)
       }
 
       Then("null == messag")
@@ -32,34 +32,34 @@ class PiperSon2XmlFeature extends FeatureSpec with GivenWhenThen {
 
     scenario("Apply with empty pathname") {
       Given("converter FileJson2Xml")
-      val main = given()
+      val piper = given()
 
       When("should produce empty when consume empty")
       assertThrows[FileNotFoundException] {
-        main.convertFile("", "")
+        piper.convertFile("", "")
       }
     }
 
     scenario("Apply with pathname") {
       Given("converter FileJson2Xml")
-      val main = given()
+      val piper = given()
       val in = Features.inputPathname
       val out = outName("pathname")
 
       When("should produce null when consume null")
-      main.convertFile(in, out)
+      piper.convertFile(in, out)
     }
   }
 
   feature("MainJson2Xml with one pathname") {
     scenario("Apply with null pathname") {
       Given("converter FileJson2Xml")
-      val main = given()
+      val piper = given()
       val name: String = null
 
       When("should produce null when consume null")
       val caught = intercept[NullPointerException] {
-        main.convertFile(name)
+        piper.convertFile(name)
       }
 
       Then("null == messag")
@@ -69,21 +69,21 @@ class PiperSon2XmlFeature extends FeatureSpec with GivenWhenThen {
 
     scenario("Apply with empty pathname") {
       Given("converter FileJson2Xml")
-      val main = given()
+      val piper = given()
 
       When("should produce null empty consume empty")
       assertThrows[FileNotFoundException] {
-        main.convertFile("")
+        piper.convertFile("")
       }
     }
 
     scenario("Apply with pathname") {
       Given("converter FileJson2Xml")
-      val main = given()
+      val piper = given()
       val in = Features.inputPathname
 
       When("should produce null when consume null")
-      main.convertFile(in)
+      piper.convertFile(in)
     }
   }
 }

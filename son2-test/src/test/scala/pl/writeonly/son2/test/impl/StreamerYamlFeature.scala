@@ -1,4 +1,4 @@
-package pl.writeonly.son2.test
+package pl.writeonly.son2.test.impl
 
 import java.io.FileNotFoundException
 
@@ -17,12 +17,12 @@ class StreamerYamlFeature extends FeatureSpec with GivenWhenThen {
   feature(classOf[StreamerYamlFeature].getSimpleName) {
     scenario("Apply with null pathname") {
       Given("converter FileJson2Yaml")
-      val file = given()
+      val streamer = given()
       val name: String = null
 
       When("should produce null when consume null")
       val caught = intercept[NullPointerException] {
-        file.convertFile(name, name)
+        streamer.convertFile(name, name)
       }
 
       Then("null == messag")
@@ -32,42 +32,42 @@ class StreamerYamlFeature extends FeatureSpec with GivenWhenThen {
 
     scenario("Apply with empty pathname") {
       Given("converter FileJson2Yaml")
-      val file = given()
+      val streamer = given()
 
       When("should produce empty when consume empty")
       assertThrows[FileNotFoundException] {
-        file.convertFile("", "")
+        streamer.convertFile("", "")
       }
     }
 
     scenario("Apply with pathname") {
       Given("converter FileJson2Yaml")
-      val file = given()
+      val streamer = given()
       val in = Features.inputPathname
       val out = outName("pathname")
 
       When("should produce null when consume null")
-      file.convertFile(in, out)
+      streamer.convertFile(in, out)
     }
 
     scenario("Apply with uri") {
       Given("converter FileJson2Yaml")
-      val file = given()
+      val streamer = given()
       val in = Features.inputURI
       val out = Features.toURI(outName("uri"))
 
       When("should produce null when consume null")
-      file.convertFile(in, out)
+      streamer.convertFile(in, out)
     }
 
-    scenario("Apply with file") {
+    scenario("Apply with streamer") {
       Given("converter FileJson2Yaml")
-      val file = given()
+      val streamer = given()
       val in = Features.inputFile
-      val out = Features.toFile(outName("file"))
+      val out = Features.toFile(outName("streamer"))
 
       When("should produce out when consume in")
-      file.convertFile(in, out)
+      streamer.convertFile(in, out)
     }
   }
 }
