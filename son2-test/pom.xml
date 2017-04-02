@@ -26,6 +26,10 @@
             <artifactId>son2-main</artifactId>
         </dependency>
         <dependency>
+            <groupId>pl.writeonly.son2</groupId>
+            <artifactId>son2-jack</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.scalatest</groupId>
             <artifactId>scalatest_2.11</artifactId>
         </dependency>
@@ -62,12 +66,12 @@
                     <!--<filereports>WDF TestSuite.txt</filereports>-->
                 </configuration>
                 <executions>
-<!--                     <execution>
+                     <execution>
                         <id>test</id>
                         <goals>
                             <goal>test</goal>
                         </goals>
-                    </execution> -->
+                    </execution>
                 </executions>
             </plugin>
         </plugins>

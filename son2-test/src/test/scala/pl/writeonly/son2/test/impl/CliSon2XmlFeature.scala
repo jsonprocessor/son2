@@ -6,9 +6,7 @@ import scala.sys.process._
 
 class CliSon2XmlFeature extends FeatureSpec with GivenWhenThen {
 
-  val SON2 = "java -jar ../son2-main/target/son2-main-2.8.3-SNAPSHOT.jar"
-  val SON2ML = SON2 + " x"
-  val CAT = "cat"
+  val SON2ML = Features.SON2 + " x"
 
   val outName = (name: String) =>  Features.outputPathname("pipe", name, "xml")
 
