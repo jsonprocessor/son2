@@ -5,7 +5,7 @@ import java.net.URI
 import java.nio.file.Paths
 
 object Features {
-  val NAME = "writeonly.log"
+  val NAME = "writeonly.son"
   val SON2 = "java -jar ../son2-main/target/son2-main-2.8.3-SNAPSHOT.jar"
   val CAT = "cat"
   val DIR = "dir"
