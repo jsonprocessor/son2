@@ -46,38 +46,5 @@ class MainSon2XmlFeature extends FeatureSpec with GivenWhenThen {
       Main.main(Array(FORMAT, in, out))
     }
   }
-
-  feature("MainJson2Xml with one pathname") {
-    scenario("Apply with null pathname") {
-      Given("converter FileJson2Xml")
-      val name: String = null
-
-      When("should produce null when consume null")
-      val caught = intercept[NullPointerException] {
-        Main.main(Array(FORMAT, name))
-      }
-
-      Then("null == messag")
-      val message = caught.getMessage
-      assert(null == message)
-    }
-
-    scenario("Apply with empty pathname") {
-      Given("converter FileJson2Xml")
-
-      When("should produce null empty consume empty")
-      assertThrows[FileNotFoundException] {
-        Main.main(Array(FORMAT, ""))
-      }
-    }
-
-    scenario("Apply with pathname") {
-      Given("converter FileJson2Xml")
-      val in = Features.inputPathname
-
-      When("should produce null when consume null")
-      Main.main(Array(FORMAT, in))
-    }
-  }
 }
 

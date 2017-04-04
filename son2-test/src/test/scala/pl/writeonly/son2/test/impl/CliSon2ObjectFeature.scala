@@ -6,11 +6,9 @@ import scala.sys.process._
 
 class CliSon2ObjectFeature extends FeatureSpec with GivenWhenThen {
 
-  val SON2 = "java -jar ../son2-main/target/son2-main-2.8.3-SNAPSHOT.jar"
-  val SON2ML = SON2 + " o"
-  val CAT = "cat"
+  val SON2ML = Features.SON2 + " o"
 
-  val outName = (name: String) =>  Features.outputPathname("pipe", name, "object")
+  val outName = (name: String) =>  Features.outputPathname("cli", name, "object")
 
   feature(classOf[CliSon2ObjectFeature].getSimpleName) {
 

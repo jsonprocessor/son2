@@ -1,0 +1,24 @@
+<!--  -->
+<!-- a -->
+
+<IntNode>0</IntNode>
+
+<TextNode>a</TextNode>
+<!-- [] -->
+
+<ArrayNode>0</ArrayNode>
+<!-- [0,1 -->
+<ObjectNode/>
+
+<ObjectNode>
+  <a>0</a>
+</ObjectNode>
+
+<ObjectNode>
+  <a>0</a>
+  <b>1</b>
+</ObjectNode>
+
+<ArrayNode/>
+
+<!-- {a:[]} -->

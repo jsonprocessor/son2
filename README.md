@@ -4,9 +4,10 @@ Stream Object Notation to:
 * JSON
 * YAML
 * XML
+* Properties
 <!---
 * CVS
-* Properties
+
 -->
 
 ## Build
