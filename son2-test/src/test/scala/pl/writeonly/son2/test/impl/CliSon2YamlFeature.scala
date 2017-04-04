@@ -8,7 +8,7 @@ class CliSon2YamlFeature extends FeatureSpec with GivenWhenThen {
 
   val SON2ML = Features.SON2 + " y"
 
-  val outName = (name: String) =>  Features.outputPathname("cli", name, "yaml")
+  val outName = (name: String) =>  Features.outputPathname("cli", name, Formats.YAML)
 
   feature(classOf[CliSon2YamlFeature].getSimpleName) {
 

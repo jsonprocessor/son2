@@ -7,20 +7,18 @@ import pl.writeonly.son2.impl.main.Main
 
 class MainSon2ObjectFeature extends FeatureSpec with GivenWhenThen {
 
-  info(classOf[MainSon2ObjectFeature].getSimpleName)
 
-  val FORMAT = "object"
 
-  val outName = (name: String) =>  Features.outputPathname("main", name, FORMAT)
+  val outName = (name: String) =>  Features.outputPathname("main", name, Formats.OBJECT)
 
-  feature("MainSon2Objec with two pathname") {
+  feature(classOf[MainSon2ObjectFeature].getSimpleName) {
     scenario("Apply with null pathname") {
       Given("converter FileJson2Yaml")
       val name: String = null
 
       When("should produce null when consume null")
       val caught = intercept[NullPointerException] {
-        Main.main(Array(FORMAT, name, name))
+        Main.main(Array(Formats.OBJECT, name, name))
       }
 
       Then("null == messag")
@@ -33,7 +31,7 @@ class MainSon2ObjectFeature extends FeatureSpec with GivenWhenThen {
 
       When("should produce empty when consume empty")
       assertThrows[FileNotFoundException] {
-        Main.main(Array(FORMAT, "", ""))
+        Main.main(Array(Formats.OBJECT, "", ""))
       }
     }
 
@@ -43,7 +41,7 @@ class MainSon2ObjectFeature extends FeatureSpec with GivenWhenThen {
       val out = outName("pathname")
 
       When("should produce null when consume null")
-      Main.main(Array(FORMAT, in, out))
+      Main.main(Array(Formats.OBJECT, in, out))
     }
   }
 }

@@ -12,7 +12,7 @@ class StreamerObjectFeature extends FeatureSpec with GivenWhenThen {
 
   val given = () => new StreamerImpl(new ProviderObject)
 
-  val outName = (name: String) => Features.outputPathname("streamer", name, "object")
+  val outName = (name: String) => Features.outputPathname("streamer", name, Formats.OBJECT)
 
   feature(classOf[StreamerObjectFeature].getSimpleName) {
     scenario("Apply with null pathname") {

@@ -8,13 +8,11 @@ import pl.writeonly.son2.impl.main.Piper
 
 class PiperSon2YamlFeature extends FeatureSpec with GivenWhenThen {
 
-  info("MainJson2YamlImpl with Json2YamlJackson")
-
   val given = () => new Piper(new ProviderYaml)
 
-  val outName = (name: String) =>  Features.outputPathname("piper", name, "yaml")
+  val outName = (name: String) =>  Features.outputPathname("piper", name, Formats.YAML)
 
-  feature("MainJson2Yaml with two pathname") {
+  feature(classOf[PiperSon2YamlFeature].getSimpleName) {
     scenario("Apply with null pathname") {
       Given("converter FileJson2Yaml")
       val piper = given()

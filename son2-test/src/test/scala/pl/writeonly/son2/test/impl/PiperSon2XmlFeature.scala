@@ -8,13 +8,11 @@ import pl.writeonly.son2.impl.main.Piper
 
 class PiperSon2XmlFeature extends FeatureSpec with GivenWhenThen {
 
-  info("MainJson2XmlImpl with Json2XmlJackson")
-
   val given = () => new Piper(new ProviderXml)
 
-  val outName = (name: String) =>  Features.outputPathname("piper", name, "xml")
+  val outName = (name: String) =>  Features.outputPathname("piper", name, Formats.XML)
 
-  feature("MainJson2Xml with two pathname") {
+  feature(classOf[PiperSon2XmlFeature].getSimpleName) {
     scenario("Apply with null pathname") {
       Given("converter FileJson2Xml")
       val piper = given()

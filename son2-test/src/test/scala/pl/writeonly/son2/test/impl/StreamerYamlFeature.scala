@@ -12,7 +12,7 @@ class StreamerYamlFeature extends FeatureSpec with GivenWhenThen {
 
   val given = () => new StreamerImpl(new ProviderYaml)
 
-  val outName = (name: String) => Features.outputPathname("streamer", name, "yaml")
+  val outName = (name: String) => Features.outputPathname("streamer", name, Formats.YAML)
 
   feature(classOf[StreamerYamlFeature].getSimpleName) {
     scenario("Apply with null pathname") {
