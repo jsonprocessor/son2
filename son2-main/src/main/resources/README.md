@@ -14,3 +14,4 @@ format:
 *  o, object => JSON
 *  y, yaml => YAML
 *  x, xml  => XML
+*  j, p => java properties 
