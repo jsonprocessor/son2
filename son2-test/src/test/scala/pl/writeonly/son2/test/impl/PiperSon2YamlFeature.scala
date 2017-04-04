@@ -51,40 +51,5 @@ class PiperSon2YamlFeature extends FeatureSpec with GivenWhenThen {
     }
   }
 
-  feature("MainJson2Yaml with one pathname") {
-    scenario("Apply with null pathname") {
-      Given("converter FileJson2Yaml")
-      val piper = given()
-      val name: String = null
-
-      When("should produce null when consume null")
-      val caught = intercept[NullPointerException] {
-        piper.convertFile(name)
-      }
-
-      Then("null == messag")
-      val message = caught.getMessage
-      assert(null == message)
-    }
-
-    scenario("Apply with empty pathname") {
-      Given("converter FileJson2Yaml")
-      val piper = given()
-
-      When("should produce null empty consume empty")
-      assertThrows[FileNotFoundException] {
-        piper.convertFile("")
-      }
-    }
-
-    scenario("Apply with pathname") {
-      Given("converter FileJson2Yaml")
-      val piper = given()
-      val in = Features.inputPathname
-
-      When("should produce null when consume null")
-      piper.convertFile(in)
-    }
-  }
 }
 
