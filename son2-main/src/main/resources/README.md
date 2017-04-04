@@ -2,6 +2,8 @@
 
 son2 format input.son output.fmt
 
+son2 format input.son | tee output.fmt
+
 son2 format < input.son > output.fmt
 
 cat input.son | son2 format | tee output.fmt
