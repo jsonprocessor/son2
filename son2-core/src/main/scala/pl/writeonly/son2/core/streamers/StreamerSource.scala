@@ -1,10 +1,10 @@
-package pl.writeonly.son2.impl.core.streamers
+package pl.writeonly.son2.core.streamers
 
 import java.io.{File, InputStream, OutputStream, PrintWriter}
 import java.net.URI
 
-import pl.writeonly.son2.impl.core.liners.{Liner, LinerOpt}
-import pl.writeonly.son2.impl.core.providers.Provider
+import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
+import pl.writeonly.son2.core.providers.Provider
 import pl.writeonly.son2.core.util.Control
 import pl.writeonly.son2.core.util.Control.using
 

@@ -1,6 +1,6 @@
 package pl.writeonly.son2.impl.main
 
-import pl.writeonly.son2.impl.core.providers._
+import pl.writeonly.son2.core.providers._
 import pl.writeonly.son2.core.util.AppLogging
 
 import pl.writeonly.son2.core.Formats._

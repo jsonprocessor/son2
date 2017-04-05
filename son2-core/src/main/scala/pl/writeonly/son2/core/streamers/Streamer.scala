@@ -1,9 +1,9 @@
-package pl.writeonly.son2.impl.core.streamers
+package pl.writeonly.son2.core.streamers
 
 import java.io._
 import java.net.URI
 
-import pl.writeonly.son2.impl.core.liners.Liner
+import pl.writeonly.son2.core.liners.Liner
 import pl.writeonly.son2.core.util.Control
 
 abstract class Streamer(val liner: Liner) {
