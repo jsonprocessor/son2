@@ -1,6 +1,5 @@
 package pl.writeonly.son2.core.formats
 
-import pl.writeonly.son2.core.formats.Formats._
 import pl.writeonly.son2.core.providers._
 
 class FormatProvider extends Format[Provider] {
