@@ -3,6 +3,7 @@ package pl.writeonly.son2.test.impl
 import java.io.FileNotFoundException
 
 import org.scalatest.{FeatureSpec, GivenWhenThen}
+import pl.writeonly.son2.core.Formats
 import pl.writeonly.son2.impl.main.Main
 
 class MainSon2ObjectFeature extends FeatureSpec with GivenWhenThen {

@@ -39,7 +39,6 @@
             </goals>
           </execution>
         </executions>
-        <configuration />
       </plugin>
       <plugin>
         <artifactId>maven-shade-plugin</artifactId>
