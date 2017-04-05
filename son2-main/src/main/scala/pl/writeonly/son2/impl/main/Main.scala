@@ -1,21 +1,12 @@
 package pl.writeonly.son2.impl.main
 
+import pl.writeonly.son2.core.formats.FormatProvider
 import pl.writeonly.son2.core.providers._
 import pl.writeonly.son2.core.util.AppLogging
 
-import pl.writeonly.son2.core.Formats._
-
 object Main extends AppLogging {
 
-  def provider(arg:String) :Option[Provider]  = arg match {
-    case o if (OBJECT.startsWith(o)) => Option(new ProviderObject)
-    case y if (YAML.startsWith(y)) => Option(new ProviderYaml)
-    case x if (XML.startsWith(x)) => Option(new ProviderXml)
-    case c if (CSV.startsWith(c)) => Option(new ProviderCsv)
-    case j if (JAVA_PROPS.startsWith(j)) => Option(new ProviderJavaProps)
-    case p if (PROPERTIES.startsWith(p)) => Option(new ProviderJavaProps)
-    case _ => Option.empty
-  }
+  def provider(arg:String): Option[Provider] = new FormatProvider().apply(arg)
 
   val providerOpt = args.length match {
     case 0 => Option.empty

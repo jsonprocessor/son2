@@ -3,7 +3,7 @@ package pl.writeonly.son2.test.impl
 import java.io.FileNotFoundException
 
 import org.scalatest.{FeatureSpec, GivenWhenThen}
-import pl.writeonly.son2.core.Formats
+import pl.writeonly.son2.core.formats.Formats
 import pl.writeonly.son2.core.providers.ProviderYaml
 import pl.writeonly.son2.core.streamers.StreamerImpl
 
