@@ -10,7 +10,7 @@ class MainSon2YamlFeature extends FeatureSpec with GivenWhenThen {
 
   info(classOf[MainSon2YamlFeature].getSimpleName)
 
-  val outName = (name: String) =>  Features.outputPathname("main", name, Formats.YAML)
+  val outName = (name: String) =>  Features.outputPathname(Types.MAIN, name, Formats.YAML)
 
   feature(classOf[MainSon2YamlFeature].getSimpleName) {
     scenario("Apply with null pathname") {

@@ -9,7 +9,7 @@ class CliSon2XmlFeature extends FeatureSpec with GivenWhenThen {
 
   val SON2ML = Features.SON2 + " x"
 
-  val outName = (name: String) =>  Features.outputPathname("cli", name, Formats.XML)
+  val outName = (name: String) =>  Features.outputPathname(Types.CLI, name, Formats.XML)
 
   feature(classOf[CliSon2XmlFeature].getSimpleName) {
 

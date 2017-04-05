@@ -7,4 +7,6 @@ object Formats {
   val CSV = "csv"
   val JAVA_PROPS = "javaprops"
   val PROPERTIES = "properties"
+  val RISON = "rison"
+  val HOCON = "hocon"
 }

@@ -13,7 +13,7 @@ class StreamerXmlFeature extends FeatureSpec with GivenWhenThen {
 
   val given = () => new StreamerImpl(new ProviderXml)
 
-  val outName = (name: String) => Features.outputPathname("streamer", name, Formats.XML)
+  val outName = (name: String) => Features.outputPathname(Types.STREAMER, name, Formats.XML)
 
   feature(classOf[StreamerXmlFeature].getSimpleName) {
     scenario("Apply with null pathname") {

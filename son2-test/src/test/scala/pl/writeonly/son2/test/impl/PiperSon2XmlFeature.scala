@@ -11,7 +11,7 @@ class PiperSon2XmlFeature extends FeatureSpec with GivenWhenThen {
 
   val given = () => new Piper(new ProviderXml)
 
-  val outName = (name: String) =>  Features.outputPathname("piper", name, Formats.XML)
+  val outName = (name: String) =>  Features.outputPathname(Types.PIPER, name, Formats.XML)
 
   feature(classOf[PiperSon2XmlFeature].getSimpleName) {
     scenario("Apply with null pathname") {

@@ -8,7 +8,7 @@ import pl.writeonly.son2.impl.main.Main
 
 class MainSon2XmlFeature extends FeatureSpec with GivenWhenThen {
 
-  val outName = (name: String) =>  Features.outputPathname("main", name, Formats.XML)
+  val outName = (name: String) =>  Features.outputPathname(Types.MAIN, name, Formats.XML)
 
   feature(classOf[MainSon2XmlFeature].getSimpleName) {
     scenario("Apply with null pathname") {

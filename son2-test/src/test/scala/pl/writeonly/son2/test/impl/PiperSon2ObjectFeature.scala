@@ -11,7 +11,7 @@ class PiperSon2ObjectFeature extends FeatureSpec with GivenWhenThen {
 
   val given = () => new Piper(new ProviderObject)
 
-  val outName = (name: String) =>  Features.outputPathname("piper", name, Formats.OBJECT)
+  val outName = (name: String) =>  Features.outputPathname(Types.PIPER, name, Formats.OBJECT)
 
   feature(classOf[PiperSon2ObjectFeature].getSimpleName) {
     scenario("Apply with null pathname") {

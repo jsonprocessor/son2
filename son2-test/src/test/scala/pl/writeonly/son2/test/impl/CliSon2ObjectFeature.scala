@@ -9,7 +9,7 @@ class CliSon2ObjectFeature extends FeatureSpec with GivenWhenThen {
 
   val SON2ML = Features.SON2 + " o"
 
-  val outName = (name: String) =>  Features.outputPathname("cli", name, Formats.OBJECT)
+  val outName = (name: String) =>  Features.outputPathname(Types.CLI, name, Formats.OBJECT)
 
   feature(classOf[CliSon2ObjectFeature].getSimpleName) {
 
