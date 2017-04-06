@@ -65,7 +65,7 @@
                 <artifactId>scalatest-maven-plugin</artifactId>
                 <version>1.0</version>
                 <executions>
-                     <execution>
+                    <execution>
                         <id>test</id>
                         <goals>
                             <goal>test</goal>
