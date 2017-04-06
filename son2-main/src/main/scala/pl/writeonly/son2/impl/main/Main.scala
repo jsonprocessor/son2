@@ -1,16 +1,16 @@
 package pl.writeonly.son2.impl.main
 
-import pl.writeonly.son2.core.formats.FormatProvider
+import pl.writeonly.son2.core.formats.{Config, FormatProvider}
 import pl.writeonly.son2.core.providers._
 import pl.writeonly.son2.core.util.AppLogging
 
 object Main extends AppLogging {
 
-  def provider(arg:String): Option[Provider] = new FormatProvider().apply(arg)
+  def provider(arg:Config): Option[Provider] = new FormatProvider(arg).apply(arg.o)
 
   val providerOpt = args.length match {
     case 0 => Option.empty
-    case _ => provider(args(0).toLowerCase)
+    case _ => provider(Config(o = args(0).toLowerCase))
   }
 
   providerOpt.map { p =>

@@ -8,7 +8,7 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLMapper
 
 class FormatMapper extends Format[ObjectMapper] {
 
-  override def apply(): ObjectMapper = new ObjectMapper
+  override def on(): ObjectMapper = new ObjectMapper
 
   override def yaml(): ObjectMapper = new YAMLMapper
 
@@ -17,4 +17,10 @@ class FormatMapper extends Format[ObjectMapper] {
   override def csv(): ObjectMapper = new CsvMapper
 
   override def javaprops(): ObjectMapper = new JavaPropsMapper
+}
+
+object FormatMapper {
+  def apply(config:Config):ObjectMapper = apply(config.i)
+
+  def apply(i:String):ObjectMapper = new FormatMapper().apply(i).get
 }

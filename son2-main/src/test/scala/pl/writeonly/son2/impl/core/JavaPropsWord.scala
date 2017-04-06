@@ -3,12 +3,13 @@ package pl.writeonly.son2.impl.core
 import com.fasterxml.jackson.core.JsonParseException
 import com.fasterxml.jackson.databind.JsonMappingException
 import org.scalatest.{Matchers, WordSpec}
+import pl.writeonly.son2.core.formats.{FormatProvider, Formats}
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.core.providers.{Provider, ProviderJavaProps}
 
 class JavaPropsWord extends WordSpec with Matchers {
 
-  val provider: Provider = new ProviderJavaProps()
+  val provider: Provider = FormatProvider(Formats.JAVA_PROPS)
   "A Provider" should {
     "produce JsonParseException when convert a" in {
       assertThrows[JsonParseException] {

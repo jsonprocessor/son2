@@ -2,6 +2,7 @@ package pl.writeonly.son2.impl.core
 
 import org.scalatest.prop.TableDrivenPropertyChecks
 import org.scalatest.{Matchers, PropSpec}
+import pl.writeonly.son2.core.formats.{FormatProvider, Formats}
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.core.providers.{Provider, ProviderYaml}
 import pl.writeonly.son2.core.streamers.{Streamer, StreamerImpl}
@@ -27,7 +28,7 @@ class YamlProp extends PropSpec with TableDrivenPropertyChecks with Matchers {
     "a"
   )
 
-  val provider: Provider = new ProviderYaml()
+  val provider: Provider = FormatProvider(Formats.YAML)
   property("convert son to yaml by provider") {
     forAll(toSuccess) { (in, out) =>
       provider.convert(in) should be(out)

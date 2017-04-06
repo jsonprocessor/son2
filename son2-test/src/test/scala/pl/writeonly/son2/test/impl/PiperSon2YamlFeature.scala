@@ -3,13 +3,13 @@ package pl.writeonly.son2.test.impl
 import java.io.FileNotFoundException
 
 import org.scalatest.{FeatureSpec, GivenWhenThen}
-import pl.writeonly.son2.core.formats.Formats
+import pl.writeonly.son2.core.formats.{FormatProvider, Formats}
 import pl.writeonly.son2.core.providers.ProviderYaml
 import pl.writeonly.son2.impl.main.Piper
 
 class PiperSon2YamlFeature extends FeatureSpec with GivenWhenThen {
 
-  val given = () => new Piper(new ProviderYaml)
+  val given = () => new Piper(FormatProvider(Formats.YAML))
 
   val outName = (name: String) =>  Features.outputPathname(Types.PIPER, name, Formats.YAML)
 

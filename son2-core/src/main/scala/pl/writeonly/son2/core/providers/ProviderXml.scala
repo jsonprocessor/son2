@@ -6,7 +6,7 @@ import pl.writeonly.son2.core.liners.Liner
 //import com.fasterxml.jackson.dataformat.xml.XmlMapper
 import com.fasterxml.jackson.dataformat.xml.XmlMapper
 
-class ProviderXml() extends Provider(new XmlMapper()) {
+class ProviderXml(in:ObjectMapper) extends Provider(in, new XmlMapper()) {
 
   override def comment(s: String) = "<!-- " + s + " -->"
 }

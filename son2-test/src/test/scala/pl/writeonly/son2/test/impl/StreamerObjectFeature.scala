@@ -3,7 +3,7 @@ package pl.writeonly.son2.test.impl
 import java.io.FileNotFoundException
 
 import org.scalatest.{FeatureSpec, GivenWhenThen}
-import pl.writeonly.son2.core.formats.Formats
+import pl.writeonly.son2.core.formats.{FormatProvider, Formats}
 import pl.writeonly.son2.core.providers.ProviderObject
 import pl.writeonly.son2.core.streamers.StreamerImpl
 
@@ -11,7 +11,7 @@ class StreamerObjectFeature extends FeatureSpec with GivenWhenThen {
 
   info("FileJson2YamlImpl with Json2YamlJackson")
 
-  val given = () => new StreamerImpl(new ProviderObject)
+  val given = () => new StreamerImpl(FormatProvider(Formats.OBJECT))
 
   val outName = (name: String) => Features.outputPathname(Types.STREAMER, name, Formats.OBJECT)
 

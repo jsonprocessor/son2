@@ -9,7 +9,7 @@ import pl.writeonly.son2.core.formats.Formats._
 
 trait Format[F] {
   def apply(arg : String) :Option[F] = arg match {
-    case o if (OBJECT.startsWith(o)) => Option(apply())
+    case o if (OBJECT.startsWith(o)) => Option(on())
     case y if (YAML.startsWith(y)) => Option(yaml())
     case x if (XML.startsWith(x)) => Option(xml())
     case c if (CSV.startsWith(c)) => Option(csv())
@@ -18,7 +18,7 @@ trait Format[F] {
     case _ => Option.empty
   }
 
-  def apply() : F
+  def on() : F
   def yaml() : F
   def xml() : F
   def csv() : F
