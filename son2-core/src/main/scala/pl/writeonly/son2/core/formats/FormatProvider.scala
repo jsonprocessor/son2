@@ -4,15 +4,15 @@ import pl.writeonly.son2.core.providers._
 
 class FormatProvider(config : Config) extends Format[Provider] {
 
-  override def on(): Provider = new ProviderObject(FormatMapper(config))
+  override def on(): Provider = new ProviderObject(config)
 
-  override def yaml(): Provider = new ProviderYaml(FormatMapper(config))
+  override def yaml(): Provider = new ProviderYaml(config)
 
-  override def xml(): Provider = new ProviderXml(FormatMapper(config))
+  override def xml(): Provider = new ProviderXml(config)
 
-  override def csv(): Provider = new ProviderCsv(FormatMapper(config))
+  override def csv(): Provider = new ProviderCsv(config)
 
-  override def javaprops(): Provider = new ProviderJavaProps(FormatMapper(config))
+  override def javaprops(): Provider = new ProviderJavaProps(config)
 
   def apply():Option[Provider] = apply(config.o)
 }
