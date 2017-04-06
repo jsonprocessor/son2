@@ -3,13 +3,13 @@ package pl.writeonly.son2.test.impl
 import org.scalatest.{FeatureSpec, GivenWhenThen}
 import pl.writeonly.son2.core.formats.Formats
 
-import sys.process._
+import scala.sys.process._
 
 class CliSon2YamlFeature extends FeatureSpec with GivenWhenThen {
 
   val SON2ML = Features.SON2 + " y"
 
-  val outName = (name: String) =>  Features.outputPathname(Types.CLI, name, Formats.YAML)
+  val outName = (name: String) => Features.outputPathname(Types.CLI, name, Formats.YAML)
 
   feature(classOf[CliSon2YamlFeature].getSimpleName) {
 
@@ -28,8 +28,9 @@ class CliSon2YamlFeature extends FeatureSpec with GivenWhenThen {
       val in = Features.inputPathname
       val file = SON2ML + " " + in + " " + outName("two")
       When("should produce null when consume null")
-        val result = file.!!
+      val result = file.!!
       Then("0 == result")
-      assert("" == result)    }
+      assert("" == result)
+    }
   }
 }

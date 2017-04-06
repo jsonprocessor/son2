@@ -4,7 +4,7 @@ import org.scalatest.prop.TableDrivenPropertyChecks
 import org.scalatest.{Matchers, PropSpec}
 import pl.writeonly.son2.core.formats.{FormatProvider, Formats}
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
-import pl.writeonly.son2.core.providers.{Provider, ProviderYaml}
+import pl.writeonly.son2.core.providers.Provider
 import pl.writeonly.son2.core.streamers.{Streamer, StreamerImpl}
 
 class YamlProp extends PropSpec with TableDrivenPropertyChecks with Matchers {
@@ -23,7 +23,7 @@ class YamlProp extends PropSpec with TableDrivenPropertyChecks with Matchers {
     ("{\"a\":[]}", "---\na: []\n")
   )
 
-  val toFailure = Table (
+  val toFailure = Table(
     "in",
     "a"
   )

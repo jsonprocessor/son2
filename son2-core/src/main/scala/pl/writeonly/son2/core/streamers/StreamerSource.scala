@@ -12,7 +12,7 @@ import scala.io.Source
 
 class StreamerSource(liner: Liner) extends Streamer(liner) {
 
-  def this(provider : Provider) = this(new LinerOpt(provider))
+  def this(provider: Provider) = this(new LinerOpt(provider))
 
   def convertStringNative(in: String): String = {
     val sb = new StringBuilder()

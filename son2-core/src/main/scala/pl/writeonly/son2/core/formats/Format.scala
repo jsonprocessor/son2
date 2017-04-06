@@ -1,14 +1,9 @@
 package pl.writeonly.son2.core.formats
 
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.dataformat.csv.CsvMapper
-import com.fasterxml.jackson.dataformat.javaprop.JavaPropsMapper
-import com.fasterxml.jackson.dataformat.xml.XmlMapper
-import com.fasterxml.jackson.dataformat.yaml.YAMLMapper
 import pl.writeonly.son2.core.formats.Formats._
 
 trait Format[F] {
-  def apply(arg : String) :Option[F] = arg match {
+  def apply(arg: String): Option[F] = arg match {
     case o if (OBJECT.startsWith(o)) => Option(on())
     case y if (YAML.startsWith(y)) => Option(yaml())
     case x if (XML.startsWith(x)) => Option(xml())
@@ -18,9 +13,13 @@ trait Format[F] {
     case _ => Option.empty
   }
 
-  def on() : F
-  def yaml() : F
-  def xml() : F
-  def csv() : F
-  def javaprops() : F
+  def on(): F
+
+  def yaml(): F
+
+  def xml(): F
+
+  def csv(): F
+
+  def javaprops(): F
 }

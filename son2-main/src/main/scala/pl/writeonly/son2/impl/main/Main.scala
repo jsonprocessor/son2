@@ -6,12 +6,12 @@ import pl.writeonly.son2.core.util.AppLogging
 
 object Main extends AppLogging {
 
-  def provider(arg:Config): Option[Provider] = new FormatProvider(arg).apply(arg.o)
-
   val providerOpt = args.length match {
     case 0 => Option.empty
     case _ => provider(Config(o = args(0).toLowerCase))
   }
+
+  def provider(arg: Config): Option[Provider] = new FormatProvider(arg).apply(arg.o)
 
   providerOpt.map { p =>
     val main = new Piper(p)

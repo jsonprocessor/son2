@@ -6,12 +6,12 @@ import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.core.providers.Provider
 import pl.writeonly.son2.core.streamers.{StreamerImpl, StreamerSource}
 
-class Piper(val liner: Liner){
-
-  def this (provider: Provider) = this(new LinerOpt (provider))
+class Piper(val liner: Liner) {
 
   val impl = new StreamerImpl(liner)
   val source = new StreamerSource(liner)
+
+  def this(provider: Provider) = this(new LinerOpt(provider))
 
   def convertStream() = impl.convertStream(System.in, System.out)
 
@@ -19,10 +19,10 @@ class Piper(val liner: Liner){
 
   def convertFile(in: String) = convertStream(new FileInputStream(in))
 
-  def convertResource(name:String) = convertStream(resourceAsStream(name))
-
   def convertStream(in: InputStream) = source.convertStream(in, System.out)
 
-  def resourceAsStream(name:String) = getClass().getClassLoader().getResourceAsStream(name)
+  def convertResource(name: String) = convertStream(resourceAsStream(name))
+
+  def resourceAsStream(name: String) = getClass().getClassLoader().getResourceAsStream(name)
 
 }

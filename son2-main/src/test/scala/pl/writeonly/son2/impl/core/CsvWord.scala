@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.JsonMappingException
 import org.scalatest.{Matchers, WordSpec}
 import pl.writeonly.son2.core.formats.{FormatProvider, Formats}
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
-import pl.writeonly.son2.core.providers.{Provider, ProviderCsv}
+import pl.writeonly.son2.core.providers.Provider
 
 class CsvWord extends WordSpec with Matchers {
 

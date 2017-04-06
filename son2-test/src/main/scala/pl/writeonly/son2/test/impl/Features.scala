@@ -10,25 +10,25 @@ object Features {
   val CAT = "cat"
   val DIR = "dir"
 
-  def outputPathname(feature: String, scenario: String, extension :String ) =
-    DIR +"/"+ "son2" + "." + feature + "." + scenario + "." + extension
+  def outputPathname(feature: String, scenario: String, extension: String) =
+    DIR + "/" + "son2" + "." + feature + "." + scenario + "." + extension
 
-  def outputPathname(prefix:String, feature: String, scenario: String, extension :String ) =
-    DIR +"/"+ prefix + "." + feature + "." + scenario + "." + extension
+  def outputPathname(prefix: String, feature: String, scenario: String, extension: String) =
+    DIR + "/" + prefix + "." + feature + "." + scenario + "." + extension
 
 
-  def inputURI:URI = inputURI(NAME)
+  def inputURI: URI = inputURI(NAME)
 
-  def inputURI(name:String):URI = getClass.getResource("/" + name).toURI
+  def inputURI(name: String): URI = getClass.getResource("/" + name).toURI
 
   def inputFile = new File(inputURI(NAME))
 
-  def inputPathname:String = inputPathname(NAME)
+  def inputPathname: String = inputPathname(NAME)
 
-  def inputPathname(name:String):String = Paths.get(inputURI(name)).toString
+  def inputPathname(name: String): String = Paths.get(inputURI(name)).toString
 
-  def toFile(pathname:String) = new File(pathname)
+  def toURI(pathname: String) = toFile(pathname).toURI
 
-  def toURI(pathname:String) = toFile(pathname).toURI
+  def toFile(pathname: String) = new File(pathname)
 
 }

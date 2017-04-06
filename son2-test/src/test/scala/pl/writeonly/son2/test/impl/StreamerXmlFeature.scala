@@ -4,7 +4,6 @@ import java.io.FileNotFoundException
 
 import org.scalatest.{FeatureSpec, GivenWhenThen}
 import pl.writeonly.son2.core.formats.{FormatProvider, Formats}
-import pl.writeonly.son2.core.providers.ProviderXml
 import pl.writeonly.son2.core.streamers.StreamerImpl
 
 class StreamerXmlFeature extends FeatureSpec with GivenWhenThen {

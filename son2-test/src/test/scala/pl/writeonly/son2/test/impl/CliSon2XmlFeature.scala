@@ -9,7 +9,7 @@ class CliSon2XmlFeature extends FeatureSpec with GivenWhenThen {
 
   val SON2ML = Features.SON2 + " x"
 
-  val outName = (name: String) =>  Features.outputPathname(Types.CLI, name, Formats.XML)
+  val outName = (name: String) => Features.outputPathname(Types.CLI, name, Formats.XML)
 
   feature(classOf[CliSon2XmlFeature].getSimpleName) {
 
@@ -28,8 +28,9 @@ class CliSon2XmlFeature extends FeatureSpec with GivenWhenThen {
       val in = Features.inputPathname
       val file = SON2ML + " " + in + " " + outName("two")
       When("should produce null when consume null")
-        val result = file.!!
+      val result = file.!!
       Then("0 == result")
-      assert("" == result)    }
+      assert("" == result)
+    }
   }
 }

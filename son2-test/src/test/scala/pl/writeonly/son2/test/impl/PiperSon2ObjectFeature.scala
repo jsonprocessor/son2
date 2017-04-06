@@ -4,14 +4,13 @@ import java.io.FileNotFoundException
 
 import org.scalatest.{FeatureSpec, GivenWhenThen}
 import pl.writeonly.son2.core.formats.{FormatProvider, Formats}
-import pl.writeonly.son2.core.providers.ProviderObject
 import pl.writeonly.son2.impl.main.Piper
 
 class PiperSon2ObjectFeature extends FeatureSpec with GivenWhenThen {
 
   val given = () => new Piper(FormatProvider(Formats.OBJECT))
 
-  val outName = (name: String) =>  Features.outputPathname(Types.PIPER, name, Formats.OBJECT)
+  val outName = (name: String) => Features.outputPathname(Types.PIPER, name, Formats.OBJECT)
 
   feature(classOf[PiperSon2ObjectFeature].getSimpleName) {
     scenario("Apply with null pathname") {

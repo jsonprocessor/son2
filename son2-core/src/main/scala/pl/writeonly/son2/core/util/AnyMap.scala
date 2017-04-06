@@ -1,7 +1,5 @@
 package pl.writeonly.son2.core.util
 
-import java.util
-
 import scala.collection.immutable.AbstractMap
 
 class AnyMap(val any: Any) extends AbstractMap[String, Any] {

@@ -11,7 +11,7 @@ import pl.writeonly.son2.core.util.Control.{toConsumerAny, using}
 
 class StreamerImpl(liner: Liner) extends Streamer(liner) {
 
-  def this(provider : Provider) = this(new LinerOpt(provider))
+  def this(provider: Provider) = this(new LinerOpt(provider))
 
   override def convertFile(in: URI, out: URI): Unit = convertFile(new File(in), new File(out))
 

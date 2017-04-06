@@ -2,7 +2,7 @@ package pl.writeonly.son2.core.formats
 
 import pl.writeonly.son2.core.providers._
 
-class FormatProvider(config : Config) extends Format[Provider] {
+class FormatProvider(config: Config) extends Format[Provider] {
 
   override def on(): Provider = new ProviderObject(config)
 
@@ -14,11 +14,11 @@ class FormatProvider(config : Config) extends Format[Provider] {
 
   override def javaprops(): Provider = new ProviderJavaProps(config)
 
-  def apply():Option[Provider] = apply(config.o)
+  def apply(): Option[Provider] = apply(config.o)
 }
 
 object FormatProvider {
-  def apply(o:String):Provider = apply(Config(o=o))
+  def apply(o: String): Provider = apply(Config(o = o))
 
-  def apply(config:Config):Provider = new FormatProvider(config).apply().get
+  def apply(config: Config): Provider = new FormatProvider(config).apply().get
 }
