@@ -1,4 +1,4 @@
-package pl.writeonly.son2.impl.core
+package pl.writeonly.son2.core.providers
 
 import com.fasterxml.jackson.core.JsonParseException
 import com.fasterxml.jackson.databind.JsonMappingException
@@ -8,9 +8,9 @@ import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.core.core.Formats
 import pl.writeonly.son2.core.providers.Provider
 
-class ObjectWord extends WordSpec with Matchers {
+class CsvWord extends WordSpec with Matchers {
 
-  val provider: Provider = FormatProvider(Formats.OBJECT)
+  val provider: Provider = FormatProvider(Formats.CSV)
   "A Provider" should {
     "produce JsonParseException when convert a" in {
       assertThrows[JsonParseException] {
