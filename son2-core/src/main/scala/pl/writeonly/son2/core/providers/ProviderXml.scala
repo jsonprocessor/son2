@@ -1,7 +1,7 @@
 package pl.writeonly.son2.core.providers
 
 import com.fasterxml.jackson.dataformat.xml.XmlMapper
-import pl.writeonly.son2.core.formats.Config
+import pl.writeonly.son2.core.core.Config
 
 class ProviderXml(config: Config) extends Provider(config, new XmlMapper()) {
 

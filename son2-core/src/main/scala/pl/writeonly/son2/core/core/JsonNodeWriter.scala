@@ -1,4 +1,4 @@
-package pl.writeonly.son2.core.node
+package pl.writeonly.son2.core.core
 
 import com.fasterxml.jackson.databind.{JsonNode, ObjectMapper}
 

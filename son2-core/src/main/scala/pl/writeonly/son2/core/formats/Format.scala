@@ -1,6 +1,6 @@
 package pl.writeonly.son2.core.formats
 
-import pl.writeonly.son2.core.formats.Formats._
+import pl.writeonly.son2.core.core.Formats._
 
 trait Format[F] {
   def apply(arg: String): Option[F] = arg match {

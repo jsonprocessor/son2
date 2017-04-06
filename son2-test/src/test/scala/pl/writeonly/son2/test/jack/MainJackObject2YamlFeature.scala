@@ -1,7 +1,7 @@
 package pl.writeonly.son2.test.jack
 
 import org.scalatest.{FeatureSpec, GivenWhenThen}
-import pl.writeonly.son2.core.formats.Formats._
+import pl.writeonly.son2.core.core.Formats._
 import pl.writeonly.son2.jack.main.Main
 import pl.writeonly.son2.test.impl.{Features, Types}
 

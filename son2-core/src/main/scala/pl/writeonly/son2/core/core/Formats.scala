@@ -1,4 +1,4 @@
-package pl.writeonly.son2.core.formats
+package pl.writeonly.son2.core.core
 
 object Formats {
   val OBJECT = "object"

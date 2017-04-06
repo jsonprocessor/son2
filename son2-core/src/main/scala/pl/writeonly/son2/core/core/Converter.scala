@@ -1,6 +1,4 @@
-package pl.writeonly.son2.core
-
-import pl.writeonly.son2.core.node.{JsonNodeReader, JsonNodeWriter}
+package pl.writeonly.son2.core.core
 
 class Converter(val in: JsonNodeReader, val out: JsonNodeWriter) {
 

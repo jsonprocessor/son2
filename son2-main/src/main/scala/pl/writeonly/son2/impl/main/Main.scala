@@ -1,6 +1,7 @@
 package pl.writeonly.son2.impl.main
 
-import pl.writeonly.son2.core.formats.{Config, FormatProvider}
+import pl.writeonly.son2.core.formats.FormatProvider
+import pl.writeonly.son2.core.core.Config
 import pl.writeonly.son2.core.providers._
 import pl.writeonly.son2.core.util.AppLogging
 
