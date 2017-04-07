@@ -14,49 +14,45 @@ class StreamerSource(liner: Liner) extends Streamer(liner) {
 
   def this(provider: Provider) = this(new LinerOpt(provider))
 
-  def convertStringNative(in: String): String = {
-    val sb = new StringBuilder()
-    Source.fromString(in).getLines().foreach { line =>
-      appendLine(sb, line)
-    }
-    sb.toString
-  }
+  def convertStringNative(in: String): String = source2string(Source.fromString(in))
 
-  override def convertBytes(in: Array[Byte]): Array[Byte] = {
-    val sb = new StringBuilder()
-    Source.fromRawBytes(in).getLines().foreach { line =>
-      appendLine(sb, line)
-    }
-    sb.toString.getBytes
-  }
+  override def convertBytes(in: Array[Byte]): Array[Byte] = source2string(Source.fromRawBytes(in)).getBytes
 
   override def convertFile(in: URI, out: URI): Unit = {
-    using(new PrintWriter(new File(out))) { pw =>
-      using(Source.fromURI(in)) { source =>
-        source.getLines().foreach { line =>
-          appendLine(pw, line)
-        }
+    using(Source.fromURI(in)) { source =>
+      using(new PrintWriter(new File(out))) { pw =>
+        source2pw(source, pw)
       }
     }
   }
 
   override def convertFile(in: File, out: File): Unit = {
-    using(new PrintWriter(out)) { pw =>
-      using(Source.fromFile(in)) { source =>
-        source.getLines().foreach { line =>
-          appendLine(pw, line)
-        }
+    using(Source.fromFile(in)) { source =>
+      using(new PrintWriter(out)) { pw =>
+        source2pw(source, pw)
       }
     }
   }
 
   override def convertStream(in: InputStream, out: OutputStream): Unit = {
-    using(new PrintWriter(out)) { pw =>
-      using(Source.fromInputStream(in, Control.UTF_8)) { source =>
-        source.getLines().foreach { line =>
-          appendLine(pw, line)
-        }
+    using(Source.fromInputStream(in, Control.UTF_8)) { source =>
+      using(new PrintWriter(out)) { pw =>
+        source2pw(source, pw)
       }
+    }
+  }
+
+  def source2string(source : Source) : String = {
+    val sb = new StringBuilder()
+    source.getLines().foreach { line =>
+      appendLine(sb, line)
+    }
+    sb.toString()
+  }
+
+  def source2pw(source :Source, pw : PrintWriter): Unit = {
+    source.getLines().foreach { line =>
+      appendLine(pw, line)
     }
   }
 }

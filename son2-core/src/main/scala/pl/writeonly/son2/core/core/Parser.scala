@@ -8,5 +8,5 @@ class Parser {
 //  val module = new OptionModule with TupleModule {}
   mapper.registerModule(DefaultScalaModule)
 
-  def config(json:String):Config = mapper.readValue(json, classOf[Config])
+  def apply(json:String):Config = mapper.readValue(json, classOf[Config])
 }

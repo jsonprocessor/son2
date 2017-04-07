@@ -5,8 +5,7 @@ import org.scalatest.{Matchers, PropSpec}
 import pl.writeonly.son2.core.formats.FormatProvider
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.core.core.Formats
-import pl.writeonly.son2.core.providers.Provider
-import pl.writeonly.son2.core.streamers.{Streamer, StreamerImpl}
+import pl.writeonly.son2.core.streamers.{Streamer, StreamerImplForeach}
 
 class JavaPropsProp extends PropSpec with TableDrivenPropertyChecks with Matchers {
 
@@ -48,7 +47,7 @@ class JavaPropsProp extends PropSpec with TableDrivenPropertyChecks with Matcher
     }
   }
 
-  val streamer: Streamer = new StreamerImpl(liner)
+  val streamer: Streamer = new StreamerImplForeach(liner)
   property("convert son to yaml by streamer") {
     forAll(toSuccess) { (in, out) =>
       streamer.convertString(in) should be(out + "\n")

@@ -5,13 +5,13 @@ import java.io.FileNotFoundException
 import org.scalatest.{FeatureSpec, GivenWhenThen}
 import pl.writeonly.son2.core.formats.FormatProvider
 import pl.writeonly.son2.core.core.Formats
-import pl.writeonly.son2.core.streamers.StreamerImpl
+import pl.writeonly.son2.core.streamers.StreamerImplForeach
 
 class StreamerYamlFeature extends FeatureSpec with GivenWhenThen {
 
   info("StreamerImpl with ProviderYaml")
 
-  val given = () => new StreamerImpl(FormatProvider(Formats.YAML))
+  val given = () => new StreamerImplForeach(FormatProvider(Formats.YAML))
 
   val outName = (name: String) => Features.outputPathname(Types.STREAMER, name, Formats.YAML)
 

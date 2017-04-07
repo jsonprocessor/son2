@@ -2,6 +2,7 @@ package pl.writeonly.son2.core.streamers
 
 import java.io._
 import java.net.URI
+import java.util.stream.Stream
 
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.core.providers.Provider
@@ -9,7 +10,7 @@ import pl.writeonly.son2.core.util.Control
 import pl.writeonly.son2.core.util.Control.{toConsumerAny, using}
 
 
-class StreamerImpl(liner: Liner) extends Streamer(liner) {
+abstract class StreamerImpl(liner: Liner) extends Streamer(liner) {
 
   def this(provider: Provider) = this(new LinerOpt(provider))
 
@@ -30,9 +31,7 @@ class StreamerImpl(liner: Liner) extends Streamer(liner) {
   }
 
   def convertBuffered(in: BufferedReader, out: BufferedWriter): Unit = {
-    in.lines().forEach { (line: String) =>
-      appendLine(out, line)
-    }
+    stream2(in.lines(), out)
   }
 
   override def convertStringNative(in: String): String = {
@@ -46,4 +45,7 @@ class StreamerImpl(liner: Liner) extends Streamer(liner) {
     convertStream(new ByteArrayInputStream(in), out)
     out.toByteArray
   }
+
+  def stream2(stream : Stream[String], out: Writer): Unit
+
 }

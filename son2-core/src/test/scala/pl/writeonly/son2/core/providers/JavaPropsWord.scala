@@ -6,7 +6,6 @@ import org.scalatest.{Matchers, WordSpec}
 import pl.writeonly.son2.core.formats.FormatProvider
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.core.core.Formats
-import pl.writeonly.son2.core.providers.Provider
 
 class JavaPropsWord extends WordSpec with Matchers {
 
