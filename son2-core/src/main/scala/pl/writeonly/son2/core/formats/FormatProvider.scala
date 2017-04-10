@@ -21,5 +21,7 @@ class FormatProvider(config: Config) extends Format[Provider] {
 object FormatProvider {
   def apply(o: String): Provider = apply(Config(o = o))
 
-  def apply(config: Config): Provider = new FormatProvider(config).apply().get
+  def apply(config: Config): Provider = opt(config).get
+
+  def opt(config: Config): Option[Provider] = new FormatProvider(config).apply()
 }

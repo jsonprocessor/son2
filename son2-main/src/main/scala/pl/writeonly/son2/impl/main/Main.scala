@@ -12,7 +12,7 @@ object Main extends AppLogging {
     case _ => provider(Config(o = args(0).toLowerCase))
   }
 
-  def provider(arg: Config): Option[Provider] = new FormatProvider(arg).apply(arg.o)
+  def provider(arg: Config): Option[Provider] = FormatProvider.opt(arg)
 
   providerOpt.map { p =>
     val main = new Piper(p)
