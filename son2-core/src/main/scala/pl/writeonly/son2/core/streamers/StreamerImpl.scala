@@ -7,7 +7,7 @@ import java.util.stream.Stream
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.core.providers.Provider
 import pl.writeonly.son2.core.util.Control
-import pl.writeonly.son2.core.util.Control.{toConsumerAny, using}
+import pl.writeonly.son2.core.util.Control.using
 
 
 abstract class StreamerImpl(liner: Liner) extends Streamer(liner) {
@@ -22,6 +22,12 @@ abstract class StreamerImpl(liner: Liner) extends Streamer(liner) {
     convertNative(new InputStreamReader(in, Control.UTF_8), new OutputStreamWriter(out, Control.UTF_8))
   }
 
+  override def convertStringNative(in: String): String = {
+    val out = new StringWriter()
+    convertNative(new StringReader(in), out)
+    out.toString
+  }
+
   def convertNative(in: Reader, out: Writer): Unit = {
     using(new BufferedWriter(out)) { bw =>
       using(new BufferedReader(in)) { br =>
@@ -34,18 +40,12 @@ abstract class StreamerImpl(liner: Liner) extends Streamer(liner) {
     stream2(in.lines(), out)
   }
 
-  override def convertStringNative(in: String): String = {
-    val out = new StringWriter()
-    convertNative(new StringReader(in), out)
-    out.toString
-  }
-
   override def convertBytes(in: Array[Byte]): Array[Byte] = {
     val out = new ByteArrayOutputStream()
     convertStream(new ByteArrayInputStream(in), out)
     out.toByteArray
   }
 
-  def stream2(stream : Stream[String], out: Writer): Unit
+  def stream2(stream: Stream[String], out: Writer): Unit
 
 }

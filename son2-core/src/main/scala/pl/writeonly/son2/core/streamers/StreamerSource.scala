@@ -10,7 +10,7 @@ import pl.writeonly.son2.core.util.Control.using
 
 import scala.io.Source
 
-class StreamerSource(liner: Liner) extends Streamer(liner) {
+abstract class StreamerSource(liner: Liner) extends Streamer(liner) {
 
   def this(provider: Provider) = this(new LinerOpt(provider))
 
@@ -42,17 +42,7 @@ class StreamerSource(liner: Liner) extends Streamer(liner) {
     }
   }
 
-  def source2string(source : Source) : String = {
-    val sb = new StringBuilder()
-    source.getLines().foreach { line =>
-      appendLine(sb, line)
-    }
-    sb.toString()
-  }
+  def source2string(source: Source): String
 
-  def source2pw(source :Source, pw : PrintWriter): Unit = {
-    source.getLines().foreach { line =>
-      appendLine(pw, line)
-    }
-  }
+  def source2pw(source: Source, pw: PrintWriter): Unit
 }

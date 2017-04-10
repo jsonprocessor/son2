@@ -19,9 +19,9 @@ class Piper(val liner: Liner) {
 
   def convertFile(in: String) = convertStream(new FileInputStream(in))
 
-  def convertStream(in: InputStream) = source.convertStream(in, System.out)
-
   def convertResource(name: String) = convertStream(resourceAsStream(name))
+
+  def convertStream(in: InputStream) = source.convertStream(in, System.out)
 
   def resourceAsStream(name: String) = getClass().getClassLoader().getResourceAsStream(name)
 

@@ -3,9 +3,9 @@ package pl.writeonly.son2.core.providers
 import com.fasterxml.jackson.core.JsonParseException
 import com.fasterxml.jackson.databind.JsonMappingException
 import org.scalatest.{Matchers, WordSpec}
+import pl.writeonly.son2.core.core.Formats
 import pl.writeonly.son2.core.formats.FormatProvider
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
-import pl.writeonly.son2.core.core.Formats
 
 class ObjectWord extends WordSpec with Matchers {
 

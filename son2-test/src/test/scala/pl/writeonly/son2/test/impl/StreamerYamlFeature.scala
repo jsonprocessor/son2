@@ -3,8 +3,8 @@ package pl.writeonly.son2.test.impl
 import java.io.FileNotFoundException
 
 import org.scalatest.{FeatureSpec, GivenWhenThen}
-import pl.writeonly.son2.core.formats.FormatProvider
 import pl.writeonly.son2.core.core.Formats
+import pl.writeonly.son2.core.formats.FormatProvider
 import pl.writeonly.son2.core.streamers.StreamerImplForeach
 
 class StreamerYamlFeature extends FeatureSpec with GivenWhenThen {
