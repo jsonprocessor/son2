@@ -4,12 +4,12 @@ import java.io.{FileInputStream, InputStream}
 
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.core.providers.Provider
-import pl.writeonly.son2.core.streamers.{StreamerImplForeach, StreamerSource}
+import pl.writeonly.son2.core.streamers.{StreamerImplForeach, StreamerSourceForeach}
 
 class Piper(val liner: Liner) {
 
   val impl = new StreamerImplForeach(liner)
-  val source = new StreamerSource(liner)
+  val source = new StreamerSourceForeach(liner)
 
   def this(provider: Provider) = this(new LinerOpt(provider))
 
