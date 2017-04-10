@@ -23,5 +23,5 @@ class FormatMapper extends Format[ObjectMapper] {
 object FormatMapper {
   def apply(config: Config): ObjectMapper = apply(config.i)
 
-  def apply(i: String): ObjectMapper = new FormatMapper().apply(i).get
+  def apply(i: String): ObjectMapper = new FormatMapper().apply(i).right.get
 }
