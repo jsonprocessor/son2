@@ -33,9 +33,9 @@ object Main extends AppLogging {
   def validOpt(resource: Option[String]) = valid(resource.getOrElse(Resources.README))
 
   def valid(resource: String) = Resources.ALL
-    .find(it => it.toUpperCase.startsWith(resource))
+    .find(it => it.toLowerCase.startsWith(resource))
     .getOrElse({
-      Resources.UNKNOWN_FORMAT + resource
+      println(Resources.UNKNOWN_FORMAT + resource)
       Resources.README
     })
 
