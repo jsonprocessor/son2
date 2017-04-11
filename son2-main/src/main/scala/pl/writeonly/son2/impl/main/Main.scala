@@ -5,28 +5,38 @@ import pl.writeonly.son2.core.formats.FormatProvider
 import pl.writeonly.son2.core.providers._
 import pl.writeonly.son2.core.util.AppLogging
 
+
 object Main extends AppLogging {
 
-  def right(p:Provider) = {
-    val piper = new Piper(p)
-    args.length match {
-      case 1 => piper.convertStream();
-      case 2 => piper.convertFile(args(1));
-      case _ => piper.convertFile(args(1), args(2));
-    }}
-
-  def left() = {
-    val main = new Piper(new ProviderImpl)
-    main.convertResource("README.md")
-  }
-
-  val provider : Either[String, Provider] = args.length match {
-    case 0 => Left(null)
-    case _ => FormatProvider.opt(Config(o = args(0).toLowerCase))
-  }
-
   provider match {
-    case Right(x) => right(x)
-    case Left(x) => left()
+    case Right(provider) => right(new Piper(provider))
+    case Left(format) => left(format)
   }
+
+  def provider: Either[Option[String], Provider] = length match {
+    case 0 => Left(Option.empty)
+    case _ => FormatProvider.opt(Config(o = o))
+  }
+
+  def length = args.length
+
+  def o = args(0).toLowerCase
+
+  def right(piper: Piper) = length match {
+    case 1 => piper.convertStream();
+    case 2 => piper.convertFile(args(1));
+    case _ => piper.convertFile(args(1), args(2));
+  }
+
+  def left(resource: Option[String]) = new Piper(new ProviderImpl).convertResource(validOpt(resource))
+
+  def validOpt(resource: Option[String]) = valid(resource.getOrElse(Resources.README))
+
+  def valid(resource: String) = Resources.ALL
+    .find(it => it.toUpperCase.startsWith(resource))
+    .getOrElse({
+      Resources.UNKNOWN_FORMAT + resource
+      Resources.README
+    })
+
 }

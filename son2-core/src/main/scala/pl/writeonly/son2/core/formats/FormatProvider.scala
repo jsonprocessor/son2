@@ -15,7 +15,7 @@ class FormatProvider(config: Config) extends Format[Provider] {
 
   override def javaprops(): Provider = new ProviderJavaProps(config)
 
-  def apply(): Either[String, Provider] = apply(config.o)
+  def apply(): Either[Option[String], Provider] = apply(config.o)
 }
 
 object FormatProvider {
@@ -23,9 +23,9 @@ object FormatProvider {
 
   def apply(config: Config): Provider = opt(config).right.get
 
-//  def opt(config: Config): Option[Provider] = new FormatProvider(config).apply()
+  //  def opt(config: Config): Option[Provider] = new FormatProvider(config).apply()
 
-  def opt(config: Config): Either[String, Provider] = new FormatProvider(config).apply()
+  def opt(config: Config): Either[Option[String], Provider] = new FormatProvider(config).apply()
 
 
 }
