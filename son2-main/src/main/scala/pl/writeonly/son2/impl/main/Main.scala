@@ -15,7 +15,7 @@ object Main extends AppLogging {
 
   def provider: Either[Option[String], Provider] = length match {
     case 0 => Left(Option.empty)
-    case _ => FormatProvider.opt(Config(o = o))
+    case _ => FormatProvider.either(Config(o = o))
   }
 
   def length = args.length

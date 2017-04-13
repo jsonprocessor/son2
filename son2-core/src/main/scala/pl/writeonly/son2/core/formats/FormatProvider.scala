@@ -21,11 +21,11 @@ class FormatProvider(config: Config) extends Format[Provider] {
 object FormatProvider {
   def apply(o: String): Provider = apply(Config(o = o))
 
-  def apply(config: Config): Provider = opt(config).right.get
+  def apply(config: Config): Provider = either(config).right.get
 
   //  def opt(config: Config): Option[Provider] = new FormatProvider(config).apply()
 
-  def opt(config: Config): Either[Option[String], Provider] = new FormatProvider(config).apply()
+  def either(config: Config): Either[Option[String], Provider] = new FormatProvider(config).apply()
 
-
+//either
 }
