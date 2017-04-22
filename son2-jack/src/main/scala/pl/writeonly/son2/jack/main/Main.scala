@@ -1,8 +1,8 @@
 package pl.writeonly.son2.jack.main
 
-import pl.writeonly.son2.core.util.AppLogging
+import pl.writeonly.son2.core.util.AppLazyLogging
 
 
-object Main extends AppLogging {
+object Main extends AppLazyLogging {
 
 }

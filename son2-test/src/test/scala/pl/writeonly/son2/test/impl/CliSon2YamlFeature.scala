@@ -11,9 +11,9 @@ class CliSon2YamlFeature extends FeatureSpec with GivenWhenThen {
 
   val outName = (name: String) => Features.outputPathname(Types.CLI, name, Formats.YAML)
 
-  feature(classOf[CliSon2YamlFeature].getSimpleName) {
+   feature(classOf[CliSon2YamlFeature].getSimpleName) {
 
-    scenario("Apply one exclamation") {
+     ignore ("Apply one exclamation") {
       Given("converter FileJson2Yaml")
       val in = Features.inputPathname
       val file = SON2ML + " " + in + " " + outName("one")
@@ -23,7 +23,7 @@ class CliSon2YamlFeature extends FeatureSpec with GivenWhenThen {
       assert(0 == result)
     }
 
-    scenario("Apply two exclamation") {
+     ignore ("Apply two exclamation") {
       Given("converter FileJson2Yaml")
       val in = Features.inputPathname
       val file = SON2ML + " " + in + " " + outName("two")

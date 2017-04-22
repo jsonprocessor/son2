@@ -13,7 +13,7 @@ class CliSon2ObjectFeature extends FeatureSpec with GivenWhenThen {
 
   feature(classOf[CliSon2ObjectFeature].getSimpleName) {
 
-    scenario("Apply one exclamation") {
+    ignore("Apply one exclamation") {
       Given("converter FileJson2Yaml")
       val in = Features.inputPathname
       val file = SON2ML + " " + in + " " + outName("one")
@@ -23,7 +23,7 @@ class CliSon2ObjectFeature extends FeatureSpec with GivenWhenThen {
       assert(0 == result)
     }
 
-    scenario("Apply two exclamation") {
+    ignore("Apply two exclamation") {
       Given("converter FileJson2Yaml")
       val in = Features.inputPathname
       val file = SON2ML + " " + in + " " + outName("two")

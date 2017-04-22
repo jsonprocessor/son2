@@ -1,10 +1,10 @@
 package pl.writeonly.son2.core.liners
 
 import pl.writeonly.son2.core.providers.Provider
-import pl.writeonly.son2.core.util.AppLogging
+import pl.writeonly.son2.core.util.AppLazyLogging
 
 
-abstract class Liner(val provider: Provider) extends AppLogging {
+abstract class Liner(val provider: Provider) extends AppLazyLogging {
 
   def convert(line: String) = provider.convert(line) + "\n"
 
