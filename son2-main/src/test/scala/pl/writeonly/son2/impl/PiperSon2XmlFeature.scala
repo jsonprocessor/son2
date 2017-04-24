@@ -1,4 +1,4 @@
-package pl.writeonly.son2.test.impl
+package pl.writeonly.son2.impl
 
 import java.io.FileNotFoundException
 
@@ -7,15 +7,15 @@ import pl.writeonly.son2.core.core.Formats
 import pl.writeonly.son2.core.formats.FormatProvider
 import pl.writeonly.son2.impl.main.Piper
 
-class PiperSon2YamlFeature extends FeatureSpec with GivenWhenThen {
+class PiperSon2XmlFeature extends FeatureSpec with GivenWhenThen {
 
-  val given = () => new Piper(FormatProvider(Formats.YAML))
+  val given = () => new Piper(FormatProvider(Formats.XML))
 
-  val outName = (name: String) => Features.outputPathname(Types.PIPER, name, Formats.YAML)
+  val outName = (name: String) => Features.outputPathname(Types.PIPER, name, Formats.XML)
 
-  feature(classOf[PiperSon2YamlFeature].getSimpleName) {
+  feature(classOf[PiperSon2XmlFeature].getSimpleName) {
     scenario("Apply with null pathname") {
-      Given("converter FileJson2Yaml")
+      Given("converter FileJson2Xml")
       val piper = given()
 
       When("should produce null when consume null")
@@ -30,7 +30,7 @@ class PiperSon2YamlFeature extends FeatureSpec with GivenWhenThen {
     }
 
     scenario("Apply with empty pathname") {
-      Given("converter FileJson2Yaml")
+      Given("converter FileJson2Xml")
       val piper = given()
 
       When("should produce empty when consume empty")
@@ -40,7 +40,7 @@ class PiperSon2YamlFeature extends FeatureSpec with GivenWhenThen {
     }
 
     scenario("Apply with pathname") {
-      Given("converter FileJson2Yaml")
+      Given("converter FileJson2Xml")
       val piper = given()
       val in = Features.inputPathname
       val out = outName("pathname")
@@ -49,6 +49,5 @@ class PiperSon2YamlFeature extends FeatureSpec with GivenWhenThen {
       piper.convertFile(in, out)
     }
   }
-
 }
 

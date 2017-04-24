@@ -1,4 +1,4 @@
-package pl.writeonly.son2.test.impl
+package pl.writeonly.son2.impl
 
 import org.scalatest.{FeatureSpec, GivenWhenThen}
 import pl.writeonly.son2.core.core.Formats

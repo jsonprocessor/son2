@@ -1,19 +1,19 @@
-package pl.writeonly.son2.test.impl
+package pl.writeonly.son2.impl
 
 import org.scalatest.{FeatureSpec, GivenWhenThen}
 import pl.writeonly.son2.core.core.Formats
 
 import scala.sys.process._
 
-class CliSon2YamlFeature extends FeatureSpec with GivenWhenThen {
+class CliSon2XmlFeature extends FeatureSpec with GivenWhenThen {
 
-  val SON2ML = Features.SON2 + " y"
+  val SON2ML = Features.SON2 + " x"
 
-  val outName = (name: String) => Features.outputPathname(Types.CLI, name, Formats.YAML)
+  val outName = (name: String) => Features.outputPathname(Types.CLI, name, Formats.XML)
 
-   feature(classOf[CliSon2YamlFeature].getSimpleName) {
+  feature(classOf[CliSon2XmlFeature].getSimpleName) {
 
-     ignore ("Apply one exclamation") {
+    ignore("Apply one exclamation") {
       Given("converter FileJson2Yaml")
       val in = Features.inputPathname
       val file = SON2ML + " " + in + " " + outName("one")
@@ -23,7 +23,7 @@ class CliSon2YamlFeature extends FeatureSpec with GivenWhenThen {
       assert(0 == result)
     }
 
-     ignore ("Apply two exclamation") {
+    ignore("Apply two exclamation") {
       Given("converter FileJson2Yaml")
       val in = Features.inputPathname
       val file = SON2ML + " " + in + " " + outName("two")

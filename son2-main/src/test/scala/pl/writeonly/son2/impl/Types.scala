@@ -1,4 +1,4 @@
-package pl.writeonly.son2.test.impl
+package pl.writeonly.son2.impl
 
 object Types {
   val CLI = "cli"

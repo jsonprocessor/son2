@@ -1,4 +1,4 @@
-package pl.writeonly.son2.test.impl
+package pl.writeonly.son2.impl
 
 import java.io.FileNotFoundException
 
@@ -7,13 +7,13 @@ import pl.writeonly.son2.core.core.Formats
 import pl.writeonly.son2.core.formats.FormatProvider
 import pl.writeonly.son2.impl.main.Piper
 
-class PiperSon2ObjectFeature extends FeatureSpec with GivenWhenThen {
+class PiperSon2YamlFeature extends FeatureSpec with GivenWhenThen {
 
-  val given = () => new Piper(FormatProvider(Formats.OBJECT))
+  val given = () => new Piper(FormatProvider(Formats.YAML))
 
-  val outName = (name: String) => Features.outputPathname(Types.PIPER, name, Formats.OBJECT)
+  val outName = (name: String) => Features.outputPathname(Types.PIPER, name, Formats.YAML)
 
-  feature(classOf[PiperSon2ObjectFeature].getSimpleName) {
+  feature(classOf[PiperSon2YamlFeature].getSimpleName) {
     scenario("Apply with null pathname") {
       Given("converter FileJson2Yaml")
       val piper = given()
@@ -49,5 +49,6 @@ class PiperSon2ObjectFeature extends FeatureSpec with GivenWhenThen {
       piper.convertFile(in, out)
     }
   }
+
 }
 
