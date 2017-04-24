@@ -27,7 +27,6 @@
         <module>son2-core</module>
         <module>son2-main</module>
         <module>son2-jack</module>
-        <module>son2-test</module>
     </modules>
 
     <dependencies>
