@@ -4,12 +4,12 @@ import com.fasterxml.jackson.core.JsonParseException
 import com.fasterxml.jackson.databind.JsonMappingException
 import org.scalatest.{Matchers, WordSpec}
 import pl.writeonly.son2.core.core.Formats
-import pl.writeonly.son2.core.formats.FormatProvider
+import pl.writeonly.son2.core.formats.MatcherFormatProvider
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 
 class XmlWord extends WordSpec with Matchers {
 
-  val provider: Provider = FormatProvider(Formats.XML)
+  val provider: Provider = MatcherFormatProvider(Formats.XML)
   "A Provider" should {
     "produce JsonParseException when convert a" in {
       assertThrows[JsonParseException] {

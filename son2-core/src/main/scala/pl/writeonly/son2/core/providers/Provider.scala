@@ -2,10 +2,10 @@ package pl.writeonly.son2.core.providers
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import pl.writeonly.son2.core.core.{Config, Converter, JsonNodeReader, JsonNodeWriter}
-import pl.writeonly.son2.core.formats.FormatMapper
+import pl.writeonly.son2.core.formats.MatcherFormatMapper
 
 class Provider(config: Config, out: ObjectMapper) {
-  val converter = new Converter(new JsonNodeReader(FormatMapper(config)), new JsonNodeWriter(out, config.p))
+  val converter = new Converter(new JsonNodeReader(MatcherFormatMapper(config)), new JsonNodeWriter(out, config.p))
 
   def convert(s: String) = converter.apply(s)
 

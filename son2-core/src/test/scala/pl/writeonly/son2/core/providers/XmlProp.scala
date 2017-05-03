@@ -3,7 +3,7 @@ package pl.writeonly.son2.core.providers
 import org.scalatest.prop.TableDrivenPropertyChecks
 import org.scalatest.{Matchers, PropSpec}
 import pl.writeonly.son2.core.core.Formats
-import pl.writeonly.son2.core.formats.FormatProvider
+import pl.writeonly.son2.core.formats.MatcherFormatProvider
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.core.streamers.{Streamer, StreamerImplForeach}
 
@@ -28,7 +28,7 @@ class XmlProp extends PropSpec with TableDrivenPropertyChecks with Matchers {
     "[0,1]"
   )
 
-  val provider: Provider = FormatProvider(Formats.XML)
+  val provider: Provider = MatcherFormatProvider(Formats.XML)
   property("convert son to xml by provider") {
     forAll(toSuccess) { (in, out) =>
       provider.convert(in) should be(out)
