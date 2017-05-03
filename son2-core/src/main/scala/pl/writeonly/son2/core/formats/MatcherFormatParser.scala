@@ -6,7 +6,7 @@ import pl.writeonly.son2.core.formats.matchers.MatcherFormatIsDefine
 
 class MatcherFormatParser extends MatcherFormatIsDefine(new CreatorFormatMapper) {
 
-  def parse(s:String) : JsonNode = apply(s)
+  def parse(s: String): JsonNode = apply(s)
     .right
     .get
     .readTree(s)

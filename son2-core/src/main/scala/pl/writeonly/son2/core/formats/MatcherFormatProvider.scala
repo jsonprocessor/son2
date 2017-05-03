@@ -22,5 +22,5 @@ object MatcherFormatProvider {
   def either(config: Config): Either[Option[String], Provider] = new MatcherFormatProvider(config)
     .apply()
 
-//either
+  //either
 }
