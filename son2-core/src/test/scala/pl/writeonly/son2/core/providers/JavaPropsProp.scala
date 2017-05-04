@@ -1,13 +1,12 @@
 package pl.writeonly.son2.core.providers
 
-import org.scalatest.prop.TableDrivenPropertyChecks
-import org.scalatest.{Matchers, PropSpec}
 import pl.writeonly.son2.core.core.Formats
 import pl.writeonly.son2.core.formats.MatcherFormatProvider
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
+import pl.writeonly.son2.core.specs.PropMatchers
 import pl.writeonly.son2.core.streamers.{Streamer, StreamerImplForeach}
 
-class JavaPropsProp extends PropSpec with TableDrivenPropertyChecks with Matchers {
+class JavaPropsProp extends PropMatchers {
 
   val toSuccess = Table(
     ("in", "out"),
