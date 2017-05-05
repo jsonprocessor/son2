@@ -45,13 +45,7 @@
                 <artifactId>scala-logging_2.11</artifactId>
                 <version>${scala-logging.version}</version>
             </dependency>
-
-            <dependency>
-                <groupId>org.scalatest</groupId>
-                <artifactId>scalatest_2.11</artifactId>
-                <version>${scalatest.version}</version>
-                <scope>test</scope>
-            </dependency>
+            
             <dependency>
                 <groupId>org.scalamock</groupId>
                 <artifactId>scalamock-scalatest-support_2.11</artifactId>
