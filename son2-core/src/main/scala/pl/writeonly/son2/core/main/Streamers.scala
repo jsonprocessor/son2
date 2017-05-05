@@ -1,7 +1,8 @@
-package pl.writeonly.son2.core.streamers
+package pl.writeonly.son2.core.main
 
 import pl.writeonly.son2.core.liners.{LinerEitherException, LinerOpt}
 import pl.writeonly.son2.core.providers.Provider
+import pl.writeonly.son2.core.streamers._
 
 object Streamers {
   def impl(s: Boolean, provider: Provider): Streamer = if (s) new StreamerImplForeach(new LinerOpt(provider))

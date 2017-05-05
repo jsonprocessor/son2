@@ -1,6 +1,7 @@
-package pl.writeonly.son2.core.core
+package pl.writeonly.son2.core.main
 
 import org.scalatest.{Matchers, WordSpec}
+import pl.writeonly.son2.core.core.Formats
 
 class ParserWord extends WordSpec with Matchers {
   val parser: Parser = new Parser

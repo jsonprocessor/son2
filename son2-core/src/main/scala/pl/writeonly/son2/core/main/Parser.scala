@@ -1,7 +1,8 @@
-package pl.writeonly.son2.core.core
+package pl.writeonly.son2.core.main
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.scala.DefaultScalaModule
+import pl.writeonly.son2.core.core.Config
 
 class Parser {
   val mapper = new ObjectMapper()

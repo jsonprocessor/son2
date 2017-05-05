@@ -1,6 +1,7 @@
-package pl.writeonly.son2.core.formats
+package pl.writeonly.son2.core.main
 
 import pl.writeonly.son2.core.core.Config
+import pl.writeonly.son2.core.formats.MatcherFormatProvider
 import pl.writeonly.son2.core.streamers._
 
 class Builder(config: Config) {
