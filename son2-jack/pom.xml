@@ -32,6 +32,11 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>org.pegdown</groupId>
+            <artifactId>pegdown</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>ninja.leaping.configurate</groupId>
             <artifactId>configurate-hocon</artifactId>
             <version>3.2</version>
