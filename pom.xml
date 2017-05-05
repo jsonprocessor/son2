@@ -45,7 +45,7 @@
                 <artifactId>scala-logging_2.11</artifactId>
                 <version>${scala-logging.version}</version>
             </dependency>
-            
+
             <dependency>
                 <groupId>org.scalamock</groupId>
                 <artifactId>scalamock-scalatest-support_2.11</artifactId>
@@ -67,11 +67,6 @@
             <dependency>
                 <groupId>pl.writeonly.son2</groupId>
                 <artifactId>son2-jack</artifactId>
-                <version>${son2.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>pl.writeonly.son2</groupId>
-                <artifactId>son2-test</artifactId>
                 <version>${son2.version}</version>
             </dependency>
             <dependency>
@@ -226,6 +221,11 @@
                     <groupId>org.scalatest</groupId>
                     <artifactId>scalatest-maven-plugin</artifactId>
                     <version>1.0</version>
+                    <configuration>
+                        <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
+                        <junitxml>.</junitxml>
+                        <filereports>WDF TestSuite.txt</filereports>
+                    </configuration>
                     <executions>
                         <execution>
                             <id>test</id>
