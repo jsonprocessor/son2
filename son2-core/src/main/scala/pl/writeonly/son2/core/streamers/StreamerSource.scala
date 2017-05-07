@@ -12,8 +12,6 @@ import scala.io.Source
 
 abstract class StreamerSource(liner: Liner) extends Streamer(liner) {
 
-  def this(provider: Provider) = this(new LinerOpt(provider))
-
   def convertStringNative(in: String): String = source2string(Source.fromString(in))
 
   override def convertBytes(in: Array[Byte]): Array[Byte] = source2string(Source.fromRawBytes(in)).getBytes

@@ -1,19 +1,34 @@
 package pl.writeonly.son2.core.streams
 
-import java.io.{ByteArrayInputStream, ByteArrayOutputStream}
+import java.io.{ByteArrayInputStream, ByteArrayOutputStream, File}
 import java.nio.charset.StandardCharsets
 
 import org.scalatest.WordSpec
 import pl.writeonly.son2.core.providers.ProviderImpl
 import pl.writeonly.son2.core.streamers.{Streamer, StreamerImplForeach}
+import org.scalamock.scalatest.MockFactory
 
-class StreamerImplForeachWord extends WordSpec {
+class StreamerImplForeachWord extends WordSpec with MockFactory {
 
   val EMPTY_STRING = ""
   val TWO_EMPTY_STRING = "\n"
   val streamer: Streamer = new StreamerImplForeach(new ProviderImpl)
 
   "A StreamerImplForeach" when {
+    "convertFile with empty File" should {
+      "return empty File" in {
+//        val in : File = stub[File]
+//        val out : File = stub[File]
+//        in.createNewFile returns true
+//        in.isFile returns true
+//        in.list returns Array("child1", "child2")
+//        out.createNewFile returns true
+//        out.isFile returns true
+//        out.list returns Array("child1", "child2")
+//        streamer.convertFile(in, out)
+        //TODO assert it
+      }
+    }
     "convertStringNative empty string" should {
       "return empty string" in {
         assert (streamer.convertStringNative(EMPTY_STRING) == EMPTY_STRING)

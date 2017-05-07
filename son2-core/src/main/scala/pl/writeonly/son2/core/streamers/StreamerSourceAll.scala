@@ -2,14 +2,14 @@ package pl.writeonly.son2.core.streamers
 
 import java.io.PrintWriter
 
-import pl.writeonly.son2.core.liners.{Liner, LinerEitherException}
+import pl.writeonly.son2.core.liners.{Liner, LinerEither}
 import pl.writeonly.son2.core.providers.Provider
 
 import scala.io.Source
 
 class StreamerSourceAll(liner: Liner) extends StreamerSource(liner) {
 
-  def this(provider: Provider) = this(new LinerEitherException(provider))
+  def this(provider: Provider) = this(new LinerEither(provider))
 
   override def source2string(source: Source): String = {
     val sb = new StringBuilder()
