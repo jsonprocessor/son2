@@ -2,10 +2,11 @@ package pl.writeonly.son2.impl
 
 import org.scalatest.{FeatureSpec, GivenWhenThen}
 import pl.writeonly.son2.core.core.Formats
+import pl.writeonly.son2.spec.FeatureWhenThen
 
 import scala.sys.process._
 
-class CliSon2YamlFeature extends FeatureSpec with GivenWhenThen {
+class CliSon2YamlFeature extends FeatureWhenThen {
 
   val SON2ML = Features.SON2 + " y"
 

@@ -5,7 +5,6 @@ import pl.writeonly.son2.core.formats.MatcherFormatProvider
 import pl.writeonly.son2.core.providers._
 import pl.writeonly.son2.core.util.AppLazyLogging
 
-
 object Main extends AppLazyLogging {
 
   provider match {

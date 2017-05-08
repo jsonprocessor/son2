@@ -6,8 +6,9 @@ import org.scalatest.{FeatureSpec, GivenWhenThen}
 import pl.writeonly.son2.core.core.Formats
 import pl.writeonly.son2.core.formats.MatcherFormatProvider
 import pl.writeonly.son2.impl.main.Piper
+import pl.writeonly.son2.spec.FeatureWhenThen
 
-class PiperSon2ObjectFeature extends FeatureSpec with GivenWhenThen {
+class PiperSon2ObjectFeature extends FeatureWhenThen {
 
   val given = () => new Piper(MatcherFormatProvider(Formats.OBJECT))
 

@@ -6,8 +6,9 @@ import org.scalatest.{FeatureSpec, GivenWhenThen}
 import pl.writeonly.son2.core.core.Formats
 import pl.writeonly.son2.core.formats.MatcherFormatProvider
 import pl.writeonly.son2.core.streamers.StreamerImplForeach
+import pl.writeonly.son2.spec.FeatureWhenThen
 
-class StreamerObjectFeature extends FeatureSpec with GivenWhenThen {
+class StreamerObjectFeature extends FeatureWhenThen {
 
   info("FileJson2YamlImpl with Json2YamlJackson")
 

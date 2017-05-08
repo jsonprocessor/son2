@@ -4,6 +4,6 @@ import org.scalatest.WordSpec
 
 import org.scalatest.prop.Checkers
 
-class WordCheck extends WordSpec with Checkers  {
+class WordCheckers extends WordSpec with Checkers  {
 
 }

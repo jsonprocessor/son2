@@ -6,8 +6,9 @@ import org.scalatest.{FeatureSpec, GivenWhenThen}
 import pl.writeonly.son2.core.core.Formats
 import pl.writeonly.son2.core.formats.MatcherFormatProvider
 import pl.writeonly.son2.core.streamers.StreamerImplForeach
+import pl.writeonly.son2.spec.FeatureWhenThen
 
-class StreamerYamlFeature extends FeatureSpec with GivenWhenThen {
+class StreamerYamlFeature extends FeatureWhenThen {
 
   info("StreamerImpl with ProviderYaml")
 

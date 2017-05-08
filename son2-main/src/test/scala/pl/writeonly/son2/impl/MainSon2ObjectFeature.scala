@@ -5,8 +5,9 @@ import java.io.FileNotFoundException
 import org.scalatest.{FeatureSpec, GivenWhenThen}
 import pl.writeonly.son2.core.core.Formats
 import pl.writeonly.son2.impl.main.Main
+import pl.writeonly.son2.spec.FeatureWhenThen
 
-class MainSon2ObjectFeature extends FeatureSpec with GivenWhenThen {
+class MainSon2ObjectFeature extends FeatureWhenThen {
 
   val outName = (name: String) => Features.outputPathname(Types.MAIN, name, Formats.OBJECT)
 

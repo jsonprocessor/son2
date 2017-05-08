@@ -6,8 +6,9 @@ import org.scalatest.{FeatureSpec, GivenWhenThen}
 import pl.writeonly.son2.core.core.Formats
 import pl.writeonly.son2.core.formats.MatcherFormatProvider
 import pl.writeonly.son2.core.streamers.StreamerImplForeach
+import pl.writeonly.son2.spec.FeatureWhenThen
 
-class StreamerXmlFeature extends FeatureSpec with GivenWhenThen {
+class StreamerXmlFeature extends FeatureWhenThen {
 
   info("FileJson2XmlFeature with Json2Xml")
 
