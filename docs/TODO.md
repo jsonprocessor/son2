@@ -1,2 +1,3 @@
 - [ ] Add mutation tests
+- [ ] Add son2-test with abstract base test classes
 - [ ] Add typesafe.config
