@@ -1,3 +1,5 @@
 - [ ] Add mutation tests
 - [ ] Add son2-test with abstract base test classes
+- [ ] Merge son2-jack to son2-main
 - [ ] Add typesafe.config
+- [ ] Add configuration for yaml generator
