@@ -17,11 +17,13 @@
         <scala-logging.version>3.5.0</scala-logging.version>
         <scalatest.version>3.0.1</scalatest.version>
         <scalamock.version>3.5.0</scalamock.version>
+        <scalacheck.version>1.13.5</scalacheck.version>
         <pegdown.version>1.2.1</pegdown.version>
         <config.version>1.3.1</config.version>
         <scoverage.plugin.version>1.3.0</scoverage.plugin.version>
         <scoverage.scalacPluginVersion>1.3.0</scoverage.scalacPluginVersion>
         <scoverage.aggregate>true</scoverage.aggregate>
+        <pitest-maven.plugin.version>1.2.0</pitest-maven.plugin.version>
     </properties>
 
     <modules>
@@ -54,10 +56,21 @@
                 <scope>test</scope>
             </dependency>
             <dependency>
+                <groupId>org.scalacheck</groupId>
+                <artifactId>scalacheck_2.11</artifactId>
+                <version>${scalacheck.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
                 <groupId>org.pegdown</groupId>
                 <artifactId>pegdown</artifactId>
                 <version>${pegdown.version}</version>
                 <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.10</version>
             </dependency>
 
             <dependency>
@@ -231,7 +244,6 @@
                         <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
                         <junitxml>.</junitxml>
                         <filereports>WDF TestSuite.txt</filereports>
-                        <htmlreporters>${project.build.directory}/site/scalatest</htmlreporters>
                     </configuration>
                     <executions>
                         <execution>
@@ -241,6 +253,7 @@
                             </goals>
                             <configuration>
                                 <suffixes>(?&lt;!Feature)</suffixes>
+                                <htmlreporters>${project.build.directory}/site/scalatest/</htmlreporters>
                             </configuration>
                         </execution>
                         <execution>
@@ -251,6 +264,7 @@
                             </goals>
                             <configuration>
                                 <suffixes>(?&lt;=Feature)</suffixes>
+                                <htmlreporters>${project.build.directory}/site/scalatest-it/</htmlreporters>
                             </configuration>
                         </execution>
                     </executions>
@@ -277,6 +291,29 @@
                         </archive>
                     </configuration>
                 </plugin>
+                <plugin>
+                    <groupId>org.pitest</groupId>
+                    <artifactId>pitest-maven</artifactId>
+                    <version>${pitest-maven.plugin.version}</version>
+                    <configuration>
+                        <targetClasses>
+                            <param>pl.witeonly.son2.core*</param>
+                        </targetClasses>
+                        <targetTests>
+                            <param>pl.witeonly.son2*</param>
+                        </targetTests>
+                        <mutators>
+                            <mutator>CONSTRUCTOR_CALLS</mutator>
+                            <mutator>NON_VOID_METHOD_CALLS</mutator>
+                        </mutators>
+                        <avoidCallsTo>
+                            <avoidCallsTo>java.util.logging</avoidCallsTo>
+                            <avoidCallsTo>org.apache.log4j</avoidCallsTo>
+                            <avoidCallsTo>org.slf4j</avoidCallsTo>
+                            <avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
+                        </avoidCallsTo>
+                    </configuration>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
@@ -291,6 +328,28 @@
                     <reportSet>
                         <reports>
                             <report>report-only</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+            <plugin>
+                <groupId>org.pitest</groupId>
+                <artifactId>pitest-maven</artifactId>
+                <version>${pitest-maven.plugin.version}</version>
+                <configuration>
+                    <skip>false</skip>
+                    <reportsDirectory>${project.build.directory}/site/pitest</reportsDirectory>
+                    <sourceDataFormats>
+                        <sourceDataFormat>HTML</sourceDataFormat>
+                    </sourceDataFormats>
+                    <siteReportName>my-pit-report-name</siteReportName>
+                    <siteReportDescription>my pit report custom description</siteReportDescription>
+                    <siteReportDirectory>pit-custom-site-directory</siteReportDirectory>
+                </configuration>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>report</report>
                         </reports>
                     </reportSet>
                 </reportSets>
