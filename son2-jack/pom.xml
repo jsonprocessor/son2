@@ -27,13 +27,8 @@
             <artifactId>scala-logging_2.11</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.scalamock</groupId>
-            <artifactId>scalamock-scalatest-support_2.11</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.pegdown</groupId>
-            <artifactId>pegdown</artifactId>
+            <groupId>pl.writeonly.son2</groupId>
+            <artifactId>son2-spec</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>

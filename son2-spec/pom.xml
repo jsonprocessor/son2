@@ -8,7 +8,7 @@
         <version>2.8.3-SNAPSHOT</version>
     </parent>
 
-    <artifactId>son2-core</artifactId>
+    <artifactId>son2-spec</artifactId>
     <packaging>jar</packaging>
 
     <properties>
@@ -27,31 +27,21 @@
             <artifactId>scala-logging_2.11</artifactId>
         </dependency>
         <dependency>
-            <groupId>pl.writeonly.son2</groupId>
-            <artifactId>son2-spec</artifactId>
-            <scope>test</scope>
+            <groupId>org.scalamock</groupId>
+            <artifactId>scalamock-scalatest-support_2.11</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.scalacheck</groupId>
+            <artifactId>scalacheck_2.11</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.pegdown</groupId>
+            <artifactId>pegdown</artifactId>
+            <scope>compile</scope>
         </dependency>
 
-        <dependency>
-            <groupId>com.fasterxml.jackson.dataformat</groupId>
-            <artifactId>jackson-dataformat-yaml</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.dataformat</groupId>
-            <artifactId>jackson-dataformat-xml</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.dataformat</groupId>
-            <artifactId>jackson-dataformat-properties</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.dataformat</groupId>
-            <artifactId>jackson-dataformat-csv</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.module</groupId>
-            <artifactId>jackson-module-scala_2.11</artifactId>
-        </dependency>
     </dependencies>
 
     <build>

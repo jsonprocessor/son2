@@ -3,8 +3,8 @@ package pl.writeonly.son2.core.providers
 import pl.writeonly.son2.core.core.Formats
 import pl.writeonly.son2.core.formats.MatcherFormatProvider
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
-import pl.writeonly.son2.core.specs.PropMatchers
 import pl.writeonly.son2.core.streamers.{Streamer, StreamerImplForeach}
+import pl.writeonly.son2.spec.PropMatchers
 
 class JavaPropsProp extends PropMatchers {
 

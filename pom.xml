@@ -27,6 +27,7 @@
     </properties>
 
     <modules>
+        <module>son2-spec</module>
         <module>son2-core</module>
         <module>son2-main</module>
         <module>son2-jack</module>
@@ -73,6 +74,11 @@
                 <version>4.10</version>
             </dependency>
 
+            <dependency>
+                <groupId>pl.writeonly.son2</groupId>
+                <artifactId>son2-spec</artifactId>
+                <version>${son2.version}</version>
+            </dependency>
             <dependency>
                 <groupId>pl.writeonly.son2</groupId>
                 <artifactId>son2-core</artifactId>
