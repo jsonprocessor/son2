@@ -1,1 +1,2 @@
 - [ ] Add mutation tests
+- [ ] Add typesafe.config
