@@ -1,8 +1,6 @@
-package pl.writeonly.son2.jack
+package pl.writeonly.son2.impl
 
 import org.scalatest.{FeatureSpec, GivenWhenThen}
-import pl.writeonly.son2.core.core.Formats._
-import pl.writeonly.son2.jack.main.Main
 //import test.impl.Types
 
 class MainJackObject2YamlFeature extends FeatureSpec with GivenWhenThen {

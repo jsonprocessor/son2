@@ -10,7 +10,7 @@ abstract class MatcherFormat[F](c: CreatorFormat[F]) {
     case s if csv(s) => Right(c.csv)
     case s if javaprops(s) => Right(c.javaprops)
     case s if properties(s) => Right(c.javaprops)
-    case s => Left(Option(s))
+    case s => left(s)
   }
 
   def on(s: String): Boolean
@@ -24,5 +24,7 @@ abstract class MatcherFormat[F](c: CreatorFormat[F]) {
   def javaprops(s: String): Boolean
 
   def properties(s: String): Boolean
+
+  def left(s: String) : Either[Option[String], F] = Left(Option(s))
 
 }
