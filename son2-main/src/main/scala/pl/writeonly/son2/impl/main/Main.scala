@@ -9,7 +9,7 @@ object Main extends AppLazyLogging {
 
   provider match {
     case Right(provider) => right(new Piper(provider))
-    case Left(format) => left(format)
+    case Left(format) => new ResourceManager().left(format)
   }
 
   def provider: Either[Option[String], Provider] = length match {
@@ -26,16 +26,5 @@ object Main extends AppLazyLogging {
     case 2 => piper.convertFile(args(1));
     case _ => piper.convertFile(args(1), args(2));
   }
-
-  def left(resource: Option[String]) = new Piper(new ProviderImpl).convertResource(validOpt(resource))
-
-  def validOpt(resource: Option[String]) = valid(resource.getOrElse(Resources.README))
-
-  def valid(resource: String) = Resources.ALL
-    .find(it => it.toLowerCase.startsWith(resource))
-    .getOrElse({
-      println(Resources.UNKNOWN_FORMAT + resource)
-      Resources.README
-    })
 
 }
