@@ -20,7 +20,7 @@
     <dependencies>
         <dependency>
             <groupId>pl.writeonly.son2</groupId>
-            <artifactId>son2-core</artifactId>
+            <artifactId>son2-jack</artifactId>
         </dependency>
         <dependency>
             <groupId>org.scala-lang</groupId>

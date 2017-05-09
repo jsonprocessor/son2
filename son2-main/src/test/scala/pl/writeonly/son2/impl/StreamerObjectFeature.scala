@@ -3,9 +3,9 @@ package pl.writeonly.son2.impl
 import java.io.FileNotFoundException
 
 import org.scalatest.{FeatureSpec, GivenWhenThen}
-import pl.writeonly.son2.core.core.Formats
-import pl.writeonly.son2.core.formats.MatcherFormatProvider
-import pl.writeonly.son2.core.streamers.StreamerImplForeach
+import pl.writeonly.son2.jack.core.Formats
+import pl.writeonly.son2.jack.formats.MatcherFormatProvider
+import pl.writeonly.son2.jack.streamers.StreamerImplForeach
 import pl.writeonly.son2.spec.FeatureWhenThen
 
 class StreamerObjectFeature extends FeatureWhenThen {

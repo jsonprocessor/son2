@@ -2,8 +2,8 @@ package pl.writeonly.son2.impl.main
 
 import java.io.{FileInputStream, InputStream}
 
-import pl.writeonly.son2.core.main.Streamers
-import pl.writeonly.son2.core.providers.Provider
+import pl.writeonly.son2.jack.main.Streamers
+import pl.writeonly.son2.jack.providers.Provider
 
 class Piper(val provider: Provider) {
 

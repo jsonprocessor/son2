@@ -1,9 +1,9 @@
 package pl.writeonly.son2.impl.main
 
-import pl.writeonly.son2.core.core.Config
-import pl.writeonly.son2.core.formats.MatcherFormatProvider
-import pl.writeonly.son2.core.providers._
-import pl.writeonly.son2.core.util.AppLazyLogging
+import pl.writeonly.son2.jack.core.Config
+import pl.writeonly.son2.jack.formats.MatcherFormatProvider
+import pl.writeonly.son2.jack.providers._
+import pl.writeonly.son2.jack.util.AppLazyLogging
 
 object Main extends AppLazyLogging {
 
