@@ -1,5 +1,7 @@
 [![Build Status](https://api.travis-ci.org/writeonly/son2.svg?branch=master)](https://travis-ci.org/writeonly/son2)
 
+https://codecov.io/gh/writeonly/son2
+
 # SON2
 
 Stream Object Notation to:
