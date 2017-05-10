@@ -5,14 +5,14 @@ import java.io.FileNotFoundException
 import org.scalatest.{FeatureSpec, GivenWhenThen}
 import pl.writeonly.son2.jack.core.Formats
 import pl.writeonly.son2.jack.formats.MatcherFormatProvider
-import pl.writeonly.son2.jack.streamers.StreamerImplForeach
+import pl.writeonly.son2.jack.streamers.StreamerPipeForeach
 import pl.writeonly.son2.spec.FeatureWhenThen
 
 class StreamerXmlFeature extends FeatureWhenThen {
 
   info("FileJson2XmlFeature with Json2Xml")
 
-  val given = () => new StreamerImplForeach(MatcherFormatProvider(Formats.XML))
+  val given = () => new StreamerPipeForeach(MatcherFormatProvider(Formats.XML))
 
   val outName = (name: String) => Features.outputPathname(Types.STREAMER, name, Formats.XML)
 

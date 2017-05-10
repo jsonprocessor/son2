@@ -1,10 +1,10 @@
 package pl.writeonly.son2.main
 
-import pl.writeonly.son2.jack.providers.ProviderImpl
+import pl.writeonly.son2.jack.providers.ProviderFake
 
 class ResourceManager {
 
-  def left(resource: Option[String]) = new Piper(new ProviderImpl).convertResource(validOpt(resource))
+  def left(resource: Option[String]) = new Piper(new ProviderFake).convertResource(validOpt(resource))
 
   def validOpt(resource: Option[String]) = valid(resource.getOrElse(Resources.README))
 

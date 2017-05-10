@@ -10,7 +10,7 @@ import pl.writeonly.son2.jack.util.Control
 import pl.writeonly.son2.jack.util.Control.using
 
 
-abstract class StreamerImpl(liner: Liner) extends Streamer(liner) {
+abstract class StreamerPipe(liner: Liner) extends Streamer(liner) {
 
   def this(provider: Provider) = this(new LinerOpt(provider))
 

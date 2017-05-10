@@ -4,17 +4,17 @@ import java.io.{ByteArrayInputStream, ByteArrayOutputStream, File}
 import java.nio.charset.StandardCharsets
 
 import org.scalatest.WordSpec
-import pl.writeonly.son2.jack.providers.ProviderImpl
-import pl.writeonly.son2.jack.streamers.{Streamer, StreamerImplForeach}
+import pl.writeonly.son2.jack.providers.ProviderFake
+import pl.writeonly.son2.jack.streamers.{Streamer, StreamerPipeForeach}
 import org.scalamock.scalatest.MockFactory
 
-class StreamerImplForeachWord extends WordSpec with MockFactory {
+class StreamerPipeForeachWord extends WordSpec with MockFactory {
 
   val EMPTY_STRING = ""
   val TWO_EMPTY_STRING = "\n"
-  val streamer: Streamer = new StreamerImplForeach(new ProviderImpl)
+  val streamer: Streamer = new StreamerPipeForeach(new ProviderFake)
 
-  "A StreamerImplForeach" when {
+  "A StreamerPipeForeach" when {
     "convertFile with empty File" should {
       "return empty File" in {
 //        val in : File = stub[File]

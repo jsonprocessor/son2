@@ -4,14 +4,14 @@ import java.io.{ByteArrayInputStream, ByteArrayOutputStream}
 import java.nio.charset.StandardCharsets
 
 import org.scalatest.WordSpec
-import pl.writeonly.son2.jack.providers.ProviderImpl
+import pl.writeonly.son2.jack.providers.ProviderFake
 import pl.writeonly.son2.jack.streamers.{Streamer, StreamerSourceForeach}
 
 class StreamerSourceForeachWord extends WordSpec {
 
   val EMPTY_STRING = ""
   val TWO_EMPTY_STRING = "\n"
-  val streamer: Streamer = new StreamerSourceForeach(new ProviderImpl)
+  val streamer: Streamer = new StreamerSourceForeach(new ProviderFake)
 
   "A StreamerSourceForeach" when {
     "convertStringNative empty string" should {

@@ -6,7 +6,7 @@ import java.util.stream.{Collectors, Stream}
 import pl.writeonly.son2.jack.liners.{Liner, LinerEither}
 import pl.writeonly.son2.jack.providers.Provider
 
-class StreamerImplAll(liner: Liner) extends StreamerImpl(liner) {
+class StreamerPipeAll(liner: Liner) extends StreamerPipe(liner) {
 
   def this(provider: Provider) = this(new LinerEither(provider))
 

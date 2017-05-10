@@ -1,14 +1,14 @@
 package pl.writeonly.son2.jack.streams
 
 import org.scalatest.WordSpec
-import pl.writeonly.son2.jack.providers.ProviderImpl
+import pl.writeonly.son2.jack.providers.ProviderFake
 import pl.writeonly.son2.jack.streamers.{Streamer, StreamerSourceAll}
 
 class StreamerSourceAllWord extends WordSpec {
 
   val EMPTY_STRING = ""
   val TWO_EMPTY_STRING = "\n"
-  val streamer: Streamer = new StreamerSourceAll(new ProviderImpl)
+  val streamer: Streamer = new StreamerSourceAll(new ProviderFake)
 
   "A StreamerSourceAll" when {
     "convertStringNative empty string" should {

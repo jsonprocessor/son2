@@ -7,7 +7,7 @@ import pl.writeonly.son2.jack.providers.Provider
 
 class Piper(val provider: Provider) {
 
-  val impl = Streamers.impl(true, provider)
+  val impl = Streamers.pipe(true, provider)
   val source = Streamers.source(true, provider)
 
   def convertStream() = impl.convertStream(System.in, System.out)

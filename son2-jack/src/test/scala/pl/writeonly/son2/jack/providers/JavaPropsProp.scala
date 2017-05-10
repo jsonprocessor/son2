@@ -3,7 +3,7 @@ package pl.writeonly.son2.jack.providers
 import pl.writeonly.son2.jack.core.Formats
 import pl.writeonly.son2.jack.formats.MatcherFormatProvider
 import pl.writeonly.son2.jack.liners.{Liner, LinerOpt}
-import pl.writeonly.son2.jack.streamers.{Streamer, StreamerImplForeach}
+import pl.writeonly.son2.jack.streamers.{Streamer, StreamerPipeForeach}
 import pl.writeonly.son2.spec.PropMatchers
 
 class JavaPropsProp extends PropMatchers {
@@ -46,7 +46,7 @@ class JavaPropsProp extends PropMatchers {
     }
   }
 
-  val streamer: Streamer = new StreamerImplForeach(liner)
+  val streamer: Streamer = new StreamerPipeForeach(liner)
   property("convert son to yaml by streamer") {
     forAll(toSuccess) { (in, out) =>
       streamer.convertString(in) should be(out + "\n")
