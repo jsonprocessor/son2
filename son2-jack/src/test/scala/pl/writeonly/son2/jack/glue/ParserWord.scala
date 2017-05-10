@@ -1,4 +1,4 @@
-package pl.writeonly.son2.jack.main
+package pl.writeonly.son2.jack.glue
 
 import org.scalatest.{Matchers, WordSpec}
 import pl.writeonly.son2.jack.core.Formats

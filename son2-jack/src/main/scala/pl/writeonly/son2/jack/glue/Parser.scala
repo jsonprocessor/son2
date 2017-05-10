@@ -1,4 +1,4 @@
-package pl.writeonly.son2.jack.main
+package pl.writeonly.son2.jack.glue
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.scala.DefaultScalaModule

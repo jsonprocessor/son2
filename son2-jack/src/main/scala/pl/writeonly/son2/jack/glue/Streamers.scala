@@ -1,4 +1,4 @@
-package pl.writeonly.son2.jack.main
+package pl.writeonly.son2.jack.glue
 
 import pl.writeonly.son2.jack.liners.{LinerEither, LinerOpt}
 import pl.writeonly.son2.jack.providers.Provider
