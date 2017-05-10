@@ -1,4 +1,4 @@
-package pl.writeonly.son2.impl.main
+package pl.writeonly.son2.main
 
 import pl.writeonly.son2.jack.core.Config
 import pl.writeonly.son2.jack.formats.MatcherFormatProvider

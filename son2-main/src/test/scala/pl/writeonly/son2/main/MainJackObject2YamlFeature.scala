@@ -1,4 +1,4 @@
-package pl.writeonly.son2.impl
+package pl.writeonly.son2.main
 
 import org.scalatest.{FeatureSpec, GivenWhenThen}
 //import test.impl.Types

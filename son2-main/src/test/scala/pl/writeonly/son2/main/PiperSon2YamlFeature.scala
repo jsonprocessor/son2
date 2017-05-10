@@ -1,11 +1,10 @@
-package pl.writeonly.son2.impl
+package pl.writeonly.son2.main
 
 import java.io.FileNotFoundException
 
-import org.scalatest.{FeatureSpec, GivenWhenThen}
+import pl.writeonly.son2.impl.{Features, Types}
 import pl.writeonly.son2.jack.core.Formats
 import pl.writeonly.son2.jack.formats.MatcherFormatProvider
-import pl.writeonly.son2.impl.main.Piper
 import pl.writeonly.son2.spec.FeatureWhenThen
 
 class PiperSon2YamlFeature extends FeatureWhenThen {

@@ -1,4 +1,4 @@
-package pl.writeonly.son2.impl.main
+package pl.writeonly.son2.main
 
 object Resources {
   val UNKNOWN_FORMAT = "Unknown format: "

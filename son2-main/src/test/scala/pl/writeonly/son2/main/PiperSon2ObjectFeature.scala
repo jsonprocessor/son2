@@ -1,26 +1,27 @@
-package pl.writeonly.son2.impl
+package pl.writeonly.son2.main
 
 import java.io.FileNotFoundException
 
-import org.scalatest.{FeatureSpec, GivenWhenThen}
+import pl.writeonly.son2.impl.{Features, Types}
 import pl.writeonly.son2.jack.core.Formats
-import pl.writeonly.son2.impl.main.Main
+import pl.writeonly.son2.jack.formats.MatcherFormatProvider
 import pl.writeonly.son2.spec.FeatureWhenThen
 
-class MainSon2YamlFeature extends FeatureWhenThen {
+class PiperSon2ObjectFeature extends FeatureWhenThen {
 
-  info(classOf[MainSon2YamlFeature].getSimpleName)
+  val given = () => new Piper(MatcherFormatProvider(Formats.OBJECT))
 
-  val outName = (name: String) => Features.outputPathname(Types.MAIN, name, Formats.YAML)
+  val outName = (name: String) => Features.outputPathname(Types.PIPER, name, Formats.OBJECT)
 
-  feature(classOf[MainSon2YamlFeature].getSimpleName) {
-    ignore("Apply with null pathname") {
+  feature(classOf[PiperSon2ObjectFeature].getSimpleName) {
+    scenario("Apply with null pathname") {
       Given("converter FileJson2Yaml")
+      val piper = given()
 
       When("should produce null when consume null")
       val name: String = null
       val caught = intercept[NullPointerException] {
-        Main.main(Array(Formats.YAML, name, name))
+        piper.convertFile(name, name)
       }
 
       Then("null == messag")
@@ -28,22 +29,24 @@ class MainSon2YamlFeature extends FeatureWhenThen {
       assert(null == message)
     }
 
-    ignore("Apply with empty pathname") {
+    scenario("Apply with empty pathname") {
       Given("converter FileJson2Yaml")
+      val piper = given()
 
       When("should produce empty when consume empty")
       assertThrows[FileNotFoundException] {
-        Main.main(Array(Formats.YAML, "", ""))
+        piper.convertFile("", "")
       }
     }
 
     scenario("Apply with pathname") {
       Given("converter FileJson2Yaml")
+      val piper = given()
       val in = Features.inputPathname
       val out = outName("pathname")
 
       When("should produce null when consume null")
-      Main.main(Array(Formats.YAML, in, out))
+      piper.convertFile(in, out)
     }
   }
 }

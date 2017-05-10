@@ -1,24 +1,23 @@
-package pl.writeonly.son2.impl
+package pl.writeonly.son2.main
 
 import java.io.FileNotFoundException
 
-import org.scalatest.{FeatureSpec, GivenWhenThen}
+import pl.writeonly.son2.impl.{Features, Types}
 import pl.writeonly.son2.jack.core.Formats
-import pl.writeonly.son2.impl.main.Main
 import pl.writeonly.son2.spec.FeatureWhenThen
 
-class MainSon2XmlFeature extends FeatureWhenThen {
+class MainSon2ObjectFeature extends FeatureWhenThen {
 
-  val outName = (name: String) => Features.outputPathname(Types.MAIN, name, Formats.XML)
+  val outName = (name: String) => Features.outputPathname(Types.MAIN, name, Formats.OBJECT)
 
-  feature(classOf[MainSon2XmlFeature].getSimpleName) {
+  feature(classOf[MainSon2ObjectFeature].getSimpleName) {
     scenario("Apply with null pathname") {
-      Given("converter FileJson2Xml")
+      Given("converter FileJson2Yaml")
       val name: String = null
 
       When("should produce null when consume null")
       val caught = intercept[NullPointerException] {
-        Main.main(Array(Formats.XML, name, name))
+        Main.main(Array(Formats.OBJECT, name, name))
       }
 
       Then("null == messag")
@@ -27,22 +26,21 @@ class MainSon2XmlFeature extends FeatureWhenThen {
     }
 
     scenario("Apply with empty pathname") {
-      Given("converter FileJson2Xml")
+      Given("converter FileJson2Yaml")
 
       When("should produce empty when consume empty")
       assertThrows[FileNotFoundException] {
-        Main.main(Array(Formats.XML, "", ""))
+        Main.main(Array(Formats.OBJECT, "", ""))
       }
     }
 
     scenario("Apply with pathname") {
-      Given("converter FileJson2Xml")
+      Given("converter FileJson2Yaml")
       val in = Features.inputPathname
       val out = outName("pathname")
 
       When("should produce null when consume null")
-      Main.main(Array(Formats.XML, in, out))
+      Main.main(Array(Formats.OBJECT, in, out))
     }
   }
 }
-
