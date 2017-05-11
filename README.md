@@ -1,5 +1,4 @@
 [![Build Status](https://api.travis-ci.org/writeonly/son2.svg?branch=master)](https://travis-ci.org/writeonly/son2)
-[![License][licenseImg]][licenseLink]
 
 https://codecov.io/gh/writeonly/son2
 
