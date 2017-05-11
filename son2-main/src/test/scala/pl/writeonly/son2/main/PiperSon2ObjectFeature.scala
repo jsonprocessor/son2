@@ -9,7 +9,7 @@ import pl.writeonly.son2.spec.FeatureWhenThen
 
 class PiperSon2ObjectFeature extends FeatureWhenThen {
 
-  val given = () => new Piper(MatcherFormatProvider(Formats.OBJECT))
+  val given = () => new Piper(System.in, System.out, MatcherFormatProvider(Formats.OBJECT))
 
   val outName = (name: String) => Features.outputPathname(Types.PIPER, name, Formats.OBJECT)
 

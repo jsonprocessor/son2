@@ -4,7 +4,8 @@ import pl.writeonly.son2.jack.providers.ProviderFake
 
 class ResourceManager {
 
-  def left(resource: Option[String]) = new Piper(new ProviderFake).convertResource(validOpt(resource))
+  def left(resource: Option[String]) = new Piper(System.in, System.out, new ProviderFake)
+    .convertResource(validOpt(resource))
 
   def validOpt(resource: Option[String]) = valid(resource.getOrElse(Resources.README))
 

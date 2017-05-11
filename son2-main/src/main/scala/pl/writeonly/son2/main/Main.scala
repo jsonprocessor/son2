@@ -8,7 +8,7 @@ import pl.writeonly.son2.jack.util.AppLazyLogging
 object Main extends AppLazyLogging {
 
   provider match {
-    case Right(provider) => right(new Piper(provider))
+    case Right(provider) => right(new Piper(System.in, System.out, provider))
     case Left(format) => new ResourceManager().left(format)
   }
 
@@ -26,5 +26,10 @@ object Main extends AppLazyLogging {
     case 2 => piper.convertFile(args(1));
     case _ => piper.convertFile(args(1), args(2));
   }
+
+}
+
+
+class Main () {
 
 }

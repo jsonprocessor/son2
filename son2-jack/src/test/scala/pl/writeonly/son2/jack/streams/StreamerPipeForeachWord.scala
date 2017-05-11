@@ -1,12 +1,13 @@
 package pl.writeonly.son2.jack.streams
 
 import java.io.{ByteArrayInputStream, ByteArrayOutputStream, File}
+import java.net.URL
 import java.nio.charset.StandardCharsets
 
-import org.scalatest.WordSpec
 import pl.writeonly.son2.jack.providers.ProviderFake
 import pl.writeonly.son2.jack.streamers.{Streamer, StreamerPipeForeach}
 import pl.writeonly.son2.spec.WordFactory
+
 
 class StreamerPipeForeachWord extends WordFactory {
 
@@ -17,7 +18,8 @@ class StreamerPipeForeachWord extends WordFactory {
   "A StreamerPipeForeach" when {
     "convertFile with empty File" should {
       "return empty File" in {
-//        val in : File = stub[File]
+//        val in : URL = mock[URL]
+//        val in : File = mock[File]
 //        val out : File = stub[File]
 //        in.createNewFile returns true
 //        in.isFile returns true

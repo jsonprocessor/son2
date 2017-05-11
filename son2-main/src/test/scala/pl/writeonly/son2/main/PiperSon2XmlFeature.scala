@@ -9,7 +9,7 @@ import pl.writeonly.son2.spec.FeatureWhenThen
 
 class PiperSon2XmlFeature extends FeatureWhenThen {
 
-  val given = () => new Piper(MatcherFormatProvider(Formats.XML))
+  val given = () => new Piper(System.in, System.out, MatcherFormatProvider(Formats.XML))
 
   val outName = (name: String) => Features.outputPathname(Types.PIPER, name, Formats.XML)
 
