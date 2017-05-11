@@ -4,15 +4,12 @@ import java.io._
 import java.net.URI
 import java.util.stream.Stream
 
-import pl.writeonly.son2.jack.liners.{Liner, LinerOpt}
-import pl.writeonly.son2.jack.providers.Provider
+import pl.writeonly.son2.jack.liners.Liner
 import pl.writeonly.son2.jack.util.Control
 import pl.writeonly.son2.jack.util.Control.using
 
 
 abstract class StreamerPipe(liner: Liner) extends Streamer(liner) {
-
-  def this(provider: Provider) = this(new LinerOpt(provider))
 
   override def convertFile(in: URI, out: URI): Unit = convertFile(new File(in), new File(out))
 
