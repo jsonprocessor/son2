@@ -18,25 +18,19 @@ abstract class StreamerSource(liner: Liner) extends Streamer(liner) {
 
   override def convertFile(in: String, out: String): Unit = {
     using(Source.fromFile(in)) { source =>
-      using(new PrintWriter(new File(out))) { pw =>
-        source2pw(source, pw)
-      }
+      source2pw(source, new File(out))
     }
   }
 
   override def convertFile(in: URI, out: URI): Unit = {
     using(Source.fromFile(in)) { source =>
-      using(new PrintWriter(new File(out))) { pw =>
-        source2pw(source, pw)
-      }
+      source2pw(source, new File(out))
     }
   }
 
   override def convertFile(in: File, out: File): Unit = {
     using(Source.fromFile(in)) { source =>
-      using(new PrintWriter(out)) { pw =>
-        source2pw(source, pw)
-      }
+      source2pw(source, out)
     }
   }
 
@@ -45,6 +39,12 @@ abstract class StreamerSource(liner: Liner) extends Streamer(liner) {
       using(new PrintWriter(out)) { pw =>
         source2pw(source, pw)
       }
+    }
+  }
+
+  def source2pw(source: Source, out: File): Unit = {
+    using(new PrintWriter(out)) { pw =>
+      source2pw(source, pw)
     }
   }
 
