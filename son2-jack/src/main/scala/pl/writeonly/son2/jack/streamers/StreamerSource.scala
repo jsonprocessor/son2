@@ -16,8 +16,16 @@ abstract class StreamerSource(liner: Liner) extends Streamer(liner) {
 
   override def convertBytes(in: Array[Byte]): Array[Byte] = source2string(Source.fromRawBytes(in)).getBytes
 
+  override def convertFile(in: String, out: String): Unit = {
+    using(Source.fromFile(in)) { source =>
+      using(new PrintWriter(new File(out))) { pw =>
+        source2pw(source, pw)
+      }
+    }
+  }
+
   override def convertFile(in: URI, out: URI): Unit = {
-    using(Source.fromURI(in)) { source =>
+    using(Source.fromFile(in)) { source =>
       using(new PrintWriter(new File(out))) { pw =>
         source2pw(source, pw)
       }
