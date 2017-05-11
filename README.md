@@ -1,4 +1,9 @@
 [![Build Status](https://api.travis-ci.org/writeonly/son2.svg?branch=master)](https://travis-ci.org/writeonly/son2)
+[![License][licenseImg]][licenseLink]
+ 
+[licenseImg]: https://img.shields.io/github/license/writeonly/son2.svg
+[licenseImg2]: https://img.shields.io/:license-mit-blue.svg
+[licenseLink]: LICENSE
 
 https://codecov.io/gh/writeonly/son2
 
