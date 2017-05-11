@@ -5,6 +5,7 @@
 - [x] Rename son2-core to son2-jack
 - [ ] FunSpec, PropSpec FeatureSpec and RefSpec as integration-test
 - [ ] FlatSpec and WordSpec as test
+- [ ] Add mvnw
 
 # Functional
 ## jack
@@ -14,5 +15,5 @@
 ## main
 - [ ] Add typesafe.config
 ## drop
-- [ ] Add redisson
-- [ ] Add mongojack
+- [ ] Add persistance by redisson
+- [ ] Add persistance by mongojack
