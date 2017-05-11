@@ -1,8 +1,9 @@
 package pl.writeonly.son2.jack.formats
 
 import org.scalatest.WordSpec
+import pl.writeonly.son2.spec.WordFactory
 
-class FormatParserWord extends WordSpec {
+class FormatParserWord extends WordFactory {
 
   val parser = new MatcherFormatParser()
 

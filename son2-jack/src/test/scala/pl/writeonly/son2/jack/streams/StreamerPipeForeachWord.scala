@@ -6,9 +6,9 @@ import java.nio.charset.StandardCharsets
 import org.scalatest.WordSpec
 import pl.writeonly.son2.jack.providers.ProviderFake
 import pl.writeonly.son2.jack.streamers.{Streamer, StreamerPipeForeach}
-import org.scalamock.scalatest.MockFactory
+import pl.writeonly.son2.spec.WordFactory
 
-class StreamerPipeForeachWord extends WordSpec with MockFactory {
+class StreamerPipeForeachWord extends WordFactory {
 
   val EMPTY_STRING = ""
   val TWO_EMPTY_STRING = "\n"

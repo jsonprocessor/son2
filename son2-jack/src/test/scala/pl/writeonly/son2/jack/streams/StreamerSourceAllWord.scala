@@ -3,8 +3,9 @@ package pl.writeonly.son2.jack.streams
 import org.scalatest.WordSpec
 import pl.writeonly.son2.jack.providers.ProviderFake
 import pl.writeonly.son2.jack.streamers.{Streamer, StreamerSourceAll}
+import pl.writeonly.son2.spec.WordFactory
 
-class StreamerSourceAllWord extends WordSpec {
+class StreamerSourceAllWord extends WordFactory {
 
   val EMPTY_STRING = ""
   val TWO_EMPTY_STRING = "\n"

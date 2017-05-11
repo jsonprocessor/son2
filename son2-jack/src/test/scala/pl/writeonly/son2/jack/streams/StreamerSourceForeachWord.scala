@@ -6,8 +6,9 @@ import java.nio.charset.StandardCharsets
 import org.scalatest.WordSpec
 import pl.writeonly.son2.jack.providers.ProviderFake
 import pl.writeonly.son2.jack.streamers.{Streamer, StreamerSourceForeach}
+import pl.writeonly.son2.spec.WordFactory
 
-class StreamerSourceForeachWord extends WordSpec {
+class StreamerSourceForeachWord extends WordFactory {
 
   val EMPTY_STRING = ""
   val TWO_EMPTY_STRING = "\n"

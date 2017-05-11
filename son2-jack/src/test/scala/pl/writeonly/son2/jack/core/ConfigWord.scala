@@ -1,8 +1,8 @@
 package pl.writeonly.son2.jack.core
 
-import org.scalatest.WordSpec
+import pl.writeonly.son2.spec.WordFactory
 
-class ConfigWord extends WordSpec {
+class ConfigWord extends WordFactory {
   val config = Config()
   val other = Config.apply()
   "A Config" when {
