@@ -8,7 +8,7 @@ import pl.writeonly.son2.jack.util.Control
 
 abstract class Streamer(val liner: Liner) {
 
-  def convertFile(in: String, out: String): Unit = convertFile(new File(in), new File(out))
+  def convertFile(in: String, out: String): Unit
 
   def convertFile(in: URI, out: URI): Unit
 
