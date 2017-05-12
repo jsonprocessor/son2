@@ -1,9 +1,9 @@
 package pl.writeonly.son2.jack.streamers
 
-import org.scalatest.WordSpec
 import pl.writeonly.son2.jack.providers.ProviderFake
+import pl.writeonly.son2.spec.WhiteSpec
 
-class StreamerPipeAllWord extends WordSpec {
+class StreamerPipeAllWord extends WhiteSpec {
 
   val EMPTY_STRING = ""
   val TWO_EMPTY_STRING = "\n"

@@ -2,9 +2,9 @@ package pl.writeonly.son2.jack.liners
 
 import pl.writeonly.son2.jack.core.Config
 import pl.writeonly.son2.jack.providers.Provider
-import pl.writeonly.son2.spec.WordFactory
+import pl.writeonly.son2.spec.WhiteSpec
 
-class LinerEitherWord extends WordFactory {
+class LinerEitherWord extends WhiteSpec {
 
   "A LinerEither" when {
     "apply empty string" should {

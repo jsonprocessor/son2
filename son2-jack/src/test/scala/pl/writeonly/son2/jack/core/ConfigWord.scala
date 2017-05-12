@@ -1,8 +1,8 @@
 package pl.writeonly.son2.jack.core
 
-import pl.writeonly.son2.spec.WordFactory
+import pl.writeonly.son2.spec.WhiteSpec
 
-class ConfigWord extends WordFactory {
+class ConfigWord extends WhiteSpec {
   val config = Config()
   val other = Config.apply()
   "A Config" when {

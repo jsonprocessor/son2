@@ -4,9 +4,9 @@ import java.io.FileNotFoundException
 
 import pl.writeonly.son2.impl.{Features, Types}
 import pl.writeonly.son2.jack.core.Formats
-import pl.writeonly.son2.spec.FeatureWhenThen
+import pl.writeonly.son2.spec.BlackSpec
 
-class MainSon2YamlFeature extends FeatureWhenThen {
+class MainSon2YamlFeature extends BlackSpec {
 
   info(classOf[MainSon2YamlFeature].getSimpleName)
 

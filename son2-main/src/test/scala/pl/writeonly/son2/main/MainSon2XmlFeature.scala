@@ -4,9 +4,9 @@ import java.io.FileNotFoundException
 
 import pl.writeonly.son2.impl.{Features, Types}
 import pl.writeonly.son2.jack.core.Formats
-import pl.writeonly.son2.spec.FeatureWhenThen
+import pl.writeonly.son2.spec.BlackSpec
 
-class MainSon2XmlFeature extends FeatureWhenThen {
+class MainSon2XmlFeature extends BlackSpec {
 
   val outName = (name: String) => Features.outputPathname(Types.MAIN, name, Formats.XML)
 

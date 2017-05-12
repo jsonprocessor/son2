@@ -5,9 +5,9 @@ import java.io.FileNotFoundException
 import pl.writeonly.son2.impl.{Features, Types}
 import pl.writeonly.son2.jack.core.Formats
 import pl.writeonly.son2.jack.formats.MatcherFormatProvider
-import pl.writeonly.son2.spec.FeatureWhenThen
+import pl.writeonly.son2.spec.BlackSpec
 
-class PiperSon2ObjectFeature extends FeatureWhenThen {
+class PiperSon2ObjectFeature extends BlackSpec {
 
   val given = () => new Piper(System.in, System.out, MatcherFormatProvider(Formats.OBJECT))
 

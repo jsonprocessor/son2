@@ -2,11 +2,11 @@ package pl.writeonly.son2.impl
 
 import org.scalatest.{FeatureSpec, GivenWhenThen}
 import pl.writeonly.son2.jack.core.Formats
-import pl.writeonly.son2.spec.FeatureWhenThen
+import pl.writeonly.son2.spec.BlackSpec
 
 import scala.sys.process._
 
-class CliSon2XmlFeature extends FeatureWhenThen {
+class CliSon2XmlFeature extends BlackSpec {
 
   val SON2ML = Features.SON2 + " x"
 

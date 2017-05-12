@@ -4,9 +4,9 @@ import pl.writeonly.son2.jack.core.Formats
 import pl.writeonly.son2.jack.formats.MatcherFormatProvider
 import pl.writeonly.son2.jack.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.jack.streamers.{Streamer, StreamerPipeForeach}
-import pl.writeonly.son2.spec.PropMatchers
+import pl.writeonly.son2.spec.GraySpec
 
-class YamlProp extends PropMatchers {
+class YamlProp extends GraySpec {
 
   val toSuccess = Table(
     ("in", "out"),

@@ -1,10 +1,10 @@
 package pl.writeonly.son2.jack.streamers
 
 import pl.writeonly.son2.jack.providers.ProviderFake
-import pl.writeonly.son2.spec.WordFactory
+import pl.writeonly.son2.spec.WhiteSpec
 
 
-class StreamerPipeForeachWord extends WordFactory {
+class StreamerPipeForeachWord extends WhiteSpec {
 
   val EMPTY_STRING = ""
   val TWO_EMPTY_STRING = "\n"

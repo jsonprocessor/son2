@@ -4,9 +4,9 @@ import java.io.File
 import java.net.URI
 
 import pl.writeonly.son2.jack.providers.ProviderFake
-import pl.writeonly.son2.spec.FlatFactory
+import pl.writeonly.son2.spec.WhiteThrowsSpec
 
-class StreamerPipeForeachFlat extends FlatFactory {
+class StreamerPipeForeachFlat extends WhiteThrowsSpec {
 
   it should "produce NullPointerException when convertFile(File, File) is invoked" in {
     assertThrows[NullPointerException] {

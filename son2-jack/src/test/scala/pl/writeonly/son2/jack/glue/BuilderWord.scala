@@ -3,9 +3,9 @@ package pl.writeonly.son2.jack.glue
 import org.scalatest.WordSpec
 import pl.writeonly.son2.jack.core.Config
 import pl.writeonly.son2.jack.streamers.{StreamerPipeAll, StreamerPipeForeach, StreamerSourceAll, StreamerSourceForeach}
-import pl.writeonly.son2.spec.WordFactory
+import pl.writeonly.son2.spec.WhiteSpec
 
-class BuilderWord extends WordFactory {
+class BuilderWord extends WhiteSpec {
 
   "A Builder" when {
     "config s is true" should {
