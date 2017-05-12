@@ -13,6 +13,7 @@
 - [ ] Add configuration for yaml generator
 - [ ] Add parse StackTrace and formatted string in yaml
 - [ ] Add reparse json in yaml
+- [ ] Add hocon, rison and MoreObjects format
 ## main
 - [ ] Add typesafe.config
 ## drop
