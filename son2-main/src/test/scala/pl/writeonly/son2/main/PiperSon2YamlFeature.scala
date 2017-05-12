@@ -3,13 +3,13 @@ package pl.writeonly.son2.main
 import java.io.FileNotFoundException
 
 import pl.writeonly.son2.impl.{Features, Types}
-import pl.writeonly.son2.jack.core.Formats
+import pl.writeonly.son2.jack.core.{Config, Formats}
 import pl.writeonly.son2.jack.formats.MatcherFormatProvider
 import pl.writeonly.son2.spec.BlackSpec
 
 class PiperSon2YamlFeature extends BlackSpec {
 
-  val given = () => new Piper(System.in, System.out, MatcherFormatProvider(Formats.YAML))
+  val given = () => new Piper(Params(System.in, System.out), Config(), MatcherFormatProvider(Formats.YAML))
 
   val outName = (name: String) => Features.outputPathname(Types.PIPER, name, Formats.YAML)
 

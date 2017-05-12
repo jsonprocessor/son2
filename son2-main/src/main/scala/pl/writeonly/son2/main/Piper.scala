@@ -1,11 +1,12 @@
 package pl.writeonly.son2.main
 
-import java.io.{FileInputStream, InputStream, OutputStream}
+import java.io.{FileInputStream, InputStream}
 
+import pl.writeonly.son2.jack.core.Config
 import pl.writeonly.son2.jack.glue.Streamers
 import pl.writeonly.son2.jack.providers.Provider
 
-class Piper(sin: InputStream, sout: OutputStream, val provider: Provider) {
+class Piper(params: Params, config : Config, provider: Provider) {
 
   def right(args : Array[String]) = args.length match {
     case 0 => convertStream();
@@ -13,16 +14,16 @@ class Piper(sin: InputStream, sout: OutputStream, val provider: Provider) {
     case _ => convertFile(args(0), args(1));
   }
 
-  val impl = Streamers.pipe(true, provider)
-  val source = Streamers.source(true, provider)
+  def pipe = Streamers.pipe(config.s, provider)
+  def source = Streamers.source(config.s, provider)
 
-  def convertStream() = impl.convertStream(sin, sout)
+  def convertStream() = pipe.convertStream(params.in, params.out)
 
-  def convertFile(in: String, out: String) = impl.convertFile(in, out)
+  def convertFile(in: String, out: String) = pipe.convertFile(in, out)
 
   def convertFile(in: String) = convertStream(new FileInputStream(in))
 
-  def convertStream(in: InputStream) = source.convertStream(in, sout)
+  def convertStream(in: InputStream) = source.convertStream(in, params.out)
 
   def convertResource(name: String) = convertStream(resourceAsStream(name))
 

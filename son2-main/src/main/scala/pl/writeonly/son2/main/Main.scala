@@ -6,22 +6,22 @@ import pl.writeonly.son2.jack.providers._
 import pl.writeonly.son2.jack.util.AppLazyLogging
 
 object Main extends AppLazyLogging {
+  new Main(Params(System.in, System.out), args).either
+}
 
+class Main(params: Params, args : Array[String]) {
   val length = args.length
 
-  either
-
-  def either = provider match {
-    case Right(provider) => new Piper(System.in, System.out, provider).right(args.slice(1, length))
-    case Left(format) => new Resourcer().left(format)
+  def either = option match {
+    case Right(provider) => new Piper(params, Config(o=o), provider).right(args.slice(1, length))
+    case Left(format) => new Resourcer(params).left(format)
   }
 
-  def provider: Either[Option[String], Provider] = length match {
+  def option: Either[Option[String], Provider] = length match {
     case 0 => Left(Option.empty)
-    case _ => MatcherFormatProvider.either(Config(o = o))
+    case _ => MatcherFormatProvider.either(Config(o=o))
   }
 
   def o = args(0).toLowerCase
-
 }
 
