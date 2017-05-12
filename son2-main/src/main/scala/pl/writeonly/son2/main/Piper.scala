@@ -7,6 +7,12 @@ import pl.writeonly.son2.jack.providers.Provider
 
 class Piper(sin: InputStream, sout: OutputStream, val provider: Provider) {
 
+  def right(args : Array[String]) = args.length match {
+    case 0 => convertStream();
+    case 1 => convertFile(args(0));
+    case _ => convertFile(args(0), args(1));
+  }
+
   val impl = Streamers.pipe(true, provider)
   val source = Streamers.source(true, provider)
 

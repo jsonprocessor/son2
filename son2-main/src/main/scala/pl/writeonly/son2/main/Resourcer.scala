@@ -2,7 +2,7 @@ package pl.writeonly.son2.main
 
 import pl.writeonly.son2.jack.providers.ProviderFake
 
-class ResourceManager {
+class Resourcer {
 
   def left(resource: Option[String]) = new Piper(System.in, System.out, new ProviderFake)
     .convertResource(validOpt(resource))

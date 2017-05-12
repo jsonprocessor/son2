@@ -7,9 +7,13 @@ import pl.writeonly.son2.jack.util.AppLazyLogging
 
 object Main extends AppLazyLogging {
 
-  provider match {
-    case Right(provider) => right(new Piper(System.in, System.out, provider))
-    case Left(format) => new ResourceManager().left(format)
+  val length = args.length
+
+  either
+
+  def either = provider match {
+    case Right(provider) => new Piper(System.in, System.out, provider).right(args.slice(1, length))
+    case Left(format) => new Resourcer().left(format)
   }
 
   def provider: Either[Option[String], Provider] = length match {
@@ -17,19 +21,7 @@ object Main extends AppLazyLogging {
     case _ => MatcherFormatProvider.either(Config(o = o))
   }
 
-  def length = args.length
-
   def o = args(0).toLowerCase
 
-  def right(piper: Piper) = length match {
-    case 1 => piper.convertStream();
-    case 2 => piper.convertFile(args(1));
-    case _ => piper.convertFile(args(1), args(2));
-  }
-
 }
 
-
-class Main () {
-
-}
