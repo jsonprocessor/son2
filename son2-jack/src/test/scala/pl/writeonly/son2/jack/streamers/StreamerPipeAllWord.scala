@@ -1,8 +1,7 @@
-package pl.writeonly.son2.jack.streams
+package pl.writeonly.son2.jack.streamers
 
 import org.scalatest.WordSpec
 import pl.writeonly.son2.jack.providers.ProviderFake
-import pl.writeonly.son2.jack.streamers.{Streamer, StreamerPipeAll}
 
 class StreamerPipeAllWord extends WordSpec {
 

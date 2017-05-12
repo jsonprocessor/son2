@@ -1,11 +1,6 @@
-package pl.writeonly.son2.jack.streams
-
-import java.io.{ByteArrayInputStream, ByteArrayOutputStream, File}
-import java.net.URL
-import java.nio.charset.StandardCharsets
+package pl.writeonly.son2.jack.streamers
 
 import pl.writeonly.son2.jack.providers.ProviderFake
-import pl.writeonly.son2.jack.streamers.{Streamer, StreamerPipeForeach}
 import pl.writeonly.son2.spec.WordFactory
 
 
