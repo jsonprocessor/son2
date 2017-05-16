@@ -16,9 +16,9 @@
         <scala.version>2.11.8</scala.version>
         <scala-logging.version>3.5.0</scala-logging.version>
         <scalatest.version>3.0.1</scalatest.version>
-        <scalamock.version>3.5.0</scalamock.version>
+        <scalamock.version>3.6.0</scalamock.version>
         <scalacheck.version>1.13.5</scalacheck.version>
-        <pegdown.version>1.2.1</pegdown.version>
+        <pegdown.version>1.6.0</pegdown.version>
         <config.version>1.3.1</config.version>
         <scoverage.plugin.version>1.3.0</scoverage.plugin.version>
         <scoverage.scalacPluginVersion>1.3.0</scoverage.scalacPluginVersion>
