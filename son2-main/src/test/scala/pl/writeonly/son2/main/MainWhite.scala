@@ -46,7 +46,7 @@ class MainWhite extends WhiteSpec {
         val input = Streamer.toStream("")
         val output = new ByteArrayOutputStream()
         val params = Params(input, output)
-        assert(new Main(params, Array("")).option == Right(new ProviderObject(Config(o=""))))
+        new Main(params, Array("")).either
         assert (Streamer.toString(output) == "")
       }
     }
