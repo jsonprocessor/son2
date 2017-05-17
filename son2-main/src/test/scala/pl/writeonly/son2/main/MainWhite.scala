@@ -1,7 +1,10 @@
 package pl.writeonly.son2.main
 
+import java.io.ByteArrayOutputStream
+
 import pl.writeonly.son2.jack.core.Config
 import pl.writeonly.son2.jack.providers.ProviderObject
+import pl.writeonly.son2.jack.streamers.Streamer
 import pl.writeonly.son2.spec.WhiteSpec
 
 class MainWhite extends WhiteSpec {
@@ -33,6 +36,18 @@ class MainWhite extends WhiteSpec {
         assertThrows[NullPointerException] {
           new Main(null, Array("")).either
         }
+      }
+    }
+  }
+
+  "A Main with IO and empty string in array" when {
+    "invoke either" should {
+      "return ProviderObject(Config())" in {
+        val input = Streamer.toStream("")
+        val output = new ByteArrayOutputStream()
+        val params = Params(input, output)
+        assert(new Main(params, Array("")).option == Right(new ProviderObject(Config(o=""))))
+        assert (Streamer.toString(output) == "")
       }
     }
   }
