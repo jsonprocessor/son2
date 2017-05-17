@@ -19,7 +19,7 @@ class ResourcerWhite extends WhiteSpec {
     }
     "validOpt empty option" should {
       "return README" in {
-        assert(resourcer.validOpt(Option.empty[String]) ==  Resources.README)
+        assert(resourcer.validOpt(None) ==  Resources.README)
       }
     }
   }
