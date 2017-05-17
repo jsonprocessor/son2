@@ -10,10 +10,9 @@ class LinerOptWord extends WhiteSpec {
     "apply empty string" should {
       "return ?" in {
         class ProviderStub extends Provider(Config(), null)
-//        val provider: Provider = stub[ProviderStub]
-        val provider :Provider = new ProviderStub();
+        val provider :Provider = new ProviderStub()
         val liner = new LinerOpt(provider)
-        liner.apply("")
+        assert (liner.apply("") == "\n")
       }
     }
   }
