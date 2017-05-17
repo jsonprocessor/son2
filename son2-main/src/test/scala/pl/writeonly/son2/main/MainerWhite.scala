@@ -9,7 +9,7 @@ import pl.writeonly.son2.spec.WhiteSpec
 
 class MainerWhite extends WhiteSpec {
 
-  "A Main with empty array" when {
+  "A Mainer with empty array" when {
     "invoke option" should {
       "return Left(None)" in {
         assert(new Mainer(null, Array()).option == Left(None))
@@ -17,7 +17,7 @@ class MainerWhite extends WhiteSpec {
     }
   }
 
-  "A Main with README in array" when {
+  "A Mainer with README in array" when {
     "invoke option" should {
       "return Left(Option(readme)" in {
         assert(new Mainer(null, Array("README")).option == Left(Some("readme")))
@@ -25,7 +25,7 @@ class MainerWhite extends WhiteSpec {
     }
   }
 
-  "A Main with empty string in array" when {
+  "A Mainer with empty string in array" when {
     "invoke option" should {
       "return ProviderObject(Config())" in {
         assert(new Mainer(null, Array("")).option == Right(new ProviderObject(Config(o=""))))
@@ -40,7 +40,7 @@ class MainerWhite extends WhiteSpec {
     }
   }
 
-  "A Main with IO and empty string in array" when {
+  "A Mainer with IO and empty string in array" when {
     "invoke either" should {
       "return ProviderObject(Config())" in {
         val input = Streamer.toStream("")
