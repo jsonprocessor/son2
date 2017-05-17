@@ -28,6 +28,13 @@ class MainWhite extends WhiteSpec {
         assert(new Main(null, Array("")).option == Right(new ProviderObject(Config(o=""))))
       }
     }
+    "invoke either" should {
+      "throw NullPointerException" in {
+        assertThrows[NullPointerException] {
+          new Main(null, Array("")).either
+        }
+      }
+    }
   }
 
 }
