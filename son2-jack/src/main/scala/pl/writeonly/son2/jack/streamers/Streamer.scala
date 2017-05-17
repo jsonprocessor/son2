@@ -2,9 +2,9 @@ package pl.writeonly.son2.jack.streamers
 
 import java.io._
 import java.net.URI
+import java.nio.charset.StandardCharsets
 
 import pl.writeonly.son2.jack.liners.Liner
-import pl.writeonly.son2.jack.util.Control
 
 abstract class Streamer(val liner: Liner) {
 
@@ -15,8 +15,8 @@ abstract class Streamer(val liner: Liner) {
   def convertFile(in: File, out: File): Unit
 
   def convertString(in: String): String = {
-    val bytes = convertBytes(in.getBytes(Control.UTF_8))
-    new String(bytes, Control.UTF_8)
+    val bytes = convertBytes(Streamer.toBytes(in))
+    Streamer.toString(bytes)
   }
 
   def convertStringNative(in: String): String
@@ -36,4 +36,10 @@ abstract class Streamer(val liner: Liner) {
   }
 }
 
+object Streamer {
+  def toStream(in:String) = new ByteArrayInputStream(toBytes(in))
+  def toString(out: ByteArrayOutputStream) = toString(out.toByteArray)
 
+  def toBytes(in:String) = in.getBytes(StandardCharsets.UTF_8)
+  def toString(out: Array[Byte]) = new String(out, StandardCharsets.UTF_8)
+}
