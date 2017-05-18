@@ -7,6 +7,7 @@
 - [ ] FunSpec, PropSpec FeatureSpec and RefSpec as integration-test
 - [ ] FlatSpec and WordSpec as test
 - [ ] Add mvnw
+- [ ] Add mvn clean compile jar:jar dependency:copy-dependencies javadoc:javadoc site-deploy
 
 # Functional
 ## jack
