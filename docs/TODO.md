@@ -18,6 +18,7 @@
 - [ ] Add rison
 - [ ] Add MoreObjects format
 - [ ] Add BigDeal format
+- [ ] Add sed
 ## main
 - [ ] Add typesafe.config
 ## drop
