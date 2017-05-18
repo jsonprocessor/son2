@@ -8,6 +8,7 @@
 - [ ] FlatSpec and WordSpec as test
 - [ ] Add mvnw
 - [ ] Add mvn clean compile jar:jar dependency:copy-dependencies javadoc:javadoc site-deploy
+- [ ] Convert assert to assertResult
 
 # Functional
 ## jack
