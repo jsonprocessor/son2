@@ -5,9 +5,9 @@ import java.io.ByteArrayOutputStream
 import pl.writeonly.son2.jack.core.Config
 import pl.writeonly.son2.jack.providers.ProviderFake
 import pl.writeonly.son2.jack.streamers.Streamer
-import pl.writeonly.son2.spec.WhiteSpec
+import pl.writeonly.son2.spec.WhiteResultSpec
 
-class PiperWhite extends WhiteSpec {
+class PiperWhite extends WhiteResultSpec {
 
 
   "A Piper" when {

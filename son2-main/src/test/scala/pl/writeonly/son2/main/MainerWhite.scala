@@ -5,9 +5,9 @@ import java.io.ByteArrayOutputStream
 import pl.writeonly.son2.jack.core.Config
 import pl.writeonly.son2.jack.providers.ProviderObject
 import pl.writeonly.son2.jack.streamers.Streamer
-import pl.writeonly.son2.spec.WhiteSpec
+import pl.writeonly.son2.spec.WhiteResultSpec
 
-class MainerWhite extends WhiteSpec {
+class MainerWhite extends WhiteResultSpec {
 
   "A Mainer with empty array" when {
     "invoke option" should {

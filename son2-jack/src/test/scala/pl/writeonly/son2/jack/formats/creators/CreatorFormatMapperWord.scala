@@ -1,7 +1,7 @@
 package pl.writeonly.son2.jack.formats.creators
 
-import pl.writeonly.son2.spec.WhiteSpec
+import pl.writeonly.son2.spec.WhiteResultSpec
 
-class CreatorFormatMapperWord extends WhiteSpec {
+class CreatorFormatMapperWord extends WhiteResultSpec {
 
 }

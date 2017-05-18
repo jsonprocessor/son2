@@ -4,11 +4,11 @@ import java.io.{ByteArrayInputStream, ByteArrayOutputStream, PrintWriter, String
 import java.nio.charset.StandardCharsets
 
 import pl.writeonly.son2.jack.providers.ProviderFake
-import pl.writeonly.son2.spec.WhiteSpec
+import pl.writeonly.son2.spec.WhiteResultSpec
 
 import scala.io.Source
 
-class StreamerSourceForeachWord extends WhiteSpec {
+class StreamerSourceForeachWord extends WhiteResultSpec {
 
   val EMPTY_STRING = ""
   val ONE_LINE = "\n"

@@ -1,8 +1,8 @@
 package pl.writeonly.son2.jack.core
 
-import pl.writeonly.son2.spec.WhiteSpec
+import pl.writeonly.son2.spec.WhiteResultSpec
 
-class ConfigWord extends WhiteSpec {
+class ConfigWord extends WhiteResultSpec {
   val config = Config()
   val other = Config.apply()
   "A Config" when {
