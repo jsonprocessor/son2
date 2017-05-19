@@ -24,6 +24,7 @@
         <scoverage.scalacPluginVersion>1.3.0</scoverage.scalacPluginVersion>
         <scoverage.aggregate>true</scoverage.aggregate>
         <pitest-maven.plugin.version>1.2.0</pitest-maven.plugin.version>
+        <selenium-java.version>2.35.0</selenium-java.version>
     </properties>
 
     <modules>
@@ -75,6 +76,13 @@
                 <version>${pegdown.version}</version>
                 <scope>test</scope>
             </dependency>
+            <dependency>
+                <groupId>org.seleniumhq.selenium</groupId>
+                <artifactId>selenium-java</artifactId>
+                <version>${selenium-java.version}</version>
+                <scope>test</scope>
+            </dependency>
+
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
