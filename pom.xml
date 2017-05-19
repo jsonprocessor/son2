@@ -287,7 +287,7 @@
                                 <goal>test</goal>
                             </goals>
                             <configuration>
-                                <suffixes>?&lt;!(GrayProp|GrayFun|BlackFeature|Feature)</suffixes>
+                                <suffixes>?&lt;!(Prop|Fun|Feature)</suffixes>
                                 <htmlreporters>${project.build.directory}/site/scalatest/</htmlreporters>
                             </configuration>
                         </execution>
@@ -298,7 +298,7 @@
                                 <goal>test</goal>
                             </goals>
                             <configuration>
-                                <suffixes>(GrayProp|GrayFun|BlackFeature|Feature)</suffixes>
+                                <suffixes>(Prop|Fun|Feature)</suffixes>
                                 <htmlreporters>${project.build.directory}/site/scalatest-it/</htmlreporters>
                             </configuration>
                         </execution>
