@@ -21,7 +21,8 @@
 - [ ] Add MoreObjects format
 - [ ] Add BigDeal format
 - [ ] Add sed
-- [ ] Coloring as a ./jq
+- [ ] Coloring as a ./jq https://stedolan.github.io/jq/
+- [ ] Add JsonPath https://github.com/json-path/JsonPath 
 ## main
 - [ ] Add typesafe.config
 ## drop
