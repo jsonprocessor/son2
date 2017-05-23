@@ -13,6 +13,7 @@
 
 # Functional
 ## jack
+- [ ] Add typesafe.config
 - [ ] Add configuration for yaml generator
 - [ ] Add parse StackTrace and formatted string in yaml
 - [ ] Add reparse json in yaml
@@ -23,8 +24,8 @@
 - [ ] Add sed
 - [ ] Coloring as a ./jq https://stedolan.github.io/jq/
 - [ ] Add JsonPath https://github.com/json-path/JsonPath 
-## main
-- [ ] Add typesafe.config
+
 ## drop
 - [ ] Add persistance by redisson
 - [ ] Add persistance by mongojack
+- [ ] Add REST Assured http://rest-assured.io/
