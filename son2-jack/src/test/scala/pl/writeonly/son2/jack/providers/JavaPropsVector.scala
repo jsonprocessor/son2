@@ -4,66 +4,66 @@ import pl.writeonly.son2.jack.core.Formats
 import pl.writeonly.son2.jack.formats.MatcherFormatProvider
 import pl.writeonly.son2.jack.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.jack.streamers.{Streamer, StreamerPipeForeach}
-import pl.writeonly.son2.spec.GrayPropSpec
+import pl.writeonly.son2.spec.GrayVectorSpec
 
-class XmlProp extends GrayPropSpec {
+class JavaPropsVector extends GrayVectorSpec {
 
   val toSuccess = Table(
     ("in", "out"),
-    ("0", "\n<IntNode>0</IntNode>"),
-    ("\"a\"", "\n<TextNode>a</TextNode>"),
-    ("[0]", "\n<ArrayNode>0</ArrayNode>"),
-    ("{}", "<ObjectNode/>\n"),
-    ("{\"a\":0}", "<ObjectNode>\n  <a>0</a>\n</ObjectNode>\n"),
-    ("{\"a\":0, \"b\":1}", "<ObjectNode>\n  <a>0</a>\n  <b>1</b>\n</ObjectNode>\n"),
-    ("[{}]", "<ArrayNode/>\n"),
-    ("{\"a\":[]}", "<ObjectNode/>\n")
+    ("0", "=0\n"),
+    ("\"a\"", "=a\n"),
+    ("[]", ""),
+    ("[0]", "1=0\n"),
+    ("[0,1]", "1=0\n2=1\n"),
+    ("{}", ""),
+    ("{\"a\":0}", "a=0\n"),
+    ("{\"a\":0, \"b\":1}", "a=0\nb=1\n"),
+    ("[{}]", ""),
+    ("{\"a\":[]}", "")
   )
 
   val toFailure = Table(
     "in",
-    "a",
-    "[]",
-    "[0,1]"
+    "a"
   )
 
-  val provider: Provider = MatcherFormatProvider(Formats.XML)
-  property("convert son to xml by provider") {
+  val provider: Provider = MatcherFormatProvider(Formats.JAVA_PROPS)
+  property("convert son to yaml by provider") {
     forAll(toSuccess) { (in, out) =>
       provider.convert(in) should be(out)
     }
   }
 
   val liner: Liner = new LinerOpt(provider)
-  property("convert son to xml by liner") {
+  property("convert son to yaml by liner") {
     forAll(toSuccess) { (in, out) =>
       liner.apply(in) should be(out + "\n")
     }
   }
-  property("fail convert son to xml by liner") {
+  property("fail convert son to yaml by liner") {
     forAll(toFailure) { in =>
       liner.apply(in) should be(provider.comment(in) + "\n")
     }
   }
 
   val streamer: Streamer = new StreamerPipeForeach(liner)
-  property("convert son to xml by streamer") {
+  property("convert son to yaml by streamer") {
     forAll(toSuccess) { (in, out) =>
       streamer.convertString(in) should be(out + "\n")
     }
   }
-  property("fail convert son to xml by streamer") {
+  property("fail convert son to yaml by streamer") {
     forAll(toFailure) { in =>
       streamer.convertString(in) should be(provider.comment(in) + "\n")
     }
   }
 
-  property("convert son to xml by native streamer") {
+  property("convert son to yaml by native streamer") {
     forAll(toSuccess) { (in, out) =>
       streamer.convertStringNative(in) should be(out + "\n")
     }
   }
-  property("fail convert son to xml by native streamer") {
+  property("fail convert son to yaml by native streamer") {
     forAll(toFailure) { in =>
       streamer.convertStringNative(in) should be(provider.comment(in) + "\n")
     }
