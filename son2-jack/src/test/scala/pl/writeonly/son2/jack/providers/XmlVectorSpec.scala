@@ -6,7 +6,7 @@ import pl.writeonly.son2.jack.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.jack.streamers.{Streamer, StreamerPipeForeach}
 import pl.writeonly.son2.spec.GrayVectorSpec
 
-class XmlVector extends GrayVectorSpec {
+class XmlVectorSpec extends GrayVectorSpec {
 
   val toSuccess = Table(
     ("in", "out"),

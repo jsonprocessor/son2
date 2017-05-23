@@ -3,7 +3,7 @@ package pl.writeonly.son2.jack.streamers
 import pl.writeonly.son2.jack.providers.ProviderFake
 import pl.writeonly.son2.spec.WhiteResultSpec
 
-class StreamerPipeAllWord extends WhiteResultSpec {
+class StreamerPipeAllResultSpec extends WhiteResultSpec {
 
   val EMPTY_STRING = ""
   val TWO_EMPTY_STRING = "\n"

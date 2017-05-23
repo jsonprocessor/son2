@@ -4,7 +4,7 @@ import pl.writeonly.son2.jack.providers.ProviderFake
 import pl.writeonly.son2.spec.WhiteResultSpec
 
 
-class StreamerPipeForeachWord extends WhiteResultSpec {
+class StreamerPipeForeachResultSpec extends WhiteResultSpec {
 
   val EMPTY_STRING = ""
   val TWO_EMPTY_STRING = "\n"

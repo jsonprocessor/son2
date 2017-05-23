@@ -7,13 +7,13 @@ import pl.writeonly.son2.jack.core.{Config, Formats}
 import pl.writeonly.son2.jack.formats.MatcherFormatProvider
 import pl.writeonly.son2.spec.BlackSpec
 
-class PiperSon2ObjectFeature extends BlackSpec {
+class PiperSon2ObjectFeatureSpec extends BlackSpec {
 
   val given = () => new Piper(Params(System.in, System.out), Config(), MatcherFormatProvider(Formats.OBJECT))
 
   val outName = (name: String) => Features.outputPathname(Types.PIPER, name, Formats.OBJECT)
 
-  feature(classOf[PiperSon2ObjectFeature].getSimpleName) {
+  feature(classOf[PiperSon2ObjectFeatureSpec].getSimpleName) {
     scenario("Apply with null pathname") {
       Given("converter FileJson2Yaml")
       val piper = given()

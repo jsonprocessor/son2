@@ -7,9 +7,9 @@ import pl.writeonly.son2.jack.core.Formats
 import pl.writeonly.son2.jack.formats.MatcherFormatProvider
 import pl.writeonly.son2.jack.liners.{Liner, LinerOpt}
 
-class CsvWord extends WordSpec with Matchers {
+class XmlWordSpec extends WordSpec with Matchers {
 
-  val provider: Provider = MatcherFormatProvider(Formats.CSV)
+  val provider: Provider = MatcherFormatProvider(Formats.XML)
   "A Provider" should {
     "produce JsonParseException when convert a" in {
       assertThrows[JsonParseException] {
@@ -19,6 +19,16 @@ class CsvWord extends WordSpec with Matchers {
     "produce JsonMappingException when convert empty string" in {
       assertThrows[JsonMappingException] {
         provider.convert("")
+      }
+    }
+    "produce JsonMappingException when convert []" in {
+      assertThrows[JsonMappingException] {
+        provider.convert("[]")
+      }
+    }
+    "produce JsonMappingException when convert [0,1]" in {
+      assertThrows[JsonMappingException] {
+        provider.convert("[0,1]")
       }
     }
   }

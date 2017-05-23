@@ -4,7 +4,7 @@ import pl.writeonly.son2.jack.core.Formats
 import pl.writeonly.son2.jack.formats.MatcherFormatProvider
 import pl.writeonly.son2.spec.WhiteResultSpec
 
-class ProviderObjectWhite extends WhiteResultSpec {
+class ProviderObjectResultSpec extends WhiteResultSpec {
   val provider: Provider = MatcherFormatProvider(Formats.OBJECT)
 
   "A ProviderObject" when {

@@ -4,15 +4,15 @@ import pl.writeonly.son2.jack.core.Config
 import pl.writeonly.son2.jack.providers.Provider
 import pl.writeonly.son2.spec.WhiteResultSpec
 
-class LinerEitherWord extends WhiteResultSpec {
+class LinerOptResultSpec extends WhiteResultSpec {
 
-  "A LinerEither" when {
+  "A LinerOpt" when {
     "apply empty string" should {
       "return ?" in {
         class ProviderStub extends Provider(Config(), null)
         val provider :Provider = new ProviderStub()
-        val liner = new LinerEither(provider)
-        liner.apply("")
+        val liner = new LinerOpt(provider)
+        assert (liner.apply("") == "\n")
       }
     }
   }

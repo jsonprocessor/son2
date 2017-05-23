@@ -1,9 +1,10 @@
 package pl.writeonly.son2.jack.glue
 
-import org.scalatest.{Matchers, WordSpec}
+import org.scalatest.Matchers
 import pl.writeonly.son2.jack.core.Formats
+import pl.writeonly.son2.spec.WhiteResultSpec
 
-class ParserWord extends WordSpec with Matchers {
+class ParserResultSpec extends WhiteResultSpec with Matchers {
   val parser: Parser = new Parser
 
   //  "A Parser" when  {

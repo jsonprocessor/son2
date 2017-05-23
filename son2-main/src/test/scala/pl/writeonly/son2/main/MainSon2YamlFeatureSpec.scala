@@ -6,13 +6,13 @@ import pl.writeonly.son2.impl.{Features, Types}
 import pl.writeonly.son2.jack.core.Formats
 import pl.writeonly.son2.spec.BlackSpec
 
-class MainSon2YamlFeature extends BlackSpec {
+class MainSon2YamlFeatureSpec extends BlackSpec {
 
-  info(classOf[MainSon2YamlFeature].getSimpleName)
+  info(classOf[MainSon2YamlFeatureSpec].getSimpleName)
 
   val outName = (name: String) => Features.outputPathname(Types.MAIN, name, Formats.YAML)
 
-  feature(classOf[MainSon2YamlFeature].getSimpleName) {
+  feature(classOf[MainSon2YamlFeatureSpec].getSimpleName) {
     ignore("Apply with null pathname") {
       Given("converter FileJson2Yaml")
 

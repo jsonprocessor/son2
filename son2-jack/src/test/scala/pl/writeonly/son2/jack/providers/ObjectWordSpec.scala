@@ -7,7 +7,7 @@ import pl.writeonly.son2.jack.core.Formats
 import pl.writeonly.son2.jack.formats.MatcherFormatProvider
 import pl.writeonly.son2.jack.liners.{Liner, LinerOpt}
 
-class ObjectWord extends WordSpec with Matchers {
+class ObjectWordSpec extends WordSpec with Matchers {
 
   val provider: Provider = MatcherFormatProvider(Formats.OBJECT)
   "A Provider" should {

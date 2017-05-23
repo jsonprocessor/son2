@@ -3,25 +3,21 @@ package pl.writeonly.son2.main
 import java.io.FileNotFoundException
 
 import pl.writeonly.son2.impl.{Features, Types}
-import pl.writeonly.son2.jack.core.{Config, Formats}
-import pl.writeonly.son2.jack.formats.MatcherFormatProvider
+import pl.writeonly.son2.jack.core.Formats
 import pl.writeonly.son2.spec.BlackSpec
 
-class PiperSon2YamlFeature extends BlackSpec {
+class MainSon2ObjectFeatureSpec extends BlackSpec {
 
-  val given = () => new Piper(Params(System.in, System.out), Config(), MatcherFormatProvider(Formats.YAML))
+  val outName = (name: String) => Features.outputPathname(Types.MAIN, name, Formats.OBJECT)
 
-  val outName = (name: String) => Features.outputPathname(Types.PIPER, name, Formats.YAML)
-
-  feature(classOf[PiperSon2YamlFeature].getSimpleName) {
+  feature(classOf[MainSon2ObjectFeatureSpec].getSimpleName) {
     scenario("Apply with null pathname") {
       Given("converter FileJson2Yaml")
-      val piper = given()
+      val name: String = null
 
       When("should produce null when consume null")
-      val name: String = null
       val caught = intercept[NullPointerException] {
-        piper.convertFile(name, name)
+        Main.main(Array(Formats.OBJECT, name, name))
       }
 
       Then("null == messag")
@@ -31,24 +27,20 @@ class PiperSon2YamlFeature extends BlackSpec {
 
     scenario("Apply with empty pathname") {
       Given("converter FileJson2Yaml")
-      val piper = given()
 
       When("should produce empty when consume empty")
       assertThrows[FileNotFoundException] {
-        piper.convertFile("", "")
+        Main.main(Array(Formats.OBJECT, "", ""))
       }
     }
 
     scenario("Apply with pathname") {
       Given("converter FileJson2Yaml")
-      val piper = given()
       val in = Features.inputPathname
       val out = outName("pathname")
 
       When("should produce null when consume null")
-      piper.convertFile(in, out)
+      Main.main(Array(Formats.OBJECT, in, out))
     }
   }
-
 }
-

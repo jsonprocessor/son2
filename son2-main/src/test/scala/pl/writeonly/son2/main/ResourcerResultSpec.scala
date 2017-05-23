@@ -3,7 +3,7 @@ package pl.writeonly.son2.main
 
 import pl.writeonly.son2.spec.WhiteResultSpec
 
-class ResourcerWhite extends WhiteResultSpec {
+class ResourcerResultSpec extends WhiteResultSpec {
   val resourcer: Resourcer = new Resourcer(null)
 
   "A Resourcer" when {

@@ -6,7 +6,7 @@ import java.net.URI
 import pl.writeonly.son2.jack.providers.ProviderFake
 import pl.writeonly.son2.spec.WhiteThrowsSpec
 
-class StreamerSourceForeachFlat extends WhiteThrowsSpec {
+class StreamerSourceForeachThrowsSpec extends WhiteThrowsSpec {
 
   it should "produce NullPointerException when convertFile(File, File) is invoked" in {
     assertThrows[NullPointerException] {

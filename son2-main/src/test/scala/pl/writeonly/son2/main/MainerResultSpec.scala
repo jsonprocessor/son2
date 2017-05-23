@@ -7,7 +7,7 @@ import pl.writeonly.son2.jack.providers.ProviderObject
 import pl.writeonly.son2.jack.streamers.Streamer
 import pl.writeonly.son2.spec.WhiteResultSpec
 
-class MainerWhite extends WhiteResultSpec {
+class MainerResultSpec extends WhiteResultSpec {
 
   "A Mainer with empty array" when {
     "invoke option" should {

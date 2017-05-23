@@ -7,8 +7,7 @@ import pl.writeonly.son2.jack.providers.ProviderFake
 import pl.writeonly.son2.jack.streamers.Streamer
 import pl.writeonly.son2.spec.WhiteResultSpec
 
-class PiperWhite extends WhiteResultSpec {
-
+class PiperResultSpec extends WhiteResultSpec {
 
   "A Piper" when {
     "convertStream from empty string" should {

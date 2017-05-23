@@ -7,9 +7,9 @@ import pl.writeonly.son2.jack.core.Formats
 import pl.writeonly.son2.jack.formats.MatcherFormatProvider
 import pl.writeonly.son2.jack.liners.{Liner, LinerOpt}
 
-class JavaPropsWord extends WordSpec with Matchers {
+class YamlWordSpec extends WordSpec with Matchers {
 
-  val provider: Provider = MatcherFormatProvider(Formats.JAVA_PROPS)
+  val provider: Provider = MatcherFormatProvider(Formats.YAML)
   "A Provider" should {
     "produce JsonParseException when convert a" in {
       assertThrows[JsonParseException] {

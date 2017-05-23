@@ -8,7 +8,7 @@ import pl.writeonly.son2.spec.WhiteResultSpec
 
 import scala.io.Source
 
-class StreamerSourceForeachWord extends WhiteResultSpec {
+class StreamerSourceForeachResultSpec extends WhiteResultSpec {
 
   val EMPTY_STRING = ""
   val ONE_LINE = "\n"
