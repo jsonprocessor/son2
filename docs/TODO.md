@@ -21,6 +21,7 @@
 - [ ] Add MoreObjects format
 - [ ] Add BigDeal format
 - [ ] Add sed
+- [ ] Coloring as a ./jq
 ## main
 - [ ] Add typesafe.config
 ## drop
