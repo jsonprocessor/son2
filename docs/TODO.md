@@ -12,6 +12,9 @@
 - [ ] Convert String to CharSequence
 
 # Functional
+## core
+- [ ] Create module with all independent code
+
 ## jack
 - [ ] Add typesafe.config
 - [ ] Add configuration for yaml generator
