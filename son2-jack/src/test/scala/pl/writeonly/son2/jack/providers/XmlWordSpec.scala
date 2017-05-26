@@ -2,13 +2,12 @@ package pl.writeonly.son2.jack.providers
 
 import com.fasterxml.jackson.core.JsonParseException
 import com.fasterxml.jackson.databind.JsonMappingException
-import org.scalatest.Matchers
 import pl.writeonly.son2.jack.core.Formats
 import pl.writeonly.son2.jack.formats.MatcherFormatProvider
 import pl.writeonly.son2.jack.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.spec.WhiteResultSpec
 
-class XmlWordSpec extends WhiteResultSpec with Matchers {
+class XmlWordSpec extends WhiteResultSpec {
 
   val provider: Provider = MatcherFormatProvider(Formats.XML)
   "A Provider" should {
