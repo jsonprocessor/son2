@@ -8,7 +8,7 @@ import pl.writeonly.son2.spec.GrayScalarSpec
 
 class StreamerSourceForeachScalarSpec extends GrayScalarSpec {
   describe("A Streamer") {
-    val streamer = new StreamerSourceForeach(new ProviderFake)
+    val streamer:StreamerSource = new StreamerSourceForeach(new ProviderFake)
     it("when convertFile file with empty name") {
       assertThrows[FileNotFoundException] {
         streamer.convertFile("", "")
