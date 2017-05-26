@@ -2,12 +2,12 @@ package pl.writeonly.son2.jack.providers
 
 import com.fasterxml.jackson.core.JsonParseException
 import com.fasterxml.jackson.databind.JsonMappingException
-import org.scalatest.{Matchers, WordSpec}
 import pl.writeonly.son2.jack.core.Formats
 import pl.writeonly.son2.jack.formats.MatcherFormatProvider
 import pl.writeonly.son2.jack.liners.{Liner, LinerOpt}
+import pl.writeonly.son2.spec.WhiteResultSpec
 
-class CsvWordSpec extends WordSpec with Matchers {
+class CsvWordSpec extends WhiteResultSpec {
 
   val provider: Provider = MatcherFormatProvider(Formats.CSV)
   "A Provider" should {
@@ -26,7 +26,7 @@ class CsvWordSpec extends WordSpec with Matchers {
   val liner: Liner = new LinerOpt(provider)
   "A Liner" should {
     "return empty comment" in {
-      liner.apply("") should be(provider.comment("") + "\n")
+      assertResult(provider.comment("") + "\n") (liner.apply(""))
     }
   }
 }
