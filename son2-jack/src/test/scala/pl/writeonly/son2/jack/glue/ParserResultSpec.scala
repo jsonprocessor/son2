@@ -1,10 +1,9 @@
 package pl.writeonly.son2.jack.glue
 
-import org.scalatest.Matchers
 import pl.writeonly.son2.jack.core.Formats
 import pl.writeonly.son2.spec.WhiteResultSpec
 
-class ParserResultSpec extends WhiteResultSpec with Matchers {
+class ParserResultSpec extends WhiteResultSpec {
   val parser: Parser = new Parser
 
   //  "A Parser" when  {
@@ -30,16 +29,16 @@ class ParserResultSpec extends WhiteResultSpec with Matchers {
     "json is default" should {
       val config = parser("{\"s\":true, \"p\":true, \"i\":\"object\", \"o\":\"yaml\"}")
       "return s equals true" in {
-        config.s should be(true)
+        assertResult(true) (config.s)
       }
       "return p equals true" in {
-        config.p should be(true)
+        assertResult(true) (config.p)
       }
       "return i equals 'object'" in {
-        config.i should be(Formats.OBJECT)
+        assertResult(Formats.OBJECT) (config.i)
       }
       "return o equals 'yaml'" in {
-        config.o should be(Formats.YAML)
+        assertResult(Formats.YAML) (config.o)
       }
     }
   }
