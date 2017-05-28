@@ -12,7 +12,7 @@ class LinerOptResultSpec extends WhiteResultSpec {
         class ProviderStub extends Provider(Config(), null)
         val provider :Provider = new ProviderStub()
         val liner = new LinerOpt(provider)
-        assert (liner.apply("") == "\n")
+        assertResult ("\n") (liner.apply(""))
       }
     }
   }

@@ -17,7 +17,7 @@ class PiperResultSpec extends WhiteResultSpec {
         val params = Params(null, output)
         val piper: Piper = new Piper(params, Config(), new ProviderFake())
         piper.convertStream(input)
-        assert (Streamer.toString(output) == "")
+        assertResult ("") (Streamer.toString(output))
       }
     }
     "convertStream from a string" should {
@@ -27,7 +27,7 @@ class PiperResultSpec extends WhiteResultSpec {
         val params = Params(null, output)
         val piper: Piper = new Piper(params, Config(), new ProviderFake())
         piper.convertStream(input)
-        assert (Streamer.toString(output) == "a\n")
+        assertResult ("a\n") (Streamer.toString(output))
       }
     }
   }

@@ -17,12 +17,12 @@ class StreamerSourceAllResultSpec extends WhiteResultSpec {
   "A StreamerSourceAll" when {
     "convertStringNative empty string" should {
       "return empty string" in {
-        assert (streamer.convertStringNative(EMPTY_STRING) == ONE_LINE)
+        assertResult (ONE_LINE) (streamer.convertStringNative(EMPTY_STRING))
       }
     }
     "convertString empty string" should {
       "return empty string" in {
-        assert (streamer.convertString(EMPTY_STRING) == ONE_LINE)
+        assertResult (ONE_LINE) (streamer.convertString(EMPTY_STRING))
       }
     }
     "convert empty two lines to String" should {

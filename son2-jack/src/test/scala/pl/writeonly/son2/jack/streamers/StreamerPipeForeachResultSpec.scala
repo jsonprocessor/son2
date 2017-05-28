@@ -28,12 +28,12 @@ class StreamerPipeForeachResultSpec extends WhiteResultSpec {
     }
     "convertStringNative empty string" should {
       "return empty string" in {
-        assert (streamer.convertStringNative(EMPTY_STRING) == EMPTY_STRING)
+        assertResult (EMPTY_STRING) (streamer.convertStringNative(EMPTY_STRING) )
       }
     }
     "convertString empty string" should {
       "return empty string" in {
-        assert (streamer.convertString(EMPTY_STRING) == EMPTY_STRING)
+        assertResult (EMPTY_STRING) (streamer.convertString(EMPTY_STRING))
       }
     }
 //    "convertStream empty string" should {

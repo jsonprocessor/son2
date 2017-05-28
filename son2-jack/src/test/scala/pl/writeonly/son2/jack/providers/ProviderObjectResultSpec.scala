@@ -10,7 +10,7 @@ class ProviderObjectResultSpec extends WhiteResultSpec {
   "A ProviderObject" when {
     "equals other ProviderObject" should {
       "return true" in {
-        assert (provider == MatcherFormatProvider(Formats.OBJECT))
+        assertResult (MatcherFormatProvider(Formats.OBJECT)) (provider)
       }
     }
   }
