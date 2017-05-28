@@ -17,10 +17,10 @@ class MatcherFormatIsDefine(c: CreatorFormat[ObjectMapper]) extends MatcherForma
 
   override def javaprops(s: String): Boolean = isDefined(s, c.javaprops)
 
+  override def properties(s: String): Boolean = isDefined(s, c.javaprops)
+
   def isDefined(s: String, om: ObjectMapper): Boolean = catching(classOf[Exception])
     .opt(om.readTree(s))
     .isDefined
-
-  override def properties(s: String): Boolean = isDefined(s, c.javaprops)
 
 }

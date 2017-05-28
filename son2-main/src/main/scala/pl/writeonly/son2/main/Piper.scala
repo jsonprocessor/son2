@@ -22,11 +22,11 @@ class Piper(params: Params, config: Config, provider: Provider) {
 
   def convertFile(in: String) = convertStream(new FileInputStream(in))
 
+  def convertResource(name: String) = convertStream(resourceAsStream(name))
+
   def convertStream(in: InputStream) = source.convertStream(in, params.out)
 
   def source = Streamers.source(config.s, provider)
-
-  def convertResource(name: String) = convertStream(resourceAsStream(name))
 
   def resourceAsStream(name: String) = getClass().getClassLoader().getResourceAsStream(name)
 

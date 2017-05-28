@@ -23,6 +23,16 @@ abstract class StreamerPipe(liner: Liner) extends Streamer(liner) {
     out.toString
   }
 
+  override def convertBytes(in: Array[Byte]): Array[Byte] = {
+    val out = new ByteArrayOutputStream()
+    convertStream(new ByteArrayInputStream(in), out)
+    out.toByteArray
+  }
+
+  override def convertStream(in: InputStream, out: OutputStream): Unit = {
+    convertNative(new InputStreamReader(in, Control.UTF_8), new OutputStreamWriter(out, Control.UTF_8))
+  }
+
   def convertNative(in: Reader, out: Writer): Unit = {
     using(new BufferedWriter(out)) { bw =>
       using(new BufferedReader(in)) { br =>
@@ -33,16 +43,6 @@ abstract class StreamerPipe(liner: Liner) extends Streamer(liner) {
 
   def convertBuffered(in: BufferedReader, out: BufferedWriter): Unit = {
     stream2(in.lines(), out)
-  }
-
-  override def convertBytes(in: Array[Byte]): Array[Byte] = {
-    val out = new ByteArrayOutputStream()
-    convertStream(new ByteArrayInputStream(in), out)
-    out.toByteArray
-  }
-
-  override def convertStream(in: InputStream, out: OutputStream): Unit = {
-    convertNative(new InputStreamReader(in, Control.UTF_8), new OutputStreamWriter(out, Control.UTF_8))
   }
 
   def stream2(stream: Stream[String], out: Writer): Unit
