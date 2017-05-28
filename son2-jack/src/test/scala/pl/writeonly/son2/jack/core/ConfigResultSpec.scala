@@ -13,7 +13,7 @@ class ConfigResultSpec extends WhiteResultSpec {
     }
     "hashCode equals other config" should {
       "return true" in {
-        assertResult (other.hashCode() (config.hashCode())
+        assertResult (other.hashCode()) (config.hashCode())
       }
     }
   }
