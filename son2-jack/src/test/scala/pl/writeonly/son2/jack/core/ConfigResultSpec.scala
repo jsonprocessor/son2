@@ -8,12 +8,12 @@ class ConfigResultSpec extends WhiteResultSpec {
   "A Config" when {
     "equals other config" should {
       "return true" in {
-        assertResult (other) (config)
+        assertResult(other)(config)
       }
     }
     "hashCode equals other config" should {
       "return true" in {
-        assertResult (other.hashCode()) (config.hashCode())
+        assertResult(other.hashCode())(config.hashCode())
       }
     }
   }

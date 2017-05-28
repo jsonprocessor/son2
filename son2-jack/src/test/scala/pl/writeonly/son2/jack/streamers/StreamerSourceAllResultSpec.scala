@@ -12,17 +12,17 @@ class StreamerSourceAllResultSpec extends WhiteResultSpec {
   val EMPTY_STRING = ""
   val ONE_LINE = "\n"
   val TWO_LINE = "\n\n"
-  val streamer:StreamerSource = new StreamerSourceAll(new ProviderFake)
+  val streamer: StreamerSource = new StreamerSourceAll(new ProviderFake)
 
   "A StreamerSourceAll" when {
     "convertStringNative empty string" should {
       "return empty string" in {
-        assertResult (ONE_LINE) (streamer.convertStringNative(EMPTY_STRING))
+        assertResult(ONE_LINE)(streamer.convertStringNative(EMPTY_STRING))
       }
     }
     "convertString empty string" should {
       "return empty string" in {
-        assertResult (ONE_LINE) (streamer.convertString(EMPTY_STRING))
+        assertResult(ONE_LINE)(streamer.convertString(EMPTY_STRING))
       }
     }
     "convert empty two lines to String" should {

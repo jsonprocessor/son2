@@ -15,5 +15,5 @@ class Provider(val config: Config, out: ObjectMapper) {
 
   override def hashCode(): Int = config.hashCode()
 
-  override def toString: String =  " " + getClass + ", config " +  config.toString
+  override def toString: String = " " + getClass + ", config " + config.toString
 }

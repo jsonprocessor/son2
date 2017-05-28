@@ -12,7 +12,7 @@ class MainerResultSpec extends WhiteResultSpec {
   "A Mainer with empty array" when {
     "invoke option" should {
       "return Left(None)" in {
-        assertResult (Left(None)) (new Mainer(null, Array()).option)
+        assertResult(Left(None))(new Mainer(null, Array()).option)
       }
     }
   }
@@ -20,7 +20,7 @@ class MainerResultSpec extends WhiteResultSpec {
   "A Mainer with README in array" when {
     "invoke option" should {
       "return Left(Option(readme)" in {
-        assertResult (Left(Some("readme"))) (new Mainer(null, Array("README")).option)
+        assertResult(Left(Some("readme")))(new Mainer(null, Array("README")).option)
       }
     }
   }
@@ -28,7 +28,7 @@ class MainerResultSpec extends WhiteResultSpec {
   "A Mainer with empty string in array" when {
     "invoke option" should {
       "return ProviderObject(Config())" in {
-        assertResult (Right(new ProviderObject(Config(o="")))) (new Mainer(null, Array("")).option)
+        assertResult(Right(new ProviderObject(Config(o = ""))))(new Mainer(null, Array("")).option)
       }
     }
     "invoke either" should {
@@ -47,7 +47,7 @@ class MainerResultSpec extends WhiteResultSpec {
         val output = new ByteArrayOutputStream()
         val params = Params(input, output)
         new Mainer(params, Array("")).either
-        assertResult ("") (Streamer.toString(output))
+        assertResult("")(Streamer.toString(output))
       }
     }
   }

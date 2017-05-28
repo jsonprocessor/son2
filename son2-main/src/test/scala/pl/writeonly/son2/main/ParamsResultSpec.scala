@@ -8,12 +8,12 @@ class ParamsResultSpec extends WhiteResultSpec {
   "A Params" when {
     "equals other params" should {
       "return true" in {
-        assertResult (params) (other)
+        assertResult(params)(other)
       }
     }
     "hashCode equals other params" should {
       "return true" in {
-        assertResult (params.hashCode()) (other.hashCode())
+        assertResult(params.hashCode())(other.hashCode())
       }
     }
   }

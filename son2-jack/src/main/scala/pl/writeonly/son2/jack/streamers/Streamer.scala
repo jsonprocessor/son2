@@ -37,9 +37,11 @@ abstract class Streamer(val liner: Liner) {
 }
 
 object Streamer {
-  def toStream(in:String) = new ByteArrayInputStream(toBytes(in))
+  def toStream(in: String) = new ByteArrayInputStream(toBytes(in))
+
+  def toBytes(in: String) = in.getBytes(StandardCharsets.UTF_8)
+
   def toString(out: ByteArrayOutputStream): String = toString(out.toByteArray)
 
-  def toBytes(in:String) = in.getBytes(StandardCharsets.UTF_8)
-  def toString(out: Array[Byte]): String  = new String(out, StandardCharsets.UTF_8)
+  def toString(out: Array[Byte]): String = new String(out, StandardCharsets.UTF_8)
 }

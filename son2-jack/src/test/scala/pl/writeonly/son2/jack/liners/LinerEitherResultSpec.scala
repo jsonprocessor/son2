@@ -10,7 +10,7 @@ class LinerEitherResultSpec extends WhiteResultSpec {
     "apply empty string" should {
       "return ?" in {
         class ProviderStub extends Provider(Config(), null)
-        val provider :Provider = new ProviderStub()
+        val provider: Provider = new ProviderStub()
         val liner = new LinerEither(provider)
         liner.apply("")
       }

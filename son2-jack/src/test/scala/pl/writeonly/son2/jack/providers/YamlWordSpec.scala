@@ -27,7 +27,7 @@ class YamlWordSpec extends WhiteResultSpec {
   val liner: Liner = new LinerOpt(provider)
   "A Liner" should {
     "return empty comment" in {
-      assertResult(provider.comment("") + "\n") (liner.apply(""))
+      assertResult(provider.comment("") + "\n")(liner.apply(""))
     }
   }
 }
