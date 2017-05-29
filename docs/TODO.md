@@ -25,6 +25,8 @@
 - [ ] Add JsonPath https://github.com/json-path/JsonPath 
 - [ ] Add JQL https://github.com/benmfaul/JQL 
 - [ ] Add jfunk https://github.com/mgm-tp/jfunk
+- [ ] Add jolt https://github.com/bazaarvoice/jolt
+- [ ] Add jsoniq
 
 ## main
 - [ ] Add typesafe.config
