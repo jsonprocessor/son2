@@ -11,15 +11,15 @@ class FormatParserResultSpec extends WhiteResultSpec {
     "param is empty object json" should {
       "return empty object" in {
         val node = parser.parse("{}")
-        assert(node.isObject, "is not object")
-        assert(node.size == 0, "object is not empty")
+        assertResult ("is not object") (node.isObject)
+        assertResult ("object is not empty") (node.size == 0)
       }
     }
     "param is empty array json" should {
       "return empty array" in {
         val node = parser.parse("[]")
-        assert(node.isArray, "is not array")
-        assert(node.size == 0, "array is not empty")
+        assertResult ("is not array") (node.isArray)
+        assertResult ("array is not empty") (node.size == 0)
       }
     }
     //    "param is empty object yaml" should {
