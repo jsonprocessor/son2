@@ -23,6 +23,7 @@
 ## path - processor
 - [ ] Create module with all filtring code
 - [ ] Add JsonPath https://github.com/json-path/JsonPath 
+- [ ] Add JsonSurfer https://github.com/jsurfer/JsonSurfer
 - [ ] Add JQL https://github.com/benmfaul/JQL 
 - [ ] Add jfunk https://github.com/mgm-tp/jfunk
 - [ ] Add jolt https://github.com/bazaarvoice/jolt
