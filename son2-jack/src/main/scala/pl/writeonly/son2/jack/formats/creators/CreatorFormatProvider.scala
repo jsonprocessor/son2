@@ -3,17 +3,17 @@ package pl.writeonly.son2.jack.formats.creators
 import pl.writeonly.son2.jack.core.Config
 import pl.writeonly.son2.jack.providers._
 
-class CreatorFormatProvider(config: Config) extends CreatorFormat[Provider] {
+class CreatorFormatProvider(config: Config) extends CreatorFormat[ProviderJack] {
 
-  override def on: Provider = new ProviderObject(config)
+  override def on: ProviderJack = new ProviderObject(config)
 
-  override def yaml: Provider = new ProviderYaml(config)
+  override def yaml: ProviderJack = new ProviderYaml(config)
 
-  override def xml: Provider = new ProviderXml(config)
+  override def xml: ProviderJack = new ProviderXml(config)
 
-  override def csv: Provider = new ProviderCsv(config)
+  override def csv: ProviderJack = new ProviderCsv(config)
 
-  override def javaprops: Provider = new ProviderJavaProps(config)
+  override def javaprops: ProviderJack = new ProviderJavaProps(config)
 
 }
 

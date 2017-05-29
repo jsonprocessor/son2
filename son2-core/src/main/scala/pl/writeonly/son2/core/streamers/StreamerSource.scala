@@ -1,13 +1,14 @@
-package pl.writeonly.son2.jack.streamers
+package pl.writeonly.son2.core.streamers
 
 import java.io.{File, InputStream, OutputStream, PrintWriter}
 import java.net.URI
 
-import pl.writeonly.son2.jack.liners.Liner
-import pl.writeonly.son2.jack.util.Control
-import pl.writeonly.son2.jack.util.Control.using
+import pl.writeonly.son2.core.liners.Liner
+import pl.writeonly.son2.core.util.Control
 
 import scala.io.Source
+
+import pl.writeonly.son2.core.util.Control.using
 
 abstract class StreamerSource(liner: Liner) extends Streamer(liner) {
 

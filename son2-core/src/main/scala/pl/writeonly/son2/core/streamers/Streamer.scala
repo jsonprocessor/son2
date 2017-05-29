@@ -1,10 +1,10 @@
-package pl.writeonly.son2.jack.streamers
+package pl.writeonly.son2.core.streamers
 
 import java.io._
 import java.net.URI
 import java.nio.charset.StandardCharsets
 
-import pl.writeonly.son2.jack.liners.Liner
+import pl.writeonly.son2.core.liners.Liner
 
 abstract class Streamer(val liner: Liner) {
 

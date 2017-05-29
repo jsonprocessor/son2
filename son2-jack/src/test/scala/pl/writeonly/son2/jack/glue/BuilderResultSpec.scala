@@ -1,7 +1,7 @@
 package pl.writeonly.son2.jack.glue
 
+import pl.writeonly.son2.core.streamers.{StreamerPipeAll, StreamerPipeForeach, StreamerSourceAll, StreamerSourceForeach}
 import pl.writeonly.son2.jack.core.Config
-import pl.writeonly.son2.jack.streamers.{StreamerPipeAll, StreamerPipeForeach, StreamerSourceAll, StreamerSourceForeach}
 import pl.writeonly.son2.spec.WhiteResultSpec
 
 class BuilderResultSpec extends WhiteResultSpec {

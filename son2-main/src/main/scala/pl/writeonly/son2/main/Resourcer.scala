@@ -1,7 +1,7 @@
 package pl.writeonly.son2.main
 
+import pl.writeonly.son2.core.providers.ProviderFake
 import pl.writeonly.son2.jack.core.Config
-import pl.writeonly.son2.jack.providers.ProviderFake
 
 class Resourcer(params: Params) {
 

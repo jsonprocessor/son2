@@ -1,13 +1,13 @@
-package pl.writeonly.son2.jack.streamers
+package pl.writeonly.son2.core.streamers
 
 import java.io._
 import java.net.URI
 import java.util.stream.Stream
 
-import pl.writeonly.son2.jack.liners.Liner
-import pl.writeonly.son2.jack.util.Control
-import pl.writeonly.son2.jack.util.Control.using
+import pl.writeonly.son2.core.liners.Liner
+import pl.writeonly.son2.core.util.Control
 
+import pl.writeonly.son2.core.util.Control.using
 
 abstract class StreamerPipe(liner: Liner) extends Streamer(liner) {
 

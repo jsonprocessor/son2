@@ -1,8 +1,8 @@
 package pl.writeonly.son2.jack.glue
 
-import pl.writeonly.son2.jack.liners.{LinerEither, LinerOpt}
-import pl.writeonly.son2.jack.providers.Provider
-import pl.writeonly.son2.jack.streamers._
+import pl.writeonly.son2.core.liners.{LinerEither, LinerOpt}
+import pl.writeonly.son2.core.providers.Provider
+import pl.writeonly.son2.core.streamers._
 
 object Streamers {
   def pipe(s: Boolean, provider: Provider): Streamer = if (s) new StreamerPipeForeach(new LinerOpt(provider))

@@ -4,12 +4,12 @@ import com.fasterxml.jackson.core.JsonParseException
 import com.fasterxml.jackson.databind.JsonMappingException
 import pl.writeonly.son2.jack.core.Formats
 import pl.writeonly.son2.jack.formats.MatcherFormatProvider
-import pl.writeonly.son2.jack.liners.{Liner, LinerOpt}
+import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.spec.WhiteResultSpec
 
 class ObjectWordSpec extends WhiteResultSpec {
 
-  val provider: Provider = MatcherFormatProvider(Formats.OBJECT)
+  val provider: ProviderJack = MatcherFormatProvider(Formats.OBJECT)
   "A Provider" should {
     "produce JsonParseException when convert a" in {
       assertThrows[JsonParseException] {

@@ -27,6 +27,10 @@
             <artifactId>son2-spec</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>pl.writeonly.son2</groupId>
+            <artifactId>son2-core</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>

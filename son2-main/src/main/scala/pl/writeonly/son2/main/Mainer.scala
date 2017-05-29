@@ -2,7 +2,7 @@ package pl.writeonly.son2.main
 
 import pl.writeonly.son2.jack.core.Config
 import pl.writeonly.son2.jack.formats.MatcherFormatProvider
-import pl.writeonly.son2.jack.providers.Provider
+import pl.writeonly.son2.jack.providers.ProviderJack
 
 class Mainer(params: Params, args: Array[String]) {
   val length = args.length
@@ -12,7 +12,7 @@ class Mainer(params: Params, args: Array[String]) {
     case Left(format) => new Resourcer(params).left(format)
   }
 
-  def option: Either[Option[String], Provider] = length match {
+  def option: Either[Option[String], ProviderJack] = length match {
     case 0 => Left(Option.empty)
     case _ => MatcherFormatProvider.either(Config(o = o))
     //    case _ => MatcherFormatProvider.either(new Parser().apply(args(0)))
