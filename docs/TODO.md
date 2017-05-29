@@ -11,7 +11,7 @@
 - [ ] Create module with all independent code
 - [ ] Add sed
 
-## jack
+## jack - converter
 - [ ] Add configuration for yaml generator
 - [ ] Add parse StackTrace and formatted string in yaml
 - [ ] Add reparse json in yaml
@@ -20,7 +20,7 @@
 - [ ] Add MoreObjects format
 - [ ] Add BigDeal format
 
-## path
+## path - processor
 - [ ] Create module with all filtring code
 - [ ] Add JsonPath https://github.com/json-path/JsonPath 
 - [ ] Add JQL https://github.com/benmfaul/JQL 
