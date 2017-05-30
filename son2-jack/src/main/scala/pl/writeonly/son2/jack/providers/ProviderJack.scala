@@ -2,7 +2,8 @@ package pl.writeonly.son2.jack.providers
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import pl.writeonly.son2.core.providers.Provider
-import pl.writeonly.son2.jack.core.{Config, ConverterJack, JsonNodeReader, JsonNodeWriter}
+import pl.writeonly.son2.jack.converters.ConverterJack
+import pl.writeonly.son2.jack.core.{Config, JsonNodeReader, JsonNodeWriter}
 import pl.writeonly.son2.jack.formats.MatcherFormatMapper
 
 class ProviderJack(val config: Config, out: ObjectMapper)
