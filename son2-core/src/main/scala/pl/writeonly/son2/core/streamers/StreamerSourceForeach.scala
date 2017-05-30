@@ -2,7 +2,7 @@ package pl.writeonly.son2.core.streamers
 
 import java.io.PrintWriter
 
-import pl.writeonly.son2.liners.{Liner, LinerOpt}
+import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.core.providers.Provider
 
 import scala.io.Source

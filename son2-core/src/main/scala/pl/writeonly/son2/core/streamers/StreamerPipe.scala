@@ -4,7 +4,7 @@ import java.io._
 import java.net.URI
 import java.util.stream.Stream
 
-import pl.writeonly.son2.liners.Liner
+import pl.writeonly.son2.core.liners.Liner
 import pl.writeonly.son2.core.util.Control
 
 import pl.writeonly.son2.core.util.Control.using

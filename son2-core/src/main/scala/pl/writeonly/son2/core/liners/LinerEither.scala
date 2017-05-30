@@ -1,4 +1,4 @@
-package pl.writeonly.son2.liners
+package pl.writeonly.son2.core.liners
 
 import pl.writeonly.son2.core.providers.Provider
 

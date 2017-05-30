@@ -2,7 +2,7 @@ package pl.writeonly.son2.core.liners
 
 import pl.writeonly.son2.core.Converter
 import pl.writeonly.son2.core.providers.Provider
-import pl.writeonly.son2.liners.LinerOpt
+import pl.writeonly.son2.core.liners.LinerOpt
 import pl.writeonly.son2.spec.WhiteResultSpec
 
 class LinerOptResultSpec extends WhiteResultSpec {

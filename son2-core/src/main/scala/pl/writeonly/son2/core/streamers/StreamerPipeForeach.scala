@@ -3,7 +3,7 @@ package pl.writeonly.son2.core.streamers
 import java.io._
 import java.util.stream.Stream
 
-import pl.writeonly.son2.liners.{Liner, LinerOpt}
+import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.core.providers.Provider
 import pl.writeonly.son2.core.util.Control.toConsumerAny
 
