@@ -1,6 +1,6 @@
-package pl.writeonly.son2.jack.glue
+package pl.writeonly.son2.core.glue
 
-import pl.writeonly.son2.core.liners.{LinerEither, LinerOpt}
+import pl.writeonly.son2.liners.{LinerEither, LinerOpt}
 import pl.writeonly.son2.core.providers.Provider
 import pl.writeonly.son2.core.streamers._
 

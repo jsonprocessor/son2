@@ -1,7 +1,6 @@
-package pl.writeonly.son2.jack.streamers
+package pl.writeonly.son2.core.streamers
 
 import pl.writeonly.son2.core.providers.ProviderFake
-import pl.writeonly.son2.core.streamers.{Streamer, StreamerPipeAll}
 import pl.writeonly.son2.spec.WhiteResultSpec
 
 class StreamerPipeAllResultSpec extends WhiteResultSpec {

@@ -1,10 +1,9 @@
-package pl.writeonly.son2.jack.streamers
+package pl.writeonly.son2.core.streamers
 
 import java.io.File
 import java.net.URI
 
 import pl.writeonly.son2.core.providers.ProviderFake
-import pl.writeonly.son2.core.streamers.StreamerSourceForeach
 import pl.writeonly.son2.spec.WhiteThrowsSpec
 
 class StreamerSourceForeachThrowsSpec extends WhiteThrowsSpec {
