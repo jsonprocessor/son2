@@ -13,7 +13,7 @@ object Control {
       resource.close()
     }
 
-  implicit def toConsumerAny[A](function: A => Any): Consumer[A] = new Consumer[A]() {
-    override def accept(arg: A): Unit = function.apply(arg)
+  implicit def toConsumerAny[A](f: A => Any): Consumer[A] = new Consumer[A]() {
+    override def accept(arg: A): Unit = f(arg)
   }
 }
