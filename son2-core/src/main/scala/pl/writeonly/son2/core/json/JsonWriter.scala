@@ -1,14 +1,14 @@
 package pl.writeonly.son2.core.json
 
 abstract class JsonWriter(pretty: Boolean) {
-  def write(value: Any) = if (pretty) {
+  def write(value: Any):String = if (pretty) {
     writePretty(value)
   } else {
     writeRaw(value)
   }
 
-  def writePretty(value: Any)
+  def writePretty(value: Any):String
 
-  def writeRaw(value: Any)
+  def writeRaw(value: Any):String
 
 }
