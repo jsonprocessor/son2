@@ -1,13 +1,9 @@
 package pl.writeonly.son2.path.converters
 
-import com.jayway.jsonpath.{Configuration, JsonPath}
-import pl.writeonly.son2.core.converters.Converter
-import pl.writeonly.son2.core.json.JsonWriter
+import pl.writeonly.son2.core.converters.ConverterImpl
+import pl.writeonly.son2.core.notation.NotationWriter
+import pl.writeonly.son2.path.notation.NotationReaderPath
 
-class ConverterPath(val path : String, writer : JsonWriter) extends Converter {
-  override def apply(content: String): String = {
-    val conf = Configuration.defaultConfiguration();
-    val value = JsonPath.using(conf).parse(content).read(path)
-    writer.write(value)
-  }
+class ConverterPath(val path : String, writer : NotationWriter)
+  extends ConverterImpl(new NotationReaderPath(path), writer) {
 }

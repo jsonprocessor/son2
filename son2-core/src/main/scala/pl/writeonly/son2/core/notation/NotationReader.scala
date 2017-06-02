@@ -1,5 +1,5 @@
 package pl.writeonly.son2.core.notation
 
-trait JsonReader {
+trait NotationReader {
   def readTree(content: String) : Any
 }

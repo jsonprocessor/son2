@@ -1,10 +1,17 @@
 package pl.writeonly.son2.core.notation
 
-class JsonWriter(pretty: Boolean) {
-  def write(value: Any):String = if (pretty) {
-    writePretty(value)
-  } else {
-    writeRaw(value)
+import org.scalactic.{Bad, Good, Or}
+
+class NotationWriter(pretty: Boolean) {
+
+  def apply(value : Any Or String) :String = value match {
+    case Good(v) => write(v)
+    case Bad(s) => comment(s)
+  }
+
+  def write(value: Any):String = pretty match {
+    case true => writePretty(value)
+    case false => writeRaw(value)
   }
 
   def writePretty(value: Any):String = value.toString()

@@ -1,8 +1,7 @@
 package pl.writeonly.son2.core.liners
 
-import pl.writeonly.son2.core.converters.Converter
+import pl.writeonly.son2.core.converters.ConverterImpl
 import pl.writeonly.son2.core.providers.Provider
-import pl.writeonly.son2.core.liners.LinerOpt
 import pl.writeonly.son2.spec.WhiteResultSpec
 
 class LinerOptResultSpec extends WhiteResultSpec {
@@ -10,7 +9,7 @@ class LinerOptResultSpec extends WhiteResultSpec {
   "A LinerOpt" when {
     "apply empty string" should {
       "return ?" in {
-        class ConverterStub extends Converter {
+        class ConverterStub extends ConverterImpl(null, null) {
           override def apply(content: String): String = content
         }
         class ProviderStub extends Provider(new ConverterStub)
