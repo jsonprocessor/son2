@@ -3,8 +3,6 @@ package pl.writeonly.son2.main
 import java.io.ByteArrayOutputStream
 
 import pl.writeonly.son2.core.streamers.Streamer
-import pl.writeonly.son2.jack.core.Config
-import pl.writeonly.son2.jack.providers.ProviderObject
 import pl.writeonly.son2.spec.WhiteResultSpec
 
 class MainerResultSpec extends WhiteResultSpec {
