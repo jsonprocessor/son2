@@ -4,5 +4,5 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import pl.writeonly.son2.core.notation.NotationReader
 
 class NotationReaderJack(val mapper: ObjectMapper) extends NotationReader {
-  def readTree(content: String) = mapper.readTree(content)
+  def apply(content: String) = mapper.readTree(content)
 }

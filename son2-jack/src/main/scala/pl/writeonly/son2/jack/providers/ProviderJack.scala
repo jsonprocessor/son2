@@ -8,7 +8,7 @@ import pl.writeonly.son2.jack.formats.MatcherFormatMapper
 import pl.writeonly.son2.jack.notation.{NotationReaderJack, NotationWriterJack}
 
 class ProviderJack(val config: Config, out: ObjectMapper)
-  extends Provider (new Converter(new NotationReaderJack(MatcherFormatMapper(config)), new NotationWriterJack(out, config.p))) {
+  extends Provider (new Converter(new NotationReaderJack(MatcherFormatMapper(config)), new NotationWriterJack(config.p, out))) {
 
   override def equals(obj: scala.Any): Boolean = obj.isInstanceOf[ProviderJack] && config.equals(obj.asInstanceOf[ProviderJack].config)
 
