@@ -85,6 +85,11 @@
                 <version>${selenium-java.version}</version>
                 <scope>test</scope>
             </dependency>
+            <dependency>
+                <groupId>org.scalactic</groupId>
+                <artifactId>scalactic_2.11</artifactId>
+                <version>${scalatest.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>junit</groupId>
