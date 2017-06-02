@@ -6,6 +6,5 @@ import pl.writeonly.son2.jack.notation.NotationWriterJackCsv
 class ProviderCsv(config: Config)
   extends ProviderJack(config, new NotationWriterJackCsv(config.p)) {
 
-  override def comment(s: String) = "#" + s
 }
 

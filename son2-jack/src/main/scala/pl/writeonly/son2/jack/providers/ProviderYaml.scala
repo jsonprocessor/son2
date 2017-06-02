@@ -6,5 +6,4 @@ import pl.writeonly.son2.jack.notation.NotationWriterJackYaml
 class ProviderYaml(config: Config)
   extends ProviderJack(config, new NotationWriterJackYaml(config.p)) {
 
-  override def comment(s: String) = "#" + s
 }

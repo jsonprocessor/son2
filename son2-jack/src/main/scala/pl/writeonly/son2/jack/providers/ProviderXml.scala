@@ -6,5 +6,4 @@ import pl.writeonly.son2.jack.notation.NotationWriterJackXml
 class ProviderXml(config: Config)
   extends ProviderJack(config, new NotationWriterJackXml(config.p)) {
 
-  override def comment(s: String) = "<!-- " + s + " -->"
 }

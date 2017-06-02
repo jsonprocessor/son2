@@ -6,5 +6,4 @@ import pl.writeonly.son2.jack.notation.NotationWriterJackJavaProps
 class ProviderJavaProps(config: Config)
   extends ProviderJack(config, new NotationWriterJackJavaProps(config.p)) {
 
-  override def comment(s: String) = "#" + s
 }

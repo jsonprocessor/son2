@@ -1,6 +1,5 @@
 package pl.writeonly.son2.jack.providers
 
-import com.fasterxml.jackson.databind.ObjectMapper
 import pl.writeonly.son2.core.converters.Converter
 import pl.writeonly.son2.core.notation.{NotationReader, NotationWriter}
 import pl.writeonly.son2.core.providers.Provider
@@ -12,5 +11,5 @@ class ProviderJack(in: NotationReader, out: NotationWriter)
   extends Provider (new Converter(in: NotationReader, out: NotationWriter)) {
 
   def this (config: Config, out: NotationWriter) = this(new NotationReaderJack(MatcherFormatMapper(config)), out)
-  
+
 }
