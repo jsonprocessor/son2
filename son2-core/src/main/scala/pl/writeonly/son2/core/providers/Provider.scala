@@ -8,5 +8,4 @@ class Provider(val converter : Converter) {
 
   def comment(s: String) = converter.comment(s)
 
-
 }
