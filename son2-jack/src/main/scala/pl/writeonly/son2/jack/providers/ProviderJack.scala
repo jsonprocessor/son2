@@ -5,7 +5,7 @@ import pl.writeonly.son2.core.notation.{NotationReader, NotationWriter}
 import pl.writeonly.son2.core.providers.Provider
 import pl.writeonly.son2.jack.core.Config
 import pl.writeonly.son2.jack.formats.MatcherFormatMapper
-import pl.writeonly.son2.jack.notation.{NotationReaderJack, NotationWriterJack}
+import pl.writeonly.son2.jack.notation.NotationReaderJack
 
 class ProviderJack(in: NotationReader, out: NotationWriter)
   extends Provider (new Converter(in: NotationReader, out: NotationWriter)) {
