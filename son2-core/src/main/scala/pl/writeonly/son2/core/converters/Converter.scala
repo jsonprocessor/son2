@@ -1,5 +1,9 @@
 package pl.writeonly.son2.core.converters
 
-trait Converter {
-  def apply(content: String): String
+import pl.writeonly.son2.core.notation.{NotationReader, NotationWriter}
+
+class Converter(val in: NotationReader, val out: NotationWriter) {
+
+  def apply(content: String): String = out.write(in.readTree(content))
+
 }
