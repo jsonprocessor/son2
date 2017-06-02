@@ -1,4 +1,4 @@
-package pl.writeonly.son2.core.json
+package pl.writeonly.son2.core.notation
 
 trait JsonReader {
   def readTree(content: String) : Any

@@ -1,4 +1,4 @@
-package pl.writeonly.son2.core.json
+package pl.writeonly.son2.core.notation
 
 class JsonWriter(pretty: Boolean) {
   def write(value: Any):String = if (pretty) {
