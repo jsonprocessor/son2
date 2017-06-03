@@ -1,7 +1,7 @@
 package pl.writeonly.son2.jack.formats.creators
 
 import pl.writeonly.son2.jack.core.Config
-import pl.writeonly.son2.jack.formats.MatcherFormatMapper
+import pl.writeonly.son2.jack.formats.matchers.MatcherFormatMapper
 import pl.writeonly.son2.jack.notation._
 import pl.writeonly.son2.jack.providers._
 

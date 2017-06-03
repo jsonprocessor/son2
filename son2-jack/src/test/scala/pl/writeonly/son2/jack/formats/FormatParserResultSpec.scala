@@ -1,6 +1,7 @@
 package pl.writeonly.son2.jack.formats
 
 import org.scalatest.WordSpec
+import pl.writeonly.son2.jack.formats.matchers.MatcherFormatParser
 import pl.writeonly.son2.spec.WhiteResultSpec
 
 class FormatParserResultSpec extends WhiteResultSpec {

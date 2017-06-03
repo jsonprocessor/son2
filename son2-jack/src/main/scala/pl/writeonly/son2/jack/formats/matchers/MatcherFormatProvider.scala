@@ -1,11 +1,12 @@
-package pl.writeonly.son2.jack.formats
+package pl.writeonly.son2.jack.formats.matchers
 
 import pl.writeonly.son2.jack.core.Config
 import pl.writeonly.son2.jack.formats.creators.CreatorFormatProvider
-import pl.writeonly.son2.jack.formats.matchers.MatcherFormatStartsWith
+import pl.writeonly.son2.jack.formats.predicates.PredicateFormatStartsWith
 import pl.writeonly.son2.jack.providers._
 
-class MatcherFormatProvider(c: Config) extends MatcherFormatStartsWith[ProviderJack](new CreatorFormatProvider(c)) {
+class MatcherFormatProvider(c: Config)
+  extends MatcherFormat[ProviderJack](new PredicateFormatStartsWith, new CreatorFormatProvider(c)) {
 
   def apply(): Either[Option[String], ProviderJack] = apply(c.o)
 }

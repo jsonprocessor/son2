@@ -1,11 +1,12 @@
-package pl.writeonly.son2.jack.formats
+package pl.writeonly.son2.jack.formats.matchers
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import pl.writeonly.son2.jack.core.Config
 import pl.writeonly.son2.jack.formats.creators.CreatorFormatMapper
-import pl.writeonly.son2.jack.formats.matchers.MatcherFormatStartsWith
+import pl.writeonly.son2.jack.formats.predicates.PredicateFormatStartsWith
 
-class MatcherFormatMapper extends MatcherFormatStartsWith[ObjectMapper](new CreatorFormatMapper) {
+class MatcherFormatMapper
+  extends MatcherFormat[ObjectMapper](new PredicateFormatStartsWith, new CreatorFormatMapper) {
 
 }
 

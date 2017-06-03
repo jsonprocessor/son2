@@ -1,9 +1,9 @@
 package pl.writeonly.son2.jack.providers
 
 import pl.writeonly.son2.jack.core.Formats
-import pl.writeonly.son2.jack.formats.MatcherFormatProvider
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.core.streamers.{Streamer, StreamerPipeForeach}
+import pl.writeonly.son2.jack.formats.matchers.MatcherFormatProvider
 import pl.writeonly.son2.spec.GrayVectorSpec
 
 class JavaPropsVectorSpec extends GrayVectorSpec {
