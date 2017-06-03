@@ -1,13 +1,12 @@
-package pl.writeonly.son2.jack.formats.matchers
+package pl.writeonly.son2.jack.formats.predicates
 
 import pl.writeonly.son2.jack.core.Formats
-import pl.writeonly.son2.jack.formats.predicates.PredicateFormatStartsWith
 import pl.writeonly.son2.spec.WhiteResultSpec
 
 
-class MatcherFormatStartsWithResultSpec extends WhiteResultSpec {
+class PredicateFormatStartsWithResultSpec extends WhiteResultSpec {
   val predicate = new PredicateFormatStartsWith()
-  "A Matcher" when {
+  "A Predicate" when {
     "param is empty object json" should {
       "return true" in {
         assertResult(true) {

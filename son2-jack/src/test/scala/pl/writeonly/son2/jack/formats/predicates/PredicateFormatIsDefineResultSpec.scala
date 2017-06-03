@@ -4,10 +4,10 @@ import pl.writeonly.son2.jack.formats.creators.CreatorFormatMapper
 import pl.writeonly.son2.spec.WhiteResultSpec
 
 
-class PredicatFormatIsDefineResultSpec extends WhiteResultSpec {
+class PredicateFormatIsDefineResultSpec extends WhiteResultSpec {
   val predicate = new PredicateFormatIsDefine(new CreatorFormatMapper())
 
-  "A Matcher" when {
+  "A Predicate" when {
     "param is empty object json" should {
       "return true" in {
         assertResult(true) {
