@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.JsonMappingException
 import org.scalatest.Matchers
 import pl.writeonly.son2.jack.core.Formats
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
-import pl.writeonly.son2.jack.formats.matchers.MatcherFormatProvider
+import pl.writeonly.son2.jack.glue.MatcherFormatProvider
 import pl.writeonly.son2.spec.WhiteResultSpec
 
 class YamlWordSpec extends WhiteResultSpec {

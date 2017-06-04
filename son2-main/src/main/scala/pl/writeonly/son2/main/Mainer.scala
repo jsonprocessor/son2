@@ -1,7 +1,7 @@
 package pl.writeonly.son2.main
 
 import pl.writeonly.son2.jack.core.Config
-import pl.writeonly.son2.jack.formats.matchers.MatcherFormatProvider
+import pl.writeonly.son2.jack.glue.MatcherFormatProvider
 import pl.writeonly.son2.jack.providers.ProviderJack
 
 class Mainer(params: Params, args: Array[String]) {

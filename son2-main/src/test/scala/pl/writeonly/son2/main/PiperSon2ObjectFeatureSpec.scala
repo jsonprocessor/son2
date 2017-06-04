@@ -4,7 +4,7 @@ import java.io.FileNotFoundException
 
 import pl.writeonly.son2.impl.{Features, Types}
 import pl.writeonly.son2.jack.core.{Config, Formats}
-import pl.writeonly.son2.jack.formats.matchers.MatcherFormatProvider
+import pl.writeonly.son2.jack.glue.MatcherFormatProvider
 import pl.writeonly.son2.spec.BlackSpec
 
 class PiperSon2ObjectFeatureSpec extends BlackSpec {
