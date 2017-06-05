@@ -1,9 +1,10 @@
 package pl.writeonly.son2.jack.formats.matchers
 
+import pl.writeonly.son2.core.formats.matchers.MatcherFormat
 import pl.writeonly.son2.jack.formats.creators.CreatorFormat
 import pl.writeonly.son2.jack.formats.predicates.PredicateFormat
 
-class MatcherFormat[F](p: PredicateFormat[F], c: CreatorFormat[F]) {
+class MatcherFormatJack[F](p: PredicateFormat[F], c: CreatorFormat[F]) extends MatcherFormat[F] {
   def apply(s: String): Either[Option[String], F] = s match {
     case s if p.on(s) => Right(c.on)
     case s if p.yaml(s) => Right(c.yaml)
@@ -13,7 +14,5 @@ class MatcherFormat[F](p: PredicateFormat[F], c: CreatorFormat[F]) {
     case s if p.properties(s) => Right(c.javaprops)
     case s => left(s)
   }
-
-  def left(s: String): Either[Option[String], F] = Left(Option(s))
 
 }

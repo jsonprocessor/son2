@@ -2,15 +2,15 @@ package pl.writeonly.son2.jack.glue
 
 import pl.writeonly.son2.jack.core.Config
 import pl.writeonly.son2.jack.formats.creators.{CreatorFormatReader, CreatorFormatWriter}
-import pl.writeonly.son2.jack.formats.matchers.MatcherFormat
+import pl.writeonly.son2.jack.formats.matchers.MatcherFormatJack
 import pl.writeonly.son2.jack.formats.predicates.PredicateFormatStartsWith
 import pl.writeonly.son2.jack.providers._
 
 import scala.util.control.Exception.catching
 
 class MatcherFormatProvider(c: Config) {
-  val w = new MatcherFormat(new PredicateFormatStartsWith, new CreatorFormatWriter(c))
-  val r = new MatcherFormat(new PredicateFormatStartsWith, new CreatorFormatReader())
+  val w = new MatcherFormatJack(new PredicateFormatStartsWith, new CreatorFormatWriter(c))
+  val r = new MatcherFormatJack(new PredicateFormatStartsWith, new CreatorFormatReader())
 
   def apply(): Either[Option[String], ProviderJack] = catching(classOf[Exception])
     .either(new ProviderJack(r.apply(c.i).right.get, w.apply(c.o).right.get)) match {
