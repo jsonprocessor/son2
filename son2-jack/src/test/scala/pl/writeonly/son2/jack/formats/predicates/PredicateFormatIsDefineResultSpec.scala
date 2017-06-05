@@ -1,11 +1,11 @@
 package pl.writeonly.son2.jack.formats.predicates
 
-import pl.writeonly.son2.jack.formats.creators.CreatorFormatMapper
+import pl.writeonly.son2.jack.formats.creators.CreatorFormatReader
 import pl.writeonly.son2.spec.WhiteResultSpec
 
 
 class PredicateFormatIsDefineResultSpec extends WhiteResultSpec {
-  val predicate = new PredicateFormatIsDefine(new CreatorFormatMapper())
+  val predicate = new PredicateFormatIsDefine(new CreatorFormatReader())
 
   "A Predicate" when {
     "param is empty object json" should {

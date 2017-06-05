@@ -2,10 +2,11 @@ package pl.writeonly.son2.jack.formats.predicates
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import pl.writeonly.son2.jack.formats.creators.CreatorFormat
+import pl.writeonly.son2.jack.notation.NotationReaderJack
 
 import scala.util.control.Exception.catching
 
-class PredicateFormatIsDefine(c: CreatorFormat[ObjectMapper]) extends PredicateFormat[ObjectMapper]() {
+class PredicateFormatIsDefine(c: CreatorFormat[NotationReaderJack]) extends PredicateFormat[NotationReaderJack]() {
 
   override def on(s: String): Boolean = isDefined(s, c.on)
 
@@ -19,8 +20,8 @@ class PredicateFormatIsDefine(c: CreatorFormat[ObjectMapper]) extends PredicateF
 
   override def properties(s: String): Boolean = isDefined(s, c.javaprops)
 
-  def isDefined(s: String, om: ObjectMapper): Boolean = catching(classOf[Exception])
-    .opt(om.readTree(s))
+  def isDefined(s: String, om: NotationReaderJack): Boolean = catching(classOf[Exception])
+    .opt(om(s))
     .isDefined
 
 }

@@ -1,10 +1,10 @@
 package pl.writeonly.son2.jack.formats.matchers
 
-import com.fasterxml.jackson.databind.ObjectMapper
 import pl.writeonly.son2.jack.formats.creators.CreatorFormat
 import pl.writeonly.son2.jack.formats.predicates.PredicateFormatIsDefine
+import pl.writeonly.son2.jack.notation.NotationReaderJack
 
-class MatcherFormatIsDefine(c: CreatorFormat[ObjectMapper])
-  extends MatcherFormatJack[ObjectMapper](new PredicateFormatIsDefine(c), c) {
+class MatcherFormatIsDefine(c: CreatorFormat[NotationReaderJack])
+  extends MatcherFormatJack[NotationReaderJack](new PredicateFormatIsDefine(c), c) {
 
 }
