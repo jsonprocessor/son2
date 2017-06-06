@@ -4,7 +4,7 @@ import java.io.{FileInputStream, InputStream}
 
 import pl.writeonly.son2.core.glue.Streamers
 import pl.writeonly.son2.core.providers.Provider
-import pl.writeonly.son2.jack.core.Config
+import pl.writeonly.son2.core.glue.Config
 
 class Piper(params: Params, config: Config, provider: Provider) {
 

@@ -1,6 +1,5 @@
 package pl.writeonly.son2.impl
 
-import org.scalatest.{FeatureSpec, GivenWhenThen}
 import pl.writeonly.son2.jack.core.Formats
 import pl.writeonly.son2.spec.BlackSpec
 

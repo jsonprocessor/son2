@@ -1,9 +1,9 @@
 package pl.writeonly.son2.jack.providers
 
-import pl.writeonly.son2.jack.core.Formats
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.core.streamers.{Streamer, StreamerPipeForeach}
-import pl.writeonly.son2.jack.glue.MatcherFormatProvider
+import pl.writeonly.son2.jack.core.Formats
+import pl.writeonly.son2.jack.glue.MatcherFormatProviderJack
 import pl.writeonly.son2.spec.GrayVectorSpec
 
 class XmlVectorSpec extends GrayVectorSpec {
@@ -27,7 +27,7 @@ class XmlVectorSpec extends GrayVectorSpec {
     "[0,1]"
   )
 
-  val provider: ProviderJack = MatcherFormatProvider(Formats.XML)
+  val provider: ProviderJack = MatcherFormatProviderJack(Formats.XML)
   property("convert son to xml by provider") {
     forAll(toSuccess) { (in, out) =>
       provider.convert(in) should be(out)

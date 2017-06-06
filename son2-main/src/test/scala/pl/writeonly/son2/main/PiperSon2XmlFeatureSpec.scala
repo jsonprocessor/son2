@@ -3,13 +3,13 @@ package pl.writeonly.son2.main
 import java.io.FileNotFoundException
 
 import pl.writeonly.son2.impl.{Features, Types}
-import pl.writeonly.son2.jack.core.{Config, Formats}
-import pl.writeonly.son2.jack.glue.MatcherFormatProvider
+import pl.writeonly.son2.jack.core.{ConfigJack, Formats}
+import pl.writeonly.son2.jack.glue.MatcherFormatProviderJack
 import pl.writeonly.son2.spec.BlackSpec
 
 class PiperSon2XmlFeatureSpec extends BlackSpec {
 
-  val given = () => new Piper(Params(System.in, System.out), Config(), MatcherFormatProvider(Formats.XML))
+  val given = () => new Piper(Params(System.in, System.out), ConfigJack(), MatcherFormatProviderJack(Formats.XML))
 
   val outName = (name: String) => Features.outputPathname(Types.PIPER, name, Formats.XML)
 

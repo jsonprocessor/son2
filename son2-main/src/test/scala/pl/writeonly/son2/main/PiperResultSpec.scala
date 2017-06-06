@@ -4,7 +4,8 @@ import java.io.ByteArrayOutputStream
 
 import pl.writeonly.son2.core.providers.ProviderFake
 import pl.writeonly.son2.core.streamers.Streamer
-import pl.writeonly.son2.jack.core.Config
+import pl.writeonly.son2.core.glue.Config
+import pl.writeonly.son2.jack.core.ConfigJack
 import pl.writeonly.son2.spec.WhiteResultSpec
 
 class PiperResultSpec extends WhiteResultSpec {
@@ -15,7 +16,7 @@ class PiperResultSpec extends WhiteResultSpec {
         val input = Streamer.toStream("")
         val output = new ByteArrayOutputStream()
         val params = Params(null, output)
-        val piper: Piper = new Piper(params, Config(), new ProviderFake())
+        val piper: Piper = new Piper(params, ConfigJack(), new ProviderFake())
         piper.convertStream(input)
         assertResult("")(Streamer.toString(output))
       }
@@ -25,7 +26,7 @@ class PiperResultSpec extends WhiteResultSpec {
         val input = Streamer.toStream("a")
         val output = new ByteArrayOutputStream()
         val params = Params(null, output)
-        val piper: Piper = new Piper(params, Config(), new ProviderFake())
+        val piper: Piper = new Piper(params, ConfigJack(), new ProviderFake())
         piper.convertStream(input)
         assertResult("a\n")(Streamer.toString(output))
       }

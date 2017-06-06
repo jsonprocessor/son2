@@ -2,17 +2,16 @@ package pl.writeonly.son2.impl
 
 import java.io.FileNotFoundException
 
-import org.scalatest.{FeatureSpec, GivenWhenThen}
 import pl.writeonly.son2.core.streamers.StreamerPipeForeach
 import pl.writeonly.son2.jack.core.Formats
-import pl.writeonly.son2.jack.glue.MatcherFormatProvider
+import pl.writeonly.son2.jack.glue.MatcherFormatProviderJack
 import pl.writeonly.son2.spec.BlackSpec
 
 class StreamerXmlFeature extends BlackSpec {
 
   info("FileJson2XmlFeature with Json2Xml")
 
-  val given = () => new StreamerPipeForeach(MatcherFormatProvider(Formats.XML))
+  val given = () => new StreamerPipeForeach(MatcherFormatProviderJack(Formats.XML))
 
   val outName = (name: String) => Features.outputPathname(Types.STREAMER, name, Formats.XML)
 

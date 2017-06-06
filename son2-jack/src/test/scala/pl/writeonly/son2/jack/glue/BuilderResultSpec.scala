@@ -1,14 +1,14 @@
 package pl.writeonly.son2.jack.glue
 
 import pl.writeonly.son2.core.streamers.{StreamerPipeAll, StreamerPipeForeach, StreamerSourceAll, StreamerSourceForeach}
-import pl.writeonly.son2.jack.core.Config
+import pl.writeonly.son2.jack.core.ConfigJack
 import pl.writeonly.son2.spec.WhiteResultSpec
 
 class BuilderResultSpec extends WhiteResultSpec {
 
   "A Builder" when {
     "config s is true" should {
-      val builder = new Builder(Config(s = true))
+      val builder = new Builder(ConfigJack(s = true))
       "return s equals true" in {
         val stream = builder.pipe
         assert(stream.isInstanceOf[StreamerPipeForeach])
@@ -19,7 +19,7 @@ class BuilderResultSpec extends WhiteResultSpec {
       }
     }
     "config s is false" should {
-      val builder = new Builder(Config(s = false))
+      val builder = new Builder(ConfigJack(s = false))
       "return i equals 'object'" in {
         val stream = builder.pipe
         assert(stream.isInstanceOf[StreamerPipeAll])

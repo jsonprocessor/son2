@@ -1,6 +1,5 @@
 package pl.writeonly.son2.main
 
-
 import pl.writeonly.son2.spec.WhiteResultSpec
 
 class ResourcerResultSpec extends WhiteResultSpec {
