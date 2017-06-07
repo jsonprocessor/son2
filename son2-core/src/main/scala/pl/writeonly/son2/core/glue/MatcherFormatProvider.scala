@@ -7,8 +7,8 @@ import pl.writeonly.son2.core.providers.Provider
 import scala.util.control.Exception.catching
 
 abstract class MatcherFormatProvider(c: Config) {
-  def w : MatcherFormat[NotationWriter]
-  def r : MatcherFormat[NotationReader]
+  def w : MatcherFormat[_<:NotationWriter]
+  def r : MatcherFormat[_<:NotationReader]
 
   def apply(): Either[Option[String], Provider] = catching(classOf[Exception])
     .either(new Provider(r.apply(c.i).right.get, w.apply(c.o).right.get)) match {
