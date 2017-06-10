@@ -6,7 +6,7 @@ import pl.writeonly.son2.core.glue.Streamers
 import pl.writeonly.son2.core.providers.Provider
 import pl.writeonly.son2.core.glue.Config
 
-class Piper(params: Params, config: Config, provider: Provider) {
+class Piper(params: Params, provider: Provider) {
 
   def right(args: Array[String]) = args.length match {
     case 0 => convertStream();
@@ -18,7 +18,7 @@ class Piper(params: Params, config: Config, provider: Provider) {
 
   def convertFile(in: String, out: String) = pipe.convertFile(in, out)
 
-  def pipe = Streamers.pipe(config.s, provider)
+  def pipe = Streamers.pipe(provider.config.s, provider)
 
   def convertFile(in: String) = convertStream(new FileInputStream(in))
 
@@ -26,7 +26,7 @@ class Piper(params: Params, config: Config, provider: Provider) {
 
   def convertStream(in: InputStream) = source.convertStream(in, params.out)
 
-  def source = Streamers.source(config.s, provider)
+  def source = Streamers.source(provider.config.s, provider)
 
   def resourceAsStream(name: String) = getClass().getClassLoader().getResourceAsStream(name)
 

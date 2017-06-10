@@ -16,7 +16,7 @@ class PiperResultSpec extends WhiteResultSpec {
         val input = Streamer.toStream("")
         val output = new ByteArrayOutputStream()
         val params = Params(null, output)
-        val piper: Piper = new Piper(params, ConfigJack(), new ProviderFake())
+        val piper: Piper = new Piper(params, new ProviderFake())
         piper.convertStream(input)
         assertResult("")(Streamer.toString(output))
       }
@@ -26,7 +26,7 @@ class PiperResultSpec extends WhiteResultSpec {
         val input = Streamer.toStream("a")
         val output = new ByteArrayOutputStream()
         val params = Params(null, output)
-        val piper: Piper = new Piper(params, ConfigJack(), new ProviderFake())
+        val piper: Piper = new Piper(params, new ProviderFake())
         piper.convertStream(input)
         assertResult("a\n")(Streamer.toString(output))
       }

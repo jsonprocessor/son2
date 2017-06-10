@@ -11,13 +11,13 @@ abstract class MatcherFormatProvider(c: Config) {
   def r : MatcherFormat[_<:NotationReader]
 
   def apply(): Either[Option[String], Provider] = catching(classOf[Exception])
-    .either(new Provider(r.apply(c.i).right.get, w.apply(c.o).right.get)) match {
+    .either(new Provider(c, r.apply(c.i).right.get, w.apply(c.o).right.get)) match {
     case Right(r) => Right(r)
     case Left(l) => Left(Option(c.o))
   }
 
   def apply2(): Option[Provider] = catching(classOf[Exception])
-    .opt(new Provider(r.apply(c.i).right.get, w.apply(c.o).right.get))
+    .opt(new Provider(c, r.apply(c.i).right.get, w.apply(c.o).right.get))
 
 }
 

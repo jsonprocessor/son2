@@ -8,15 +8,15 @@ class Mainer(params: Params, args: Array[String]) {
   val length = args.length
 
   def either = option match {
-    case Right(provider) => new Piper(params, ConfigJack(o = o), provider).right(args.slice(1, length))
+    case Right(provider) => new Piper(params, provider).right(args.slice(1, length))
     case Left(format) => new Resourcer(params).left(format)
   }
 
   def option: Either[Option[String], Provider] = length match {
     case 0 => Left(Option.empty)
-    case _ => MatcherFormatProviderJack.either(ConfigJack(o = o))
+    case _ => MatcherFormatProviderJack.either(Configer(arg))
     //    case _ => MatcherFormatProvider.either(new Parser().apply(args(0)))
   }
 
-  def o = args(0).toLowerCase
+  def arg = args(0).toLowerCase
 }
