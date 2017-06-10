@@ -9,4 +9,10 @@ object Configer {
     case s if new MatcherFormatPath().predicate(s) => ConfigPath(i=s)
     case s => ConfigJack(o=s)
   }
+
+  def provider(arg : String) = arg match {
+    case s if new MatcherFormatPath().predicate(s) => ConfigPath(i=s)
+    case s => ConfigJack(o=s)
+  }
+
 }
