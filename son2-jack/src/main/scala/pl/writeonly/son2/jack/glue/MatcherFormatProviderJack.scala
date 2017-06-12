@@ -8,8 +8,8 @@ import pl.writeonly.son2.jack.formats.matchers.MatcherFormatJack
 import pl.writeonly.son2.jack.formats.predicates.PredicateFormatStartsWith
 
 class MatcherFormatProviderJack(c: Config) extends MatcherFormatProvider(c) {
-  def w = new MatcherFormatJack(new PredicateFormatStartsWith, new CreatorFormatWriter(c))
   def r = new MatcherFormatJack(new PredicateFormatStartsWith, new CreatorFormatReader())
+  def w = new MatcherFormatJack(new PredicateFormatStartsWith, new CreatorFormatWriter(c))
 
 }
 
@@ -24,6 +24,8 @@ object MatcherFormatProviderJack {
 
   def either(config: Config): Either[Option[String], Provider] = new MatcherFormatProviderJack(config)
     .apply()
+
+
 
   //either
 }

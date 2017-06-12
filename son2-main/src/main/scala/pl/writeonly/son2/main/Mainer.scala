@@ -25,10 +25,11 @@ class Mainer(params: Params, args: Array[String]) {
   }
 
   def provider(s:String) : Either[Option[String], Provider] = s match {
-    case s if new MatcherFormatPath().predicate(s) => Right(p(ConfigPath(s)))
+    case s if new MatcherFormatPath().predicate(s) => Right(p(ConfigPath(i=s)))
     case s => MatcherFormatProviderJack.either(ConfigJack(o=s))
   }
 
-  def p(c : Config) =  MatcherFormatProvider.provider(c, new MatcherFormatPath, new MatcherFormatJack(new PredicateFormatStartsWith, new CreatorFormatWriter(c)))
+  def p(c: Config) =  MatcherFormatProvider.provider(c, new MatcherFormatPath, j(c))
 
+  def j(c: Config) = new MatcherFormatJack(new PredicateFormatStartsWith, new CreatorFormatWriter(c))
 }
