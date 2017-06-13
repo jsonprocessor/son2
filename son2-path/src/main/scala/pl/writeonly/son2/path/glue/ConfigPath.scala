@@ -3,7 +3,7 @@ package pl.writeonly.son2.path.glue
 import pl.writeonly.son2.core.glue.Config
 
 object ConfigPath {
-  def apply(i:String = "$", s : Boolean = true, o : String = "j", p : Boolean = false) = new Config(i, s, o, p)
+  def apply(i:String = "$", s : Boolean = true, o : String = "SMART", p : Boolean = false) = new Config(i, s, o, p)
 }
 
 
