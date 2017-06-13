@@ -1,4 +1,4 @@
-package pl.writeonly.son2.path.providers
+package pl.writeonly.son2.jack.providers
 
 import pl.writeonly.son2.core.providers.Provider
 import pl.writeonly.son2.jack.core.Formats
