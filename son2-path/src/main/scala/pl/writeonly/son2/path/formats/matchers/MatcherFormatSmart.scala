@@ -10,6 +10,6 @@ class MatcherFormatSmart(pretty : Boolean) extends MatcherFormat[NotationWriter]
     case s => left(s)
   }
 
-  def smart(s:String) = "smart".startsWith(s)
+  def smart(s:String) = "SMART".startsWith(s)
   
 }
