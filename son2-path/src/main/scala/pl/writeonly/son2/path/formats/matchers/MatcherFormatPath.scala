@@ -11,8 +11,8 @@ class MatcherFormatPath() extends MatcherFormat[NotationReader] {
     case s => left(s)
   }
 
-  def predicate(s:String) = "$".startsWith(s)
-  def smart(s:String) = "smart".startsWith(s)
+  def predicate(s:String) = s.startsWith("$")
+  def smart(s:String) = "SMART".startsWith(s)
 
 
 }
