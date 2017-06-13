@@ -15,5 +15,4 @@ class MatcherFormatPath() extends MatcherFormat[NotationReader] {
   def predicate(s:String) = s.startsWith("$")
   def smart(s:String) = "SMART".startsWith(s)
   def strict(s:String) = "STRICT".startsWith(s)
-
 }
