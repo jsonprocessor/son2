@@ -17,7 +17,7 @@ class MainSon2ObjectFeatureSpec extends BlackSpec {
 
       When("should produce null when consume null")
       val caught = intercept[NullPointerException] {
-        Main.main(Array(Formats.OBJECT, name, name))
+        Main.main(Array(Formats.OBJECT.name, name, name))
       }
 
       Then("null == messag")
@@ -30,7 +30,7 @@ class MainSon2ObjectFeatureSpec extends BlackSpec {
 
       When("should produce empty when consume empty")
       assertThrows[FileNotFoundException] {
-        Main.main(Array(Formats.OBJECT, "", ""))
+        Main.main(Array(Formats.OBJECT.name, "", ""))
       }
     }
 
@@ -40,7 +40,7 @@ class MainSon2ObjectFeatureSpec extends BlackSpec {
       val out = outName("pathname")
 
       When("should produce null when consume null")
-      Main.main(Array(Formats.OBJECT, in, out))
+      Main.main(Array(Formats.OBJECT.name, in, out))
     }
   }
 }

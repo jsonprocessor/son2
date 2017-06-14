@@ -14,6 +14,8 @@ class MatcherFormatProviderJack(c: Config) extends MatcherFormatProvider(c) {
 }
 
 object MatcherFormatProviderJack {
+  def apply(o: Symbol): Provider = apply(ConfigJack(o = o.name))
+
   def apply(o: String): Provider = apply(ConfigJack(o = o))
 
   def apply(config: Config): Provider = either(config)

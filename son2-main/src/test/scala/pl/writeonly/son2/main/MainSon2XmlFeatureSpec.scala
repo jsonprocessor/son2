@@ -17,7 +17,7 @@ class MainSon2XmlFeatureSpec extends BlackSpec {
 
       When("should produce null when consume null")
       val caught = intercept[NullPointerException] {
-        Main.main(Array(Formats.XML, name, name))
+        Main.main(Array(Formats.XML.name, name, name))
       }
 
       Then("null == messag")
@@ -30,7 +30,7 @@ class MainSon2XmlFeatureSpec extends BlackSpec {
 
       When("should produce empty when consume empty")
       assertThrows[FileNotFoundException] {
-        Main.main(Array(Formats.XML, "", ""))
+        Main.main(Array(Formats.XML.name, "", ""))
       }
     }
 
@@ -40,7 +40,7 @@ class MainSon2XmlFeatureSpec extends BlackSpec {
       val out = outName("pathname")
 
       When("should produce null when consume null")
-      Main.main(Array(Formats.XML, in, out))
+      Main.main(Array(Formats.XML.name, in, out))
     }
   }
 }

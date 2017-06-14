@@ -7,8 +7,8 @@ import pl.writeonly.son2.jack.formats.creators.{CreatorFormatReader, CreatorForm
 import pl.writeonly.son2.jack.formats.matchers.MatcherFormatJack
 import pl.writeonly.son2.jack.formats.predicates.PredicateFormatStartsWith
 import pl.writeonly.son2.jack.glue.MatcherFormatProviderJack
+import pl.writeonly.son2.path.core.ConfigPath
 import pl.writeonly.son2.path.formats.matchers.MatcherFormatPath
-import pl.writeonly.son2.path.glue.ConfigPath
 
 class Mainer(params: Params, args: Array[String]) {
   val length = args.length

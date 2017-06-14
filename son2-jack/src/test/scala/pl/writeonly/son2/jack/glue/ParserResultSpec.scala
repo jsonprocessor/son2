@@ -35,10 +35,10 @@ class ParserResultSpec extends WhiteResultSpec {
         assertResult(true)(config.p)
       }
       "return i equals 'object'" in {
-        assertResult(Formats.OBJECT)(config.i)
+        assertResult(Formats.OBJECT.name)(config.i)
       }
       "return o equals 'yaml'" in {
-        assertResult(Formats.YAML)(config.o)
+        assertResult(Formats.YAML.name)(config.o)
       }
     }
   }

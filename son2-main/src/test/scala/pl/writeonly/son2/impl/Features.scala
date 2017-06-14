@@ -10,11 +10,11 @@ object Features {
   val CAT = "cat"
   val DIR = "dir"
 
-  def outputPathname(feature: String, scenario: String, extension: String) =
-    DIR + "/" + "son2" + "." + feature + "." + scenario + "." + extension
+  def outputPathname(feature: String, scenario: String, extension: Symbol) =
+    DIR + "/" + "son2" + "." + feature + "." + scenario + "." + extension.name
 
-  def outputPathname(prefix: String, feature: String, scenario: String, extension: String) =
-    DIR + "/" + prefix + "." + feature + "." + scenario + "." + extension
+  def outputPathname(prefix: String, feature: String, scenario: String, extension: Symbol) =
+    DIR + "/" + prefix + "." + feature + "." + scenario + "." + extension.name
 
 
   def inputURI: URI = inputURI(NAME)

@@ -4,7 +4,7 @@ import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.core.providers.Provider
 import pl.writeonly.son2.core.streamers.{Streamer, StreamerPipeForeach}
 import pl.writeonly.son2.core.glue.Config
-import pl.writeonly.son2.jack.core.Formats
+import pl.writeonly.son2.jack.core.{ConfigJack, Formats}
 import pl.writeonly.son2.spec.GrayVectorSpec
 import pl.writeonly.son2.jack.glue.MatcherFormatProviderJack
 
@@ -29,7 +29,7 @@ class ObjectVectorSpec extends GrayVectorSpec {
     "a"
   )
 
-  val provider: Provider = MatcherFormatProviderJack(new Config(o = Formats.OBJECT, p = false))
+  val provider: Provider = MatcherFormatProviderJack(ConfigJack(o = Formats.OBJECT.name, p = false))
   property("convert son to yaml by provider") {
     forAll(toSuccess) { (in, out) =>
       provider.convert(in) should be(out)

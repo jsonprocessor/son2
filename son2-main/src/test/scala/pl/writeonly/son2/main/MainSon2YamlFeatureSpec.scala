@@ -19,7 +19,7 @@ class MainSon2YamlFeatureSpec extends BlackSpec {
       When("should produce null when consume null")
       val name: String = null
       val caught = intercept[NullPointerException] {
-        Main.main(Array(Formats.YAML, name, name))
+        Main.main(Array(Formats.YAML.name, name, name))
       }
 
       Then("null == messag")
@@ -32,7 +32,7 @@ class MainSon2YamlFeatureSpec extends BlackSpec {
 
       When("should produce empty when consume empty")
       assertThrows[FileNotFoundException] {
-        Main.main(Array(Formats.YAML, "", ""))
+        Main.main(Array(Formats.YAML.name, "", ""))
       }
     }
 
@@ -42,7 +42,7 @@ class MainSon2YamlFeatureSpec extends BlackSpec {
       val out = outName("pathname")
 
       When("should produce null when consume null")
-      Main.main(Array(Formats.YAML, in, out))
+      Main.main(Array(Formats.YAML.name, in, out))
     }
   }
 }

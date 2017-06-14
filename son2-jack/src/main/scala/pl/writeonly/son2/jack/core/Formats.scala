@@ -1,12 +1,12 @@
 package pl.writeonly.son2.jack.core
 
 object Formats {
-  val OBJECT = "object"
-  val YAML = "yaml"
-  val XML = "xml"
-  val CSV = "csv"
-  val JAVA_PROPS = "javaprops"
-  val PROPERTIES = "properties"
-  val RISON = "rison"
-  val HOCON = "hocon"
+  val OBJECT = 'object
+  val YAML = 'yaml
+  val XML = 'xml
+  val CSV = 'csv
+  val JAVA_PROPS = 'javaprops
+  val PROPERTIES = 'properties
+  val RISON = 'rison
+  val HOCON = 'hocon
 }
