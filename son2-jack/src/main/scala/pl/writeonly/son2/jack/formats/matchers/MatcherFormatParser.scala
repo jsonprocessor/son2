@@ -7,7 +7,6 @@ class MatcherFormatParser
   extends MatcherFormatIsDefine(new CreatorFormatReader) {
 
   def parse(s: String): JsonNode = apply(s)
-    .right
     .get
     .apply(s)
 

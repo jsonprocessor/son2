@@ -6,8 +6,8 @@ import pl.writeonly.son2.path.core.Formats
 import pl.writeonly.son2.path.notation.NotationWriterSmart
 
 class MatcherFormatSmart(pretty : Boolean) extends MatcherFormat[NotationWriter] {
-  def apply(s: String): Either[Option[String], NotationWriter] = s match {
-    case s if smart(s) => Right(new NotationWriterSmart(pretty))
+  def apply(s: String): Option[NotationWriter] = s match {
+    case s if smart(s) => Option(new NotationWriterSmart(pretty))
     case s => left(s)
   }
 

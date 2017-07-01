@@ -6,10 +6,10 @@ import pl.writeonly.son2.path.core.Formats
 import pl.writeonly.son2.path.notation.{NotationReaderPath, NotationReaderSmart, NotationReaderStrict}
 
 class MatcherFormatPath() extends MatcherFormat[NotationReader] {
-  def apply(s: String): Either[Option[String], NotationReader] = s match {
-    case s if path(s) => Right(new NotationReaderPath(s))
-    case s if smart(s) => Right(new NotationReaderSmart())
-    case s if strict(s) => Right(new NotationReaderStrict())
+  def apply(s: String): Option[NotationReader] = s match {
+    case s if path(s) => Option(new NotationReaderPath(s))
+    case s if smart(s) => Option(new NotationReaderSmart())
+    case s if strict(s) => Option(new NotationReaderStrict())
     case s => left(s)
   }
 

@@ -19,8 +19,6 @@ abstract class MatcherFormatProvider(c: Config) {
   def apply2(): Option[Provider] = catching(classOf[Exception])
     .opt(MatcherFormatProvider.provider(c, r, w))
 
-
-
 }
 
 object MatcherFormatProvider {
@@ -28,6 +26,6 @@ object MatcherFormatProvider {
                 c : Config,
                 r : MatcherFormat[_<:NotationReader],
                 w : MatcherFormat[_<:NotationWriter]
-              ) = new Provider(c, r.apply(c.i).right.get, w.apply(c.o).right.get)
+              ) = new Provider(c, r.apply(c.i).get, w.apply(c.o).get)
 }
 
