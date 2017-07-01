@@ -5,5 +5,5 @@ import pl.writeonly.son2.core.notation.NotationReader
 
 class NotationReaderSmart() extends NotationReader {
   def apply(content: String):Any = JSONValue.parse(content)
-  override def isValid(content :String): Boolean = JSONValue.isValidJson(content)
+  override def isDefinedAt(content :String): Boolean = JSONValue.isValidJson(content)
 }
