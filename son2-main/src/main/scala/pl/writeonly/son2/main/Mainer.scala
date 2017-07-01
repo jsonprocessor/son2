@@ -8,7 +8,8 @@ import pl.writeonly.son2.jack.formats.matchers.MatcherFormatJack
 import pl.writeonly.son2.jack.formats.predicates.PredicateFormatStartsWith
 import pl.writeonly.son2.jack.glue.MatcherFormatProviderJack
 import pl.writeonly.son2.path.core.ConfigPath
-import pl.writeonly.son2.path.formats.matchers.MatcherFormatPath
+import pl.writeonly.son2.path.creators.PartialCreatorPath
+import pl.writeonly.son2.path.formats.matchers.MatcherFormatReader
 
 class Mainer(params: Params, args: Array[String]) {
   val length = args.length
@@ -25,11 +26,11 @@ class Mainer(params: Params, args: Array[String]) {
   }
 
   def provider(s:String) : Either[Option[String], Provider] = s match {
-    case s if new MatcherFormatPath().path(s) => Right(p(ConfigPath(i=s)))
+    case s if new PartialCreatorPath().isDefinedAt(s) => Right(p(ConfigPath(i=s)))
     case s => MatcherFormatProviderJack.either(ConfigJack(o=s))
   }
 
-  def p(c: Config) =  MatcherFormatProvider.provider(c, new MatcherFormatPath, j(c))
+  def p(c: Config) =  MatcherFormatProvider.provider(c, new MatcherFormatReader(c.p), j(c))
 
   def j(c: Config) = new MatcherFormatJack(new PredicateFormatStartsWith, new CreatorFormatWriter(c))
 }

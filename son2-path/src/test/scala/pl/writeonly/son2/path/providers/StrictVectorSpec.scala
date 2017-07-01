@@ -7,7 +7,7 @@ import pl.writeonly.son2.core.notation.{NotationReader, NotationWriter}
 import pl.writeonly.son2.core.providers.Provider
 import pl.writeonly.son2.core.streamers.{Streamer, StreamerPipeForeach}
 import pl.writeonly.son2.path.core.{ConfigPath, Formats}
-import pl.writeonly.son2.path.formats.matchers.{MatcherFormatPath, MatcherFormatSmart}
+import pl.writeonly.son2.path.formats.matchers.{MatcherFormatReader, MatcherFormatWriter}
 import pl.writeonly.son2.spec.GrayVectorSpec
 
 class StrictVectorSpec extends GrayVectorSpec {
@@ -32,9 +32,9 @@ class StrictVectorSpec extends GrayVectorSpec {
   )
 
   class MatcherFormatProviderPath(c:Config) extends MatcherFormatProvider(c) {
-    override def r: MatcherFormat[_ <: NotationReader] = new MatcherFormatPath
+    override def r: MatcherFormat[_ <: NotationReader] = new MatcherFormatReader(c.p)
 
-    override def w: MatcherFormat[_ <: NotationWriter] = new MatcherFormatSmart(c.p)
+    override def w: MatcherFormat[_ <: NotationWriter] = new MatcherFormatWriter(c.p)
   }
   val provider: Provider = new MatcherFormatProviderPath(ConfigPath(Formats.STRICT)).apply.right.get
   property("convert son to smart by provider") {
