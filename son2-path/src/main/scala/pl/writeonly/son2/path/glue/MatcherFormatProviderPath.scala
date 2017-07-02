@@ -2,13 +2,13 @@ package pl.writeonly.son2.path.glue
 
 import pl.writeonly.son2.core.glue.{Config, MatcherFormatProvider}
 import pl.writeonly.son2.core.providers.Provider
-import pl.writeonly.son2.path.formats.matchers.{MatcherFormatReader, MatcherFormatWriter}
+import pl.writeonly.son2.path.formats.matchers.{ChainCreatorPath, MatcherFormatReader, MatcherFormatWriter}
 
 class MatcherFormatProviderPath(c: Config) extends MatcherFormatProvider(c) {
 //  def r = new MatcherFormatJack(new PredicateFormatStartsWith, new CreatorFormatReader())
 //  def w = new MatcherFormatJack(new PredicateFormatStartsWith, new CreatorFormatWriter(c))
-  def r = new MatcherFormatReader(c.p)
-  def w = new MatcherFormatWriter(c.p)
+  def r = new ChainCreatorPath(c.p)
+  def w = new ChainCreatorPath(c.p)
 
 
 }

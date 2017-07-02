@@ -1,15 +1,17 @@
 package pl.writeonly.son2.main
 
+import pl.writeonly.son2.core.formats.matchers.ChainCreator
 import pl.writeonly.son2.core.glue.{Config, MatcherFormatProvider}
 import pl.writeonly.son2.core.providers.Provider
 import pl.writeonly.son2.jack.core.ConfigJack
+import pl.writeonly.son2.jack.creators.ChainCreatorJack
 import pl.writeonly.son2.jack.formats.creators.{CreatorFormatReader, CreatorFormatWriter}
 import pl.writeonly.son2.jack.formats.matchers.MatcherFormatJack
 import pl.writeonly.son2.jack.formats.predicates.PredicateFormatStartsWith
 import pl.writeonly.son2.jack.glue.MatcherFormatProviderJack
 import pl.writeonly.son2.path.core.ConfigPath
 import pl.writeonly.son2.path.creators.PartialCreatorPath
-import pl.writeonly.son2.path.formats.matchers.MatcherFormatReader
+import pl.writeonly.son2.path.formats.matchers.{ChainCreatorPath, MatcherFormatReader}
 
 class Mainer(params: Params, args: Array[String]) {
   val length = args.length
@@ -30,7 +32,9 @@ class Mainer(params: Params, args: Array[String]) {
     case s => MatcherFormatProviderJack.either(ConfigJack(o=s))
   }
 
-  def p(c: Config) =  MatcherFormatProvider.provider(c, new MatcherFormatReader(c.p), j(c))
+  def p(c: Config) =  MatcherFormatProvider.provider(c, path(c), jack(c))
 
-  def j(c: Config) = new MatcherFormatJack(new PredicateFormatStartsWith, new CreatorFormatWriter(c))
+  def path(c: Config) : ChainCreator = new ChainCreatorPath(c.p)
+
+  def jack(c: Config) : ChainCreator = new ChainCreatorJack(c.p)
 }

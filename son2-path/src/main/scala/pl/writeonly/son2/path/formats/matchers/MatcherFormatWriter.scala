@@ -8,6 +8,6 @@ import pl.writeonly.son2.path.notation.NotationWriterSmart
 
 class MatcherFormatWriter(pretty : Boolean) extends MatcherFormat[NotationWriter] {
 
-  def apply(s:String) : Option[NotationWriter] = new MatcherFormatPair(pretty).apply(s).map(_.w)
+  def apply(s:String) : Option[NotationWriter] = new ChainCreatorPath(pretty).apply(s).map(_.w)
 
 }
