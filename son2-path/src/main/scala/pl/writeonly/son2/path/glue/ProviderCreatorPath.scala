@@ -5,6 +5,7 @@ import pl.writeonly.son2.core.providers.Provider
 
 class ProviderCreatorPath(c: Config) extends ProviderCreator(c) {
   def r = new ChainCreatorPath(c.p)
+
   def w = new ChainCreatorPath(c.p)
 }
 

@@ -52,6 +52,7 @@ class StrictVectorSpec extends GrayVectorSpec {
 
     override def w = new ChainCreatorPath(c.p)
   }
+
   property("convert son to smart by streamer") {
     forAll(toSuccess) { (in, out) =>
       streamer.convertString(in) should be(out + "\n")

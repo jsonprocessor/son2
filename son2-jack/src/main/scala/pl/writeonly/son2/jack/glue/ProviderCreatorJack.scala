@@ -15,13 +15,13 @@ class ProviderCreatorJack(c: Config) extends ProviderCreator(c) {
 object ProviderCreatorJack {
   def apply(o: Symbol): Provider = apply(ConfigJack(o = o.name))
 
+  def apply(o: String): Provider = apply(ConfigJack(o = o))
+
   def apply(config: Config): Provider = either(config)
     .right
     .get
 
   def either(config: Config): Either[Option[String], Provider] = new ProviderCreatorJack(config)
     .apply()
-
-  def apply(o: String): Provider = apply(ConfigJack(o = o))
 
 }

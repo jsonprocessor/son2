@@ -8,7 +8,7 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLMapper
 import pl.writeonly.son2.core.notation.NotationReader
 
 class NotationReaderJack(val mapper: ObjectMapper) extends NotationReader {
-  def apply(content: String) : JsonNode = mapper.readTree(content)
+  def apply(content: String): JsonNode = mapper.readTree(content)
 }
 
 class NotationReaderObject extends NotationReaderJack(new ObjectMapper)
