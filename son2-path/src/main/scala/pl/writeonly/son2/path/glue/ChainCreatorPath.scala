@@ -1,4 +1,4 @@
-package pl.writeonly.son2.path.formats.matchers
+package pl.writeonly.son2.path.glue
 
 import pl.writeonly.son2.core.formats.matchers.ChainCreator
 import pl.writeonly.son2.path.creators.{PartialCreatorPath, PartialCreatorSmart, PartialCreatorStrict}

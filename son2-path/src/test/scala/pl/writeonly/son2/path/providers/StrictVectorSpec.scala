@@ -1,11 +1,11 @@
 package pl.writeonly.son2.path.providers
 
-import pl.writeonly.son2.core.glue.{Config, MatcherFormatProvider}
+import pl.writeonly.son2.core.glue.{Config, ProviderCreator$}
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.core.providers.Provider
 import pl.writeonly.son2.core.streamers.{Streamer, StreamerPipeForeach}
 import pl.writeonly.son2.path.core.{ConfigPath, Formats}
-import pl.writeonly.son2.path.formats.matchers.ChainCreatorPath
+import pl.writeonly.son2.path.glue.ChainCreatorPath
 import pl.writeonly.son2.spec.GrayVectorSpec
 
 class StrictVectorSpec extends GrayVectorSpec {
@@ -28,7 +28,7 @@ class StrictVectorSpec extends GrayVectorSpec {
     "in",
     "a"
   )
-  val provider: Provider = new MatcherFormatProviderPath(ConfigPath(Formats.STRICT)).apply.right.get
+  val provider: Provider = new ProviderCreatorPath(ConfigPath(Formats.STRICT)).apply.right.get
   val liner: Liner = new LinerOpt(provider)
   property("convert son to smart by provider") {
     forAll(toSuccess) { (in, out) =>
@@ -47,7 +47,7 @@ class StrictVectorSpec extends GrayVectorSpec {
     }
   }
 
-  class MatcherFormatProviderPath(c: Config) extends MatcherFormatProvider(c) {
+  class ProviderCreatorPath(c: Config) extends ProviderCreator(c) {
     override def r = new ChainCreatorPath(c.p)
 
     override def w = new ChainCreatorPath(c.p)
