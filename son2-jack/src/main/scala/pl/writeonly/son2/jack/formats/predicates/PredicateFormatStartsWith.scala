@@ -1,7 +1,6 @@
 package pl.writeonly.son2.jack.formats.predicates
 
 import pl.writeonly.son2.jack.core.Formats._
-import pl.writeonly.son2.jack.formats.creators.CreatorFormat
 
 class PredicateFormatStartsWith[F]() extends PredicateFormat[F]() {
 

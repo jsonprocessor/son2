@@ -1,13 +1,14 @@
 package pl.writeonly.son2.core.glue
 
-import pl.writeonly.son2.core.formats.matchers.{ChainCreator}
+import pl.writeonly.son2.core.formats.matchers.ChainCreator
 import pl.writeonly.son2.core.providers.Provider
 
 import scala.util.control.Exception.catching
 
 abstract class MatcherFormatProvider(c: Config) {
-  def r : ChainCreator
-  def w : ChainCreator
+  def r: ChainCreator
+
+  def w: ChainCreator
 
   def apply(): Either[Option[String], Provider] = catching(classOf[Exception])
     .either(MatcherFormatProvider.provider(c, r, w)) match {
@@ -22,9 +23,9 @@ abstract class MatcherFormatProvider(c: Config) {
 
 object MatcherFormatProvider {
   def provider(
-                c : Config,
-                r : ChainCreator,
-                w : ChainCreator
+                c: Config,
+                r: ChainCreator,
+                w: ChainCreator
               ) = new Provider(c, r.apply(c.i).get.r, w.apply(c.o).get.w)
 }
 

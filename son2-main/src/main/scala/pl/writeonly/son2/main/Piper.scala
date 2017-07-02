@@ -4,7 +4,6 @@ import java.io.{FileInputStream, InputStream}
 
 import pl.writeonly.son2.core.glue.Streamers
 import pl.writeonly.son2.core.providers.Provider
-import pl.writeonly.son2.core.glue.Config
 
 class Piper(params: Params, provider: Provider) {
 
@@ -22,11 +21,11 @@ class Piper(params: Params, provider: Provider) {
 
   def convertFile(in: String) = convertStream(new FileInputStream(in))
 
-  def convertResource(name: String) = convertStream(resourceAsStream(name))
-
   def convertStream(in: InputStream) = source.convertStream(in, params.out)
 
   def source = Streamers.source(provider.config.s, provider)
+
+  def convertResource(name: String) = convertStream(resourceAsStream(name))
 
   def resourceAsStream(name: String) = getClass().getClassLoader().getResourceAsStream(name)
 

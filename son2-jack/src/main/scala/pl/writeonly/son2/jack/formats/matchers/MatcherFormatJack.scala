@@ -1,7 +1,6 @@
 package pl.writeonly.son2.jack.formats.matchers
 
-import pl.writeonly.son2.core.formats.matchers.{ChainCreator, MatcherFormat}
-import pl.writeonly.son2.core.notation.NotationPair
+import pl.writeonly.son2.core.formats.matchers.MatcherFormat
 import pl.writeonly.son2.jack.formats.creators.CreatorFormat
 import pl.writeonly.son2.jack.formats.predicates.PredicateFormat
 

@@ -1,6 +1,5 @@
 package pl.writeonly.son2.jack.formats
 
-import org.scalatest.WordSpec
 import pl.writeonly.son2.jack.formats.matchers.MatcherFormatParser
 import pl.writeonly.son2.spec.WhiteResultSpec
 
@@ -12,15 +11,15 @@ class FormatParserResultSpec extends WhiteResultSpec {
     "param is empty object json" should {
       "return empty object" in {
         val node = parser.parse("{}")
-        assertResult (true, "is not object") (node.isObject)
-        assertResult (0, "object is not empty") (node.size)
+        assertResult(true, "is not object")(node.isObject)
+        assertResult(0, "object is not empty")(node.size)
       }
     }
     "param is empty array json" should {
       "return empty array" in {
         val node = parser.parse("[]")
-        assertResult (true, "is not array") (node.isArray)
-        assertResult (0, "array is not empty") (node.size)
+        assertResult(true, "is not array")(node.isArray)
+        assertResult(0, "array is not empty")(node.size)
       }
     }
     //    "param is empty object yaml" should {

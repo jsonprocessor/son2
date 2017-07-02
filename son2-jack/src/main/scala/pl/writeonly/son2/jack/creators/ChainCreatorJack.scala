@@ -2,7 +2,7 @@ package pl.writeonly.son2.jack.creators
 
 import pl.writeonly.son2.core.formats.matchers.ChainCreator
 
-class ChainCreatorJack(pretty : Boolean) extends ChainCreator {
+class ChainCreatorJack(pretty: Boolean) extends ChainCreator {
 
   def get = (
     new PartialCreatorObject(pretty)

@@ -4,8 +4,6 @@ import java.io.ByteArrayOutputStream
 
 import pl.writeonly.son2.core.providers.ProviderFake
 import pl.writeonly.son2.core.streamers.Streamer
-import pl.writeonly.son2.core.glue.Config
-import pl.writeonly.son2.jack.core.ConfigJack
 import pl.writeonly.son2.spec.WhiteResultSpec
 
 class PiperResultSpec extends WhiteResultSpec {

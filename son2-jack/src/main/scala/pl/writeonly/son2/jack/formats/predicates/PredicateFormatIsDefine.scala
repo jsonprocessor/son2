@@ -1,6 +1,5 @@
 package pl.writeonly.son2.jack.formats.predicates
 
-import com.fasterxml.jackson.databind.ObjectMapper
 import pl.writeonly.son2.jack.formats.creators.CreatorFormat
 import pl.writeonly.son2.jack.notation.NotationReaderJack
 

@@ -3,10 +3,9 @@ package pl.writeonly.son2.jack.providers
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.core.providers.Provider
 import pl.writeonly.son2.core.streamers.{Streamer, StreamerPipeForeach}
-import pl.writeonly.son2.core.glue.Config
 import pl.writeonly.son2.jack.core.{ConfigJack, Formats}
-import pl.writeonly.son2.spec.GrayVectorSpec
 import pl.writeonly.son2.jack.glue.MatcherFormatProviderJack
+import pl.writeonly.son2.spec.GrayVectorSpec
 
 class ObjectVectorSpec extends GrayVectorSpec {
 

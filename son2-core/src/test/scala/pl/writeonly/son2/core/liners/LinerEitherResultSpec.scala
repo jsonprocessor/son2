@@ -1,6 +1,6 @@
 package pl.writeonly.son2.core.liners
 
-import pl.writeonly.son2.core.providers.{Provider, ProviderFake}
+import pl.writeonly.son2.core.providers.ProviderFake
 import pl.writeonly.son2.spec.WhiteResultSpec
 
 class LinerEitherResultSpec extends WhiteResultSpec {

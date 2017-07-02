@@ -3,7 +3,7 @@ package pl.writeonly.son2.main
 import java.io.FileNotFoundException
 
 import pl.writeonly.son2.impl.{Features, Types}
-import pl.writeonly.son2.jack.core.{ConfigJack, Formats}
+import pl.writeonly.son2.jack.core.Formats
 import pl.writeonly.son2.jack.glue.MatcherFormatProviderJack
 import pl.writeonly.son2.spec.BlackSpec
 

@@ -5,13 +5,10 @@ import pl.writeonly.son2.core.glue.{Config, MatcherFormatProvider}
 import pl.writeonly.son2.core.providers.Provider
 import pl.writeonly.son2.jack.core.ConfigJack
 import pl.writeonly.son2.jack.creators.ChainCreatorJack
-import pl.writeonly.son2.jack.formats.creators.{CreatorFormatReader, CreatorFormatWriter}
-import pl.writeonly.son2.jack.formats.matchers.MatcherFormatJack
-import pl.writeonly.son2.jack.formats.predicates.PredicateFormatStartsWith
 import pl.writeonly.son2.jack.glue.MatcherFormatProviderJack
 import pl.writeonly.son2.path.core.ConfigPath
 import pl.writeonly.son2.path.creators.PartialCreatorPath
-import pl.writeonly.son2.path.formats.matchers.{ChainCreatorPath, MatcherFormatReader}
+import pl.writeonly.son2.path.formats.matchers.ChainCreatorPath
 
 class Mainer(params: Params, args: Array[String]) {
   val length = args.length
@@ -27,14 +24,14 @@ class Mainer(params: Params, args: Array[String]) {
     //    case _ => MatcherFormatProvider.either(new Parser().apply(args(0)))
   }
 
-  def provider(s:String) : Either[Option[String], Provider] = s match {
-    case s if new PartialCreatorPath().isDefinedAt(s) => Right(p(ConfigPath(i=s)))
-    case s => MatcherFormatProviderJack.either(ConfigJack(o=s))
+  def provider(s: String): Either[Option[String], Provider] = s match {
+    case s if new PartialCreatorPath().isDefinedAt(s) => Right(p(ConfigPath(i = s)))
+    case s => MatcherFormatProviderJack.either(ConfigJack(o = s))
   }
 
-  def p(c: Config) =  MatcherFormatProvider.provider(c, path(c), jack(c))
+  def p(c: Config) = MatcherFormatProvider.provider(c, path(c), jack(c))
 
-  def path(c: Config) : ChainCreator = new ChainCreatorPath(c.p)
+  def path(c: Config): ChainCreator = new ChainCreatorPath(c.p)
 
-  def jack(c: Config) : ChainCreator = new ChainCreatorJack(c.p)
+  def jack(c: Config): ChainCreator = new ChainCreatorJack(c.p)
 }

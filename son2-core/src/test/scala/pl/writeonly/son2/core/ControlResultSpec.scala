@@ -9,7 +9,7 @@ class ControlResultSpec extends WhiteResultSpec {
     "s is true" should {
       val s = true
       "pipe return stream.isInstanceOf[StreamerPipeForeach]" in {
-        val f = (x:String) => {}
+        val f = (x: String) => {}
         toConsumerAny(f).accept("param")
       }
     }

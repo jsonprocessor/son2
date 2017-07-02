@@ -1,8 +1,6 @@
 package pl.writeonly.son2.spec
 
-import org.scalamock.scalatest.MockFactory
-import org.scalatest.{FlatSpec, PrivateMethodTester}
-import org.scalatest.prop.Checkers
+import org.scalatest.FlatSpec
 
 abstract class WhiteThrowsSpec extends FlatSpec with WhiteSpec {
 
