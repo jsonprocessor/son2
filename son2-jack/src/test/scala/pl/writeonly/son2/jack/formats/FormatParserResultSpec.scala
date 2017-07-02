@@ -1,11 +1,11 @@
 package pl.writeonly.son2.jack.formats
 
-import pl.writeonly.son2.jack.formats.matchers.MatcherFormatParser
+import pl.writeonly.son2.jack.glue.ChainReaderJack
 import pl.writeonly.son2.spec.WhiteResultSpec
 
 class FormatParserResultSpec extends WhiteResultSpec {
 
-  val parser = new MatcherFormatParser()
+  val parser = new ChainReaderJack()
 
   "A parser" when {
     "param is empty object json" should {

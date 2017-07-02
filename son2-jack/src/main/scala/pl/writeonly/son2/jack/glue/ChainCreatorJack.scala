@@ -1,6 +1,7 @@
-package pl.writeonly.son2.jack.creators
+package pl.writeonly.son2.jack.glue
 
 import pl.writeonly.son2.core.formats.matchers.ChainCreator
+import pl.writeonly.son2.jack.creators._
 
 class ChainCreatorJack(pretty: Boolean) extends ChainCreator {
 

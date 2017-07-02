@@ -1,16 +1,11 @@
 package pl.writeonly.son2.path.glue
 
-import pl.writeonly.son2.core.glue.{Config, ProviderCreator$}
+import pl.writeonly.son2.core.glue.{Config, ProviderCreator}
 import pl.writeonly.son2.core.providers.Provider
 
 class ProviderCreatorPath(c: Config) extends ProviderCreator(c) {
-  //  def r = new MatcherFormatJack(new PredicateFormatStartsWith, new CreatorFormatReader())
-  //  def w = new MatcherFormatJack(new PredicateFormatStartsWith, new CreatorFormatWriter(c))
   def r = new ChainCreatorPath(c.p)
-
   def w = new ChainCreatorPath(c.p)
-
-
 }
 
 object ProviderCreatorPath {
@@ -19,11 +14,8 @@ object ProviderCreatorPath {
     .right
     .get
 
-  //  def opt(config: Config): Option[Provider] = new FormatProvider(config).apply()
 
   def either(config: Config): Either[Option[String], Provider] = new ProviderCreatorPath(config)
     .apply()
 
-
-  //either
 }

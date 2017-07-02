@@ -1,11 +1,10 @@
 package pl.writeonly.son2.main
 
 import pl.writeonly.son2.core.formats.matchers.ChainCreator
-import pl.writeonly.son2.core.glue.{Config, ProviderCreator$}
+import pl.writeonly.son2.core.glue.{Config, ProviderCreator, ProviderCreator$}
 import pl.writeonly.son2.core.providers.Provider
 import pl.writeonly.son2.jack.core.ConfigJack
-import pl.writeonly.son2.jack.creators.ChainCreatorJack
-import pl.writeonly.son2.jack.glue.ProviderCreatorJack
+import pl.writeonly.son2.jack.glue.{ChainCreatorJack, ProviderCreatorJack}
 import pl.writeonly.son2.path.core.ConfigPath
 import pl.writeonly.son2.path.creators.PartialCreatorPath
 import pl.writeonly.son2.path.glue.ChainCreatorPath
