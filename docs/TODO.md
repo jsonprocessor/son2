@@ -2,7 +2,6 @@
 - [ ] Increase code coverage to 80%
 - [ ] Add mutation tests
 - [ ] Add mvn clean compile jar:jar dependency:copy-dependencies javadoc:javadoc site-deploy
-- [ ] Convert assert to assertResult
 - [ ] Convert String to CharSequence
 - [ ] Add mvnw
 
@@ -10,6 +9,7 @@
 ## core
 - [ ] Create module with all independent code
 - [ ] Add sed
+- [ ] Drop formats/matchers
 
 ## jack - converter
 - [ ] Add configuration for yaml generator
@@ -22,7 +22,6 @@
 
 ## path - processor
 - [ ] Create module with all filtring code
-- [ ] Add JsonPath https://github.com/json-path/JsonPath 
 - [ ] Add JsonSurfer https://github.com/jsurfer/JsonSurfer
 - [ ] Add JQL https://github.com/benmfaul/JQL 
 - [ ] Add jfunk https://github.com/mgm-tp/jfunk
