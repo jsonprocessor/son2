@@ -28,6 +28,9 @@
 - [ ] Add jolt https://github.com/bazaarvoice/jolt
 - [ ] Add jsoniq
 
+## gson - converter
+- [ ] Add
+
 ## main
 - [ ] Add typesafe.config
 - [ ] Coloring as a ./jq https://stedolan.github.io/jq/
