@@ -2,13 +2,14 @@ package pl.writeonly.son2.jack.glue
 
 import pl.writeonly.son2.core.glue.{Config, ProviderCreator}
 import pl.writeonly.son2.core.providers.Provider
+import pl.writeonly.son2.jack.chain.ChainNotationPairJack
 import pl.writeonly.son2.jack.core.ConfigJack
 
 class ProviderCreatorJack(c: Config) extends ProviderCreator(c) {
 
-  def r = new ChainCreatorJack(c.p)
+  def r = new ChainNotationPairJack(c.p)
 
-  def w = new ChainCreatorJack(c.p)
+  def w = new ChainNotationPairJack(c.p)
 
 }
 

@@ -1,6 +1,6 @@
 package pl.writeonly.son2.jack.formats
 
-import pl.writeonly.son2.jack.glue.ChainReaderJack
+import pl.writeonly.son2.jack.chain.ChainReaderJack
 import pl.writeonly.son2.spec.WhiteResultSpec
 
 class FormatParserResultSpec extends WhiteResultSpec {

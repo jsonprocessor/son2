@@ -4,8 +4,8 @@ import pl.writeonly.son2.core.glue.{Config, ProviderCreator}
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.core.providers.Provider
 import pl.writeonly.son2.core.streamers.{Streamer, StreamerPipeForeach}
+import pl.writeonly.son2.path.chain.ChainNotationPairPath
 import pl.writeonly.son2.path.core.{ConfigPath, Formats}
-import pl.writeonly.son2.path.glue.ChainCreatorPath
 import pl.writeonly.son2.spec.GrayVectorSpec
 
 class StrictVectorSpec extends GrayVectorSpec {
@@ -48,9 +48,9 @@ class StrictVectorSpec extends GrayVectorSpec {
   }
 
   class ProviderCreatorPath(c: Config) extends ProviderCreator(c) {
-    override def r = new ChainCreatorPath(c.p)
+    override def r = new ChainNotationPairPath(c.p)
 
-    override def w = new ChainCreatorPath(c.p)
+    override def w = new ChainNotationPairPath(c.p)
   }
 
   property("convert son to smart by streamer") {

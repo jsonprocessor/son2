@@ -1,4 +1,4 @@
-package pl.writeonly.son2.jack.util
+package pl.writeonly.son2.main
 
 import com.typesafe.scalalogging.LazyLogging
 
