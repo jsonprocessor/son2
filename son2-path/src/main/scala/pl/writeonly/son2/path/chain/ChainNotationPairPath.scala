@@ -5,8 +5,8 @@ import pl.writeonly.son2.path.creators.{PartialCreatorPath, PartialCreatorSmart,
 
 class ChainNotationPairPath(pretty: Boolean) extends ChainNotationPair(
   new PartialCreatorPath
-  orElse
-  new PartialCreatorSmart(pretty)
-  orElse
-  new PartialCreatorStrict(pretty)
+    orElse
+    new PartialCreatorSmart(pretty)
+    orElse
+    new PartialCreatorStrict(pretty)
 )

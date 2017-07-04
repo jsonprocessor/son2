@@ -1,7 +1,6 @@
 package pl.writeonly.son2.jack.creators
 
 import com.fasterxml.jackson.dataformat.csv.CsvMapper
-import pl.writeonly.son2.core.notation.PartialCreatorPair
 import pl.writeonly.son2.jack.core.Formats
 import pl.writeonly.son2.jack.notation.{NotationReaderCsv, NotationWriterJack}
 

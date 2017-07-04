@@ -8,7 +8,7 @@ trait PartialCreatorPair extends PartialCreator {
 
   def format: Symbol
 
-  def c: String=>Config
+  def c: String => Config
 
   def r: NotationReader
 

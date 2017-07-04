@@ -17,7 +17,7 @@ class ProviderCreatorJack(c: Config) extends ProviderCreator(c) {
 object ProviderCreatorJack {
   def apply(o: Symbol): Provider = apply(ConfigJack(o.name))
 
-//  def apply(f: String): Provider = apply(ConfigJack(o = o))
+  //  def apply(f: String): Provider = apply(ConfigJack(o = o))
 
   def apply(config: Config): Provider = either(config)
     .right
