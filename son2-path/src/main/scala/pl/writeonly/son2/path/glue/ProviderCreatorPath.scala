@@ -1,6 +1,7 @@
 package pl.writeonly.son2.path.glue
 
-import pl.writeonly.son2.core.glue.{Config, ProviderCreator}
+import pl.writeonly.son2.core.glue.ProviderCreator
+import pl.writeonly.son2.core.notation.Config
 import pl.writeonly.son2.core.providers.Provider
 import pl.writeonly.son2.path.chain.ChainNotationPairPath
 

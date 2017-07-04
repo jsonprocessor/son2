@@ -5,8 +5,8 @@ import pl.writeonly.son2.core.notation.PartialCreatorPair
 import pl.writeonly.son2.jack.core.Formats
 import pl.writeonly.son2.jack.notation.{NotationReaderJavaProps, NotationWriterJack}
 
-class PartialCreatorJavaProps(pretty: Boolean) extends PartialCreatorPair {
-  def startsWith = Formats.JAVA_PROPS
+class PartialCreatorJavaProps(pretty: Boolean) extends PartialCreatorJack {
+  def format = Formats.JAVA_PROPS
 
   def r = new NotationReaderJavaProps
 

@@ -5,8 +5,8 @@ import pl.writeonly.son2.core.notation.PartialCreatorPair
 import pl.writeonly.son2.jack.core.Formats
 import pl.writeonly.son2.jack.notation.{NotationReaderCsv, NotationWriterJack}
 
-class PartialCreatorCsv(pretty: Boolean) extends PartialCreatorPair {
-  def startsWith = Formats.CSV
+class PartialCreatorCsv(pretty: Boolean) extends PartialCreatorJack {
+  def format = Formats.CSV
 
   def r = new NotationReaderCsv
 

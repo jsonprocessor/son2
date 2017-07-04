@@ -1,7 +1,6 @@
 package pl.writeonly.son2.core.providers
 
-import pl.writeonly.son2.core.glue.Config
-import pl.writeonly.son2.core.notation.{NotationReader, NotationWriter}
+import pl.writeonly.son2.core.notation.{Config, NotationReader, NotationWriter}
 
 class Provider(val config: Config, val in: NotationReader, val out: NotationWriter) {
 

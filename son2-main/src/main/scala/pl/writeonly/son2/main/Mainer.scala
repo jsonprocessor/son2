@@ -1,7 +1,8 @@
 package pl.writeonly.son2.main
 
 import pl.writeonly.son2.core.chain.ChainNotationPair
-import pl.writeonly.son2.core.glue.{Config, ProviderCreator}
+import pl.writeonly.son2.core.glue.ProviderCreator
+import pl.writeonly.son2.core.notation.Config
 import pl.writeonly.son2.core.providers.Provider
 import pl.writeonly.son2.jack.chain.ChainNotationPairJack
 import pl.writeonly.son2.jack.core.ConfigJack

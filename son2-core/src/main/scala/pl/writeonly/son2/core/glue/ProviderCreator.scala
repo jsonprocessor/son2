@@ -1,6 +1,7 @@
 package pl.writeonly.son2.core.glue
 
 import pl.writeonly.son2.core.chain.ChainNotationPair
+import pl.writeonly.son2.core.notation.Config
 import pl.writeonly.son2.core.providers.Provider
 
 import scala.util.control.Exception.catching
