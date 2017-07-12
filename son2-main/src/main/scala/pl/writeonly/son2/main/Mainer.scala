@@ -24,12 +24,12 @@ class Mainer(params: Params, args: Array[String]) {
     case _ => provider(args(0).toLowerCase)
   }
 
-  def provider(s: String): Either[Option[String], Provider] = s match {
+  def provider2(s: String): Either[Option[String], Provider] = s match {
     case s if new PartialCreatorPath().isDefinedAt(s) => Right(p(ConfigPath(i = s)))
     case s => ProviderCreatorJack.either(ConfigJack(o = s))
   }
 
-  def provider2(s: String): Either[Option[String], Provider] = chain(s)
+  def provider(s: String): Either[Option[String], Provider] = chain(s)
     .map(p => Right(p))
     .getOrElse(Left(Option(s)))
 
