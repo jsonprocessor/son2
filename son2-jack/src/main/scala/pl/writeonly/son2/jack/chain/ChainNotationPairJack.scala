@@ -23,5 +23,4 @@ object ChainNotationPairJack {
   def apply(s : Symbol) : Provider = new ChainNotationCreator(new ChainNotationPairJack(true).get).chain(s.name).get
 
   def apply(c :Config) : Provider = new ChainNotationCreator(new ChainNotationPairJack(false).get).provider(c)
-
 }

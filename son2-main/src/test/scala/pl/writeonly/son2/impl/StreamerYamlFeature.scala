@@ -3,6 +3,7 @@ package pl.writeonly.son2.impl
 import java.io.FileNotFoundException
 
 import pl.writeonly.son2.core.streamers.StreamerPipeForeach
+import pl.writeonly.son2.jack.chain.ChainNotationPairJack
 import pl.writeonly.son2.jack.core.Formats
 import pl.writeonly.son2.jack.glue.ProviderCreatorJack
 import pl.writeonly.son2.spec.BlackSpec
@@ -11,7 +12,7 @@ class StreamerYamlFeature extends BlackSpec {
 
   info("StreamerPipe with ProviderYaml")
 
-  val given = () => new StreamerPipeForeach(ProviderCreatorJack(Formats.YAML))
+  val given = () => new StreamerPipeForeach(ChainNotationPairJack(Formats.YAML))
 
   val outName = (name: String) => Features.outputPathname(Types.STREAMER, name, Formats.YAML)
 
