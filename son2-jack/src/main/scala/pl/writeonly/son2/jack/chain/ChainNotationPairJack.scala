@@ -1,6 +1,7 @@
 package pl.writeonly.son2.jack.chain
 
-import pl.writeonly.son2.core.chain.ChainNotationPair
+import pl.writeonly.son2.core.chain.{ChainNotationCreator, ChainNotationPair}
+import pl.writeonly.son2.jack.core.Formats
 import pl.writeonly.son2.jack.creators._
 
 class ChainNotationPairJack(pretty: Boolean) extends ChainNotationPair(
@@ -16,3 +17,7 @@ class ChainNotationPairJack(pretty: Boolean) extends ChainNotationPair(
     orElse
     new PartialCreatorProperties(pretty)
 )
+
+object ChainNotationPairJack {
+  def apply(s : Symbol) = new ChainNotationCreator(new ChainNotationPairJack(true).get).chain(s.name).get
+}

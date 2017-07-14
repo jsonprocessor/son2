@@ -3,7 +3,7 @@ package pl.writeonly.son2.core.chain
 import pl.writeonly.son2.core.notation.{Config, NotationPair, NotationReader, NotationWriter}
 import pl.writeonly.son2.core.providers.Provider
 
-class ChainNotationCreator(chain : PartialFunction[String, NotationPair] ) {
+class ChainNotationCreator(chain : PartialFunction[String, NotationPair]) {
   def chain(s:String) : Option[Provider] = chain
     .lift(s).map(t => t.c)
     .map(f => f(s))
