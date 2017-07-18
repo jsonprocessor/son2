@@ -5,7 +5,6 @@ import pl.writeonly.son2.core.providers.Provider
 import pl.writeonly.son2.core.streamers.{Streamer, StreamerPipeForeach}
 import pl.writeonly.son2.path.chain.ChainNotationPairPath
 import pl.writeonly.son2.path.core.ConfigPath
-import pl.writeonly.son2.path.glue.ProviderCreatorPath
 import pl.writeonly.son2.spec.GrayVectorSpec
 
 class PathVectorSpec extends GrayVectorSpec {
