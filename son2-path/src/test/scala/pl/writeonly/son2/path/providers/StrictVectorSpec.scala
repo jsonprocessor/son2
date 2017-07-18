@@ -1,8 +1,6 @@
 package pl.writeonly.son2.path.providers
 
-import pl.writeonly.son2.core.glue.ProviderCreator
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
-import pl.writeonly.son2.core.notation.Config
 import pl.writeonly.son2.core.providers.Provider
 import pl.writeonly.son2.core.streamers.{Streamer, StreamerPipeForeach}
 import pl.writeonly.son2.path.chain.ChainNotationPairPath
@@ -47,7 +45,7 @@ class StrictVectorSpec extends GrayVectorSpec {
       liner.apply(in) should be(provider.comment(in) + "\n")
     }
   }
-  
+
   property("convert son to smart by streamer") {
     forAll(toSuccess) { (in, out) =>
       streamer.convertString(in) should be(out + "\n")
