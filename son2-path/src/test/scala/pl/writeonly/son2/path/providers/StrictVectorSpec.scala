@@ -47,13 +47,7 @@ class StrictVectorSpec extends GrayVectorSpec {
       liner.apply(in) should be(provider.comment(in) + "\n")
     }
   }
-
-  class ProviderCreatorPath(c: Config) extends ProviderCreator(c) {
-    override def r = new ChainNotationPairPath(c.p)
-
-    override def w = new ChainNotationPairPath(c.p)
-  }
-
+  
   property("convert son to smart by streamer") {
     forAll(toSuccess) { (in, out) =>
       streamer.convertString(in) should be(out + "\n")
