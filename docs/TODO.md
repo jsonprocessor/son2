@@ -31,6 +31,9 @@
 ## gson - converter
 - [ ] Add
 
+## test - assertions
+- [ ] Add JSONassert
+
 ## main
 - [ ] Add typesafe.config
 - [ ] Coloring as a ./jq https://stedolan.github.io/jq/
