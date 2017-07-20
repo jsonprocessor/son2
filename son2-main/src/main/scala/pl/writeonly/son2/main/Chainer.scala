@@ -6,6 +6,6 @@ import pl.writeonly.son2.path.chain.ChainNotationPairPath
 
 object Chainer extends ChainNotationCreator(
   new ChainNotationPairPath(true).get
-  orElse
-  new ChainNotationPairJack(true).get
+    orElse
+    new ChainNotationPairJack(true).get
 )
