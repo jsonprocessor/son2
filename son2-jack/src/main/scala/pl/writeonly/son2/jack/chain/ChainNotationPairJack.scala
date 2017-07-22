@@ -17,5 +17,4 @@ class ChainNotationPairJack(pretty: Boolean) extends ChainNotationPair(
     new PartialCreatorProperties(pretty)
 )
 
-object ChainNotationPairJack extends ProviderCreator(p => new ChainNotationPairJack(p)) {
-}
+object ChainNotationPairJack extends ProviderCreator(p => new ChainNotationPairJack(p))

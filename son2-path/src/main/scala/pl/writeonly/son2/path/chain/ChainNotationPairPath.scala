@@ -11,5 +11,4 @@ class ChainNotationPairPath(pretty: Boolean) extends ChainNotationPair(
     new PartialCreatorStrict(pretty)
 )
 
-object ChainNotationPairPath extends ProviderCreator(p => new ChainNotationPairPath(p)) {
-}
+object ChainNotationPairPath extends ProviderCreator(p => new ChainNotationPairPath(p))

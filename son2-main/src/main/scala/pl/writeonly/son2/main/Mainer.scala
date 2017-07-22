@@ -1,6 +1,7 @@
 package pl.writeonly.son2.main
 
 import pl.writeonly.son2.core.providers.Provider
+import pl.writeonly.son2.jack.chain.ChainReaderJack
 
 class Mainer(params: Params, args: Array[String]) {
   val length = args.length
@@ -18,5 +19,7 @@ class Mainer(params: Params, args: Array[String]) {
   def provider(s: String): Either[Option[String], Provider] = Chainer.chain(s)
     .map(p => Right(p))
     .getOrElse(Left(Option(s)))
+
+  def a(s:String) = new ChainReaderJack().parse(s)
 
 }
