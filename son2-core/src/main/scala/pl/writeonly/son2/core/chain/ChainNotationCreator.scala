@@ -3,11 +3,13 @@ package pl.writeonly.son2.core.chain
 import pl.writeonly.son2.core.notation.{Config, NotationPair, NotationReader, NotationWriter}
 import pl.writeonly.son2.core.providers.Provider
 
-class ChainNotationCreator(chain: PartialFunction[String, NotationPair]) {
-  def chain(s: String): Option[Provider] = chain
-    .lift(s).map(t => t.c)
+class ChainNotationCreator(chain: PartialFunction[String, NotationPair]) extends ConfigLift {
+  def lift(s: String): Option[Provider] = configOpt(s).map(provider)
+
+  def configOpt(s: String) = chain
+    .lift(s)
+    .map(t => t.c)
     .map(f => f(s))
-    .map(provider)
 
   def provider(c: Config) = new Provider(c, input(c), output(c))
 
