@@ -10,6 +10,7 @@
 - [ ] Create module with all independent code
 - [ ] Add sed
 - [ ] Drop formats/matchers
+- [ ] Add unescape String https://commons.apache.org/proper/commons-text/javadocs/api-release/org/apache/commons/text/StringEscapeUtils.html
 
 ## jack - converter
 - [ ] Add configuration for yaml generator
