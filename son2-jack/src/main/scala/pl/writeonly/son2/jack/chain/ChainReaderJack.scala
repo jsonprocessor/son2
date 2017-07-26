@@ -3,6 +3,7 @@ package pl.writeonly.son2.jack.chain
 import com.fasterxml.jackson.databind.JsonNode
 import pl.writeonly.son2.core.chain.{ChainImpl, ConfigLift}
 import pl.writeonly.son2.core.notation.{Config, ConfigPath}
+import pl.writeonly.son2.jack.core.ConfigJack
 import pl.writeonly.son2.jack.notation._
 
 class ChainReaderJack extends ChainImpl[Any](
@@ -18,24 +19,26 @@ class ChainReaderJack extends ChainImpl[Any](
 
   def configOpt(s:String): Option[Config] = get.lift(s).map(a => ChainReaderJack.config(a.asInstanceOf[JsonNode]))
 
-  def config(s:String): Config = ChainReaderJack.config(parse(s))
+  def config(s:String): Config = configOpt(s).get
 
   def parse(s: String): JsonNode = apply(s).get.asInstanceOf[JsonNode]
 
 }
 
 object ChainReaderJack {
-  def config(n: JsonNode): Config = new Config(
-    o=asText(n, ConfigPath.O),
-    p=asBoolean(n, ConfigPath.P),
-    i=asText(n, ConfigPath.I),
-    s=asBoolean(n, ConfigPath.S)
+  def config(n: JsonNode): Config = config(n, ConfigJack.apply())
+
+  def config(n:JsonNode, c:Config): Config = new Config(
+    i=asText(n, ConfigPath.I).getOrElse(c.i),
+    s=asBoolean(n, ConfigPath.S).getOrElse(c.s),
+    o=asText(n, ConfigPath.O).getOrElse(c.o),
+    p=asBoolean(n, ConfigPath.P).getOrElse(c.p)
   )
 
-  private def asText(n: JsonNode, s:Symbol) = get(n,s).asText
+  private def asText(n: JsonNode, s:Symbol) = get(n,s).map(o => o.asText)
 
-  private def asBoolean(n: JsonNode, s:Symbol) = get(n,s).asBoolean
+  private def asBoolean(n: JsonNode, s:Symbol) = get(n,s).map(o => o.asBoolean)
 
-  private def get(n: JsonNode, s:Symbol) = n.get(s.name)
+  private def get(n: JsonNode, s:Symbol) = Option(n.get(s.name))
 }
 
