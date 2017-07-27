@@ -16,14 +16,14 @@ class MainerResultSpec extends WhiteResultSpec {
     }
   }
 
-//  "A Mainer with README in array" when {
-//    "invoke option" should {
-//      "return Left(Option(readme)" in {
+  "A Mainer with README in array" when {
+    "invoke option" should {
+      "return Left(Option(readme)" in {
 //        assertResult(Left(Some("readme")))(new Mainer(null, Array("README")).option)
 //        assertResult(Right(new Provider()))(new Mainer(null, Array("README")).option)
-//      }
-//    }
-//  }
+      }
+    }
+  }
 
   "A Mainer with empty string in array" when {
     "invoke option" should {

@@ -1,6 +1,5 @@
 package pl.writeonly.son2.main
 
-import com.fasterxml.jackson.databind.JsonNode
 import pl.writeonly.son2.core.notation.Config
 import pl.writeonly.son2.core.providers.Provider
 import pl.writeonly.son2.jack.chain.ChainReaderJack
@@ -26,7 +25,6 @@ class Mainer(params: Params, args: Array[String]) {
   def configOpt(s:String) :Option[Config] = Chainer.configOpt(s) match {
     case c : Some[Config] => c
     case None => new ChainReaderJack().configOpt(s)
-//    case None => None
   }
 
 }
