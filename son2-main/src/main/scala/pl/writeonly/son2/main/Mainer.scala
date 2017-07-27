@@ -25,8 +25,8 @@ class Mainer(params: Params, args: Array[String]) {
 
   def configOpt(s:String) :Option[Config] = Chainer.configOpt(s) match {
     case c : Some[Config] => c
-//    case None => new ChainReaderJack().configOpt(s)
-    case None => None
+    case None => new ChainReaderJack().configOpt(s)
+//    case None => None
   }
 
 }

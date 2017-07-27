@@ -16,7 +16,7 @@ class MainerScalarSpec extends GrayScalarSpec {
       new Mainer(params, Array("HELP ME")).either
     }
 
-    it("when format is json and input file 'HELP ME'") {
+    ignore("when format is json and input file 'HELP ME'") {
       new Mainer(params, Array("json", "HELP ME")).either
     }
 
