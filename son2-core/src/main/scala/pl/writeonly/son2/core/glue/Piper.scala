@@ -1,9 +1,8 @@
-package pl.writeonly.son2.main
+package pl.writeonly.son2.core.glue
 
 import java.io.{FileInputStream, InputStream}
 
-import pl.writeonly.son2.core.glue.Streamers
-import pl.writeonly.son2.core.providers.Provider
+import pl.writeonly.son2.core.providers.{Provider, Provider2}
 
 class Piper(params: Params, provider: Provider) {
 

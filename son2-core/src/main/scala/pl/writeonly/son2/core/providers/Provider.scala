@@ -1,13 +1,11 @@
 package pl.writeonly.son2.core.providers
 
-import pl.writeonly.son2.core.notation.{Config, NotationReader, NotationWriter}
+import pl.writeonly.son2.core.config.Config
 
-class Provider(val config: Config, val in: NotationReader, val out: NotationWriter) {
+abstract class Provider(val config: Config) {
 
-  def convert(s: String) = apply(s)
+  def convert(s: String) :String
 
-  def apply(content: String): String = out.write(in.apply(content))
-
-  def comment(content: String): String = out.comment(content)
+  def comment(content: String):String
 
 }

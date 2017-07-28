@@ -2,6 +2,7 @@ package pl.writeonly.son2.main
 
 import java.io.ByteArrayOutputStream
 
+import pl.writeonly.son2.core.glue.{Params, Piper}
 import pl.writeonly.son2.core.providers.ProviderFake
 import pl.writeonly.son2.core.streamers.Streamer
 import pl.writeonly.son2.spec.WhiteResultSpec

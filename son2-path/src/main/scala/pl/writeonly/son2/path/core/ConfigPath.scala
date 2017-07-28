@@ -1,6 +1,6 @@
 package pl.writeonly.son2.path.core
 
-import pl.writeonly.son2.core.notation.Config
+import pl.writeonly.son2.core.config.Config
 
 object ConfigPath {
   def apply(i: Symbol): Config = ConfigPath.apply(i = i.name)

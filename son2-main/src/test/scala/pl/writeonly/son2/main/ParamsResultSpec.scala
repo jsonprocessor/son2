@@ -1,5 +1,6 @@
 package pl.writeonly.son2.main
 
+import pl.writeonly.son2.core.glue.Params
 import pl.writeonly.son2.spec.WhiteResultSpec
 
 class ParamsResultSpec extends WhiteResultSpec {

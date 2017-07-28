@@ -2,7 +2,7 @@ package pl.writeonly.son2.jack.glue
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.scala.DefaultScalaModule
-import pl.writeonly.son2.core.notation.Config
+import pl.writeonly.son2.core.config.Config
 
 class Parser {
   val mapper = new ObjectMapper()

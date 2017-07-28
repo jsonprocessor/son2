@@ -1,6 +1,7 @@
 package pl.writeonly.son2.path.chain
 
-import pl.writeonly.son2.core.chain.{ChainNotationPair, ProviderCreator}
+import pl.writeonly.son2.core.chain.ChainNotationPair
+import pl.writeonly.son2.core.providers.CreatorProvider
 import pl.writeonly.son2.path.creators.{PartialCreatorPath, PartialCreatorSmart, PartialCreatorStrict}
 
 class ChainNotationPairPath(pretty: Boolean) extends ChainNotationPair(
@@ -11,4 +12,4 @@ class ChainNotationPairPath(pretty: Boolean) extends ChainNotationPair(
     new PartialCreatorStrict(pretty)
 )
 
-object ChainNotationPairPath extends ProviderCreator(p => new ChainNotationPairPath(p))
+object ChainNotationPairPath extends CreatorProvider(p => new ChainNotationPairPath(p))

@@ -1,6 +1,7 @@
 package pl.writeonly.son2.jack.chain
 
-import pl.writeonly.son2.core.chain.{ChainNotationPair, ProviderCreator}
+import pl.writeonly.son2.core.chain.ChainNotationPair
+import pl.writeonly.son2.core.providers.CreatorProvider
 import pl.writeonly.son2.jack.creators._
 
 class ChainNotationPairJack(pretty: Boolean) extends ChainNotationPair(
@@ -17,4 +18,4 @@ class ChainNotationPairJack(pretty: Boolean) extends ChainNotationPair(
     new PartialCreatorProperties(pretty)
 )
 
-object ChainNotationPairJack extends ProviderCreator(p => new ChainNotationPairJack(p))
+object ChainNotationPairJack extends CreatorProvider(p => new ChainNotationPairJack(p))

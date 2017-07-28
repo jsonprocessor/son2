@@ -1,4 +1,4 @@
-package pl.writeonly.son2.core.notation
+package pl.writeonly.son2.core.config
 
 object ConfigPath {
   val I = 'i

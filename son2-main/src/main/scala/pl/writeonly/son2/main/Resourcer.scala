@@ -1,5 +1,6 @@
 package pl.writeonly.son2.main
 
+import pl.writeonly.son2.core.glue.{Params, Piper}
 import pl.writeonly.son2.core.providers.ProviderFake
 
 class Resourcer(params: Params) {

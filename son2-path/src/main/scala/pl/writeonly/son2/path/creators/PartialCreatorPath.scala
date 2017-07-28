@@ -1,6 +1,7 @@
 package pl.writeonly.son2.path.creators
 
-import pl.writeonly.son2.core.notation.{Config, NotationPair, PartialCreator}
+import pl.writeonly.son2.core.config.Config
+import pl.writeonly.son2.core.notation.{NotationPair, PartialCreator}
 import pl.writeonly.son2.path.core.Formats
 import pl.writeonly.son2.path.notation.NotationReaderPath
 

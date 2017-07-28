@@ -1,6 +1,6 @@
 package pl.writeonly.son2.jack.core
 
-import pl.writeonly.son2.core.notation.Config
+import pl.writeonly.son2.core.config.Config
 
 
 object ConfigJack {
