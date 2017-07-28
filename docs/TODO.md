@@ -7,11 +7,8 @@
 
 # Functional
 ## core
-- [ ] Create module with all independent code
+- [ ] Add typesafe.config
 - [ ] Add sed
-- [ ] Drop formats/matchers
-- [ ] Add unescape String https://commons.apache.org/proper/commons-text/javadocs/api-release/org/apache/commons/text/StringEscapeUtils.html
-- [ ] Add unbescape http://www.unbescape.org/usingunbescape.html
 
 ## jack - converter
 - [ ] Add configuration for yaml generator
@@ -33,11 +30,14 @@
 ## gson - converter
 - [ ] Add
 
+# text - unescaper
+- [ ] Add unescape String https://commons.apache.org/proper/commons-text/javadocs/api-release/org/apache/commons/text/StringEscapeUtils.html
+- [ ] Add unbescape http://www.unbescape.org/usingunbescape.html
+
 ## test - assertions
 - [ ] Add JSONassert
 
 ## main
-- [ ] Add typesafe.config
 - [ ] Coloring as a ./jq https://stedolan.github.io/jq/
 
 ## drop
