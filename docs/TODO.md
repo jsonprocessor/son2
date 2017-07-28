@@ -43,5 +43,3 @@
 ## drop
 - [ ] Add persistance by redisson
 - [ ] Add persistance by mongojack
-- [ ] Add REST Assured http://rest-assured.io/
-- [ ] Add unirest http://unirest.io/java.html
