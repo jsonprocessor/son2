@@ -9,3 +9,5 @@ object Chainer extends ChainNotationCreator(
     orElse
     new ChainNotationPairJack(true).get
 )
+
+
