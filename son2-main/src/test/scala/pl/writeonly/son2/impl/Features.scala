@@ -19,9 +19,9 @@ object Features {
 
   def inputURI: URI = inputURI(NAME)
 
-  def inputFile = new File(inputURI(NAME))
-
   def inputURI(name: String): URI = getClass.getResource("/" + name).toURI
+
+  def inputFile = new File(inputURI(NAME))
 
   def inputPathname: String = inputPathname(NAME)
 

@@ -16,8 +16,8 @@ abstract class Core(params: Params, args: Array[String]) {
     case _ => provider(args(0).toLowerCase)
   }
 
-  def provider(s: String): Either[Option[String], Provider]
+  def left(params: Params, format: Option[String]): Unit = Preconditions.checkState(false, format)
 
-  def left(params: Params, format: Option[String]) : Unit = Preconditions.checkState(false, format)
+  def provider(s: String): Either[Option[String], Provider]
 
 }

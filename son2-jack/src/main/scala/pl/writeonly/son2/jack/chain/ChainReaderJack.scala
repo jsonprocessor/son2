@@ -17,9 +17,9 @@ class ChainReaderJack extends ChainImpl[Any](
     orElse
     new NotationReaderJavaProps) with ConfigLift {
 
-  def configOpt(s:String): Option[Config] = get.lift(s).map(a => ChainReaderJack.config(a.asInstanceOf[JsonNode]))
+  def config(s: String): Config = configOpt(s).get
 
-  def config(s:String): Config = configOpt(s).get
+  def configOpt(s: String): Option[Config] = get.lift(s).map(a => ChainReaderJack.config(a.asInstanceOf[JsonNode]))
 
   def parse(s: String): JsonNode = apply(s).get.asInstanceOf[JsonNode]
 
@@ -28,17 +28,17 @@ class ChainReaderJack extends ChainImpl[Any](
 object ChainReaderJack {
   def config(n: JsonNode): Config = config(n, ConfigJack.apply())
 
-  def config(n:JsonNode, c:Config): Config = new Config(
-    i=asText(n, ConfigPath.I).getOrElse(c.i),
-    s=asBoolean(n, ConfigPath.S).getOrElse(c.s),
-    o=asText(n, ConfigPath.O).getOrElse(c.o),
-    p=asBoolean(n, ConfigPath.P).getOrElse(c.p)
+  def config(n: JsonNode, c: Config): Config = new Config(
+    i = asText(n, ConfigPath.I).getOrElse(c.i),
+    s = asBoolean(n, ConfigPath.S).getOrElse(c.s),
+    o = asText(n, ConfigPath.O).getOrElse(c.o),
+    p = asBoolean(n, ConfigPath.P).getOrElse(c.p)
   )
 
-  private def asText(n: JsonNode, s:Symbol) = get(n,s).map(o => o.asText)
+  private def asText(n: JsonNode, s: Symbol) = get(n, s).map(o => o.asText)
 
-  private def asBoolean(n: JsonNode, s:Symbol) = get(n,s).map(o => o.asBoolean)
+  private def get(n: JsonNode, s: Symbol) = Option(n.get(s.name))
 
-  private def get(n: JsonNode, s:Symbol) = Option(n.get(s.name))
+  private def asBoolean(n: JsonNode, s: Symbol) = get(n, s).map(o => o.asBoolean)
 }
 

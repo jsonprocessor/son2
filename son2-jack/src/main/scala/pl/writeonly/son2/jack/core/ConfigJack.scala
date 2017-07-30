@@ -10,7 +10,7 @@ object ConfigJack {
 
   def apply(f: String): Config = ConfigJack.apply(o = f)
 
-  def apply(): Config  = ConfigJack.apply(o = Formats.YAML.name)
+  def apply(): Config = ConfigJack.apply(o = Formats.YAML.name)
 
 }
 

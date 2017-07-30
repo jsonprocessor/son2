@@ -18,6 +18,14 @@ abstract class StreamerPipe(liner: Liner) extends Streamer(liner) {
     convertNative(new InputStreamReader(in, Control.UTF_8), new OutputStreamWriter(out, Control.UTF_8))
   }
 
+  override def convertFile(in: URI, out: URI): Unit = convertFile(new File(in), new File(out))
+
+  override def convertStringNative(in: String): String = {
+    val out = new StringWriter()
+    convertNative(new StringReader(in), out)
+    out.toString
+  }
+
   def convertNative(in: Reader, out: Writer): Unit = {
     using(new BufferedWriter(out)) { bw =>
       using(new BufferedReader(in)) { br =>
@@ -28,14 +36,6 @@ abstract class StreamerPipe(liner: Liner) extends Streamer(liner) {
 
   def convertBuffered(in: BufferedReader, out: BufferedWriter): Unit = {
     stream2(in.lines(), out)
-  }
-
-  override def convertFile(in: URI, out: URI): Unit = convertFile(new File(in), new File(out))
-
-  override def convertStringNative(in: String): String = {
-    val out = new StringWriter()
-    convertNative(new StringReader(in), out)
-    out.toString
   }
 
   override def convertBytes(in: Array[Byte]): Array[Byte] = {

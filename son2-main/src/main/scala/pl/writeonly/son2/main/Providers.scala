@@ -11,8 +11,8 @@ object Providers {
     .map(p => Right(p))
     .getOrElse(Left(Option(s)))
 
-  def configOpt(s:String) :Option[Config] = Chainer.configOpt(s) match {
-    case c : Some[Config] => c
+  def configOpt(s: String): Option[Config] = Chainer.configOpt(s) match {
+    case c: Some[Config] => c
     case None => new ChainReaderJack().configOpt(s)
   }
 }
