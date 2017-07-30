@@ -1,7 +1,7 @@
 package pl.writeonly.son2.core.glue
 
 import com.google.common.base.Preconditions
-import pl.writeonly.son2.core.providers.{Provider, Provider2}
+import pl.writeonly.son2.core.providers.Provider
 
 abstract class Core(params: Params, args: Array[String]) {
   val length = args.length

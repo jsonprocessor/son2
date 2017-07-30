@@ -1,7 +1,7 @@
 package pl.writeonly.son2.main
 
 import pl.writeonly.son2.core.config.Config
-import pl.writeonly.son2.core.providers.{Provider, Provider2}
+import pl.writeonly.son2.core.providers.Provider
 import pl.writeonly.son2.jack.chain.ChainReaderJack
 
 object Providers {

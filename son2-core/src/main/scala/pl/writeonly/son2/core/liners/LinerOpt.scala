@@ -1,6 +1,6 @@
 package pl.writeonly.son2.core.liners
 
-import pl.writeonly.son2.core.providers.{Provider, Provider2}
+import pl.writeonly.son2.core.providers.Provider
 
 import scala.util.control.Exception._
 

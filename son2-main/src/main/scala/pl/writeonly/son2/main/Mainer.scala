@@ -1,9 +1,7 @@
 package pl.writeonly.son2.main
 
-import pl.writeonly.son2.core.config.Config
-import pl.writeonly.son2.core.glue.{Core, Params, Piper}
-import pl.writeonly.son2.core.providers.{Provider, Provider2}
-import pl.writeonly.son2.jack.chain.ChainReaderJack
+import pl.writeonly.son2.core.glue.{Core, Params}
+import pl.writeonly.son2.core.providers.Provider
 
 class Mainer(params: Params, args: Array[String]) extends Core(params, args) {
 
