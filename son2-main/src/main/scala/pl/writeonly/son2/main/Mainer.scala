@@ -1,13 +1,9 @@
 package pl.writeonly.son2.main
 
 import pl.writeonly.son2.core.glue.{Core, Params}
-import pl.writeonly.son2.core.providers.Provider
 
-class Mainer(params: Params, args: Array[String]) extends Core(params, args) {
+class Mainer(params: Params, args: Array[String]) extends Core(params, args, new CreatorProviderOrMain()) {
 
-  def provider(s: String): Either[Option[String], Provider] = new CreatorProviderOrNot().provider(s)
-
-  override def left(params: Params, format: Option[String]): Unit = new Resourcer(params).left(format)
-
+  override def bad(params: Params, format: String): Unit = new Resourcer(params).bad(format)
 
 }

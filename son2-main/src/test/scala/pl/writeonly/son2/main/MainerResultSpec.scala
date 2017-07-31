@@ -2,6 +2,7 @@ package pl.writeonly.son2.main
 
 import java.io.ByteArrayOutputStream
 
+import org.scalactic.Bad
 import pl.writeonly.son2.core.glue.Params
 import pl.writeonly.son2.core.streamers.Streamer
 import pl.writeonly.son2.spec.WhiteResultSpec
@@ -10,8 +11,8 @@ class MainerResultSpec extends WhiteResultSpec {
 
   "A Mainer with empty array" when {
     "invoke option" should {
-      "return Left(None)" in {
-        assertResult(Left(None))(new Mainer(null, Array()).option)
+      "return Bad(Null)" in {
+        assertResult(Bad(null))(new Mainer(null, Array()).option)
       }
     }
   }
@@ -34,7 +35,7 @@ class MainerResultSpec extends WhiteResultSpec {
     "invoke either" should {
       "throw NullPointerException" in {
         assertThrows[NullPointerException] {
-          new Mainer(null, Array("")).either
+          new Mainer(null, Array("")).apply
         }
       }
     }
@@ -46,7 +47,7 @@ class MainerResultSpec extends WhiteResultSpec {
         val input = Streamer.toStream("")
         val output = new ByteArrayOutputStream()
         val params = Params(input, output)
-        new Mainer(params, Array("")).either
+        new Mainer(params, Array("")).apply
         assertResult("")(Streamer.toString(output))
       }
     }

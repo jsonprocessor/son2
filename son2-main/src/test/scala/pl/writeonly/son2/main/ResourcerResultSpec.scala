@@ -13,12 +13,12 @@ class ResourcerResultSpec extends WhiteResultSpec {
     }
     "validOpt empty string" should {
       "return README" in {
-        assert(resourcer.validOpt(Option("")) == Resources.README)
+        assert(resourcer.validOpt("") == Resources.README)
       }
     }
     "validOpt empty option" should {
       "return README" in {
-        assert(resourcer.validOpt(None) == Resources.README)
+        assert(resourcer.validOpt(null) == Resources.README)
       }
     }
   }

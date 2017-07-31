@@ -14,11 +14,11 @@ class MainerScalarSpec extends GrayScalarSpec {
     val params = Params(input, output)
 
     it("when format is 'HELP ME'") {
-      new Mainer(params, Array("HELP ME")).either
+      new Mainer(params, Array("HELP ME")).apply
     }
 
     ignore("when format is json and input file 'HELP ME'") {
-      new Mainer(params, Array("json", "HELP ME")).either
+      new Mainer(params, Array("json", "HELP ME")).apply
     }
 
   }

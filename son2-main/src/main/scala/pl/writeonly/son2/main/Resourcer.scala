@@ -5,10 +5,10 @@ import pl.writeonly.son2.core.providers.ProviderFake
 
 class Resourcer(params: Params) {
 
-  def left(resource: Option[String]) = new Piper(params, new ProviderFake)
+  def bad(resource: String) = new Piper(params, new ProviderFake)
     .convertResource(validOpt(resource))
 
-  def validOpt(resource: Option[String]) = valid(resource.getOrElse(Resources.README))
+  def validOpt(resource: String) = valid(Option(resource).getOrElse(Resources.README))
 
   def valid(resource: String) = Resources.ALL
     .find(it => it.toLowerCase.startsWith(resource))

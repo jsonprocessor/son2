@@ -1,23 +1,22 @@
 package pl.writeonly.son2.core.glue
 
 import com.google.common.base.Preconditions
+import org.scalactic.{Bad, ErrorMessage, Good, Or}
 import pl.writeonly.son2.core.providers.Provider
 
-abstract class Core(params: Params, args: Array[String]) {
+class Core(params: Params, args: Array[String], creator :CreatorProviderOr) {
   val length = args.length
 
-  def either = option match {
-    case Right(provider) => new Piper(params, provider).right(args.slice(1, length))
-    case Left(format) => left(params, format)
+  def apply = option match {
+    case Good(provider) => new Piper(params, provider).right(args.slice(1, length))
+    case Bad(format) => bad(params, format)
   }
 
-  def option: Either[Option[String], Provider] = length match {
-    case 0 => Left(Option.empty)
-    case _ => provider(args(0).toLowerCase)
+  def option: Provider Or ErrorMessage = length match {
+    case 0 => Bad(null)
+    case _ => creator.provider(args(0).toLowerCase)
   }
 
-  def provider(s: String): Either[Option[String], Provider]
-
-  def left(params: Params, format: Option[String]): Unit = Preconditions.checkState(false, format)
+  def bad(params: Params, errorMessage: ErrorMessage): Unit = Preconditions.checkState(false, errorMessage.asInstanceOf[Any])
 
 }
