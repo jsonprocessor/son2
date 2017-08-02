@@ -21,4 +21,5 @@ class CreatorProviderOrText extends CreatorProviderOr {
   val chainNotationCreator = new ChainNotationCreator(
       new ChainNotationPairText().get
   )
+
 }
