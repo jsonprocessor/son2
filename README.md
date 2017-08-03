@@ -5,7 +5,8 @@
 [licenseImg2]: https://img.shields.io/:license-mit-blue.svg
 [licenseLink]: LICENSE
 
-https://codecov.io/gh/writeonly/son2
+* https://codecov.io/gh/writeonly/son2
+* https://circleci.com/gh/writeonly/son2
 
 # SON2
 
