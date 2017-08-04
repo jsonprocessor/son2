@@ -31,6 +31,10 @@
             <artifactId>son2-path</artifactId>
         </dependency>
         <dependency>
+            <groupId>pl.writeonly.son2</groupId>
+            <artifactId>son2-text</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
         </dependency>

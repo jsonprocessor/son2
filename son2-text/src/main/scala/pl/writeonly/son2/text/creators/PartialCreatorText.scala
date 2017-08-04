@@ -2,7 +2,7 @@ package pl.writeonly.son2.text.creators
 
 import org.apache.commons.text.StringEscapeUtils
 import org.apache.commons.text.translate.CharSequenceTranslator
-import pl.writeonly.son2.core.notation.{NotationPair, PartialCreator}
+import pl.writeonly.son2.core.notation.{NotationPair, NotationTranslator, PartialCreator}
 import pl.writeonly.son2.text.core.{Escapes, Formats}
 
 class PartialCreatorText extends PartialCreator {
@@ -11,10 +11,9 @@ class PartialCreatorText extends PartialCreator {
 
   override def isDefinedAt(s: String) = s != null && regex(s).isDefined && pair(s).map(isDefined).getOrElse(false)
 
-  override def apply(s: String) = get(s) match {
-//    case Pair(Escapes.ESCAPE, Formats.JAVA) => StringEscapeUtils.ESCAPE_JAVA
-    case _ => ???
-  }
+  override def apply(s: String): NotationPair = NotationPair(null, null, null, notationTranslator(s))
+
+  def notationTranslator(s:String) =  new NotationTranslator(translator(get(s)))
 
   def translator(p:Tuple2[Symbol,Symbol]) : String => String = translatorMatch(p).translate
   
