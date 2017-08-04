@@ -6,7 +6,7 @@ import pl.writeonly.son2.core.config.Config
 trait PartialCreatorPair extends PartialCreator {
   override def isDefinedAt(s: String) = s != null && format.name.startsWith(s)
 
-  override def apply(v1: String) = NotationPair(c, r, w)
+  override def apply(v1: String) = NotationPair(c, r, w, t)
 
   def format: Symbol
 
@@ -15,4 +15,7 @@ trait PartialCreatorPair extends PartialCreator {
   def r: NotationReader
 
   def w: NotationWriter
+
+  def t: NotationTranslator = null
+
 }
