@@ -7,13 +7,11 @@ import pl.writeonly.son2.text.core.{Escapes, Formats}
 
 class PartialCreatorText extends PartialCreator {
 
-  val a = new StringEscapeUtils()
-
-  override def isDefinedAt(s: String) = s != null && regex(s).isDefined && pair(s).map(isDefined).getOrElse(false)
+  override def isDefinedAt(s: String) = s != null && regex(s).isDefined && symbolOptionPairOption(s).map(isDefined).getOrElse(false)
 
   override def apply(s: String): NotationPair = NotationPair(null, null, null, notationTranslator(s))
 
-  def notationTranslator(s:String) =  new NotationTranslator(translator(get(s)))
+  def notationTranslator(s:String) =  new NotationTranslator(translator(symbolPair(s)))
 
   def translator(p:Tuple2[Symbol,Symbol]) : String => String = translatorMatch(p).translate
   
@@ -36,11 +34,11 @@ class PartialCreatorText extends PartialCreator {
     case Pair(Escapes.UNESCAPE, Formats.XSI) => StringEscapeUtils.UNESCAPE_XSI
   }
 
-  private def get(s:String):Tuple2[Symbol,Symbol] = pair(s).map(it => Pair(it._1.get, it._2.get)).get
+  def symbolPair(s:String):Tuple2[Symbol,Symbol] = symbolOptionPairOption(s).map(it => Pair(it._1.get, it._2.get)).get
 
-  private def regex(s:String) = "$(\\w+)_(\\w+)^".r.findFirstMatchIn(s)
+  private def regex(s:String) = "^(\\w+)_(\\w+)$".r.findFirstMatchIn(s)
 
-  private def pair(s:String):Option[Tuple2[Option[Symbol],Option[Symbol]]] = regex(s)
+  private def symbolOptionPairOption(s:String):Option[Tuple2[Option[Symbol],Option[Symbol]]] = regex(s)
     .map(p => Pair(p.group(1), p.group(2)))
     .map(p => Pair(escape(p._1), format(p._2)))
 
