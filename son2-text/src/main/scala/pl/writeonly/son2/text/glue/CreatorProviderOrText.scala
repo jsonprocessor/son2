@@ -14,12 +14,8 @@ class CreatorProviderOrText extends CreatorProviderOr {
     .map(p => Good(p))
     .getOrElse(Bad(s))
 
-  def configOpt(s: String): Option[Config] = chainNotationCreator.configOpt(s) match {
-    case c: Some[Config] => c
-  }
+  def configOpt(s: String): Option[Config] = chainNotationCreator.configOpt(s)
 
-  val chainNotationCreator = new ChainNotationCreator(
-      new ChainNotationPairText().get
-  )
+  private val chainNotationCreator = new ChainNotationCreator(new ChainNotationPairText().get)
 
 }
