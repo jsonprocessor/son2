@@ -2,39 +2,44 @@ package pl.writeonly.son2.text.creators
 
 import org.apache.commons.text.StringEscapeUtils
 import org.apache.commons.text.translate.CharSequenceTranslator
+import pl.writeonly.son2.core.config.{Config, TranslateConfig}
 import pl.writeonly.son2.core.notation.{NotationPair, NotationTranslator, PartialCreator}
 import pl.writeonly.son2.text.core.{Escapes, Formats}
 
 class PartialCreatorText extends PartialCreator {
 
-  override def isDefinedAt(s: String) = s != null && regex(s).isDefined && symbolOptionPairOption(s).map(isDefined).getOrElse(false)
+  override def isDefinedAt(s: String) = s != null &&
+    regex(s).isDefined &&
+    symbolOptionPairOption(s).map(isDefined).getOrElse(false)
 
-  override def apply(s: String): NotationPair = NotationPair(null, null, null, notationTranslator(s))
+  override def apply(s: String): NotationPair = NotationPair(c, null, null, notationTranslator(s))
+
+  def c(path: String) = new Config(translate = symbolPair(path))
 
   def notationTranslator(s:String) =  new NotationTranslator(translator(symbolPair(s)))
 
-  def translator(p:Tuple2[Symbol,Symbol]) : String => String = translatorMatch(p).translate
+  def translator(p:TranslateConfig) : String => String = translatorMatch(p).translate
   
-  def translatorMatch(p:Tuple2[Symbol,Symbol]) : CharSequenceTranslator = p match {
-    case Pair(Escapes.ESCAPE, Formats.JAVA) => StringEscapeUtils.ESCAPE_JAVA
-    case Pair(Escapes.ESCAPE, Formats.ECMASCRIPT) => StringEscapeUtils.ESCAPE_ECMASCRIPT
-    case Pair(Escapes.ESCAPE, Formats.JSON) => StringEscapeUtils.ESCAPE_JSON
-    case Pair(Escapes.ESCAPE, Formats.XML) => StringEscapeUtils.ESCAPE_XML11
-    case Pair(Escapes.ESCAPE, Formats.HTML4) => StringEscapeUtils.ESCAPE_HTML4
-    case Pair(Escapes.ESCAPE, Formats.HTML3) => StringEscapeUtils.ESCAPE_HTML3
-    case Pair(Escapes.ESCAPE, Formats.CSV) => StringEscapeUtils.ESCAPE_CSV
-    case Pair(Escapes.ESCAPE, Formats.XSI) => StringEscapeUtils.ESCAPE_XSI
-    case Pair(Escapes.UNESCAPE, Formats.JAVA) => StringEscapeUtils.UNESCAPE_JAVA
-    case Pair(Escapes.UNESCAPE, Formats.ECMASCRIPT) => StringEscapeUtils.UNESCAPE_ECMASCRIPT
-    case Pair(Escapes.UNESCAPE, Formats.JSON) => StringEscapeUtils.UNESCAPE_JSON
-    case Pair(Escapes.UNESCAPE, Formats.XML) => StringEscapeUtils.UNESCAPE_XML
-    case Pair(Escapes.UNESCAPE, Formats.HTML4) => StringEscapeUtils.UNESCAPE_HTML4
-    case Pair(Escapes.UNESCAPE, Formats.HTML3) => StringEscapeUtils.UNESCAPE_HTML3
-    case Pair(Escapes.UNESCAPE, Formats.CSV) => StringEscapeUtils.UNESCAPE_CSV
-    case Pair(Escapes.UNESCAPE, Formats.XSI) => StringEscapeUtils.UNESCAPE_XSI
+  def translatorMatch(p:TranslateConfig) : CharSequenceTranslator = p match {
+    case TranslateConfig(Escapes.ESCAPE, Formats.JAVA) => StringEscapeUtils.ESCAPE_JAVA
+    case TranslateConfig(Escapes.ESCAPE, Formats.ECMASCRIPT) => StringEscapeUtils.ESCAPE_ECMASCRIPT
+    case TranslateConfig(Escapes.ESCAPE, Formats.JSON) => StringEscapeUtils.ESCAPE_JSON
+    case TranslateConfig(Escapes.ESCAPE, Formats.XML) => StringEscapeUtils.ESCAPE_XML11
+    case TranslateConfig(Escapes.ESCAPE, Formats.HTML4) => StringEscapeUtils.ESCAPE_HTML4
+    case TranslateConfig(Escapes.ESCAPE, Formats.HTML3) => StringEscapeUtils.ESCAPE_HTML3
+    case TranslateConfig(Escapes.ESCAPE, Formats.CSV) => StringEscapeUtils.ESCAPE_CSV
+    case TranslateConfig(Escapes.ESCAPE, Formats.XSI) => StringEscapeUtils.ESCAPE_XSI
+    case TranslateConfig(Escapes.UNESCAPE, Formats.JAVA) => StringEscapeUtils.UNESCAPE_JAVA
+    case TranslateConfig(Escapes.UNESCAPE, Formats.ECMASCRIPT) => StringEscapeUtils.UNESCAPE_ECMASCRIPT
+    case TranslateConfig(Escapes.UNESCAPE, Formats.JSON) => StringEscapeUtils.UNESCAPE_JSON
+    case TranslateConfig(Escapes.UNESCAPE, Formats.XML) => StringEscapeUtils.UNESCAPE_XML
+    case TranslateConfig(Escapes.UNESCAPE, Formats.HTML4) => StringEscapeUtils.UNESCAPE_HTML4
+    case TranslateConfig(Escapes.UNESCAPE, Formats.HTML3) => StringEscapeUtils.UNESCAPE_HTML3
+    case TranslateConfig(Escapes.UNESCAPE, Formats.CSV) => StringEscapeUtils.UNESCAPE_CSV
+    case TranslateConfig(Escapes.UNESCAPE, Formats.XSI) => StringEscapeUtils.UNESCAPE_XSI
   }
 
-  def symbolPair(s:String):Tuple2[Symbol,Symbol] = symbolOptionPairOption(s).map(it => Pair(it._1.get, it._2.get)).get
+  def symbolPair(s:String):TranslateConfig = symbolOptionPairOption(s).map(it => TranslateConfig(it._1.get, it._2.get)).get
 
   private def regex(s:String) = "^(\\w+)_(\\w+)$".r.findFirstMatchIn(s)
 
