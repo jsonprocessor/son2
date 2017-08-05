@@ -10,8 +10,8 @@ class PartialCreatorSmart(pretty: Boolean) extends PartialCreatorPair {
 
   override def c: (String) => Config = s => new Config(i = s, o = s, p = true)
 
-  override def r: NotationReader = new NotationReaderSmart()
+  override def r(s:String): NotationReader = new NotationReaderSmart()
 
-  override def w: NotationWriter = new NotationWriterSmart(pretty)
+  override def w(s:String): NotationWriter = new NotationWriterSmart(pretty)
 
 }

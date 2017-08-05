@@ -7,7 +7,7 @@ import pl.writeonly.son2.jack.notation.{NotationReaderXml, NotationWriterJack}
 class PartialCreatorXml(pretty: Boolean) extends PartialCreatorJack {
   def format = Formats.XML
 
-  def r = new NotationReaderXml
+  override def r(s:String) = new NotationReaderXml
 
-  def w = new NotationWriterJack(pretty, new XmlMapper, "<!-- ", " -->")
+  override def w(s:String) = new NotationWriterJack(pretty, new XmlMapper, "<!-- ", " -->")
 }

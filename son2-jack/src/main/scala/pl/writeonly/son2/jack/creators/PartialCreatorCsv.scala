@@ -7,7 +7,7 @@ import pl.writeonly.son2.jack.notation.{NotationReaderCsv, NotationWriterJack}
 class PartialCreatorCsv(pretty: Boolean) extends PartialCreatorJack {
   def format = Formats.CSV
 
-  def r = new NotationReaderCsv
+  override def r(s:String) = new NotationReaderCsv
 
-  def w = new NotationWriterJack(pretty, new CsvMapper, "#", "")
+  override def w(s:String) = new NotationWriterJack(pretty, new CsvMapper, "#", "")
 }

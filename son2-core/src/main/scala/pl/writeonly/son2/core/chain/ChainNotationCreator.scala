@@ -14,7 +14,7 @@ class ChainNotationCreator(chain: PartialFunction[String, NotationPair]) extends
     .map(f => f(s))
 
   def provider(c: Config):Provider = translator(c)
-    .map(t => new Provider2(c, t, t))
+    .map(t => new Provider1(c, t))
     .getOrElse(new Provider2(c, input(c), output(c)))
 
 

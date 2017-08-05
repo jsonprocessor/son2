@@ -20,7 +20,8 @@ class PartialCreatorTextVectorSpec extends GrayVectorSpec {
   property("partialCreator create symbolPair") {
     forAll(toSuccess) { (in, out) =>
       partialCreator isDefinedAt in should be (true)
-      partialCreator symbolPair in should be (out)
+      partialCreator translateConfig in should be (out)
+      partialCreator t in
     }
   }
 

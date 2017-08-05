@@ -12,14 +12,24 @@ class PartialCreatorText extends PartialCreator {
     regex(s).isDefined &&
     symbolOptionPairOption(s).map(isDefined).getOrElse(false)
 
-  override def apply(s: String): NotationPair = NotationPair(c, null, null, notationTranslator(s))
+  override def c = (s: String) => new Config(translate = translateConfig(s))
 
-  def c(path: String) = new Config(translate = symbolPair(path))
+  override def t(s:String) = new NotationTranslator(translatorMatch(translateConfig(s)).translate)
 
-  def notationTranslator(s:String) =  new NotationTranslator(translator(symbolPair(s)))
+  def translateConfig(s:String):TranslateConfig = symbolOptionPairOption(s)
+    .map(p =>  TranslateConfig(p._1.get, p._2.get))
+    .get
 
-  def translator(p:TranslateConfig) : String => String = translatorMatch(p).translate
-  
+  private def regex(s:String) = "^(\\w+)_(\\w+)$".r.findFirstMatchIn(s)
+
+  private def symbolOptionPairOption(s:String):Option[(Option[Symbol],Option[Symbol])] = regex(s)
+    .map(p => Pair(p.group(1), p.group(2)))
+    .map(p => Pair(find(p._1, Escapes.ALL), find(p._2, Formats.ALL)))
+
+  private def isDefined(p:Tuple2[Option[Symbol],Option[Symbol]]): Boolean = p._1.isDefined && p._2.isDefined
+
+  private def find(s:String, l:List[Symbol]) = l.find(it => it.name.toLowerCase.startsWith(s))
+
   def translatorMatch(p:TranslateConfig) : CharSequenceTranslator = p match {
     case TranslateConfig(Escapes.ESCAPE, Formats.JAVA) => StringEscapeUtils.ESCAPE_JAVA
     case TranslateConfig(Escapes.ESCAPE, Formats.ECMASCRIPT) => StringEscapeUtils.ESCAPE_ECMASCRIPT
@@ -38,22 +48,5 @@ class PartialCreatorText extends PartialCreator {
     case TranslateConfig(Escapes.UNESCAPE, Formats.CSV) => StringEscapeUtils.UNESCAPE_CSV
     case TranslateConfig(Escapes.UNESCAPE, Formats.XSI) => StringEscapeUtils.UNESCAPE_XSI
   }
-
-  def symbolPair(s:String):TranslateConfig = symbolOptionPairOption(s).map(it => TranslateConfig(it._1.get, it._2.get)).get
-
-  private def regex(s:String) = "^(\\w+)_(\\w+)$".r.findFirstMatchIn(s)
-
-  private def symbolOptionPairOption(s:String):Option[Tuple2[Option[Symbol],Option[Symbol]]] = regex(s)
-    .map(p => Pair(p.group(1), p.group(2)))
-    .map(p => Pair(escape(p._1), format(p._2)))
-
-  private def isDefined(p:Tuple2[Option[Symbol],Option[Symbol]]): Boolean = p._1.isDefined && p._2.isDefined
-
-  private def escape(s:String) = a(s, Escapes.ALL)
-
-  private def format(s:String) = a(s, Formats.ALL)
-
-  private def a(s:String, l:List[Symbol]) = l.find(it => it.name.toLowerCase.startsWith(s))
-
 
 }
