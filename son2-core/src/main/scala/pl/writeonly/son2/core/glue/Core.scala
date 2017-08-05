@@ -4,7 +4,7 @@ import com.google.common.base.Preconditions
 import org.scalactic.{Bad, ErrorMessage, Good, Or}
 import pl.writeonly.son2.core.providers.Provider
 
-class Core(params: Params, args: Array[String], creator :CreatorProviderOr) {
+class Core(params: Params, args: Array[String], creator: CreatorProviderOr) {
   val length = args.length
 
   def apply = option match {

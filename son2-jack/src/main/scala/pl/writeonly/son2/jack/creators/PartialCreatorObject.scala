@@ -7,7 +7,7 @@ import pl.writeonly.son2.jack.notation.{NotationReaderObject, NotationWriterJack
 class PartialCreatorObject(pretty: Boolean) extends PartialCreatorJack {
   def format = Formats.OBJECT
 
-  override def r(s:String) = new NotationReaderObject
+  override def r(s: String) = new NotationReaderObject
 
-  override def w(s:String) = new NotationWriterJack(pretty, new ObjectMapper, "#", "")
+  override def w(s: String) = new NotationWriterJack(pretty, new ObjectMapper, "#", "")
 }

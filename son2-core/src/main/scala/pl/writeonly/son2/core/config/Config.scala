@@ -5,5 +5,5 @@ case class Config(
                    val s: Boolean = true,
                    val o: String = "",
                    val p: Boolean = false,
-                   translate:TranslateConfig = TranslateConfig()
+                   translate: TranslateConfig = TranslateConfig()
                  )

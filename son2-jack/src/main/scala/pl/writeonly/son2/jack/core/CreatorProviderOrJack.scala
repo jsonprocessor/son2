@@ -9,6 +9,10 @@ import pl.writeonly.son2.jack.chain.{ChainNotationPairJack, ChainReaderJack}
 
 class CreatorProviderOrJack extends CreatorProviderOr {
 
+  val chainNotationCreator = new ChainNotationCreator(
+    new ChainNotationPairJack(true).get
+  )
+
   override def provider(s: String): Provider Or ErrorMessage = configOpt(s)
     .map(c => chainNotationCreator.provider(c))
     .map(p => Good(p))
@@ -18,8 +22,4 @@ class CreatorProviderOrJack extends CreatorProviderOr {
     case c: Some[Config] => c
     case None => new ChainReaderJack().configOpt(s)
   }
-
-  val chainNotationCreator = new ChainNotationCreator(
-      new ChainNotationPairJack(true).get
-  )
 }

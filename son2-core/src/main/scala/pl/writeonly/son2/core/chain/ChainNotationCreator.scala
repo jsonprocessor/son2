@@ -13,15 +13,15 @@ class ChainNotationCreator(chain: PartialFunction[String, NotationPair]) extends
     .map(t => t.c)
     .map(f => f(s))
 
-  def provider(c: Config):Provider = translator(c)
+  def provider(c: Config): Provider = translator(c)
     .map(t => new Provider1(c, t))
     .getOrElse(new Provider2(c, input(c), output(c)))
 
 
-  private def translator(c:Config): Option[NotationTranslator] = chain
+  private def translator(c: Config): Option[NotationTranslator] = chain
     .lift(actionAndFormat(c)).map(f => f.t)
 
-  private def actionAndFormat(c:Config):String = c
+  private def actionAndFormat(c: Config): String = c
     .translate
     .actionAndFormat
 

@@ -37,8 +37,8 @@ object ChainReaderJack {
 
   private def asText(n: JsonNode, s: Symbol) = get(n, s).map(o => o.asText)
 
-  private def get(n: JsonNode, s: Symbol) = Option(n.get(s.name))
-
   private def asBoolean(n: JsonNode, s: Symbol) = get(n, s).map(o => o.asBoolean)
+
+  private def get(n: JsonNode, s: Symbol) = Option(n.get(s.name))
 }
 

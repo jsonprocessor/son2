@@ -7,7 +7,7 @@ import pl.writeonly.son2.jack.notation.{NotationReaderYaml, NotationWriterJack}
 class PartialCreatorYaml(pretty: Boolean) extends PartialCreatorJack {
   def format = Formats.YAML
 
-  override def r(s:String) = new NotationReaderYaml
+  override def r(s: String) = new NotationReaderYaml
 
-  override def w(s:String) = new NotationWriterJack(pretty, new YAMLMapper, "#", "")
+  override def w(s: String) = new NotationWriterJack(pretty, new YAMLMapper, "#", "")
 }

@@ -11,6 +11,15 @@ import pl.writeonly.son2.text.chain.ChainNotationPairText
 
 class CreatorProviderOrMain extends CreatorProviderOr {
 
+  val chainNotationCreator = new ChainNotationCreator(
+    new ChainNotationPairPath(true).get
+      orElse
+      new ChainNotationPairJack(true).get
+      orElse
+      new ChainNotationPairText().get
+
+  )
+
   def provider(s: String): Provider Or ErrorMessage = configOpt(s)
     .map(c => chainNotationCreator.provider(c))
     .map(p => Good(p))
@@ -20,13 +29,4 @@ class CreatorProviderOrMain extends CreatorProviderOr {
     case c: Some[Config] => c
     case None => new ChainReaderJack().configOpt(s)
   }
-
-  val chainNotationCreator = new ChainNotationCreator(
-    new ChainNotationPairPath(true).get
-      orElse
-      new ChainNotationPairJack(true).get
-      orElse
-      new ChainNotationPairText().get
-
-  )
 }

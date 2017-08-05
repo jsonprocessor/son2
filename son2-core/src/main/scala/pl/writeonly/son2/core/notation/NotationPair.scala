@@ -6,5 +6,5 @@ case class NotationPair(
                          c: String => Config,
                          r: NotationReader = null,
                          w: NotationWriter = null,
-                         t:NotationTranslator = null
+                         t: NotationTranslator = null
                        )

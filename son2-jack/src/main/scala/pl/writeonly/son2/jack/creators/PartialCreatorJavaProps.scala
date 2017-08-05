@@ -7,7 +7,7 @@ import pl.writeonly.son2.jack.notation.{NotationReaderJavaProps, NotationWriterJ
 class PartialCreatorJavaProps(pretty: Boolean) extends PartialCreatorJack {
   def format = Formats.JAVA_PROPS
 
-  override def r(s:String) = new NotationReaderJavaProps
+  override def r(s: String) = new NotationReaderJavaProps
 
-  override def w(s:String) = new NotationWriterJack(pretty, new JavaPropsMapper, "#", "")
+  override def w(s: String) = new NotationWriterJack(pretty, new JavaPropsMapper, "#", "")
 }
