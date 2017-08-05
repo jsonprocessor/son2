@@ -29,16 +29,16 @@ class ParserResultSpec extends WhiteResultSpec {
     "json is default" should {
       val config = parser("{\"s\":true, \"p\":true, \"i\":\"object\", \"o\":\"yaml\"}")
       "return s equals true" in {
-        assertResult(true)(config.s)
+        assertResult(true)(config.stream)
       }
       "return p equals true" in {
-        assertResult(true)(config.p)
+        assertResult(true)(config.pretty)
       }
       "return i equals 'object'" in {
-        assertResult(Formats.OBJECT.name)(config.i)
+        assertResult(Formats.OBJECT.name)(config.input)
       }
       "return o equals 'yaml'" in {
-        assertResult(Formats.YAML.name)(config.o)
+        assertResult(Formats.YAML.name)(config.output)
       }
     }
   }

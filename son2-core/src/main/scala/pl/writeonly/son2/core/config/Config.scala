@@ -1,9 +1,9 @@
 package pl.writeonly.son2.core.config
 
 case class Config(
-                   val i: String = "",
-                   val s: Boolean = true,
-                   val o: String = "",
-                   val p: Boolean = false,
+                   val input: String = "",
+                   val stream: Boolean = true,
+                   val output: String = "",
+                   val pretty: Boolean = false,
                    translate: TranslateConfig = TranslateConfig()
                  )

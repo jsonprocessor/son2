@@ -1,6 +1,6 @@
-package pl.writeonly.son2.text.glue
+package pl.writeonly.son2.path.glue
 
 import pl.writeonly.son2.core.glue.CreatorProviderOr
-import pl.writeonly.son2.text.chain.ChainNotationPairText
+import pl.writeonly.son2.path.chain.ChainNotationPairPath
 
-class CreatorProviderOrText extends CreatorProviderOr(new ChainNotationPairText().get)
+class CreatorProviderOrPath extends CreatorProviderOr(new ChainNotationPairPath(true).get)

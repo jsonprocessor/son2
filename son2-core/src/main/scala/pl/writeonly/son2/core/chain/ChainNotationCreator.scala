@@ -24,7 +24,7 @@ class ChainNotationCreator(chain: PartialFunction[String, NotationPair]) extends
     .translate
     .actionAndFormat
 
-  private def input(c: Config): NotationReader = chain.lift(c.i).map(f => f.r).get
+  private def input(c: Config): NotationReader = chain.lift(c.input).map(f => f.r).get
 
-  private def output(c: Config): NotationWriter = chain.lift(c.o).map(f => f.w).get
+  private def output(c: Config): NotationWriter = chain.lift(c.output).map(f => f.w).get
 }
