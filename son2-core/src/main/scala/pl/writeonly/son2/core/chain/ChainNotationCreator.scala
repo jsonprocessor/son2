@@ -10,8 +10,7 @@ class ChainNotationCreator(chain: PartialFunction[String, NotationPair]) extends
 
   def configOpt(s: String): Option[Config] = chain
     .lift(s)
-    .map(t => t.c)
-    .map(f => f(s))
+    .map(t => t.c(s))
 
   def provider(c: Config): Provider = translator(c)
     .map(t => new Provider1(c, t))

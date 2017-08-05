@@ -21,7 +21,7 @@ class ChainReaderJack extends ChainImpl[Any](
 
   def configOpt(s: String): Option[Config] = get.lift(s).map(a => ChainReaderJack.config(a.asInstanceOf[JsonNode]))
 
-  def parse(s: String): JsonNode = apply(s).get.asInstanceOf[JsonNode]
+  def parse(s: String): JsonNode = get.lift(s).get.asInstanceOf[JsonNode]
 
 }
 
