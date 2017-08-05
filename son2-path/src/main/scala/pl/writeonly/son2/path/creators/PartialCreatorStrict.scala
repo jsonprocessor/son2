@@ -10,9 +10,9 @@ class PartialCreatorStrict(pretty: Boolean) extends PartialCreatorPair {
 
   override def c: (String) => Config = s => new Config(i = s, o = s, p = false)
 
-  override def r(s:String): NotationReader = new NotationReaderStrict()
+  override def r(s: String): NotationReader = new NotationReaderStrict()
 
-  override def w(s:String): NotationWriter = new NotationWriterStrict(pretty)
+  override def w(s: String): NotationWriter = new NotationWriterStrict(pretty)
 
 
 }

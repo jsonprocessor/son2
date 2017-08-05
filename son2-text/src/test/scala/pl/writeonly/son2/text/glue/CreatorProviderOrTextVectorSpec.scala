@@ -29,7 +29,7 @@ class CreatorProviderOrTextVectorSpec extends GrayVectorSpec {
   val creator = new CreatorProviderOrText
   property("creatorOr create symbolPair") {
     forAll(toSuccess) { (in, out) =>
-      creator provider in should be an 'isGood
+      creator providerOr in should be an 'isGood
     }
   }
 }

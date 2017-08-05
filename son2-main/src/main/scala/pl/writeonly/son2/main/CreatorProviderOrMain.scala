@@ -20,7 +20,7 @@ class CreatorProviderOrMain extends CreatorProviderOr {
 
   )
 
-  def provider(s: String): Provider Or ErrorMessage = configOpt(s)
+  def providerOr(s: String): Provider Or ErrorMessage = configOpt(s)
     .map(c => chainNotationCreator.provider(c))
     .map(p => Good(p))
     .getOrElse(Bad(s))

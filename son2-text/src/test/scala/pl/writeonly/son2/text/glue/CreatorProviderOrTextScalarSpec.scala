@@ -6,7 +6,7 @@ class CreatorProviderOrTextScalarSpec extends GrayScalarSpec {
   describe("A Creator") {
     val creator = new CreatorProviderOrText
     it("when create provider with empty format") {
-      creator provider "" should be an 'isBad
+      creator providerOr "" should be an 'isBad
     }
   }
 }

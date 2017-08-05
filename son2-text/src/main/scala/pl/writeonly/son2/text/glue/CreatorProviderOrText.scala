@@ -9,13 +9,15 @@ import pl.writeonly.son2.text.chain.ChainNotationPairText
 
 class CreatorProviderOrText extends CreatorProviderOr {
 
-  override def provider(s: String): Provider Or ErrorMessage = configOpt(s)
+  private val chainNotationPair = new ChainNotationPairText().get
+
+  private val chainNotationCreator = new ChainNotationCreator(chainNotationPair)
+
+  override def providerOr(s: String): Provider Or ErrorMessage = configOpt(s)
     .map(c => chainNotationCreator.provider(c))
     .map(p => Good(p))
     .getOrElse(Bad(s))
 
   def configOpt(s: String): Option[Config] = chainNotationCreator.configOpt(s)
-
-  private val chainNotationCreator = new ChainNotationCreator(new ChainNotationPairText().get)
 
 }

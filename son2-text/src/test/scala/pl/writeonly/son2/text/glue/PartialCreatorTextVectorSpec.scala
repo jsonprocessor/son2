@@ -17,7 +17,7 @@ class PartialCreatorTextVectorSpec extends GrayVectorSpec {
     ("e_html3", TranslateConfig(Escapes.ESCAPE, Formats.HTML3)),
     ("e_c", TranslateConfig(Escapes.ESCAPE, Formats.CSV)),
     ("e_xs", TranslateConfig(Escapes.ESCAPE, Formats.XSI)),
-    
+
     ("u_j", TranslateConfig(Escapes.UNESCAPE, Formats.JAVASTRING)),
     ("u_e", TranslateConfig(Escapes.UNESCAPE, Formats.ECMASCRIPT)),
     ("u_o", TranslateConfig(Escapes.UNESCAPE, Formats.OBJECT)),
@@ -31,8 +31,8 @@ class PartialCreatorTextVectorSpec extends GrayVectorSpec {
   val partialCreator = new PartialCreatorText()
   property("partialCreator create TranslateConfig") {
     forAll(toSuccess) { (in, out) =>
-      partialCreator isDefinedAt in should be (true)
-      partialCreator translateConfig in should be (out)
+      partialCreator isDefinedAt in should be(true)
+      partialCreator translateConfig in should be(out)
       partialCreator t in
     }
   }
