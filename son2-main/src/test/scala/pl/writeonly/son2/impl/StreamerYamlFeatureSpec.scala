@@ -7,7 +7,7 @@ import pl.writeonly.son2.jack.chain.ChainNotationPairJack
 import pl.writeonly.son2.jack.core.Formats
 import pl.writeonly.son2.spec.BlackSpec
 
-class StreamerYamlFeature extends BlackSpec {
+class StreamerYamlFeatureSpec extends BlackSpec {
 
   info("StreamerPipe with ProviderYaml")
 
@@ -15,7 +15,7 @@ class StreamerYamlFeature extends BlackSpec {
 
   val outName = (name: String) => Features.outputPathname(Types.STREAMER, name, Formats.YAML)
 
-  feature(classOf[StreamerYamlFeature].getSimpleName) {
+  feature(classOf[StreamerYamlFeatureSpec].getSimpleName) {
     scenario("Apply with null pathname") {
       Given("converter FileJson2Yaml")
       val streamer = given()

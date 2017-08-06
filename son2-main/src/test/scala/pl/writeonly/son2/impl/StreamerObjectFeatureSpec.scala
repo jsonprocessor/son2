@@ -7,17 +7,17 @@ import pl.writeonly.son2.jack.chain.ChainNotationPairJack
 import pl.writeonly.son2.jack.core.Formats
 import pl.writeonly.son2.spec.BlackSpec
 
-class StreamerXmlFeature extends BlackSpec {
+class StreamerObjectFeatureSpec extends BlackSpec {
 
-  info("FileJson2XmlFeature with Json2Xml")
+  info("FileJson2YamlPipe with Json2YamlJackson")
 
-  val given = () => new StreamerPipeForeach(ChainNotationPairJack(Formats.XML))
+  val given = () => new StreamerPipeForeach(ChainNotationPairJack(Formats.OBJECT))
 
-  val outName = (name: String) => Features.outputPathname(Types.STREAMER, name, Formats.XML)
+  val outName = (name: String) => Features.outputPathname(Types.STREAMER, name, Formats.OBJECT)
 
-  feature(classOf[StreamerXmlFeature].getSimpleName) {
+  feature(classOf[StreamerObjectFeatureSpec].getSimpleName) {
     scenario("Apply with null pathname") {
-      Given("converter FileJson2Xml")
+      Given("converter FileJson2Yaml")
       val streamer = given()
       val name: String = null
 
@@ -32,7 +32,7 @@ class StreamerXmlFeature extends BlackSpec {
     }
 
     scenario("Apply with empty pathname") {
-      Given("converter FileJson2Xml")
+      Given("converter FileJson2Yaml")
       val streamer = given()
 
       When("should produce empty when consume empty")
@@ -42,7 +42,7 @@ class StreamerXmlFeature extends BlackSpec {
     }
 
     scenario("Apply with pathname") {
-      Given("converter FileJson2Xml")
+      Given("converter FileJson2Yaml")
       val streamer = given()
       val in = Features.inputPathname
       val out = outName("pathname")
@@ -52,7 +52,7 @@ class StreamerXmlFeature extends BlackSpec {
     }
 
     scenario("Apply with uri") {
-      Given("converter FileJson2Xml")
+      Given("converter FileJson2Yaml")
       val streamer = given()
       val in = Features.inputURI
       val out = Features.toURI(outName("uri"))
@@ -62,7 +62,7 @@ class StreamerXmlFeature extends BlackSpec {
     }
 
     scenario("Apply with streamer") {
-      Given("converter FileJson2Xml")
+      Given("converter FileJson2Yaml")
       val streamer = given()
       val in = Features.inputFile
       val out = Features.toFile(outName("streamer"))
