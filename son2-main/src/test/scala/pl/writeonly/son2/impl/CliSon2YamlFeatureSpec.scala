@@ -5,13 +5,13 @@ import pl.writeonly.son2.spec.BlackSpec
 
 import scala.sys.process._
 
-class CliSon2XmlFeature extends BlackSpec {
+class CliSon2YamlFeatureSpec extends BlackSpec {
 
-  val SON2ML = Features.SON2 + " x"
+  val SON2ML = Features.SON2 + " y"
 
-  val outName = (name: String) => Features.outputPathname(Types.CLI, name, Formats.XML)
+  val outName = (name: String) => Features.outputPathname(Types.CLI, name, Formats.YAML)
 
-  feature(classOf[CliSon2XmlFeature].getSimpleName) {
+  feature(classOf[CliSon2YamlFeatureSpec].getSimpleName) {
 
     scenario("Apply one exclamation") {
       Given("converter FileJson2Yaml")
