@@ -1,6 +1,5 @@
 package pl.writeonly.son2.text.creators
 
-import org.apache.commons.text.translate.CharSequenceTranslator
 import pl.writeonly.son2.core.config.{Config, TranslateConfig}
 import pl.writeonly.son2.core.notation.{NotationTranslator, PartialCreator}
 import pl.writeonly.son2.text.core.{Escapes, Formats}
@@ -16,7 +15,7 @@ class PartialCreatorText extends PartialCreator {
 
   override def c = (s: String) => new Config(translate = translateConfig(s))
 
-  override def t(s: String) = new NotationTranslator(translatorMatch(translateConfig(s)).translate)
+  override def t(s: String) = new NotationTranslator(translatorMatch(translateConfig(s)))
 
   def translateConfig(s: String): TranslateConfig = symbolOptionPairOption(s)
     .map(p => TranslateConfig(p._1.get, p._2.get))
@@ -28,6 +27,6 @@ class PartialCreatorText extends PartialCreator {
 
   private def find(s: String, l: List[Symbol]) = l.find(it => it.name.toLowerCase.startsWith(s))
 
-  def translatorMatch(p: TranslateConfig): CharSequenceTranslator = matcher.translatorMatch(p)
+  def translatorMatch(p: TranslateConfig) = matcher.apply(p)
 
 }
