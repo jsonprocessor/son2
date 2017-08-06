@@ -2,15 +2,14 @@ package pl.writeonly.son2.jack.core
 
 import pl.writeonly.son2.core.config.Config
 
-
 object ConfigJack {
-  def apply(o: Symbol): Config = ConfigJack.apply(o = o.name)
+  def apply(s: Symbol): Config = ConfigJack.apply(o = s)
 
-  def apply(f: String): Config = ConfigJack.apply(o = f)
+  def apply(s: String): Config = ConfigJack.apply(o = Symbol(s))
 
-  def apply(i: String = Formats.OBJECT.name, s: Boolean = true, o: String, p: Boolean = true) = new Config(i, s, o, p)
+  def apply(i: Symbol = Formats.OBJECT, s: Boolean = true, o: Symbol, p: Boolean = true) = new Config(i, s, o, p)
 
-  def apply(): Config = ConfigJack.apply(o = Formats.YAML.name)
+  def apply(): Config = ConfigJack.apply(Formats.YAML)
 
 }
 

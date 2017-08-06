@@ -1,10 +1,10 @@
 package pl.writeonly.son2.core.chain
 
-import pl.writeonly.son2.core.config.Config
+import pl.writeonly.son2.core.config.{Config, HasConfigOpt}
 import pl.writeonly.son2.core.notation.{NotationPair, NotationReader, NotationTranslator, NotationWriter}
 import pl.writeonly.son2.core.providers.{Provider, Provider1, Provider2}
 
-class ChainNotationCreator(chain: PartialFunction[String, NotationPair]) extends ConfigLift {
+class ChainNotationCreator(chain: PartialFunction[String, NotationPair]) extends HasConfigOpt {
 
   def providerOpt(s: String): Option[Provider] = configOpt(s).map(provider)
 
@@ -23,7 +23,7 @@ class ChainNotationCreator(chain: PartialFunction[String, NotationPair]) extends
     .translate
     .actionAndFormat
 
-  private def input(c: Config): NotationReader = chain.lift(c.input).map(f => f.r).get
+  private def input(c: Config): NotationReader = chain.lift(c.read.name).map(f => f.r).get
 
-  private def output(c: Config): NotationWriter = chain.lift(c.output).map(f => f.w).get
+  private def output(c: Config): NotationWriter = chain.lift(c.write.name).map(f => f.w).get
 }

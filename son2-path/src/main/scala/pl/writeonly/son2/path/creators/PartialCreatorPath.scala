@@ -9,7 +9,7 @@ class PartialCreatorPath extends PartialCreator {
 
   override def isDefinedAt(s: String) = s != null && s.startsWith("$")
 
-  override def c: (String) => Config = s => new Config(input = s, output = Formats.STRICT.name, pretty = false)
+  override def c: (String) => Config = s => new Config(read = Symbol(s), write = Formats.STRICT, pretty = false)
 
   override def r(s: String) = new NotationReaderPath(s)
 
