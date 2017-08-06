@@ -13,7 +13,7 @@ class CliSon2XmlFeature extends BlackSpec {
 
   feature(classOf[CliSon2XmlFeature].getSimpleName) {
 
-    ignore("Apply one exclamation") {
+    scenario("Apply one exclamation") {
       Given("converter FileJson2Yaml")
       val in = Features.inputPathname
       val file = SON2ML + " " + in + " " + outName("one")
@@ -23,7 +23,7 @@ class CliSon2XmlFeature extends BlackSpec {
       assert(0 == result)
     }
 
-    ignore("Apply two exclamation") {
+    scenario("Apply two exclamation") {
       Given("converter FileJson2Yaml")
       val in = Features.inputPathname
       val file = SON2ML + " " + in + " " + outName("two")
