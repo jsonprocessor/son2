@@ -13,7 +13,7 @@ class MainSon2YamlFeatureSpec extends BlackSpec {
   val outName = (name: String) => Features.outputPathname(Types.MAIN, name, Formats.YAML)
 
   feature(classOf[MainSon2YamlFeatureSpec].getSimpleName) {
-    ignore("Apply with null pathname") {
+    scenario("Apply with null pathname") {
       Given("converter FileJson2Yaml")
 
       When("should produce null when consume null")
@@ -27,7 +27,7 @@ class MainSon2YamlFeatureSpec extends BlackSpec {
       assert(null == message)
     }
 
-    ignore("Apply with empty pathname") {
+    scenario("Apply with empty pathname") {
       Given("converter FileJson2Yaml")
 
       When("should produce empty when consume empty")

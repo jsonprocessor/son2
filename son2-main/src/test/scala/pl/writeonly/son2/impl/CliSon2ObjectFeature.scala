@@ -29,7 +29,7 @@ class CliSon2ObjectFeature extends BlackSpec {
       val file = SON2ML + " " + in + " " + outName("two")
       When("should produce null when consume null")
       val result = file.!!
-      Then("0 == result")
+      Then("'' == result")
       assert("" == result)
     }
   }

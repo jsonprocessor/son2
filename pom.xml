@@ -324,7 +324,7 @@
                                 <goal>test</goal>
                             </goals>
                             <configuration>
-                                <suffixes>?&lt;!(Vector|Scalar|Feature)(Spec)</suffixes>
+                                <suffixes>?&lt;!(((Vector|Scalar)(Spec))|(Feature))</suffixes>
                                 <htmlreporters>${project.build.directory}/site/scalatest/</htmlreporters>
                             </configuration>
                         </execution>
@@ -335,7 +335,7 @@
                                 <goal>test</goal>
                             </goals>
                             <configuration>
-                                <suffixes>(Vector|Scalar|Feature)(Spec)</suffixes>
+                                <suffixes>?&lt;(((Vector|Scalar)(Spec))|(Feature)</suffixes>
                                 <htmlreporters>${project.build.directory}/site/scalatest-it/</htmlreporters>
                             </configuration>
                         </execution>
