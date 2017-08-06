@@ -24,8 +24,8 @@ class PathVectorSpec extends GrayVectorSpec {
   )
 
   val toFailure = Table(
-    "in",
-    "a"
+    ("in", "out"),
+    ("a", "[]")
   )
 
   val provider: Provider = ChainNotationPairPath(ConfigPath(i = Symbol("$..*")))
@@ -43,8 +43,8 @@ class PathVectorSpec extends GrayVectorSpec {
   }
 
   property("fail convert son to smart by liner") {
-    forAll(toFailure) { in =>
-      liner.apply(in) should be("[]\n")
+    forAll(toFailure) { (in, out) =>
+      liner.apply(in) should be( out + "\n")
     }
   }
 
@@ -55,9 +55,9 @@ class PathVectorSpec extends GrayVectorSpec {
     }
   }
 
-  ignore("fail convert son to smart by streamer") {
-    forAll(toFailure) { in =>
-      streamer.convertString(in) should be(provider.comment(in) + "\n")
+  property("fail convert son to smart by streamer") {
+    forAll(toFailure) { (in, out) =>
+      streamer.convertString(in) should be(out + "\n")
     }
   }
 
@@ -66,10 +66,9 @@ class PathVectorSpec extends GrayVectorSpec {
       streamer.convertStringNative(in) should be(out + "\n")
     }
   }
-
-  ignore("fail convert son to smart by native streamer") {
-    forAll(toFailure) { in =>
-      streamer.convertStringNative(in) should be(provider.comment(in) + "\n")
+  property("fail convert son to smart by native streamer") {
+    forAll(toFailure) { (in, out) =>
+      streamer.convertString(in) should be(out + "\n")
     }
   }
 }

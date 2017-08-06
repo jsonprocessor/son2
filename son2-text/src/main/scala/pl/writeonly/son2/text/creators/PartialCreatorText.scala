@@ -7,7 +7,7 @@ import pl.writeonly.son2.text.core.{Escapes, Formats}
 
 class PartialCreatorText extends PartialCreator {
 
-  private val matcher = new StringEscapeMatcher()
+  private val matcher = new MatcherStringEscape()
 
   override def isDefinedAt(s: String) = s != null &&
     symbolOptionPairOption(s)

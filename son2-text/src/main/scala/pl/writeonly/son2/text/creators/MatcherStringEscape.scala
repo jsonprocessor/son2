@@ -5,7 +5,7 @@ import org.apache.commons.text.translate.CharSequenceTranslator
 import pl.writeonly.son2.core.config.TranslateConfig
 import pl.writeonly.son2.text.core.{Escapes, Formats}
 
-class StringEscapeMatcher {
+class MatcherStringEscape extends Matcher {
   def translatorMatch(p: TranslateConfig): CharSequenceTranslator = p match {
     case TranslateConfig(Escapes.ESCAPE, Formats.JAVASTRING) => StringEscapeUtils.ESCAPE_JAVA
     case TranslateConfig(Escapes.ESCAPE, Formats.ECMASCRIPT) => StringEscapeUtils.ESCAPE_ECMASCRIPT

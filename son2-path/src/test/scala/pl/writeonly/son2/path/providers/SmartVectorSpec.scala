@@ -55,9 +55,9 @@ class SmartVectorSpec extends GrayVectorSpec {
     }
   }
 
-  ignore("fail convert son to smart by streamer") {
+  property("fail convert son to smart by streamer") {
     forAll(toFailure) { in =>
-      streamer.convertString(in) should be(provider.comment(in) + "\n")
+      streamer.convertString(in) should be("\""+ provider.comment(in) + "\"\n")
     }
   }
 
@@ -66,10 +66,9 @@ class SmartVectorSpec extends GrayVectorSpec {
       streamer.convertStringNative(in) should be(out + "\n")
     }
   }
-
-  ignore("fail convert son to smart by native streamer") {
+  property("fail convert son to smart by native streamer") {
     forAll(toFailure) { in =>
-      streamer.convertStringNative(in) should be(provider.comment(in) + "\n")
+      streamer.convertString(in) should be("\""+ provider.comment(in) + "\"\n")
     }
   }
 }
