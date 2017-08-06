@@ -40,7 +40,7 @@ class StrictVectorSpec extends GrayVectorSpec {
       liner.apply(in) should be(out + "\n")
     }
   }
-  ignore("fail convert son to smart by liner") {
+  property("fail convert son to smart by liner") {
     forAll(toFailure) { in =>
       liner.apply(in) should be(provider.comment(in) + "\n")
     }
