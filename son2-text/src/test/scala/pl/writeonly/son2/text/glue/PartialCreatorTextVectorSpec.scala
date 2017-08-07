@@ -1,6 +1,6 @@
 package pl.writeonly.son2.text.glue
 
-import pl.writeonly.son2.core.config.TranslateConfig
+import pl.writeonly.son2.core.config.TConfig
 import pl.writeonly.son2.spec.GrayVectorSpec
 import pl.writeonly.son2.text.core.{Escapes, Formats}
 import pl.writeonly.son2.text.creators.PartialCreatorText
@@ -9,23 +9,23 @@ class PartialCreatorTextVectorSpec extends GrayVectorSpec {
 
   val toSuccess = Table(
     ("in", "out"),
-    ("e_j", TranslateConfig(Escapes.ESCAPE, Formats.JAVASTRING)),
-    ("e_e", TranslateConfig(Escapes.ESCAPE, Formats.ECMASCRIPT)),
-    ("e_o", TranslateConfig(Escapes.ESCAPE, Formats.OBJECT)),
-    ("e_x", TranslateConfig(Escapes.ESCAPE, Formats.XML11)),
-    ("e_h", TranslateConfig(Escapes.ESCAPE, Formats.HTML4)),
-    ("e_html3", TranslateConfig(Escapes.ESCAPE, Formats.HTML3)),
-    ("e_c", TranslateConfig(Escapes.ESCAPE, Formats.CSV)),
-    ("e_xs", TranslateConfig(Escapes.ESCAPE, Formats.XSI)),
+    ("e_j", TConfig(Escapes.ESCAPE, Formats.JAVASTRING)),
+    ("e_e", TConfig(Escapes.ESCAPE, Formats.ECMASCRIPT)),
+    ("e_o", TConfig(Escapes.ESCAPE, Formats.OBJECT)),
+    ("e_x", TConfig(Escapes.ESCAPE, Formats.XML11)),
+    ("e_h", TConfig(Escapes.ESCAPE, Formats.HTML4)),
+    ("e_html3", TConfig(Escapes.ESCAPE, Formats.HTML3)),
+    ("e_c", TConfig(Escapes.ESCAPE, Formats.CSV)),
+    ("e_xs", TConfig(Escapes.ESCAPE, Formats.XSI)),
 
-    ("u_j", TranslateConfig(Escapes.UNESCAPE, Formats.JAVASTRING)),
-    ("u_e", TranslateConfig(Escapes.UNESCAPE, Formats.ECMASCRIPT)),
-    ("u_o", TranslateConfig(Escapes.UNESCAPE, Formats.OBJECT)),
-    ("u_x", TranslateConfig(Escapes.UNESCAPE, Formats.XML11)),
-    ("u_h", TranslateConfig(Escapes.UNESCAPE, Formats.HTML4)),
-    ("u_html3", TranslateConfig(Escapes.UNESCAPE, Formats.HTML3)),
-    ("u_c", TranslateConfig(Escapes.UNESCAPE, Formats.CSV)),
-    ("u_xs", TranslateConfig(Escapes.UNESCAPE, Formats.XSI))
+    ("u_j", TConfig(Escapes.UNESCAPE, Formats.JAVASTRING)),
+    ("u_e", TConfig(Escapes.UNESCAPE, Formats.ECMASCRIPT)),
+    ("u_o", TConfig(Escapes.UNESCAPE, Formats.OBJECT)),
+    ("u_x", TConfig(Escapes.UNESCAPE, Formats.XML11)),
+    ("u_h", TConfig(Escapes.UNESCAPE, Formats.HTML4)),
+    ("u_html3", TConfig(Escapes.UNESCAPE, Formats.HTML3)),
+    ("u_c", TConfig(Escapes.UNESCAPE, Formats.CSV)),
+    ("u_xs", TConfig(Escapes.UNESCAPE, Formats.XSI))
   )
 
   val partialCreator = new PartialCreatorText()

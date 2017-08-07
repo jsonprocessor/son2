@@ -29,10 +29,10 @@ object ChainReaderJack {
   def config(n: JsonNode): Config = config(n, ConfigJack.apply())
 
   def config(n: JsonNode, c: Config): Config = new Config(
-    read = asText(n, ConfigPath.I).getOrElse(c.read),
-    stream = asBoolean(n, ConfigPath.S).getOrElse(c.stream),
-    write = asText(n, ConfigPath.O).getOrElse(c.write),
-    pretty = asBoolean(n, ConfigPath.P).getOrElse(c.pretty)
+    readFormat = asText(n, ConfigPath.I).getOrElse(c.readFormat),
+    readStream = asBoolean(n, ConfigPath.S).getOrElse(c.readStream),
+    writeFormat = asText(n, ConfigPath.O).getOrElse(c.writeFormat),
+    writeStyle = asBoolean(n, ConfigPath.P).getOrElse(c.writeStyle)
   )
 
   private def asText(n: JsonNode, s: Symbol) = get(n, s).map(_.asText).map(Symbol.apply)

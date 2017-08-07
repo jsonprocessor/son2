@@ -1,6 +1,6 @@
 package pl.writeonly.son2.text.creators
 
-import pl.writeonly.son2.core.config.{Config, TranslateConfig}
+import pl.writeonly.son2.core.config.{Config, TConfig}
 import pl.writeonly.son2.core.notation.{NotationTranslator, PartialCreator}
 import pl.writeonly.son2.text.core.{Escapes, Formats}
 
@@ -17,8 +17,8 @@ class PartialCreatorText extends PartialCreator {
 
   override def t(s: String) = new NotationTranslator(translatorMatch(translateConfig(s)))
 
-  def translateConfig(s: String): TranslateConfig = symbolOptionPairOption(s)
-    .map(p => TranslateConfig(p._1.get, p._2.get))
+  def translateConfig(s: String): TConfig = symbolOptionPairOption(s)
+    .map(p => TConfig(p._1.get, p._2.get))
     .get
 
   private def symbolOptionPairOption(s: String): Option[(Option[Symbol], Option[Symbol])] = "^(\\w+)_(\\w+)$".r
@@ -27,6 +27,6 @@ class PartialCreatorText extends PartialCreator {
 
   private def find(s: String, l: List[Symbol]) = l.find(it => it.name.toLowerCase.startsWith(s))
 
-  def translatorMatch(p: TranslateConfig) = matcher.apply(p)
+  def translatorMatch(p: TConfig) = matcher.apply(p)
 
 }

@@ -8,7 +8,7 @@ import pl.writeonly.son2.path.notation.{NotationReaderSmart, NotationWriterSmart
 class PartialCreatorSmart(pretty: Boolean) extends PartialCreatorPair {
   override def format: Symbol = Formats.SMART
 
-  override def c: (String) => Config = s => new Config(read = Symbol(s), write = Symbol(s), pretty = true)
+  override def c: (String) => Config = s => new Config(readFormat = Symbol(s), writeFormat = Symbol(s), writeStyle = true)
 
   override def r(s: String): NotationReader = new NotationReaderSmart()
 

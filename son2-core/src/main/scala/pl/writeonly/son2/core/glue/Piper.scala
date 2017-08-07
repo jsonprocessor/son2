@@ -16,13 +16,13 @@ class Piper(params: Params, provider: Provider) {
 
   def convertFile(in: String, out: String) = pipe.convertFile(in, out)
 
-  def pipe = Streamers.pipe(provider.config.stream, provider)
+  def pipe = Streamers.pipe(provider.config.readStream, provider)
 
   def convertFile(in: String) = convertStream(new FileInputStream(in))
 
   def convertStream(in: InputStream) = source.convertStream(in, params.out)
 
-  def source = Streamers.source(provider.config.stream, provider)
+  def source = Streamers.source(provider.config.readStream, provider)
 
   def convertResource(name: String) = convertStream(resourceAsStream(name))
 

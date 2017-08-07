@@ -1,9 +1,27 @@
 package pl.writeonly.son2.core.config
 
+
+
 case class Config(
-                   val read: Symbol = Symbol(""),
-                   val stream: Boolean = true,
-                   val write: Symbol = Symbol(""),
-                   val pretty: Boolean = false,
-                   translate: TranslateConfig = TranslateConfig()
+                   val readFormat: Symbol = Symbol(""),
+                   val readStream: Boolean = true,
+                   val writeFormat: Symbol = Symbol(""),
+                   val writeStyle: Boolean = false,
+                   read : RConfig =  RConfig(),
+                   write : WConfig = WConfig(),
+                   translate: TConfig = TConfig()
                  )
+
+case class RConfig(format:Symbol = Symbol(""), stream: Boolean = true, query:Option[String] = Option.empty)
+case class WConfig(format:Symbol = Symbol(""), style: Boolean = false, addEndLine:Boolean = true)
+
+case class TConfig(
+                    action: Symbol = Symbol(""),
+                    format: Symbol = Symbol("")
+//                    types : Symbol= Symbol(""),
+//                    level: Short = 0
+) {
+  def actionAndFormat = name(action) + "_" + name(format)
+
+  private def name(s: Symbol): String = if (s != null) s.name else ""
+}
