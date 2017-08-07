@@ -8,7 +8,7 @@
 # Functional
 ## core
 - [ ] Add typesafe.config
-- [ ] Add sed
+- [ ] Config addning END_LINE
 
 ## jack - converter
 - [ ] Add configuration for yaml generator
@@ -31,8 +31,9 @@
 - [ ] Add
 
 ## text - unescaper
-- [ ] Add unescape String https://commons.apache.org/proper/commons-text/javadocs/api-release/org/apache/commons/text/StringEscapeUtils.html
+- [ ] add to readme unescape String https://commons.apache.org/proper/commons-text/javadocs/api-release/org/apache/commons/text/StringEscapeUtils.html
 - [ ] Add unbescape http://www.unbescape.org/usingunbescape.html
+- [ ] Add sed
 
 ## test - assertions
 - [ ] Add JSONassert
