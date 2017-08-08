@@ -2,7 +2,7 @@ package pl.writeonly.son2.jack.chain
 
 import com.fasterxml.jackson.databind.JsonNode
 import pl.writeonly.son2.core.chain.ChainImpl
-import pl.writeonly.son2.core.config.{Config, ConfigPath, HasConfigOpt, RConfig}
+import pl.writeonly.son2.core.config._
 import pl.writeonly.son2.jack.core.ConfigJack
 import pl.writeonly.son2.jack.notation._
 
@@ -30,13 +30,17 @@ object ChainReaderJack {
 
   def config(n: JsonNode, c: Config): Config = new Config(
     read = rConfig(n, c.read),
-    writeFormat = asText(n, ConfigPath.O).getOrElse(c.writeFormat),
-    writeStyle = asBoolean(n, ConfigPath.P).getOrElse(c.writeStyle)
+    write = wConfig(n, c.write)
   )
 
   def rConfig(n: JsonNode, c: RConfig) = new RConfig (
     format = asText(n, ConfigPath.I).getOrElse(c.format),
     stream = asBoolean(n, ConfigPath.S).getOrElse(c.stream)
+  )
+
+  def wConfig(n: JsonNode, c: WConfig) = new WConfig (
+    format = asText(n, ConfigPath.O).getOrElse(c.format),
+    style = asBoolean(n, ConfigPath.P).getOrElse(c.style)
   )
 
   private def asText(n: JsonNode, s: Symbol) = get(n, s).map(_.asText).map(Symbol.apply)
