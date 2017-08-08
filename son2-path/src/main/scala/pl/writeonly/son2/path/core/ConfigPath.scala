@@ -1,6 +1,6 @@
 package pl.writeonly.son2.path.core
 
-import pl.writeonly.son2.core.config.Config
+import pl.writeonly.son2.core.config.{Config, RConfig}
 
 object ConfigPath {
   def apply(
@@ -8,7 +8,7 @@ object ConfigPath {
              s: Boolean = true,
              o: Symbol = Formats.SMART,
              p: Boolean = false
-           ) = new Config(i, s, o, p)
+           ) = new Config(read = RConfig(i, s), writeFormat= o, writeStyle= p)
 }
 
 

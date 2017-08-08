@@ -3,8 +3,8 @@ package pl.writeonly.son2.core.config
 
 
 case class Config(
-                   val readFormat: Symbol = Symbol(""),
-                   val readStream: Boolean = true,
+//                   val read.format: Symbol = Symbol(""),
+//                   val read.stream: Boolean = true,
                    val writeFormat: Symbol = Symbol(""),
                    val writeStyle: Boolean = false,
                    read : RConfig =  RConfig(),
