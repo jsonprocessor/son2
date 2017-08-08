@@ -4,11 +4,14 @@
 - [ ] Add mvn clean compile jar:jar dependency:copy-dependencies javadoc:javadoc site-deploy
 - [ ] Convert String to CharSequence
 - [ ] Add mvnw
+- [ ] Add sbt
 
 # Functional
 ## core
 - [ ] Add typesafe.config
 - [ ] Config addning END_LINE
+- [ ] Add path to config
+- [ ] Refactoring config to Object
 
 ## jack - converter
 - [ ] Add configuration for yaml generator
@@ -26,17 +29,16 @@
 - [ ] Add jfunk https://github.com/mgm-tp/jfunk
 - [ ] Add jolt https://github.com/bazaarvoice/jolt
 - [ ] Add jsoniq
-
-## gson - converter
-- [ ] Add
+- [ ] Add JSONassert
+- [ ] Add JsonProvider
+  * Add Tapestry Json
+  * Add Gson
+  * Add Jettison
 
 ## text - unescaper
 - [ ] add to readme unescape String https://commons.apache.org/proper/commons-text/javadocs/api-release/org/apache/commons/text/StringEscapeUtils.html
 - [ ] Add unbescape http://www.unbescape.org/usingunbescape.html
 - [ ] Add sed
-
-## test - assertions
-- [ ] Add JSONassert
 
 ## main
 - [ ] Coloring as a ./jq https://stedolan.github.io/jq/
