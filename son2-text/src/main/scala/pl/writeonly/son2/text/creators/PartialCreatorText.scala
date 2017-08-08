@@ -2,7 +2,7 @@ package pl.writeonly.son2.text.creators
 
 import pl.writeonly.son2.core.config.{Config, TConfig}
 import pl.writeonly.son2.core.notation.{NotationTranslator, PartialCreator}
-import pl.writeonly.son2.text.core.{Escapes, Formats}
+import pl.writeonly.son2.text.core.{Actions, Formats}
 
 class PartialCreatorText extends PartialCreator {
 
@@ -23,7 +23,7 @@ class PartialCreatorText extends PartialCreator {
 
   private def symbolOptionPairOption(s: String): Option[(Option[Symbol], Option[Symbol])] = "^(\\w+)_(\\w+)$".r
     .findFirstMatchIn(s)
-    .map(p => Pair(find(p.group(1), Escapes.ALL), find(p.group(2), Formats.ALL)))
+    .map(p => Pair(find(p.group(1), Actions.ALL), find(p.group(2), Formats.ALL)))
 
   private def find(s: String, l: List[Symbol]) = l.find(it => it.name.toLowerCase.startsWith(s))
 

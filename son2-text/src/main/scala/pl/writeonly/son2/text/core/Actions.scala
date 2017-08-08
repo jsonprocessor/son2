@@ -1,6 +1,6 @@
 package pl.writeonly.son2.text.core
 
-object Escapes {
+object Actions {
   val ESCAPE = 'escape
   val UNESCAPE = 'unescape
 

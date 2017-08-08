@@ -3,10 +3,6 @@ package pl.writeonly.son2.core.config
 
 
 case class Config(
-//                   val read.format: Symbol = Symbol(""),
-//                   val read.stream: Boolean = true,
-//                   val write.format: Symbol = Symbol(""),
-//                   val write.style: Boolean = false,
                    read : RConfig =  RConfig(),
                    write : WConfig = WConfig(),
                    translate: TConfig = TConfig()
@@ -17,9 +13,9 @@ case class WConfig(format:Symbol = Symbol(""), style: Boolean = false, addEndLin
 
 case class TConfig(
                     action: Symbol = Symbol(""),
-                    format: Symbol = Symbol("")
+                    format: Symbol = Symbol(""),
 //                    types : Symbol= Symbol(""),
-//                    level: Short = 0
+                    level: Short = 0
 ) {
   def actionAndFormat = name(action) + "_" + name(format)
 
