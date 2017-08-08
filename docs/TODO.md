@@ -1,5 +1,11 @@
 # Structural
 - [ ] Increase code coverage to 80%
+  * core 
+    * notation
+    * chain
+    * config
+  * text
+    * creators
 - [ ] Add mutation tests
 - [ ] Add mvn clean compile jar:jar dependency:copy-dependencies javadoc:javadoc site-deploy
 - [ ] Convert String to CharSequence
