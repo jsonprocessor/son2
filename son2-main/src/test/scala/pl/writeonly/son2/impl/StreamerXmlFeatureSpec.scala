@@ -4,16 +4,16 @@ import java.io.FileNotFoundException
 
 import pl.writeonly.son2.core.streamers.StreamerPipeForeach
 import pl.writeonly.son2.jack.chain.ChainNotationPairJack
-import pl.writeonly.son2.jack.core.Formats
+import pl.writeonly.son2.jack.core.FormatsJack
 import pl.writeonly.son2.spec.BlackSpec
 
 class StreamerXmlFeatureSpec extends BlackSpec {
 
   info("FileJson2XmlFeature with Json2Xml")
 
-  val given = () => new StreamerPipeForeach(ChainNotationPairJack(Formats.XML))
+  val given = () => new StreamerPipeForeach(ChainNotationPairJack(FormatsJack.XML))
 
-  val outName = (name: String) => Features.outputPathname(Types.STREAMER, name, Formats.XML)
+  val outName = (name: String) => Features.outputPathname(Types.STREAMER, name, FormatsJack.XML)
 
   feature(classOf[StreamerXmlFeatureSpec].getSimpleName) {
     scenario("Apply with null pathname") {

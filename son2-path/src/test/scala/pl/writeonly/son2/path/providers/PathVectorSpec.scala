@@ -44,7 +44,7 @@ class PathVectorSpec extends GrayVectorSpec {
 
   property("fail convert son to smart by liner") {
     forAll(toFailure) { (in, out) =>
-      liner.apply(in) should be( out + "\n")
+      liner.apply(in) should be(out + "\n")
     }
   }
 

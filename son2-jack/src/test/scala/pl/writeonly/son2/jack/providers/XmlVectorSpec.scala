@@ -4,7 +4,7 @@ import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.core.providers.Provider
 import pl.writeonly.son2.core.streamers.{Streamer, StreamerPipeForeach}
 import pl.writeonly.son2.jack.chain.ChainNotationPairJack
-import pl.writeonly.son2.jack.core.Formats
+import pl.writeonly.son2.jack.core.FormatsJack
 import pl.writeonly.son2.spec.GrayVectorSpec
 
 class XmlVectorSpec extends GrayVectorSpec {
@@ -28,7 +28,7 @@ class XmlVectorSpec extends GrayVectorSpec {
     "[0,1]"
   )
 
-  val provider: Provider = ChainNotationPairJack(Formats.XML)
+  val provider: Provider = ChainNotationPairJack(FormatsJack.XML)
   property("convert son to xml by provider") {
     forAll(toSuccess) { (in, out) =>
       provider.convert(in) should be(out)

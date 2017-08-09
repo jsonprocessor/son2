@@ -8,7 +8,7 @@ object ConfigPath {
              s: Boolean = true,
              o: Symbol = Formats.SMART,
              p: Boolean = false
-           ) = new Config(read = RConfig(i, s), write = WConfig(format= o, style= p))
+           ) = new Config(read = RConfig(i, s), write = WConfig(format = o, style = p))
 }
 
 

@@ -3,14 +3,14 @@ package pl.writeonly.son2.main
 import java.io.FileNotFoundException
 
 import pl.writeonly.son2.impl.{Features, Types}
-import pl.writeonly.son2.jack.core.Formats
+import pl.writeonly.son2.jack.core.FormatsJack
 import pl.writeonly.son2.spec.BlackSpec
 
 class MainSon2YamlFeatureSpec extends BlackSpec {
 
   info(classOf[MainSon2YamlFeatureSpec].getSimpleName)
 
-  val outName = (name: String) => Features.outputPathname(Types.MAIN, name, Formats.YAML)
+  val outName = (name: String) => Features.outputPathname(Types.MAIN, name, FormatsJack.YAML)
 
   feature(classOf[MainSon2YamlFeatureSpec].getSimpleName) {
     scenario("Apply with null pathname") {
@@ -19,7 +19,7 @@ class MainSon2YamlFeatureSpec extends BlackSpec {
       When("should produce null when consume null")
       val name: String = null
       val caught = intercept[NullPointerException] {
-        Main.main(Array(Formats.YAML.name, name, name))
+        Main.main(Array(FormatsJack.YAML.name, name, name))
       }
 
       Then("null == messag")
@@ -32,7 +32,7 @@ class MainSon2YamlFeatureSpec extends BlackSpec {
 
       When("should produce empty when consume empty")
       assertThrows[FileNotFoundException] {
-        Main.main(Array(Formats.YAML.name, "", ""))
+        Main.main(Array(FormatsJack.YAML.name, "", ""))
       }
     }
 
@@ -42,7 +42,7 @@ class MainSon2YamlFeatureSpec extends BlackSpec {
       val out = outName("pathname")
 
       When("should produce null when consume null")
-      Main.main(Array(Formats.YAML.name, in, out))
+      Main.main(Array(FormatsJack.YAML.name, in, out))
     }
   }
 }

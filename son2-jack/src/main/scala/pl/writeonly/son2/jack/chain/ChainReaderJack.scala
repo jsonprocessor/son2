@@ -33,12 +33,12 @@ object ChainReaderJack {
     write = wConfig(n, c.write)
   )
 
-  def rConfig(n: JsonNode, c: RConfig) = new RConfig (
+  def rConfig(n: JsonNode, c: RConfig) = new RConfig(
     format = asText(n, ConfigPath.I).getOrElse(c.format),
     stream = asBoolean(n, ConfigPath.S).getOrElse(c.stream)
   )
 
-  def wConfig(n: JsonNode, c: WConfig) = new WConfig (
+  def wConfig(n: JsonNode, c: WConfig) = new WConfig(
     format = asText(n, ConfigPath.O).getOrElse(c.format),
     style = asBoolean(n, ConfigPath.P).getOrElse(c.style)
   )

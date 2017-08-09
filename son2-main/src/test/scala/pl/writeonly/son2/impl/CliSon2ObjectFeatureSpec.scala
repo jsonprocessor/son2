@@ -1,6 +1,6 @@
 package pl.writeonly.son2.impl
 
-import pl.writeonly.son2.jack.core.Formats
+import pl.writeonly.son2.jack.core.FormatsJack
 import pl.writeonly.son2.spec.BlackSpec
 
 import scala.sys.process._
@@ -9,7 +9,7 @@ class CliSon2ObjectFeatureSpec extends BlackSpec {
 
   val SON2ML = Features.SON2 + " o"
 
-  val outName = (name: String) => Features.outputPathname(Types.CLI, name, Formats.OBJECT)
+  val outName = (name: String) => Features.outputPathname(Types.CLI, name, FormatsJack.OBJECT)
 
   feature(classOf[CliSon2ObjectFeatureSpec].getSimpleName) {
 
