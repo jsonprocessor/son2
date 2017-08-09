@@ -46,7 +46,7 @@
 ## text - unescaper
 - [ ] add to readme unescape String https://commons.apache.org/proper/commons-text/javadocs/api-release/org/apache/commons/text/StringEscapeUtils.html
 - [ ] Add unbescape http://www.unbescape.org/usingunbescape.html
-- [ ] Add sed
+- [ ] Add sed https://github.com/tools4j/unix4j
 
 ## main
 - [ ] Coloring as a ./jq https://stedolan.github.io/jq/
