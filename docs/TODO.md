@@ -18,6 +18,8 @@
 - [ ] Config addning END_LINE
 - [ ] Add path to config
 - [ ] Refactoring config to Object
+- [ ] scalaz https://github.com/scalaz/scalaz
+- [ ] shapeless https://github.com/milessabin/shapeless
 
 ## jack - converter
 - [ ] Add configuration for yaml generator
