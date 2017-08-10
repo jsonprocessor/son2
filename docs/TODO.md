@@ -14,10 +14,11 @@
 
 # Functional
 ## core
-- [ ] Add typesafe.config
-- [ ] Config addning END_LINE
-- [ ] Add path to config
-- [ ] Refactoring config to Object
+- [ ] Config
+  * Add typesafe.config
+  * Config addning END_LINE
+  * Add path to config
+  * Refactoring config to Object
 - [ ] scalaz https://github.com/scalaz/scalaz
 - [ ] shapeless https://github.com/milessabin/shapeless
 
