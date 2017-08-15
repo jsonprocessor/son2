@@ -17,13 +17,13 @@ class ChainNotationCreator(chain: PartialFunction[String, NotationPair]) extends
     .getOrElse(new Provider2(c, input(c), output(c)))
 
   private def translator(c: Config): Option[NotationTranslator] = chain
-    .lift(actionAndFormat(c)).map(f => f.t)
+    .lift(actionAndFormat(c)).map(f => f.n.t)
 
   private def actionAndFormat(c: Config): String = c
     .translate
     .actionAndFormat
 
-  private def input(c: Config): NotationReader = chain.lift(c.read.format.name).map(f => f.r).get
+  private def input(c: Config): NotationReader = chain.lift(c.read.format.name).map(f => f.n.r).get
 
-  private def output(c: Config): NotationWriter = chain.lift(c.write.format.name).map(f => f.w).get
+  private def output(c: Config): NotationWriter = chain.lift(c.write.format.name).map(f => f.n.w).get
 }

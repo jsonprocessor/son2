@@ -4,7 +4,7 @@ import pl.writeonly.son2.core.config.Config
 
 trait PartialCreator extends PartialFunction[String, NotationPair] {
 
-  override def apply(s: String) = NotationPair(c, r(s), w(s), t(s))
+  override def apply(s: String) = NotationPair(c, NotationRWT(r(s), w(s), t(s)))
 
   def r(s: String): NotationReader = null
 
