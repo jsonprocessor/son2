@@ -33,7 +33,6 @@ class PartialCreatorTextVectorSpec extends GrayVectorSpec {
     forAll(toSuccess) { (in, out) =>
       partialCreator isDefinedAt in should be(true)
       partialCreator translateConfig in should be(out)
-      partialCreator t in
     }
   }
 

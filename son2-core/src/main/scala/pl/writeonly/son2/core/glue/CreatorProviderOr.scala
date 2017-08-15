@@ -3,7 +3,7 @@ package pl.writeonly.son2.core.glue
 import org.scalactic.{Bad, ErrorMessage, Good, Or}
 import pl.writeonly.son2.core.chain.ChainNotationCreator
 import pl.writeonly.son2.core.config.Config
-import pl.writeonly.son2.core.notation.NotationPair
+import pl.writeonly.son2.core.notation.{NotationPair, NotationRWT}
 import pl.writeonly.son2.core.providers.Provider
 
 abstract class CreatorProviderOr(chainNotationPair: PartialFunction[String, NotationPair]) {

@@ -12,9 +12,9 @@ class PartialCreatorStrict(pretty: Boolean) extends PartialCreatorPair {
     read = RConfig(format = Symbol(s)), write = WConfig(format = Symbol(s), style = false)
   )
 
-  override def r(s: String): NotationReader = new NotationReaderStrict()
+  override def r(c: Config): NotationReader = new NotationReaderStrict()
 
-  override def w(s: String): NotationWriter = new NotationWriterStrict(pretty)
+  override def w(c: Config): NotationWriter = new NotationWriterStrict(pretty)
 
 
 }

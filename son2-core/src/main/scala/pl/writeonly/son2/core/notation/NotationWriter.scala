@@ -14,7 +14,7 @@ abstract class NotationWriter(pretty: Boolean) {
     case false => writeRaw(value)
   }
 
-  def comment(s: String) = s
+  def comment(content: String) = content
 
   def writePretty(value: Any): String //= value.toString()
 

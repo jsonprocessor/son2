@@ -1,5 +1,6 @@
 package pl.writeonly.son2.core.chain
 
+import pl.writeonly.son2.core.config.Config
 import pl.writeonly.son2.core.notation.NotationPair
 
 class ChainNotationPair(chain: PartialFunction[String, NotationPair])

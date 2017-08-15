@@ -25,7 +25,7 @@ class PartialCreatorText extends PartialCreator {
 
   private def find(s: String, l: List[Symbol]) = l.find(it => it.name.toLowerCase.startsWith(s))
 
-  override def t(s: String) = new NotationTranslator(translatorMatch(translateConfig(s)))
+  override def t(c: Config) = new NotationTranslator(translatorMatch(c.translate))
 
   def translatorMatch(p: TConfig) = matcher.apply(p)
 
