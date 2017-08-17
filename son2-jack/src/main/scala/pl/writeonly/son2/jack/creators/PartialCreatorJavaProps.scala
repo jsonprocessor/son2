@@ -10,5 +10,5 @@ class PartialCreatorJavaProps(pretty: Boolean) extends PartialCreatorJack {
 
   override def r(c: Config) = new NotationReaderJavaProps
 
-  override def w(c: Config) = new NotationWriterJack(pretty, new JavaPropsMapper, "#", "")
+  override def w(c: Config) = new NotationWriterJack(c.write, pretty, new JavaPropsMapper, "#", "")
 }

@@ -9,7 +9,7 @@ object ConfigPath {
              o: Symbol = Formats.SMART,
              p: Boolean = false
            ) = new Config(
-    read = RConfig(format= i, stream=s, query = Option(i.name)),
+    read = RConfig(format = i, stream = s, query = Option(i.name)),
     write = WConfig(format = o, style = p)
   )
 }

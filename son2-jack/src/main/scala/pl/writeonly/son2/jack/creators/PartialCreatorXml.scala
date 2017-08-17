@@ -10,5 +10,5 @@ class PartialCreatorXml(pretty: Boolean) extends PartialCreatorJack {
 
   override def r(c: Config) = new NotationReaderXml
 
-  override def w(c: Config) = new NotationWriterJack(pretty, new XmlMapper, "<!-- ", " -->")
+  override def w(c: Config) = new NotationWriterJack(c.write, pretty, new XmlMapper, "<!-- ", " -->")
 }

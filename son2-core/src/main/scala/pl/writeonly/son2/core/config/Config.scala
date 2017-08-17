@@ -14,7 +14,9 @@ case class TConfig(action: Symbol = Symbol(""), format: Symbol = Symbol(""), lev
 }
 
 abstract class RStyle
+
 case class Raw() extends RStyle
+
 case class Pretty() extends RStyle
 
 

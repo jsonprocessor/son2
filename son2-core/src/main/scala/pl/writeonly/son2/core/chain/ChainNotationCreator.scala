@@ -5,7 +5,7 @@ import pl.writeonly.son2.core.notation._
 import pl.writeonly.son2.core.providers.{Provider, Provider1, Provider2}
 
 class ChainNotationCreator(chain: PartialFunction[String, NotationPair])
-extends HasConfigOpt {
+  extends HasConfigOpt {
 
   def providerOpt(s: String): Option[Provider] = configOpt(s).map(provider)
 

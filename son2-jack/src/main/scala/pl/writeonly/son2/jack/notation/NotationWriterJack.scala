@@ -4,7 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import pl.writeonly.son2.core.config.WConfig
 import pl.writeonly.son2.core.notation.NotationWriter
 
-class NotationWriterJack(pretty: Boolean, mapper: ObjectMapper, s1: String, s2: String) extends NotationWriter(pretty) {
+class NotationWriterJack(c:WConfig, pretty: Boolean, mapper: ObjectMapper, s1: String, s2: String)
+  extends NotationWriter(c, pretty) {
 
   override def writePretty(value: Any): String = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(value)
 

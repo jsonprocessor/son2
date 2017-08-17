@@ -12,8 +12,8 @@ class PartialCreatorSmart(pretty: Boolean) extends PartialCreatorPair {
     read = RConfig(format = Symbol(s)), write = WConfig(format = Symbol(s), style = true)
   )
 
-  override def r(s: Config): NotationReader = new NotationReaderSmart()
+  override def r(c: Config): NotationReader = new NotationReaderSmart()
 
-  override def w(s: Config): NotationWriter = new NotationWriterSmart(pretty)
+  override def w(c: Config): NotationWriter = new NotationWriterSmart(c.write, pretty)
 
 }

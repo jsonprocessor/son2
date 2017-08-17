@@ -10,5 +10,5 @@ class PartialCreatorYaml(pretty: Boolean) extends PartialCreatorJack {
 
   override def r(c: Config) = new NotationReaderYaml
 
-  override def w(c: Config) = new NotationWriterJack(pretty, new YAMLMapper, "#", "")
+  override def w(c: Config) = new NotationWriterJack(c.write, pretty, new YAMLMapper, "#", "")
 }

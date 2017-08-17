@@ -17,11 +17,11 @@ abstract class StreamerSource(liner: Liner) extends Streamer(liner) {
 
   override def convertFile(in: String, out: String): Unit = using(Source.fromFile(in))(s => source2pw(s, new File(out)))
 
-  def source2pw(source: Source, out: File): Unit = using(new PrintWriter(out))(pw => source2pw(source, pw))
-
   override def convertFile(in: URI, out: URI): Unit = using(Source.fromFile(in))(s => source2pw(s, new File(out)))
 
   override def convertFile(in: File, out: File): Unit = using(Source.fromFile(in))(s => source2pw(s, out))
+
+  def source2pw(source: Source, out: File): Unit = using(new PrintWriter(out))(pw => source2pw(source, pw))
 
   override def convertStream(in: InputStream, out: OutputStream): Unit = {
     using(Source.fromInputStream(in, Control.UTF_8)) { source =>

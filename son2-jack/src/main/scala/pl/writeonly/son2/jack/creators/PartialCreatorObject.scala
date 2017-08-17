@@ -10,5 +10,5 @@ class PartialCreatorObject(pretty: Boolean) extends PartialCreatorJack {
 
   override def r(c: Config) = new NotationReaderObject
 
-  override def w(c: Config) = new NotationWriterJack(pretty, new ObjectMapper, "#", "")
+  override def w(c: Config) = new NotationWriterJack(c.write, pretty, new ObjectMapper, "#", "")
 }

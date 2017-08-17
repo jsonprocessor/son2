@@ -14,7 +14,7 @@ class PartialCreatorStrict(pretty: Boolean) extends PartialCreatorPair {
 
   override def r(c: Config): NotationReader = new NotationReaderStrict()
 
-  override def w(c: Config): NotationWriter = new NotationWriterStrict(pretty)
+  override def w(c: Config): NotationWriter = new NotationWriterStrict(c.write, pretty)
 
 
 }
