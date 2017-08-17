@@ -7,6 +7,7 @@ import pl.writeonly.son2.core.notation.{NotationPair, NotationRWT}
 import pl.writeonly.son2.core.providers.Provider
 
 abstract class CreatorProviderOr(chainNotationPair: PartialFunction[String, NotationPair]) {
+
   val chainNotationCreator = new ChainNotationCreator(chainNotationPair)
 
   def providerOr(s: String): Provider Or ErrorMessage = configOpt(s)

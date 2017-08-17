@@ -4,5 +4,4 @@ import pl.writeonly.son2.core.config.TConfig
 
 trait Matcher {
   def apply(p: TConfig): String => String
-
 }
