@@ -10,6 +10,9 @@ cat input.son | son2 format | tee output.fmt
 
 cat input.son | sed 's/^[^{]*//' | son2 format | tee output.fmt
 
+cat input.log | son2 $.log | sed 's/^"//' | sed 's/\\n"$//' | son2 u_s | tee output.fmt
+
+
 ## Formats
 * o, object => output is pretty JSON
 * y, yaml => output is YAML
