@@ -24,7 +24,9 @@ class ChainNotationCreator(chain: PartialFunction[String, NotationPair])
     .translate
     .actionAndFormat
 
+  //FIXME
   private def input(c: Config): NotationReader = chain.lift(c.read.format.name).map(f => f.n.r).get
 
+  //FIXME
   private def output(c: Config): NotationWriter = chain.lift(c.write.format.name).map(f => f.n.w).get
 }

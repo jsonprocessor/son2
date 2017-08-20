@@ -3,9 +3,9 @@ package pl.writeonly.son2.jack.providers
 import com.fasterxml.jackson.core.JsonParseException
 import com.fasterxml.jackson.databind.JsonMappingException
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
-import pl.writeonly.son2.core.providers.Provider
+import pl.writeonly.son2.core.providers.{Provider, Provider2}
 import pl.writeonly.son2.jack.chain.ChainNotationPairJack
-import pl.writeonly.son2.jack.core.FormatsJack
+import pl.writeonly.son2.jack.core.{ConfigJack, FormatsJack}
 import pl.writeonly.son2.spec.WhiteResultSpec
 
 class ObjectWordSpec extends WhiteResultSpec {
@@ -28,6 +28,25 @@ class ObjectWordSpec extends WhiteResultSpec {
   "A Liner" should {
     "return empty comment" in {
       assertResult(provider.comment("") + "\n")(liner.apply(""))
+    }
+  }
+
+  val providerRaw : Provider = ChainNotationPairJack(ConfigJack(o = FormatsJack.OBJECT, p = false))
+  "A ProviderRaw" should {
+    "have pretty == false" in {
+      assertResult(false)(providerRaw.config.write.style)
+    }
+    "be  Provider2" in {
+      assertResult(true)(providerRaw.isInstanceOf[Provider2])
+    }
+  }
+  val provider2Raw = providerRaw.asInstanceOf[Provider2]
+  "A Provider2Raw" should {
+//    "have pretty == false" in {
+//      assertResult(false)(provider2Raw.out.config.style)
+//    }
+    "be not pretty" in {
+      assertResult(false)(provider2Raw.out.pretty)
     }
   }
 }

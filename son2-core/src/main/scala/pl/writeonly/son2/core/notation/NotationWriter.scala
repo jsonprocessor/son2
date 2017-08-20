@@ -3,7 +3,7 @@ package pl.writeonly.son2.core.notation
 import org.scalactic.{Bad, Good, Or}
 import pl.writeonly.son2.core.config.WConfig
 
-abstract class NotationWriter(c: WConfig, pretty: Boolean) {
+abstract class NotationWriter(val config: WConfig, val pretty: Boolean) {
 
   def apply(value: Any Or String): String = value match {
     case Good(v) => write(v)
