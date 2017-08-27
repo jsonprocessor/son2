@@ -13,13 +13,13 @@ class PCreatorTranslatorText extends PCreatorTranslator {
     .opt(apply(c))
     .isDefined
 
-//  override def isDefinedAt(c: Config): Boolean = isDefinedAt(c.translate)
-
-  def isDefinedAt(c: TConfig) : Boolean = c != null && isDefinedAt(c.action) && isDefinedAt(c.format)
-
-  def isDefinedAt(s : Symbol) : Boolean = s != null && s != Symbol("")
+  //  override def isDefinedAt(c: Config): Boolean = isDefinedAt(c.translate)
 
   override def apply(c: Config): NotationTranslator = new NotationTranslator(c.write, translatorMatch(c.translate))
 
   def translatorMatch(p: TConfig) = matcher.apply(p)
+
+  def isDefinedAt(c: TConfig): Boolean = c != null && isDefinedAt(c.action) && isDefinedAt(c.format)
+
+  def isDefinedAt(s: Symbol): Boolean = s != null && s != Symbol("")
 }
