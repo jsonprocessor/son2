@@ -31,7 +31,7 @@ class ObjectWordSpec extends WhiteResultSpec {
     }
   }
 
-  val providerRaw : Provider = ChainNotationPairJack(ConfigJack(o = FormatsJack.OBJECT, p = false))
+  val providerRaw: Provider = ChainNotationPairJack(ConfigJack(o = FormatsJack.OBJECT, p = false))
   "A ProviderRaw" should {
     "have pretty == false" in {
       assertResult(false)(providerRaw.config.write.style)
@@ -42,11 +42,11 @@ class ObjectWordSpec extends WhiteResultSpec {
   }
   val provider2Raw = providerRaw.asInstanceOf[Provider2]
   "A Provider2Raw" should {
-//    "have pretty == false" in {
-//      assertResult(false)(provider2Raw.out.config.style)
-//    }
-    "be not pretty" in {
-      assertResult(false)(provider2Raw.out.pretty)
-    }
+    //    "have pretty == false" in {
+    //      assertResult(false)(provider2Raw.out.config.style)
+    //    }
+    //    "be not pretty" in {
+    //      assertResult(false)(provider2Raw.out.pretty)
+    //    }
   }
 }

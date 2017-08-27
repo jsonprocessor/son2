@@ -1,19 +1,37 @@
 package pl.writeonly.son2.main
 
+import pl.writeonly.son2.core.chain.ChainNotationRWT
 import pl.writeonly.son2.core.config.Config
 import pl.writeonly.son2.core.glue.CreatorProviderOr
-import pl.writeonly.son2.jack.chain.{ChainNotationPairJack, ChainReaderJack}
-import pl.writeonly.son2.path.chain.ChainNotationPairPath
-import pl.writeonly.son2.text.chain.ChainNotationPairText
+import pl.writeonly.son2.jack.chain.ChainReaderJack
+import pl.writeonly.son2.jack.glue.{ChainNotationConfigJack, ChainNotationRWTJack}
+import pl.writeonly.son2.path.glue.{ChainNotationConfigPath, ChainNotationRWTPath}
+import pl.writeonly.son2.text.creators.PCreatorConfigText
+import pl.writeonly.son2.text.glue.ChainNotationRWTText
 
 class CreatorProviderOrMain extends CreatorProviderOr(
-  new ChainNotationPairPath(true).get
+  new ChainNotationConfigPath().get
     orElse
-    new ChainNotationPairJack(true).get
+    new ChainNotationConfigJack().get
     orElse
-    new ChainNotationPairText().get
+    new PCreatorConfigText,
+  new ChainNotationRWT(
+    new ChainNotationRWTPath().r
+      orElse
+      new ChainNotationRWTJack().r
+      orElse
+      new ChainNotationRWTText().r,
+    new ChainNotationRWTPath().w
+      orElse
+      new ChainNotationRWTJack().w
+      orElse
+      new ChainNotationRWTText().w,
+    new ChainNotationRWTPath().t
+      orElse
+      new ChainNotationRWTJack().t
+      orElse
+      new ChainNotationRWTText().t)
 ) {
-
   override def configOpt(s: String): Option[Config] = chainNotationCreator.configOpt(s) match {
     case c: Some[Config] => c
     case None => new ChainReaderJack().configOpt(s)

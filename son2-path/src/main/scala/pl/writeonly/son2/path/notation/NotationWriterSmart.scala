@@ -4,7 +4,7 @@ import net.minidev.json.{JSONStyle, JSONValue}
 import pl.writeonly.son2.core.config.WConfig
 import pl.writeonly.son2.core.notation.NotationWriter
 
-class NotationWriterSmart(c:WConfig, pretty: Boolean) extends NotationWriter(c, pretty) {
+class NotationWriterSmart(c: WConfig) extends NotationWriter(c) {
 
   override def writePretty(value: Any): String = JSONValue.toJSONString(value, JSONStyle.MAX_COMPRESS)
 

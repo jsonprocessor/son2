@@ -1,7 +1,5 @@
 package pl.writeonly.son2.core.chain
 
-import pl.writeonly.son2.core.notation.NotationPair
+import pl.writeonly.son2.core.pcreators.PCreatorNotationRWT
 
-class ChainNotationPair(chain: PartialFunction[String, NotationPair])
-  extends ChainImpl[NotationPair](chain) {
-}
+class ChainNotationPair(val get: PCreatorNotationRWT)

@@ -2,16 +2,14 @@ package pl.writeonly.son2.core.notation
 
 import pl.writeonly.son2.core.config.Config
 
-trait PartialCreatorRWT extends PartialFunction[String, NotationPair] {
+trait PartialCreatorRWT extends PartialFunction[Config, NotationRWT] {
 
-  override def apply(s: String) = NotationPair(c, NotationRWT(r(s), w(s), t(s)))
+  override def apply(c: Config) = NotationRWT(r(c), w(c), t(c))
 
-  def r(s: String): NotationReader = null
+  def r(c: Config): NotationReader = null
 
-  def w(s: String): NotationWriter = null
+  def w(c: Config): NotationWriter = null
 
-  def t(s: String): NotationTranslator = null
-
-  def c: String => Config
+  def t(c: Config): NotationTranslator = null
 
 }

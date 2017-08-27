@@ -3,7 +3,7 @@ package pl.writeonly.son2.text.glue
 import pl.writeonly.son2.core.config.TConfig
 import pl.writeonly.son2.spec.GrayVectorSpec
 import pl.writeonly.son2.text.core.{Actions, FormatsText}
-import pl.writeonly.son2.text.creators.PartialCreatorText
+import pl.writeonly.son2.text.creators.PCreatorConfigText
 
 class PartialCreatorTextVectorSpec extends GrayVectorSpec {
 
@@ -28,7 +28,7 @@ class PartialCreatorTextVectorSpec extends GrayVectorSpec {
     ("u_xs", TConfig(Actions.UNESCAPE, FormatsText.XSI))
   )
 
-  val partialCreator = new PartialCreatorText()
+  val partialCreator = new PCreatorConfigText()
   property("partialCreator create TranslateConfig") {
     forAll(toSuccess) { (in, out) =>
       partialCreator isDefinedAt in should be(true)

@@ -1,21 +1,7 @@
 package pl.writeonly.son2.jack.chain
 
-import pl.writeonly.son2.core.chain.ChainNotationPair
 import pl.writeonly.son2.core.providers.CreatorProvider
-import pl.writeonly.son2.jack.creators._
+import pl.writeonly.son2.jack.glue.{ChainNotationConfigJack, ChainNotationRWTJack}
 
-class ChainNotationPairJack(pretty: Boolean) extends ChainNotationPair(
-  new PartialCreatorObject(pretty)
-    orElse
-    new PartialCreatorXml(pretty)
-    orElse
-    new PartialCreatorYaml(pretty)
-    orElse
-    new PartialCreatorCsv(pretty)
-    orElse
-    new PartialCreatorJavaProps(pretty)
-    orElse
-    new PartialCreatorProperties(pretty)
-)
 
-object ChainNotationPairJack extends CreatorProvider(p => new ChainNotationPairJack(p))
+object ChainNotationPairJack extends CreatorProvider(new ChainNotationConfigJack(), new ChainNotationRWTJack())
