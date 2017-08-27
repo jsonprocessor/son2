@@ -2,34 +2,34 @@ package pl.writeonly.son2.jack.glue
 
 import pl.writeonly.son2.core.chain.{ChainNotationRWT, PCreatorTranslatorFake}
 import pl.writeonly.son2.jack.core._
-import pl.writeonly.son2.jack.creators.{PartialCreatorReaderJack, PartialCreatorWriterJack}
+import pl.writeonly.son2.jack.creators.{PCreatorReaderJack, PCreatorWriterJack}
 
 class ChainNotationRWTJack extends ChainNotationRWT(
   (
-    new PartialCreatorReaderJack(JackObject())
+    new PCreatorReaderJack(JackObject())
       orElse
-      new PartialCreatorReaderJack(JackXml())
+      new PCreatorReaderJack(JackXml())
       orElse
-      new PartialCreatorReaderJack(JackYaml())
+      new PCreatorReaderJack(JackYaml())
       orElse
-      new PartialCreatorReaderJack(JackCsv())
+      new PCreatorReaderJack(JackCsv())
       orElse
-      new PartialCreatorReaderJack(JackProperties())
+      new PCreatorReaderJack(JackProperties())
       orElse
-      new PartialCreatorReaderJack(JackJavaProps())
+      new PCreatorReaderJack(JackJavaProps())
     ),
   (
-    new PartialCreatorWriterJack(JackObject())
+    new PCreatorWriterJack(JackObject())
       orElse
-      new PartialCreatorWriterJack(JackXml())
+      new PCreatorWriterJack(JackXml())
       orElse
-      new PartialCreatorWriterJack(JackYaml())
+      new PCreatorWriterJack(JackYaml())
       orElse
-      new PartialCreatorWriterJack(JackCsv())
+      new PCreatorWriterJack(JackCsv())
       orElse
-      new PartialCreatorWriterJack(JackProperties())
+      new PCreatorWriterJack(JackProperties())
       orElse
-      new PartialCreatorWriterJack(JackJavaProps())
+      new PCreatorWriterJack(JackJavaProps())
     ),
   new PCreatorTranslatorFake()
 )

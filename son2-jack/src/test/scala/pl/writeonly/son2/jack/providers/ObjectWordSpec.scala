@@ -4,13 +4,13 @@ import com.fasterxml.jackson.core.JsonParseException
 import com.fasterxml.jackson.databind.JsonMappingException
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.core.providers.{Provider, Provider2}
-import pl.writeonly.son2.jack.chain.ChainNotationPairJack
 import pl.writeonly.son2.jack.core.{ConfigJack, FormatsJack}
+import pl.writeonly.son2.jack.glue.CreatorProviderJack
 import pl.writeonly.son2.spec.WhiteResultSpec
 
 class ObjectWordSpec extends WhiteResultSpec {
 
-  val provider: Provider = ChainNotationPairJack(FormatsJack.OBJECT)
+  val provider: Provider = CreatorProviderJack(FormatsJack.OBJECT)
   "A Provider" should {
     "produce JsonParseException when convert a" in {
       assertThrows[JsonParseException] {
@@ -31,7 +31,7 @@ class ObjectWordSpec extends WhiteResultSpec {
     }
   }
 
-  val providerRaw: Provider = ChainNotationPairJack(ConfigJack(o = FormatsJack.OBJECT, p = false))
+  val providerRaw: Provider = CreatorProviderJack(ConfigJack(o = FormatsJack.OBJECT, p = false))
   "A ProviderRaw" should {
     "have pretty == false" in {
       assertResult(false)(providerRaw.config.write.style)

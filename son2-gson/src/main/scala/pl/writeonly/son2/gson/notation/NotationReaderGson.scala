@@ -1,22 +1,8 @@
-package pl.writeonly.son2.jack.notation
+package pl.writeonly.son2.gson.notation
 
-import com.fasterxml.jackson.databind.{JsonNode, ObjectMapper}
-import com.fasterxml.jackson.dataformat.csv.CsvMapper
-import com.fasterxml.jackson.dataformat.javaprop.JavaPropsMapper
-import com.fasterxml.jackson.dataformat.xml.XmlMapper
-import com.fasterxml.jackson.dataformat.yaml.YAMLMapper
+import com.google.gson.{Gson, JsonElement, JsonParser}
 import pl.writeonly.son2.core.notation.NotationReader
 
-class NotationReaderJack(val mapper: ObjectMapper) extends NotationReader {
-  def apply(content: String): JsonNode = mapper.readTree(content)
+class NotationReaderGson() extends NotationReader {
+  def apply(content: String): JsonElement = new JsonParser().parse(content)
 }
-
-class NotationReaderObject extends NotationReaderJack(new ObjectMapper)
-
-class NotationReaderXml extends NotationReaderJack(new XmlMapper)
-
-class NotationReaderYaml extends NotationReaderJack(new YAMLMapper)
-
-class NotationReaderCsv extends NotationReaderJack(new CsvMapper)
-
-class NotationReaderJavaProps extends NotationReaderJack(new JavaPropsMapper)
