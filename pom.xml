@@ -39,6 +39,7 @@
         <module>son2-path</module>
         <module>son2-text</module>
         <module>son2-main</module>
+        <module>son2-drop</module>
     </modules>
 
     <repositories>
