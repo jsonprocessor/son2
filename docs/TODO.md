@@ -44,6 +44,12 @@
   * Add Gson
   * Add Jettison
 
+## diff - patch
+- http://jsonpatch.com/
+- https://github.com/gnieh/diffson
+- https://github.com/java-json-tools/json-patch
+- https://github.com/flipkart-incubator/zjsonpatch
+
 ## text - unescaper
 - [ ] add to readme unescape String https://commons.apache.org/proper/commons-text/javadocs/api-release/org/apache/commons/text/StringEscapeUtils.html
 - [ ] Add unbescape http://www.unbescape.org/usingunbescape.html
