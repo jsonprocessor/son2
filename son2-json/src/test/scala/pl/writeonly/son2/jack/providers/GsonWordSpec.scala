@@ -1,8 +1,5 @@
 package pl.writeonly.son2.jack.providers
 
-import java.io.IOException
-
-import com.google.gson.JsonParseException
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.core.providers.{Provider, Provider2}
 import pl.writeonly.son2.gson.core.{ConfigGson, FormatsGson}
@@ -14,12 +11,12 @@ class GsonWordSpec extends WhiteResultSpec {
   val provider: Provider = CreatorProviderGson(FormatsGson.GSON)
   "A Provider" should {
     "produce JsonParseException when convert a" in {
-      assertResult("\"a\"") (provider.convert("a"))
-      assertResult("a") (provider.comment("a"))
+      assertResult("\"a\"")(provider.convert("a"))
+      assertResult("a")(provider.comment("a"))
     }
     "produce JsonMappingException when convert empty string" in {
-      assertResult("null") (provider.convert(""))
-      assertResult("") (provider.comment(""))
+      assertResult("null")(provider.convert(""))
+      assertResult("")(provider.comment(""))
     }
   }
 

@@ -1,6 +1,6 @@
 package pl.writeonly.son2.gson.notation
 
-import com.google.gson.{Gson, JsonElement, JsonParser}
+import com.google.gson.{JsonElement, JsonParser}
 import pl.writeonly.son2.core.notation.NotationReader
 
 class NotationReaderGson() extends NotationReader {

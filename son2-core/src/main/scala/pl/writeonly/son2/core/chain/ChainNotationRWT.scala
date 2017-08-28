@@ -17,7 +17,7 @@ class PCreatorReaderFake extends PCreatorReader {
   override def apply(c: RConfig): NotationReader = throw new IllegalStateException(c.toString)
 }
 
-class PCreatorReaderSymbol(format:Symbol, creator: RConfig => NotationReader) extends PCreatorReader {
+class PCreatorReaderSymbol(format: Symbol, creator: RConfig => NotationReader) extends PCreatorReader {
   override def isDefinedAt(c: RConfig): Boolean = format.name.startsWith(c.format.name)
 
   override def apply(c: RConfig): NotationReader = creator(c)
@@ -29,7 +29,7 @@ class PCreatorWriterFake extends PCreatorWriter {
   override def apply(c: WConfig): NotationWriter = throw new IllegalStateException(c.toString)
 }
 
-class PCreatorWriterSymbol(format:Symbol, creator: WConfig => NotationWriter) extends PCreatorWriter {
+class PCreatorWriterSymbol(format: Symbol, creator: WConfig => NotationWriter) extends PCreatorWriter {
   override def isDefinedAt(c: WConfig): Boolean = format.name.startsWith(c.format.name)
 
   override def apply(c: WConfig): NotationWriter = creator(c)
