@@ -7,27 +7,29 @@ import com.vaadin.ui._
 
 @Title("json formatter")
 @Theme("valo")
-class UIFormatter extends UI {
+class UIFormatter extends UITrait {
 
   @Override
   override protected def init(vaadinRequest: VaadinRequest) {
 
-    val counterField = new TextArea("Counter", "N/A")
-    counterField.setEnabled(true)
+    val input = new TextArea(inputJson, "")
+    input.setEnabled(true)
+    input.setWidth("100%")
 
-    val incrementButton = new Button("Increment", new Button.ClickListener() {
+    val convert = new Button("Convert", new Button.ClickListener() {
       override def buttonClick(clickEvent: ClickEvent): Unit = {
         val count : Int = Option(getSession().getAttribute("count")).map(_.asInstanceOf[Int]).getOrElse(0)
         getSession().setAttribute("count", count+1)
-        counterField.setValue(count.toString)
+        input.setValue(count.toString)
       }
     });
 
     val layout = new VerticalLayout()
     layout.setSpacing(true)
     layout.setMargin(true)
-    layout.addComponent(counterField)
-    layout.addComponent(incrementButton)
+    layout.addComponent(linkToBack)
+    layout.addComponent(input)
+    layout.addComponent(convert)
     setContent(layout)
 
   }

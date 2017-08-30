@@ -7,7 +7,7 @@ import com.vaadin.ui._
 
 @Title("json path")
 @Theme("valo")
-class UIPath extends UI {
+class UIPath extends UITrait {
 
   @Override
   override protected def init(vaadinRequest: VaadinRequest) {
@@ -26,6 +26,7 @@ class UIPath extends UI {
     val layout = new VerticalLayout()
     layout.setSpacing(true)
     layout.setMargin(true)
+    layout.addComponent(linkToBack)
     layout.addComponent(counterField)
     layout.addComponent(incrementButton)
     setContent(layout)
