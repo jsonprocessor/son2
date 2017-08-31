@@ -9,28 +9,34 @@ import pl.writeonly.son2.jack.glue.CreatorProviderJack
 
 import scala.collection.JavaConverters._
 
+import pl.writeonly.son2.drop.vaadin.JavaFunctions._
 
 @Title("json converter")
 @Theme("valo")
 class UIConverter extends UITrait {
 
+
+
+
   override def components: List[Component] = {
     val input = inputTextArea
     val output = outputLabel
 
-    val formatsMapping = Map("JSON" -> 'object, "YAML" -> 'yaml, "XML" -> 'xml, "Java properties" -> 'propierties)
+    val formatsMapping = Map[String, Symbol]("JSON" -> 'object, "YAML" -> 'yaml, "XML" -> 'xml, "Java properties" -> 'propierties)
     val formats = formatsMapping.keys
-    val inputFormats = new RadioButtonGroup[String]("Input formats", formats.asJavaCollection)
-    val outputFormats = new RadioButtonGroup[String]("Output formats", formats.asJavaCollection)
+    val inputFormats = new RadioButtonGroup[String]("Input formats:", formats.asJavaCollection)
+    val outputFormats = new RadioButtonGroup[String]("Output formats:", formats.asJavaCollection)
 
     val components: List[Component] = List(inputFormats, outputFormats)
 
     val convert = convertButton(new Button.ClickListener() {
       override def buttonClick(clickEvent: ClickEvent): Unit = {
-        val inputFormat = inputFormats.getSelectedItem()
-        val outputFormat = inputFormats.getSelectedItem()
-        val config = Config(RConfig(), WConfig())
-//        CreatorProviderJack()
+        val inputFormat = inputFormats.getSelectedItem().map((it:String) => formatsMapping.get(it).get).orElse('object)
+        val outputFormat = inputFormats.getSelectedItem().map((it:String) => formatsMapping.get(it).get).orElse('yaml)
+        val config = Config(RConfig(format = inputFormat), WConfig(format = outputFormat))
+        val provider = CreatorProviderJack(config)
+        val value = provider.convert(input.getValue)
+        output.setValue(value)
       }
     })
 

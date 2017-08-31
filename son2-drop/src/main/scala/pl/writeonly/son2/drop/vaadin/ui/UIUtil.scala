@@ -31,13 +31,13 @@ trait UIUtil extends UI {
   def setWidth(c: AbstractComponent) = c.setWidth("100%")
 
   def optionsPanel(components: List[Component]): Panel = {
-    val result = new Panel("Options", optionsVerticalLayout(components))
+    val result = new Panel("Options", optionsHorizontalLayout(components))
     setWidth(result)
     result
   }
 
-  def optionsVerticalLayout(components: List[Component]): VerticalLayout = {
-    val result = new VerticalLayout(components: _*)
+  def optionsHorizontalLayout(components: List[Component]): HorizontalLayout = {
+    val result = new HorizontalLayout(components: _*)
     result
   }
 
