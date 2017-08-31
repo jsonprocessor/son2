@@ -34,6 +34,14 @@
             <groupId>pl.writeonly.son2</groupId>
             <artifactId>son2-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>pl.writeonly.son2</groupId>
+            <artifactId>son2-json</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>pl.writeonly.son2</groupId>
+            <artifactId>son2-jack</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>io.dropwizard</groupId>
@@ -60,6 +68,8 @@
             <artifactId>vaadin-server</artifactId>
             <version>${vaadin.version}</version>
         </dependency>
+
+
         
     </dependencies>
 

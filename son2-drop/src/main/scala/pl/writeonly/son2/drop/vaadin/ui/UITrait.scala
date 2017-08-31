@@ -1,13 +1,17 @@
 package pl.writeonly.son2.drop.vaadin.ui
 
-import com.vaadin.server.ExternalResource
-import com.vaadin.ui.{Link, UI}
+import com.vaadin.server.VaadinRequest
+import com.vaadin.ui._
 
-trait UITrait extends UI {
-  def link(caption: String, sourceURL : String) = new Link(caption, new ExternalResource(sourceURL));
+trait UITrait extends UIUtil {
 
-  def linkToBack = new Link("back", new ExternalResource(""));
+  def components: List[Component]
 
-  def inputJson = "Input Json"
+  @Override
+  override protected def init(vaadinRequest: VaadinRequest): Unit = {
+    val layout = layoutVerticalLayout
+    setContent(layout)
+    layout.addComponents(components: _*)
+  }
 
 }
