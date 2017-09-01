@@ -29,8 +29,8 @@ logging:
       timeZone: UTC
       target: stdout
       logFormat: # TODO
-      filterFactories:
-        - type: URI
+#      filterFactories:
+#        - type: URI
 metrics:
   reporters:
     - type: console
