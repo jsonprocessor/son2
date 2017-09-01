@@ -19,8 +19,8 @@ logging:
       timeZone: UTC
       logFormat: # TODO
       bufferSize: 8KB
-      filterFactories:
-        - type: URI
+#      filterFactories:
+#        - type: URI
 metrics:
   reporters:
     - type: log
