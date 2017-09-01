@@ -14,12 +14,14 @@ class UIFormatter extends UITrait {
 
     val input = inputTextArea
     val output = outputLabel
+    val configLabel = outputLabel
+
 
     val providers = List[String]("Gson", "Jackson", "Smart")
 
     val providerGroup = new RadioButtonGroup[String]("Providers", providers.asJavaCollection)
 
-    val components: List[Component] = List(providerGroup)
+    val components: List[Component] = List(providerGroup, configLabel)
 
     val convert = convertButton(new Button.ClickListener() {
       override def buttonClick(clickEvent: ClickEvent): Unit = {
@@ -27,6 +29,6 @@ class UIFormatter extends UITrait {
       }
     })
 
-    return List(toBackLink, input, optionsPanel(components), convert, output)
+    return List(linkPanel, optionsPanel(components), input, convert, output)
   }
 }

@@ -13,9 +13,17 @@ trait UIUtil extends UI {
     result
   }
 
-  def link(caption: String, sourceURL: String) = new Link(caption, new ExternalResource(sourceURL));
+  def linkPanel:Panel = horizontaPanel("Menu", mainLink, jsonFormatterLink, jsonConverterLink)
 
-  def toBackLink: Link = new Link("back", new ExternalResource(""));
+  def horizontaPanel(caption: String, components: Component*) = new Panel(caption, new HorizontalLayout(components: _*))
+
+  def mainLink: Link = link("Main", "/ui");
+
+  def jsonFormatterLink: Link = link("Json Formatter", "/ui/formatter");
+
+  def jsonConverterLink: Link = link("Json Converter", "/ui/converter");
+
+  def link(caption: String, sourceURL: String) = new Link(caption, new ExternalResource(sourceURL));
 
   def inputTextArea: TextArea = inputTextArea(inputJson)
 
@@ -37,8 +45,7 @@ trait UIUtil extends UI {
   }
 
   def optionsHorizontalLayout(components: List[Component]): HorizontalLayout = {
-    val result = new HorizontalLayout(components: _*)
-    result
+     new HorizontalLayout(components: _*)
   }
 
   def convertButton(listener: Button.ClickListener): Button = {
@@ -52,4 +59,5 @@ trait UIUtil extends UI {
     setWidth(result)
     result
   }
+
 }

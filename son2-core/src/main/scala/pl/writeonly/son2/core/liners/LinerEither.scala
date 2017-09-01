@@ -11,8 +11,10 @@ class LinerEither(provider: Provider) extends Liner(provider) {
       .either(convert(line))
     result match {
       case Right(result) => result
-      case Left(exception) => exception.getStackTrace.mkString("\n")
+      case Left(exception) => exception.getMessage + "\n" + exception.getStackTrace.mkString("\n")
     }
   }
+
+
 
 }

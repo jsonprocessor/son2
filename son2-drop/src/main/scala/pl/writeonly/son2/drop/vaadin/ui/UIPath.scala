@@ -23,6 +23,6 @@ class UIPath extends UITrait {
       }
     });
 
-    return List(toBackLink, input, optionsPanel(components), convert, output)
+    return List(linkPanel, input, optionsPanel(components), convert, output)
   }
 }
