@@ -1,0 +1,16 @@
+logging:
+  level: INFO
+  appenders:
+    - type: file
+      currentLogFilename: /var/log/myapplication.log
+      threshold: ALL
+      queueSize: 512
+      discardingThreshold: 0
+      archive: true
+      archivedLogFilenamePattern: /var/log/myapplication-%d.log
+      archivedFileCount: 5
+      timeZone: UTC
+      logFormat: # TODO
+      bufferSize: 8KB
+      filterFactories:
+        - type: URI
