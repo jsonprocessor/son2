@@ -5,9 +5,9 @@ import pl.writeonly.son2.json.core.ProvidersJson
 import pl.writeonly.son2.json.creators.PCreatorConfigJson
 
 class ChainNotationConfigJson extends ChainNotationConfig(
-  new PCreatorConfigJson(ProvidersJson.GSON)
-    orElse
-    new PCreatorConfigJson(ProvidersJson.JACKSON)
+  new PCreatorConfigJson(ProvidersJson.JACKSON)
     orElse
     new PCreatorConfigJson(ProvidersJson.SMART)
+    orElse
+    new PCreatorConfigJson(ProvidersJson.GSON)
 )

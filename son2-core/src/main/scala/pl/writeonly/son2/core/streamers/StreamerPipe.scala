@@ -12,18 +12,10 @@ abstract class StreamerPipe(liner: Liner) extends Streamer(liner) {
 
   override def convertFile(in: String, out: String): Unit = convertFile(new File(in), new File(out))
 
-  override def convertFile(in: URI, out: URI): Unit = convertFile(new File(in), new File(out))
-
   override def convertFile(in: File, out: File): Unit = convertStream(new FileInputStream(in), new FileOutputStream(out))
 
   override def convertStream(in: InputStream, out: OutputStream): Unit = {
     convertNative(new InputStreamReader(in, Control.UTF_8), new OutputStreamWriter(out, Control.UTF_8))
-  }
-
-  override def convertStringNative(in: String): String = {
-    val out = new StringWriter()
-    convertNative(new StringReader(in), out)
-    out.toString
   }
 
   def convertNative(in: Reader, out: Writer): Unit = {
@@ -36,6 +28,14 @@ abstract class StreamerPipe(liner: Liner) extends Streamer(liner) {
 
   def convertBuffered(in: BufferedReader, out: BufferedWriter): Unit = {
     stream2(in.lines(), out)
+  }
+
+  override def convertFile(in: URI, out: URI): Unit = convertFile(new File(in), new File(out))
+
+  override def convertStringNative(in: String): String = {
+    val out = new StringWriter()
+    convertNative(new StringReader(in), out)
+    out.toString
   }
 
   override def convertBytes(in: Array[Byte]): Array[Byte] = {
