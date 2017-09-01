@@ -2,15 +2,15 @@ package pl.writeonly.son2.jack.providers
 
 import com.fasterxml.jackson.core.JsonParseException
 import com.fasterxml.jackson.databind.JsonMappingException
+import pl.writeonly.son2.core.converters.{Converter, Converter2}
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
-import pl.writeonly.son2.core.providers.{Provider, Provider2}
 import pl.writeonly.son2.jack.core.{ConfigJack, FormatsJack}
-import pl.writeonly.son2.jack.glue.CreatorProviderJack
+import pl.writeonly.son2.jack.glue.CreatorConverterJack
 import pl.writeonly.son2.spec.WhiteResultSpec
 
 class ObjectWordSpec extends WhiteResultSpec {
 
-  val provider: Provider = CreatorProviderJack(FormatsJack.OBJECT)
+  val provider: Converter = CreatorConverterJack(FormatsJack.OBJECT)
   "A Provider" should {
     "produce JsonParseException when convert a" in {
       assertThrows[JsonParseException] {
@@ -31,16 +31,16 @@ class ObjectWordSpec extends WhiteResultSpec {
     }
   }
 
-  val providerRaw: Provider = CreatorProviderJack(ConfigJack(o = FormatsJack.OBJECT, p = false))
+  val providerRaw: Converter = CreatorConverterJack(ConfigJack(o = FormatsJack.OBJECT, p = false))
   "A ProviderRaw" should {
     "have pretty == false" in {
       assertResult(false)(providerRaw.config.write.style)
     }
     "be  Provider2" in {
-      assertResult(true)(providerRaw.isInstanceOf[Provider2])
+      assertResult(true)(providerRaw.isInstanceOf[Converter2])
     }
   }
-  val provider2Raw = providerRaw.asInstanceOf[Provider2]
+  val provider2Raw = providerRaw.asInstanceOf[Converter2]
   "A Provider2Raw" should {
     //    "have pretty == false" in {
     //      assertResult(false)(provider2Raw.out.config.style)

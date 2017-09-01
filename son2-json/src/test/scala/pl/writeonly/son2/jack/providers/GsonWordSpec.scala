@@ -1,14 +1,14 @@
 package pl.writeonly.son2.jack.providers
 
+import pl.writeonly.son2.core.converters.{Converter, Converter2}
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
-import pl.writeonly.son2.core.providers.{Provider, Provider2}
-import pl.writeonly.son2.gson.core.{ConfigGson, FormatsGson}
-import pl.writeonly.son2.gson.glue.CreatorProviderGson
+import pl.writeonly.son2.json.core.{ConfigGson, FormatsGson}
+import pl.writeonly.son2.json.glue.CreatorConverterJson
 import pl.writeonly.son2.spec.WhiteResultSpec
 
 class GsonWordSpec extends WhiteResultSpec {
 
-  val provider: Provider = CreatorProviderGson(FormatsGson.GSON)
+  val provider: Converter = CreatorConverterJson(FormatsGson.GSON)
   "A Provider" should {
     "produce JsonParseException when convert a" in {
       assertResult("\"a\"")(provider.convert("a"))
@@ -28,16 +28,16 @@ class GsonWordSpec extends WhiteResultSpec {
     }
   }
 
-  val providerRaw: Provider = CreatorProviderGson(ConfigGson(o = FormatsGson.GSON, p = false))
+  val providerRaw: Converter = CreatorConverterJson(ConfigGson(o = FormatsGson.GSON, p = false))
   "A ProviderRaw" should {
     "have pretty == false" in {
       assertResult(false)(providerRaw.config.write.style)
     }
     "be  Provider2" in {
-      assertResult(true)(providerRaw.isInstanceOf[Provider2])
+      assertResult(true)(providerRaw.isInstanceOf[Converter2])
     }
   }
-  val provider2Raw = providerRaw.asInstanceOf[Provider2]
+  val provider2Raw = providerRaw.asInstanceOf[Converter2]
   "A Provider2Raw" should {
     "have pretty == false" in {
       assertResult(false)(provider2Raw.out.config.style)

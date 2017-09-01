@@ -1,10 +1,10 @@
 package pl.writeonly.son2.core.liners
 
-import pl.writeonly.son2.core.providers.Provider
+import pl.writeonly.son2.core.converters.Converter
 
 import scala.util.control.Exception._
 
-class LinerEither(provider: Provider) extends Liner(provider) {
+class LinerEither(provider: Converter) extends Liner(provider) {
 
   def apply(line: String): String = {
     val result: Either[Throwable, String] = catching(classOf[Exception])
@@ -14,7 +14,6 @@ class LinerEither(provider: Provider) extends Liner(provider) {
       case Left(exception) => exception.getMessage + "\n" + exception.getStackTrace.mkString("\n")
     }
   }
-
 
 
 }

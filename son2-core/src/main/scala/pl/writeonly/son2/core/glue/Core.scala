@@ -2,9 +2,9 @@ package pl.writeonly.son2.core.glue
 
 import com.google.common.base.Preconditions
 import org.scalactic.{Bad, ErrorMessage, Good, Or}
-import pl.writeonly.son2.core.providers.Provider
+import pl.writeonly.son2.core.converters.Converter
 
-class Core(params: Params, args: Array[String], creator: CreatorProviderOr) {
+class Core(params: Params, args: Array[String], creator: CreatorConverterOr) {
   val length = args.length
 
   def apply = option match {
@@ -12,9 +12,9 @@ class Core(params: Params, args: Array[String], creator: CreatorProviderOr) {
     case Bad(format) => bad(params, format)
   }
 
-  def option: Provider Or ErrorMessage = length match {
+  def option: Converter Or ErrorMessage = length match {
     case 0 => Bad(null)
-    case _ => creator.providerOr(args(0).toLowerCase)
+    case _ => creator.converterOr(args(0).toLowerCase)
   }
 
   def bad(params: Params, errorMessage: ErrorMessage): Unit = Preconditions.checkState(false, errorMessage.asInstanceOf[Any])

@@ -1,6 +1,6 @@
 package pl.writeonly.son2.core.streamers
 
-import pl.writeonly.son2.core.providers.ProviderFake
+import pl.writeonly.son2.core.converters.ConverterFake
 import pl.writeonly.son2.spec.WhiteResultSpec
 
 
@@ -8,7 +8,7 @@ class StreamerPipeForeachResultSpec extends WhiteResultSpec {
 
   val EMPTY_STRING = ""
   val TWO_EMPTY_STRING = "\n"
-  val streamer: Streamer = new StreamerPipeForeach(new ProviderFake)
+  val streamer: Streamer = new StreamerPipeForeach(new ConverterFake)
 
   "A StreamerPipeForeach" when {
     "convertFile with empty File" should {

@@ -3,12 +3,12 @@ package pl.writeonly.son2.core.streamers
 import java.io.FileNotFoundException
 import java.net.URI
 
-import pl.writeonly.son2.core.providers.ProviderFake
+import pl.writeonly.son2.core.converters.ConverterFake
 import pl.writeonly.son2.spec.GrayScalarSpec
 
 class StreamerPipeForeachScalarSpec extends GrayScalarSpec {
   describe("A Streamer") {
-    val streamer = new StreamerPipeForeach(new ProviderFake)
+    val streamer = new StreamerPipeForeach(new ConverterFake)
     it("when convertFile file with empty name") {
       assertThrows[FileNotFoundException] {
         streamer.convertFile("", "")

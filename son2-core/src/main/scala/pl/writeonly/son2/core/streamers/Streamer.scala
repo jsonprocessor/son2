@@ -14,7 +14,7 @@ abstract class Streamer(val liner: Liner) {
 
   def convertFile(in: File, out: File): Unit
 
-  def convertString(native : Boolean, in:String):String = if (native) convertStringNative(in) else convertString(in)
+  def convertString(native: Boolean, in: String): String = if (native) convertStringNative(in) else convertString(in)
 
   def convertString(in: String): String = {
     val bytes = convertBytes(Streamer.toBytes(in))

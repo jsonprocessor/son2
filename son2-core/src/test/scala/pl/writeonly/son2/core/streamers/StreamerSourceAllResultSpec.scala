@@ -2,7 +2,7 @@ package pl.writeonly.son2.core.streamers
 
 import java.io.{PrintWriter, StringWriter}
 
-import pl.writeonly.son2.core.providers.ProviderFake
+import pl.writeonly.son2.core.converters.ConverterFake
 import pl.writeonly.son2.spec.WhiteResultSpec
 
 import scala.io.Source
@@ -12,7 +12,7 @@ class StreamerSourceAllResultSpec extends WhiteResultSpec {
   val EMPTY_STRING = ""
   val ONE_LINE = "\n"
   val TWO_LINE = "\n\n"
-  val streamer: StreamerSource = new StreamerSourceAll(new ProviderFake)
+  val streamer: StreamerSource = new StreamerSourceAll(new ConverterFake)
 
   "A StreamerSourceAll" when {
     "convertStringNative empty string" should {

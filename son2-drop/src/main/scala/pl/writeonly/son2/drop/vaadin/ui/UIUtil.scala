@@ -13,7 +13,7 @@ trait UIUtil extends UI {
     result
   }
 
-  def linkPanel:Panel = horizontaPanel("Menu", mainLink, jsonFormatterLink, jsonConverterLink)
+  def linkPanel: Panel = horizontaPanel("Menu", mainLink, jsonFormatterLink, jsonConverterLink)
 
   def horizontaPanel(caption: String, components: Component*) = new Panel(caption, new HorizontalLayout(components: _*))
 
@@ -36,8 +36,6 @@ trait UIUtil extends UI {
     result
   }
 
-  def setWidth(c: AbstractComponent) = c.setWidth("100%")
-
   def optionsPanel(components: List[Component]): Panel = {
     val result = new Panel("Options", optionsHorizontalLayout(components))
     setWidth(result)
@@ -45,7 +43,7 @@ trait UIUtil extends UI {
   }
 
   def optionsHorizontalLayout(components: List[Component]): HorizontalLayout = {
-     new HorizontalLayout(components: _*)
+    new HorizontalLayout(components: _*)
   }
 
   def convertButton(listener: Button.ClickListener): Button = {
@@ -59,5 +57,7 @@ trait UIUtil extends UI {
     setWidth(result)
     result
   }
+
+  def setWidth(c: AbstractComponent) = c.setWidth("100%")
 
 }

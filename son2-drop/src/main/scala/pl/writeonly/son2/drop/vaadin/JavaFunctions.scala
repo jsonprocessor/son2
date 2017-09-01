@@ -1,6 +1,7 @@
 package pl.writeonly.son2.drop.vaadin
 
 import java.util.function.{Function => jFunction}
+
 object JavaFunctions {
   //  implicit def toJavaFunction[U, V](f:Function1[U,V]): Function[U, V] = new jFunction[U, V] {
   //    override def apply(t: U): V = f(t)

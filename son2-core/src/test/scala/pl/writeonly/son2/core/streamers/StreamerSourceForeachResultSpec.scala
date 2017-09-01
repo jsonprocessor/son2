@@ -3,7 +3,7 @@ package pl.writeonly.son2.core.streamers
 import java.io.{ByteArrayInputStream, ByteArrayOutputStream, PrintWriter, StringWriter}
 import java.nio.charset.StandardCharsets
 
-import pl.writeonly.son2.core.providers.ProviderFake
+import pl.writeonly.son2.core.converters.ConverterFake
 import pl.writeonly.son2.spec.WhiteResultSpec
 
 import scala.io.Source
@@ -13,10 +13,10 @@ class StreamerSourceForeachResultSpec extends WhiteResultSpec {
   val EMPTY_STRING = ""
   val ONE_LINE = "\n"
   val TWO_LINE = "\n\n"
-  val streamer = new StreamerSourceForeach(new ProviderFake)
+  val streamer = new StreamerSourceForeach(new ConverterFake)
 
   "A StreamerSourceForeach" when {
-    val streamer = new StreamerSourceForeach(new ProviderFake())
+    val streamer = new StreamerSourceForeach(new ConverterFake())
     "convert empty two lines to String" should {
       "return ?" in {
         streamer.source2string(Source.fromString(TWO_LINE))

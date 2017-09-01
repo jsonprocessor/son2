@@ -4,14 +4,14 @@ import java.io.FileNotFoundException
 
 import pl.writeonly.son2.core.streamers.StreamerPipeForeach
 import pl.writeonly.son2.jack.core.FormatsJack
-import pl.writeonly.son2.jack.glue.CreatorProviderJack
+import pl.writeonly.son2.jack.glue.CreatorConverterJack
 import pl.writeonly.son2.spec.BlackSpec
 
 class StreamerXmlFeatureSpec extends BlackSpec {
 
   info("FileJson2XmlFeature with Json2Xml")
 
-  val given = () => new StreamerPipeForeach(CreatorProviderJack(FormatsJack.XML))
+  val given = () => new StreamerPipeForeach(CreatorConverterJack(FormatsJack.XML))
 
   val outName = (name: String) => Features.outputPathname(Types.STREAMER, name, FormatsJack.XML)
 

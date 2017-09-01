@@ -1,10 +1,10 @@
 package pl.writeonly.son2.jack.providers
 
+import pl.writeonly.son2.core.converters.Converter
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
-import pl.writeonly.son2.core.providers.Provider
 import pl.writeonly.son2.core.streamers.{Streamer, StreamerPipeForeach}
 import pl.writeonly.son2.jack.core.{ConfigJack, FormatsJack}
-import pl.writeonly.son2.jack.glue.CreatorProviderJack
+import pl.writeonly.son2.jack.glue.CreatorConverterJack
 import pl.writeonly.son2.spec.GrayVectorSpec
 
 class ObjectVectorSpec extends GrayVectorSpec {
@@ -28,7 +28,7 @@ class ObjectVectorSpec extends GrayVectorSpec {
     "a"
   )
 
-  val provider: Provider = CreatorProviderJack(ConfigJack(o = FormatsJack.OBJECT, p = false))
+  val provider: Converter = CreatorConverterJack(ConfigJack(o = FormatsJack.OBJECT, p = false))
   property("convert son to yaml by provider") {
     forAll(toSuccess) { (in, out) =>
       provider.convert(in) should be(out)

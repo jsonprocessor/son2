@@ -29,7 +29,7 @@ class MainerResultSpec extends WhiteResultSpec {
 
   "A Mainer with IO and empty string in array" when {
     "invoke either" should {
-      "return ProviderObject(Config())" in {
+      "return ConverterObject(Config())" in {
         val input = Streamer.toStream("")
         val output = new ByteArrayOutputStream()
         val params = Params(input, output)
