@@ -104,6 +104,9 @@
                     <mainClass>pl.writeonly.son2.drop.vaadin.AppVaadin</mainClass>
                     <arguments>
                         <argument>server</argument>
+                        <argument>yml/default-console-console.yml</argument>
+                        <!--<argument>yml/simple-file-slf4j.yml</argument>-->
+                        <!--<argument>yml/simple-syslog-csv.yml</argument>-->
                     </arguments>
                 </configuration>
             </plugin>
