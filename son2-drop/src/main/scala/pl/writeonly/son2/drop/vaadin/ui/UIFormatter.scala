@@ -23,7 +23,7 @@ class UIFormatter extends UITrait {
     val providerGroup = new RadioButtonGroup[String]("Providers", providers.asJavaCollection)
     providerGroup.setSelectedItem(providers(0))
 
-    val components: List[Component] = List(providerGroup, configLabel)
+    val components: List[Component] = List(providerGroup, checkBoxes, configLabel)
 
     val convert = convertButton(new Button.ClickListener() {
       override def buttonClick(clickEvent: ClickEvent): Unit = {

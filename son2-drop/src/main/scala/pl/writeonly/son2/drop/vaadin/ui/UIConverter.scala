@@ -15,7 +15,7 @@ import scala.collection.JavaConverters._
 @Theme("valo")
 class UIConverter extends UITrait {
 
-  val formatsMapping = Map[String, Symbol]("JSON" -> 'object, "YAML" -> 'yaml, "XML" -> 'xml, "Java properties" -> 'propierties)
+  val formatsMapping = Map[String, Symbol]("JSON" -> 'object, "YAML" -> 'yaml, "XML" -> 'xml, "Java properties" -> 'properties)
   val formats = formatsMapping.keys
 
 
@@ -28,7 +28,7 @@ class UIConverter extends UITrait {
     val inputFormats = new RadioButtonGroup[String]("Input formats:", formats.asJavaCollection)
     inputFormats.setSelectedItem("JSON")
     val outputFormats = new RadioButtonGroup[String]("Output formats:", formats.asJavaCollection)
-    inputFormats.setSelectedItem("YAML")
+    outputFormats.setSelectedItem("YAML")
     val components: List[Component] = List(inputFormats, outputFormats, checkBoxes, configLabel)
 
     val convert = convertButton(new Button.ClickListener() {
