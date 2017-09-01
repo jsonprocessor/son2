@@ -15,8 +15,8 @@ logging:
       threshold: ALL
       stackTracePrefix: \t
       logFormat: # TODO
-      filterFactories:
-        - type: URI
+#      filterFactories:
+#        - type: URI
 metrics:
   reporters:
     - type: csv
