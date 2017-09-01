@@ -14,10 +14,10 @@ logging:
       facility: local0
       threshold: ALL
       stackTracePrefix: \t
-      logFormat: # TODO
+#      logFormat: # TODO
 #      filterFactories:
 #        - type: URI
 metrics:
   reporters:
     - type: csv
-      file: metrics.csv
+      file: metrics
