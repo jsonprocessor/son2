@@ -6,7 +6,7 @@ object ConfigPath {
   def apply(
              i: Symbol = Symbol("$"),
              s: Boolean = true,
-             o: Symbol = Formats.SMART,
+             o: Symbol = FormatsPath.SMART,
              p: Boolean = false
            ) = new Config(
     read = RConfig(format = i, stream = s, query = Option(i.name)),

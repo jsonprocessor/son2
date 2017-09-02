@@ -6,6 +6,8 @@ import pl.writeonly.son2.path.notation.{NotationReaderSmart, NotationReaderStric
 
 abstract class Path(val format: Symbol, val reader: NotationReader, val writer: WConfig => NotationWriter)
 
-case class SmartPath() extends Path(Formats.SMART, new NotationReaderSmart, c => new NotationWriterSmart(c))
+case class SmartPath() extends Path(FormatsPath.SMART, new NotationReaderSmart, c => new NotationWriterSmart(c))
 
-case class StrictPath() extends Path(Formats.STRICT, new NotationReaderStrict, c => new NotationWriterStrict(c))
+case class StrictPath() extends Path(FormatsPath.STRICT, new NotationReaderStrict, c => new NotationWriterStrict(c))
+
+//case class GsonPath() extends Path(FormatsPath.GSON, new NotationReaderGson, c => new NotationWriterGson(c))

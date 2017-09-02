@@ -60,4 +60,5 @@ trait UIUtil extends UI {
 
   def setWidth(c: AbstractComponent) = c.setWidth("100%")
 
+
 }

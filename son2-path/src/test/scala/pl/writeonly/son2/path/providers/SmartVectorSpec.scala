@@ -4,7 +4,7 @@ import pl.writeonly.son2.core.converters.Converter
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.core.streamers.{Streamer, StreamerPipeForeach}
 import pl.writeonly.son2.path.chain.ChainNotationPairPath
-import pl.writeonly.son2.path.core.{ConfigPath, Formats}
+import pl.writeonly.son2.path.core.{ConfigPath, FormatsPath}
 import pl.writeonly.son2.spec.GrayVectorSpec
 
 class SmartVectorSpec extends GrayVectorSpec {
@@ -28,7 +28,7 @@ class SmartVectorSpec extends GrayVectorSpec {
     "a"
   )
 
-  val provider: Converter = ChainNotationPairPath(ConfigPath(Formats.SMART))
+  val provider: Converter = ChainNotationPairPath(ConfigPath(FormatsPath.SMART))
   property("convert son to smart by provider") {
     forAll(toSuccess) { (in, out) =>
       provider.convert(in) should be(out)

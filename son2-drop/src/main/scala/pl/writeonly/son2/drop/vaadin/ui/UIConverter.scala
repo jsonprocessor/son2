@@ -15,6 +15,7 @@ import scala.collection.JavaConverters._
 @Theme("valo")
 class UIConverter extends UITrait {
 
+
   val formatsMapping = Map[String, Symbol]("JSON" -> 'object, "YAML" -> 'yaml, "XML" -> 'xml, "Java properties" -> 'properties)
   val formats = formatsMapping.keys
 

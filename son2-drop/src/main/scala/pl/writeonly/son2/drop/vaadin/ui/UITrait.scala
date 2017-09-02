@@ -16,7 +16,7 @@ trait UITrait extends UIUtil {
 
   def nativeGroup = new CheckBoxGroup("Native:", natives.asJavaCollection)
 
-  def debug(configLabel : Label, config: Config, set: Set[String]) =  configLabel.setValue(config.toString + "\n" + set)
+  def debug(configLabel: Label, config: Config, set: Set[String]) = configLabel.setValue(config.toString + "\n" + set)
 
   def convert2(provider: Converter, input: TextArea, output: Label, items: Set[String]) = {
     val inputValue = input.getValue
@@ -26,12 +26,13 @@ trait UITrait extends UIUtil {
   }
 
 
-
   @Override
   override protected def init(vaadinRequest: VaadinRequest): Unit = {
     val layout = layoutVerticalLayout
     setContent(layout)
     layout.addComponents(components: _*)
   }
+
+
 
 }

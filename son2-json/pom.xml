@@ -35,32 +35,12 @@
             <groupId>pl.writeonly.son2</groupId>
             <artifactId>son2-jack</artifactId>
         </dependency>
+        <dependency>
+            <groupId>pl.writeonly.son2</groupId>
+            <artifactId>son2-path</artifactId>
+        </dependency>
 
-        <dependency>
-            <groupId>net.minidev</groupId>
-            <artifactId>json-smart</artifactId>
-            <version>2.3</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.8.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.tapestry</groupId>
-            <artifactId>tapestry-json</artifactId>
-            <version>5.4.3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.codehaus.jettison</groupId>
-            <artifactId>jettison</artifactId>
-            <version>1.3.8</version>
-        </dependency>
-        <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20170516</version>
-        </dependency>
+
 
 
     </dependencies>
