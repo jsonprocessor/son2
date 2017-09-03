@@ -3,7 +3,6 @@ package pl.writeonly.son2.json.glue
 import pl.writeonly.son2.core.chain.{ChainNotationRWT, PCreatorTranslatorFake}
 import pl.writeonly.son2.jack.core.JackObject
 import pl.writeonly.son2.jack.creators.{PCreatorReaderJack, PCreatorWriterJack}
-import pl.writeonly.son2.json.creators.{PCreatorReaderSmart, PCreatorWriterSmart}
 import pl.writeonly.son2.path.core.{SmartPath, StrictPath}
 import pl.writeonly.son2.path.creators.{PCreatorReaderGson, PCreatorReaderPath, PCreatorWriterGson, PCreatorWriterPath}
 
