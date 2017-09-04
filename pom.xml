@@ -34,9 +34,9 @@
     <modules>
         <module>son2-spec</module>
         <module>son2-core</module>
-        <module>son2-json</module>
         <module>son2-jack</module>
         <module>son2-path</module>
+        <module>son2-json</module>
         <module>son2-text</module>
         <module>son2-main</module>
         <module>son2-drop</module>

@@ -1,4 +1,4 @@
-package pl.writeonly.son2.drop.vaadin.ui
+package pl.writeonly.son2.drop.vaadin.util
 
 import com.vaadin.ui.Panel
 

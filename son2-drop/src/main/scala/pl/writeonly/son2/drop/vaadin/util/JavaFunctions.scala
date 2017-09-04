@@ -1,4 +1,4 @@
-package pl.writeonly.son2.drop.vaadin
+package pl.writeonly.son2.drop.vaadin.util
 
 import java.util.function.{Function => jFunction}
 

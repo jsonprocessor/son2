@@ -1,4 +1,4 @@
-package pl.writeonly.son2.drop.vaadin
+package pl.writeonly.son2.drop.vaadin.servlets
 
 import com.vaadin.annotations.VaadinServletConfiguration
 import com.vaadin.server.VaadinServlet

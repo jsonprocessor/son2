@@ -2,6 +2,7 @@ package pl.writeonly.son2.drop.vaadin
 
 import io.dropwizard.Application
 import io.dropwizard.setup.{Bootstrap, Environment}
+import pl.writeonly.son2.drop.vaadin.servlets.{Servlet, ServletConverter, ServletFormatter, ServletPath}
 
 class ApplicationVaadin extends Application[ConfigurationVaadin] {
 

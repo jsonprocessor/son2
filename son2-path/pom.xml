@@ -31,6 +31,10 @@
             <groupId>pl.writeonly.son2</groupId>
             <artifactId>son2-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>pl.writeonly.son2</groupId>
+            <artifactId>son2-jack</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>ninja.leaping.configurate</groupId>
