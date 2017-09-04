@@ -7,11 +7,12 @@ import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui._
 import pl.writeonly.son2.core.config.{Config, RConfig, WConfig}
 import pl.writeonly.son2.drop.vaadin.util.JavaFunctions._
+import pl.writeonly.son2.drop.vaadin.util.Mappings
 import pl.writeonly.son2.jack.glue.CreatorConverterJack
 
 import scala.collection.JavaConverters._
 
-@Title("json converter")
+@Title("jackson converter")
 @Theme("valo")
 class UIConverter extends UITrait {
 
@@ -21,14 +22,14 @@ class UIConverter extends UITrait {
     val input = inputTextArea
     val output = outputLabel
 
-    val inputFormats = radioButtonGroup("Input formats:", jacksonFormats, "JSON")
+    val inputFormats = radioButtonGroup("Input formats:", Mappings.jacksonFormatsMapping, "JSON")
     val outputFormats = jacksonOutputFormat("YAML")
     val components: List[Component] = List(inputFormats, outputFormats, checkBoxes, configLabel)
 
     val convert = convertButton(new Button.ClickListener() {
       override def buttonClick(clickEvent: ClickEvent): Unit = {
-        val inputFormat = selectedItem(inputFormats, jacksonFormatsMapping)
-        val outputFormat = selectedItem(outputFormats, jacksonFormatsMapping)
+        val inputFormat = selectedItem(inputFormats, Mappings.jacksonFormatsMapping)
+        val outputFormat = selectedItem(outputFormats, Mappings.jacksonFormatsMapping)
         val config = Config(
           RConfig(format = inputFormat),
           WConfig(format = outputFormat)

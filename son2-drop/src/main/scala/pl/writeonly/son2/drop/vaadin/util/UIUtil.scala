@@ -58,13 +58,17 @@ trait UIUtil {
     result
   }
 
+  def radioButtonGroup(caption: String, items: Map[String, _], selected : String): RadioButtonGroup[String] = radioButtonGroup(caption, items.keySet, selected)
+
+  def radioButtonGroup(caption: String, items: Map[String, _]): RadioButtonGroup[String] = radioButtonGroup(caption, items.keySet)
+
+  def radioButtonGroup(caption: String, items: Iterable[String]): RadioButtonGroup[String] = radioButtonGroup(caption, items, items.iterator.next)
+
   def radioButtonGroup(caption: String, items: Iterable[String], selected: String): RadioButtonGroup[String] = {
-    val result = radioButtonGroup(caption, items)
+    val result = new RadioButtonGroup[String](caption, items.asJavaCollection)
     result.setSelectedItem(selected)
     result
   }
-
-  def radioButtonGroup(caption: String, items: Iterable[String]): RadioButtonGroup[String] = new RadioButtonGroup[String](caption, items.asJavaCollection)
 
   def getSelectedItem(group :RadioButtonGroup[String] , mapping : Map[String, Symbol]) : Optional[Symbol] = group
     .getSelectedItem()

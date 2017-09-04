@@ -5,17 +5,15 @@ import com.vaadin.annotations.{Theme, Title}
 import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui._
 import pl.writeonly.son2.core.config.{Config, RConfig, WConfig}
+import pl.writeonly.son2.drop.vaadin.util.Mappings
 import pl.writeonly.son2.path.core.ConfigPath
 
 import scala.collection.JavaConverters._
-
 import pl.writeonly.son2.path.glue.CreatorConverterPath
 
 @Title("json path")
 @Theme("valo")
 class UIPath extends UITrait {
-
-  val providers = List("Jackson", "Json", "Gson", "Smart")
 
   override def components: List[Component] = {
     val checkBoxes = nativeGroup
@@ -23,7 +21,7 @@ class UIPath extends UITrait {
     val input = inputTextArea
     val output = outputLabel
 
-    val providerGroup = radioButtonGroup("Providers", providers, "Smart");
+    val providerGroup = radioButtonGroup("Providers", Mappings.pathProvidersMapping, "Smart");
     val outputFormats = jacksonOutputFormat("JSON")
     val components: List[Component] = List(providerGroup, outputFormats, checkBoxes, configLabel)
 

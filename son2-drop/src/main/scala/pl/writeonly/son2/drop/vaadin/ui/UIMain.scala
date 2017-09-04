@@ -7,10 +7,6 @@ import com.vaadin.ui._
 @Theme("valo")
 class UIMain extends UITrait {
   override def components: List[Component] = {
-    return List[Component](
-      link("Json Formatter", "formatter"),
-      link("Json Converter", "converter"),
-      link("Json Path", "path")
-    )
+    return List[Component](linkPanel)
   }
 }

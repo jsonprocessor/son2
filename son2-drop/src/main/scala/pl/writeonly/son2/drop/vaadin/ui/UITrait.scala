@@ -5,17 +5,14 @@ import com.vaadin.ui.{CheckBoxGroup, _}
 import pl.writeonly.son2.core.config.Config
 import pl.writeonly.son2.core.converters.Converter
 import pl.writeonly.son2.core.glue.Streamers
-import pl.writeonly.son2.drop.vaadin.util.UIUtil
+import pl.writeonly.son2.drop.vaadin.util.{Mappings, UIUtil}
 
 import scala.collection.JavaConverters._
 
 
 trait UITrait extends UI with UIUtil {
 
-  val jacksonFormatsMapping = Map[String, Symbol]("JSON" -> 'object, "YAML" -> 'yaml, "XML" -> 'xml, "Java properties" -> 'properties)
-  val jacksonFormats = jacksonFormatsMapping.keys
-
-  def jacksonOutputFormat(selected:String) = radioButtonGroup("Output formats:", jacksonFormats, selected)
+  def jacksonOutputFormat(selected:String) = radioButtonGroup("Output formats:", Mappings.jacksonFormatsMapping, selected)
 
 
   val natives = List("Print", "String")
@@ -24,11 +21,14 @@ trait UITrait extends UI with UIUtil {
 
 
 
+
   def components: List[Component]
 
   def nativeGroup = new CheckBoxGroup("Native:", natives.asJavaCollection)
 
-  def native2Group = new CheckBoxGroup("Native:", natives.asJavaCollection)
+  def readGroup = radioButtonGroup("Read:", natives)
+
+  def writeGroup = radioButtonGroup("Write:", natives)
 
 
   def debug(configLabel: Label, config: Config, set: Set[String]) = configLabel.setValue(config.toString + "\n" + set)

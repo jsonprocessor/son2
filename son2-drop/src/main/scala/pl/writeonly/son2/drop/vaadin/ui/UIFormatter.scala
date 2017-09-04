@@ -7,6 +7,7 @@ import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui._
 import pl.writeonly.son2.core.config.{Config, RConfig, WConfig}
 import pl.writeonly.son2.drop.vaadin.util.JavaFunctions._
+import pl.writeonly.son2.drop.vaadin.util.Mappings
 import pl.writeonly.son2.json.glue.CreatorConverterJson
 
 import scala.collection.JavaConverters._
@@ -15,26 +16,18 @@ import scala.collection.JavaConverters._
 @Theme("valo")
 class UIFormatter extends UITrait {
 
-  val providersMapping = Map[String, Symbol](
-    "Gson" -> 'gson,
-    "Jackson" -> 'object,
-    "Smart" -> 'smart,
-    "Strict" -> 'strict
-  )
-  val providers = providersMapping.keys
-
   override def components: List[Component] = {
     val checkBoxes = nativeGroup
     val configLabel = outputLabel
     val input = inputTextArea
     val output = outputLabel
 
-    val providerGroup = radioButtonGroup("Providers", providers, providers.iterator.next)
+    val providerGroup = radioButtonGroup("Providers", Mappings.pathProvidersMapping)
     val components: List[Component] = List(providerGroup, checkBoxes, configLabel)
 
     val convert = convertButton(new Button.ClickListener() {
       override def buttonClick(clickEvent: ClickEvent): Unit = {
-        val provider = selectedItem(providerGroup, providersMapping)
+        val provider = selectedItem(providerGroup, Mappings.pathProvidersMapping)
         val config = Config(
           RConfig(format = provider),
           WConfig(format = provider)
