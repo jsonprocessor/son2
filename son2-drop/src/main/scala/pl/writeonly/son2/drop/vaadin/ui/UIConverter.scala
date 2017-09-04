@@ -17,6 +17,8 @@ import scala.collection.JavaConverters._
 class UIConverter extends UITrait {
 
   override def components: List[Component] = {
+    val read = readGroup
+    val write = writeGroup
     val checkBoxes = nativeGroup
     val configLabel = outputLabel
     val input = inputTextArea
@@ -24,7 +26,7 @@ class UIConverter extends UITrait {
 
     val inputFormats = radioButtonGroup("Input formats:", Mappings.jacksonFormatsMapping, "JSON")
     val outputFormats = jacksonOutputFormat("YAML")
-    val components: List[Component] = List(inputFormats, outputFormats, checkBoxes, configLabel)
+    val components: List[Component] = List(inputFormats, outputFormats, read, write, checkBoxes, configLabel)
 
     val convert = convertButton(new Button.ClickListener() {
       override def buttonClick(clickEvent: ClickEvent): Unit = {

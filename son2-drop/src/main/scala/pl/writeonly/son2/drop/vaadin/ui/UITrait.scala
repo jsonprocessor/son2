@@ -26,9 +26,9 @@ trait UITrait extends UI with UIUtil {
 
   def nativeGroup = new CheckBoxGroup("Native:", natives.asJavaCollection)
 
-  def readGroup = radioButtonGroup("Read:", natives)
+  def readGroup = radioButtonGroup("Read:", Mappings.readMapping)
 
-  def writeGroup = radioButtonGroup("Write:", natives)
+  def writeGroup = radioButtonGroup("Write:", Mappings.writeMapping)
 
 
   def debug(configLabel: Label, config: Config, set: Set[String]) = configLabel.setValue(config.toString + "\n" + set)

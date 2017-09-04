@@ -17,13 +17,16 @@ import scala.collection.JavaConverters._
 class UIFormatter extends UITrait {
 
   override def components: List[Component] = {
+    val read = readGroup
+    val write = writeGroup
     val checkBoxes = nativeGroup
     val configLabel = outputLabel
     val input = inputTextArea
     val output = outputLabel
 
     val providerGroup = radioButtonGroup("Providers", Mappings.pathProvidersMapping)
-    val components: List[Component] = List(providerGroup, checkBoxes, configLabel)
+
+    val components: List[Component] = List(providerGroup, read, write, checkBoxes, configLabel)
 
     val convert = convertButton(new Button.ClickListener() {
       override def buttonClick(clickEvent: ClickEvent): Unit = {

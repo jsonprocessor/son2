@@ -12,9 +12,6 @@ import pl.writeonly.son2.path.glue.CreatorConverterPath
 @Title("json path")
 @Theme("valo")
 class UIPatch extends UITrait {
-
-//  val providers = List("Jackson", "Json", "Gson", "Smart")
-
   override def components: List[Component] = {
     val checkBoxes = nativeGroup
     val configLabel = outputLabel
@@ -26,7 +23,6 @@ class UIPatch extends UITrait {
     val components: List[Component] = List(providerGroup, outputFormats, checkBoxes, configLabel)
 
     val inputPatch = inputTextArea("json-patch")
-
 
     val convert = convertButton(new Button.ClickListener() {
       override def buttonClick(clickEvent: ClickEvent): Unit = {

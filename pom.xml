@@ -36,6 +36,8 @@
         <module>son2-core</module>
         <module>son2-jack</module>
         <module>son2-path</module>
+        <module>son2-patch</module>
+        <module>son2-diff</module>
         <module>son2-json</module>
         <module>son2-text</module>
         <module>son2-main</module>
@@ -126,6 +128,16 @@
             <dependency>
                 <groupId>pl.writeonly.son2</groupId>
                 <artifactId>son2-path</artifactId>
+                <version>${son2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>pl.writeonly.son2</groupId>
+                <artifactId>son2-patch</artifactId>
+                <version>${son2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>pl.writeonly.son2</groupId>
+                <artifactId>son2-diff</artifactId>
                 <version>${son2.version}</version>
             </dependency>
             <dependency>

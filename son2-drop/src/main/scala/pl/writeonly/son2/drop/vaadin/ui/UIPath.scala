@@ -16,6 +16,8 @@ import pl.writeonly.son2.path.glue.CreatorConverterPath
 class UIPath extends UITrait {
 
   override def components: List[Component] = {
+    val read = readGroup
+    val write = writeGroup
     val checkBoxes = nativeGroup
     val configLabel = outputLabel
     val input = inputTextArea
@@ -23,7 +25,7 @@ class UIPath extends UITrait {
 
     val providerGroup = radioButtonGroup("Providers", Mappings.pathProvidersMapping, "Smart");
     val outputFormats = jacksonOutputFormat("JSON")
-    val components: List[Component] = List(providerGroup, outputFormats, checkBoxes, configLabel)
+    val components: List[Component] = List(providerGroup, outputFormats, read, write, checkBoxes, configLabel)
 
     val inputPath = inputTextField("json-path")
 
