@@ -5,13 +5,13 @@ import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui._
 import pl.writeonly.son2.drop.vaadin.util.Mappings
 import pl.writeonly.son2.path.core.ConfigPath
-
-import scala.collection.JavaConverters._
 import pl.writeonly.son2.path.glue.CreatorConverterPath
 
-@Title("json patch")
+import scala.collection.JavaConverters._
+
+@Title("json path")
 @Theme("valo")
-class UIPatch extends UITrait {
+class UIDiff extends UITrait {
   override def components: List[Component] = {
     val checkBoxes = nativeGroup
     val configLabel = outputLabel

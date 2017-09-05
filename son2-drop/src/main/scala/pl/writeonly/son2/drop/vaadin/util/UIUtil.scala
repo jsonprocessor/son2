@@ -58,9 +58,9 @@ trait UIUtil {
     result
   }
 
-  def radioButtonGroup(caption: String, items: Map[String, _], selected : String): RadioButtonGroup[String] = radioButtonGroup(caption, items.keySet, selected)
+  def radioButtonGroup(caption: String, items: Map[String, _], selected : String): RadioButtonGroup[String] = radioButtonGroup(caption, items.keys, selected)
 
-  def radioButtonGroup(caption: String, items: Map[String, _]): RadioButtonGroup[String] = radioButtonGroup(caption, items.keySet)
+  def radioButtonGroup(caption: String, items: Map[String, _]): RadioButtonGroup[String] = radioButtonGroup(caption, items.keys)
 
   def radioButtonGroup(caption: String, items: Iterable[String]): RadioButtonGroup[String] = radioButtonGroup(caption, items, items.iterator.next)
 

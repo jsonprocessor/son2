@@ -2,7 +2,7 @@ package pl.writeonly.son2.drop.vaadin.servlets
 
 import com.vaadin.annotations.VaadinServletConfiguration
 import com.vaadin.server.VaadinServlet
-import pl.writeonly.son2.drop.vaadin.ui.{UIConverter, UIFormatter, UIMain, UIPath}
+import pl.writeonly.son2.drop.vaadin.ui._
 
 @VaadinServletConfiguration(ui = classOf[UIMain], productionMode = false)
 class Servlet extends VaadinServlet
@@ -15,3 +15,9 @@ class ServletConverter extends VaadinServlet
 
 @VaadinServletConfiguration(ui = classOf[UIPath], productionMode = false)
 class ServletPath extends VaadinServlet
+
+@VaadinServletConfiguration(ui = classOf[UIPatch], productionMode = false)
+class ServletPatch extends VaadinServlet
+
+@VaadinServletConfiguration(ui = classOf[UIDiff], productionMode = false)
+class ServletDiff extends VaadinServlet
