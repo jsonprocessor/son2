@@ -3,7 +3,7 @@ package pl.writeonly.son2.drop.vaadin.ui
 import com.vaadin.annotations.{Theme, Title}
 import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui._
-import pl.writeonly.son2.drop.vaadin.util.{Mappings, TopMenu, UITrait}
+import pl.writeonly.son2.drop.vaadin.util.{ComponentsIO, Mappings, TopMenu, UITrait}
 import pl.writeonly.son2.path.core.ConfigPath
 import pl.writeonly.son2.path.glue.CreatorConverterPath
 
@@ -15,8 +15,7 @@ class UIPatch extends UITrait {
   override def components: List[Component] = {
     val checkBoxes = nativeGroup
     val configLabel = outputLabel
-    val input = inputTextArea
-    val output = outputLabel
+    val io = new ComponentsIO
 
     val providerGroup = radioButtonGroup("Providers", Mappings.pathProvidersMapping, "Smart");
     val outputFormats = jacksonOutputFormat("JSON")
@@ -31,10 +30,10 @@ class UIPatch extends UITrait {
 
         val set = checkBoxes.getValue.asScala.toSet
         debug(configLabel, config, set)
-        convert2(CreatorConverterPath(config), input, output, set)
+        convert2(CreatorConverterPath(config), io.input, io.output, set)
       }
     })
 
-    return List(new TopMenu().linkPanel, optionsPanel(components), inputPatch, input, convert, output)
+    return List(new TopMenu().linkPanel, optionsPanel(components), inputPatch, io.input, convert, io.output)
   }
 }

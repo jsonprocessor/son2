@@ -12,8 +12,8 @@ import pl.writeonly.son2.drop.vaadin.util.{Mappings, TopMenu, UITrait}
 class UIComparator extends UITrait {
 
   override def components: List[Component] = {
-    val inputLeft = inputTextArea("expected json:")
-    val inputRight = inputTextArea("actual json:")
+    val inputLeft = inputTextArea("Expected json:")
+    val inputRight = inputTextArea("Actual json:")
     val output = outputLabel
 
     val modeGroup = radioButtonGroup("Compare mode", Mappings.modeMapping)
