@@ -26,8 +26,8 @@ class UIFormatter extends UITrait {
       override def buttonClick(clickEvent: ClickEvent): Unit = {
         val provider = selectedItem(providerGroup, Mappings.pathProvidersMapping)
         val config = Config(
-          RConfig(format = provider),
-          WConfig(format = provider)
+          RConfig(format = provider, stream = rw.readSelectedItem.equals('stream)),
+          WConfig(format = provider, style = rw.readSelectedItem.equals('style))
         )
         val set = rw.nativeGroup.getValue.asScala.toSet
         debug(rw.configLabel, config, set)

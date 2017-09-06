@@ -3,8 +3,8 @@ package pl.writeonly.son2.drop.vaadin.ui
 import com.vaadin.annotations.{Theme, Title}
 import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui._
+import pl.writeonly.son2.core.config.{Config, RConfig, WConfig}
 import pl.writeonly.son2.drop.vaadin.util.{ComponentsRW, Mappings, TopMenu, UITrait}
-import pl.writeonly.son2.path.core.ConfigPath
 import pl.writeonly.son2.path.glue.CreatorConverterPath
 
 import scala.collection.JavaConverters._
@@ -27,7 +27,11 @@ class UIPath extends UITrait {
     val convert = convertButton(new Button.ClickListener() {
       override def buttonClick(clickEvent: ClickEvent): Unit = {
         val path = inputPath.getValue
-        val config = ConfigPath(i = Symbol(path))
+        val provider = Symbol(providerGroup.getSelectedItem.get())
+        val config = Config(
+          RConfig(format = Symbol(path), stream = rw.readSelectedItem.equals('stream), query = Option(path)),
+          WConfig(format = provider, style = rw.readSelectedItem.equals('style))
+        )
 
         val set = rw.nativeGroup.getValue.asScala.toSet
         debug(rw.configLabel, config, set)

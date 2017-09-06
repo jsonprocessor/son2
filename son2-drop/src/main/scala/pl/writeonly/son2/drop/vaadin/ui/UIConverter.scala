@@ -27,8 +27,8 @@ class UIConverter extends UITrait {
         val inputFormat = selectedItem(inputFormats, Mappings.jacksonFormatsMapping)
         val outputFormat = selectedItem(outputFormats, Mappings.jacksonFormatsMapping)
         val config = Config(
-          RConfig(format = inputFormat),
-          WConfig(format = outputFormat)
+          RConfig(format = inputFormat, stream = rw.readSelectedItem.equals('stream)),
+          WConfig(format = outputFormat, style = rw.readSelectedItem.equals('style))
         )
         val set = rw.nativeGroup.getValue.asScala.toSet
         debug(rw.configLabel, config, set)
@@ -38,6 +38,4 @@ class UIConverter extends UITrait {
 
     return List[Component](new TopMenu().linkPanel, optionsPanel(components), input, convert, output)
   }
-
-
 }

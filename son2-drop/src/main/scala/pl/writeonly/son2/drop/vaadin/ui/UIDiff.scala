@@ -32,9 +32,8 @@ class UIDiff extends UITrait {
         val set = checkBoxes.getValue.asScala.toSet
         debug(configLabel, config, set)
         convert2(CreatorConverterPath(config), input, output, set)
-
       }
-    });
+    })
 
     return List(new TopMenu().linkPanel, optionsPanel(components), inputPatch, input, convert, output)
   }
