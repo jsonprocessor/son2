@@ -38,6 +38,6 @@ class UIPath extends UITrait {
       }
     })
 
-    return List(linkPanel, optionsPanel(components), inputPath, input, convert, output)
+    return List(new TopMenu().linkPanel, optionsPanel(components), inputPath, input, convert, output)
   }
 }

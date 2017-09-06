@@ -16,16 +16,10 @@ trait UITrait extends UI with UIUtil {
 
   val natives = List("Print", "String")
 
-  val natives2 = List("Stream", "Pretty")
 
   def components: List[Component]
 
   def nativeGroup = new CheckBoxGroup("Native:", natives.asJavaCollection)
-
-  def readGroup = radioButtonGroup("Read:", Mappings.readMapping)
-
-  def writeGroup = radioButtonGroup("Write:", Mappings.writeMapping)
-
 
   def debug(configLabel: Label, config: Config, set: Set[String]) = configLabel.setValue(config.toString + "\n" + set)
 
@@ -35,25 +29,6 @@ trait UITrait extends UI with UIUtil {
     val outputValue = streamer.convertString(items.contains("String"), inputValue)
     output.setValue(outputValue)
   }
-
-  def linkPanel: Panel = horizontaPanelEx("Top Menu",
-    mainLink,
-    jacksonConverter,
-    jsonComparatorLink,
-    jsonDiffLink,
-    jsonFormatterLink,
-    jsonPatchLink,
-    jsonPathLink)
-
-  def mainLink: Link = link("Main Side", "/ui");
-
-  def jacksonConverter: Link = link("Jackson Converter", "/ui/converter");
-
-  def jsonComparatorLink: Link = link("Json Comparator", "/ui/comparator");
-  def jsonDiffLink: Link = link("Json Diff", "/ui/diff");
-  def jsonFormatterLink: Link = link("Json Formatter", "/ui/formatter");
-  def jsonPatchLink: Link = link("Json Patch", "/ui/patch");
-  def jsonPathLink: Link = link("Json Path", "/ui/path");
 
   def optionsPanel(components: List[Component]): Panel = {
     val result = new Panel("Options", optionsHorizontalLayout(components))
