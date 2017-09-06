@@ -4,9 +4,9 @@ import java.util.Optional
 
 import com.vaadin.server.ExternalResource
 import com.vaadin.ui.{RadioButtonGroup, _}
+import pl.writeonly.son2.drop.vaadin.util.JavaFunctions._
 
 import scala.collection.JavaConverters._
-import JavaFunctions._
 
 trait UIUtil {
 
@@ -44,10 +44,6 @@ trait UIUtil {
     result
   }
 
-
-
-  def setWidth(c: AbstractComponent) = c.setWidth("100%")
-
   def optionsHorizontalLayout(components: List[Component]): HorizontalLayout = {
     new HorizontalLayout(components: _*)
   }
@@ -58,13 +54,15 @@ trait UIUtil {
     result
   }
 
-  def radioButtonGroup(caption: String, items: Map[String, _], selected : String): RadioButtonGroup[String] = radioButtonGroup(caption, items.keySet, selected)
+  def setWidth(c: AbstractComponent) = c.setWidth("100%")
+
+  def radioButtonGroup(caption: String, items: Map[String, _], selected: String): RadioButtonGroup[String] = radioButtonGroup(caption, items.keySet, selected)
+
+  def radioButtonGroup(caption: String, items: Set[String], selected: String): RadioButtonGroup[String] = radioButtonGroup(caption, items.toList.sorted, selected)
 
   def radioButtonGroup(caption: String, items: Map[String, _]): RadioButtonGroup[String] = radioButtonGroup(caption, items.keySet)
 
   def radioButtonGroup(caption: String, items: Set[String]): RadioButtonGroup[String] = radioButtonGroup(caption, items.toList.sorted)
-
-  def radioButtonGroup(caption: String, items: Set[String], selected: String): RadioButtonGroup[String] = radioButtonGroup(caption, items.toList.sorted, selected)
 
   def radioButtonGroup(caption: String, items: List[String]): RadioButtonGroup[String] = radioButtonGroup(caption, items, items.iterator.next)
 
@@ -74,10 +72,10 @@ trait UIUtil {
     result
   }
 
-  def getSelectedItem[A](group :RadioButtonGroup[String] , mapping : Map[String, A]) : Optional[A] = group
+  def selectedItem[A](group: RadioButtonGroup[String], mapping: Map[String, A]): A = getSelectedItem(group, mapping).get()
+
+  def getSelectedItem[A](group: RadioButtonGroup[String], mapping: Map[String, A]): Optional[A] = group
     .getSelectedItem()
     .map((it: String) => mapping.get(it).get)
-
-  def selectedItem[A](group :RadioButtonGroup[String] , mapping : Map[String, A]) : A = getSelectedItem(group, mapping).get()
 
 }

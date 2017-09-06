@@ -5,9 +5,9 @@ import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui._
 import pl.writeonly.son2.drop.vaadin.util.{Mappings, TopMenu, UITrait}
 import pl.writeonly.son2.path.core.ConfigPath
+import pl.writeonly.son2.path.glue.CreatorConverterPath
 
 import scala.collection.JavaConverters._
-import pl.writeonly.son2.path.glue.CreatorConverterPath
 
 @Title("json patch")
 @Theme("valo")

@@ -1,12 +1,9 @@
 package pl.writeonly.son2.drop.vaadin.ui
 
-import java.util.Optional
-
 import com.vaadin.annotations.{Theme, Title}
 import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui._
 import pl.writeonly.son2.core.config.{Config, RConfig, WConfig}
-import pl.writeonly.son2.drop.vaadin.util.JavaFunctions._
 import pl.writeonly.son2.drop.vaadin.util.{ComponentsRW, Mappings, TopMenu, UITrait}
 import pl.writeonly.son2.json.glue.CreatorConverterJson
 

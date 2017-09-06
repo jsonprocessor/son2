@@ -11,11 +11,9 @@ import scala.collection.JavaConverters._
 
 trait UITrait extends UI with UIUtil {
 
-  def jacksonOutputFormat(selected:String) = radioButtonGroup("Output formats:", Mappings.jacksonFormatsMapping, selected)
-
-
   val natives = List("Print", "String")
 
+  def jacksonOutputFormat(selected: String) = radioButtonGroup("Output formats:", Mappings.jacksonFormatsMapping, selected)
 
   def components: List[Component]
 
