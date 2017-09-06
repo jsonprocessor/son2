@@ -7,7 +7,7 @@ import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui._
 import pl.writeonly.son2.core.config.{Config, RConfig, WConfig}
 import pl.writeonly.son2.drop.vaadin.util.JavaFunctions._
-import pl.writeonly.son2.drop.vaadin.util.{Mappings, UITrait}
+import pl.writeonly.son2.drop.vaadin.util.{ComponentsRW, Mappings, UITrait}
 import pl.writeonly.son2.jack.glue.CreatorConverterJack
 
 import scala.collection.JavaConverters._
@@ -17,16 +17,13 @@ import scala.collection.JavaConverters._
 class UIConverter extends UITrait {
 
   override def components: List[Component] = {
-    val read = readGroup
-    val write = writeGroup
-    val checkBoxes = nativeGroup
-    val configLabel = outputLabel
+    val rw = new ComponentsRW
     val input = inputTextArea
     val output = outputLabel
 
     val inputFormats = radioButtonGroup("Input formats:", Mappings.jacksonFormatsMapping, "JSON")
     val outputFormats = jacksonOutputFormat("YAML")
-    val components: List[Component] = List(inputFormats, outputFormats, read, write, checkBoxes, configLabel)
+    val components: List[Component] = List(inputFormats, outputFormats) ++ rw.components
 
     val convert = convertButton(new Button.ClickListener() {
       override def buttonClick(clickEvent: ClickEvent): Unit = {
@@ -36,8 +33,8 @@ class UIConverter extends UITrait {
           RConfig(format = inputFormat),
           WConfig(format = outputFormat)
         )
-        val set = checkBoxes.getValue.asScala.toSet
-        debug(configLabel, config, set)
+        val set = rw.nativeGroup.getValue.asScala.toSet
+        debug(rw.configLabel, config, set)
         convert2(CreatorConverterJack(config), input, output, set)
       }
     })

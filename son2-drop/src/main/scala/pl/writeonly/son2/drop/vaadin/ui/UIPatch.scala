@@ -32,9 +32,8 @@ class UIPatch extends UITrait {
         val set = checkBoxes.getValue.asScala.toSet
         debug(configLabel, config, set)
         convert2(CreatorConverterPath(config), input, output, set)
-
       }
-    });
+    })
 
     return List(linkPanel, optionsPanel(components), inputPatch, input, convert, output)
   }

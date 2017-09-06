@@ -11,7 +11,6 @@ class ComponentsRW extends UIUtil {
   val nativeGroup = nativeGroupApply
   val configLabel = outputLabel
 
-
   def readSelectedItem = selectedItem(readGroup, Mappings.readMapping)
   def writeSelectedItem = selectedItem(writeGroup, Mappings.writeMapping)
 
