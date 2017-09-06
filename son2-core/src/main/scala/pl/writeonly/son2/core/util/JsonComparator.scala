@@ -5,13 +5,12 @@ import org.skyscreamer.jsonassert.{JSONCompare, JSONCompareMode, JSONCompareResu
 import scala.util.control.Exception.catching
 
 object JsonComparator {
-  def apply(expectedStr: String, actualStr: String, mode: JSONCompareMode): Unit = {
-    val result: Either[Throwable, JSONCompareResult] = catching(classOf[Exception])
-      .either(JSONCompare.compareJSON(expectedStr, actualStr, mode))
-    val value = result match {
+  def apply(expected: String, actual: String, mode: JSONCompareMode): String
+  = either(expected, actual, mode ) match {
       case Right(result) => result.toString
       case Left(exception) => exception.getMessage
-    }
-    return value
   }
+
+  def either(expected: String, actual: String, mode: JSONCompareMode): Either[Throwable, JSONCompareResult]
+  = catching(classOf[Exception]).either(JSONCompare.compareJSON(expected, actual, mode))
 }
