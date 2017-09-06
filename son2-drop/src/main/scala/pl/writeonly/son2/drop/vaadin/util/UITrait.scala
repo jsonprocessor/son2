@@ -1,11 +1,10 @@
-package pl.writeonly.son2.drop.vaadin.ui
+package pl.writeonly.son2.drop.vaadin.util
 
 import com.vaadin.server.VaadinRequest
 import com.vaadin.ui.{CheckBoxGroup, _}
 import pl.writeonly.son2.core.config.Config
 import pl.writeonly.son2.core.converters.Converter
 import pl.writeonly.son2.core.glue.Streamers
-import pl.writeonly.son2.drop.vaadin.util.{Mappings, UIUtil}
 
 import scala.collection.JavaConverters._
 
@@ -18,9 +17,6 @@ trait UITrait extends UI with UIUtil {
   val natives = List("Print", "String")
 
   val natives2 = List("Stream", "Pretty")
-
-
-
 
   def components: List[Component]
 

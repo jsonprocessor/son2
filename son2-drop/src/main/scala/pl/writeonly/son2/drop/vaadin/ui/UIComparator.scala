@@ -5,7 +5,7 @@ import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui._
 import com.vaadin.ui.themes.ValoTheme
 import pl.writeonly.son2.core.util.JsonComparator
-import pl.writeonly.son2.drop.vaadin.util.Mappings
+import pl.writeonly.son2.drop.vaadin.util.{Mappings, UITrait}
 
 @Title("json comparator")
 @Theme("valo")
