@@ -37,10 +37,10 @@ object Mappings {
   )
 
   val modeMapping = Map[String, JSONCompareMode](
-    "Strict {extensible=false, strictOrdertrue=true}" -> JSONCompareMode.STRICT,
-    "Lenient {extensible=true, strictOrder=false}" -> JSONCompareMode.LENIENT,
-    "Non extensible {fextensible=alse, strictOrder=false}" -> JSONCompareMode.NON_EXTENSIBLE,
-    "Strict order {extensible=true, strictOrder=true}" -> JSONCompareMode.STRICT_ORDER
+    "Strict (extensible=false, strictOrdertrue=true)" -> JSONCompareMode.STRICT,
+    "Lenient (extensible=true, strictOrder=false)" -> JSONCompareMode.LENIENT,
+    "Non extensible (fextensible=alse, strictOrder=false)" -> JSONCompareMode.NON_EXTENSIBLE,
+    "Strict order (extensible=true, strictOrder=true)" -> JSONCompareMode.STRICT_ORDER
   )
 
 }
