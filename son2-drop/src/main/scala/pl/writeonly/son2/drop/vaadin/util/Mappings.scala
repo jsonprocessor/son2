@@ -5,7 +5,7 @@ import org.skyscreamer.jsonassert.JSONCompareMode
 object Mappings {
   val readMapping = Map[String, Symbol](
     "All" -> 'all,
-    "Stream" -> 'stream
+    "Line-by-line" -> 'stream
   )
 
   val writeMapping = Map[String, Symbol](
