@@ -1,10 +1,11 @@
-package pl.writeonly.son2.drop.vaadin.util
+package pl.writeonly.son2.drop.vaadin.composites
 
 import com.vaadin.ui.CheckBoxGroup
+import pl.writeonly.son2.drop.vaadin.util.{Mappings, UIUtil}
 
 import scala.collection.JavaConverters._
 
-class ComponentsRW  {
+class ComponentsRW extends Composite {
   val readGroup = ComponentsRW.readGroupApply
   val writeGroup = ComponentsRW.writeGroupApply
   val nativeGroup = ComponentsRW.nativeGroupApply
@@ -21,7 +22,7 @@ class ComponentsRW  {
   def components = List(readGroup, writeGroup, nativeGroup, configLabel)
 
   def set = nativeGroup.getValue.asScala.toSet
-  
+
 }
 
 object ComponentsRW extends UIUtil{

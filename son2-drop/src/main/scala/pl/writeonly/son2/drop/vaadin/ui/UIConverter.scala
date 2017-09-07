@@ -4,6 +4,7 @@ import com.vaadin.annotations.{Theme, Title}
 import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui._
 import pl.writeonly.son2.core.config.{Config, RConfig, WConfig}
+import pl.writeonly.son2.drop.vaadin.composites.{ComponentsRW, CompositeIO}
 import pl.writeonly.son2.drop.vaadin.util._
 import pl.writeonly.son2.jack.glue.CreatorConverterJack
 
@@ -15,7 +16,7 @@ class UIConverter extends UITrait {
 
   override def components: List[Component] = {
     val rw = new ComponentsRW
-    val io = new ComponentsIO
+    val io = new CompositeIO
 
     val inputFormats = radioButtonGroup("Input formats:", Mappings.jacksonFormatsMapping, "JSON")
     val outputFormats = jacksonOutputFormat("YAML")
