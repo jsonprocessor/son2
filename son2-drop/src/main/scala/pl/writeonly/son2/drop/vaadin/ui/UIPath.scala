@@ -28,8 +28,8 @@ class UIPath extends UITrait {
         val path = inputPath.getValue
         val provider = Symbol(providerGroup.getSelectedItem.get())
         val config = Config(
-          RConfig(format = Symbol(path), stream = rw.readSelectedItem.equals('stream), query = Option(path)),
-          WConfig(format = provider, style = rw.readSelectedItem.equals('style))
+          RConfig(format = Symbol(path), stream = rw.readStream, query = Option(path)),
+          WConfig(format = provider, style = rw.writePretty)
         )
 
         val set = rw.nativeGroup.getValue.asScala.toSet

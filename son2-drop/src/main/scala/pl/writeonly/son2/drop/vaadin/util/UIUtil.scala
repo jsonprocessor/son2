@@ -7,6 +7,8 @@ import com.vaadin.ui.{RadioButtonGroup, _}
 import pl.writeonly.son2.drop.vaadin.util.JavaFunctions._
 
 import scala.collection.JavaConverters._
+import JavaFunctions._
+import com.vaadin.shared.ui.ContentMode
 
 trait UIUtil {
 
@@ -49,7 +51,7 @@ trait UIUtil {
   }
 
   def outputLabel: Label = {
-    val result = new Label()
+    val result = new Label("", ContentMode.PREFORMATTED)
     setWidth(result)
     result
   }

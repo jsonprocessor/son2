@@ -14,7 +14,11 @@ class ComponentsRW extends UIUtil {
 
   def readSelectedItem = selectedItem(readGroup, Mappings.readMapping)
 
+  def readStream = readSelectedItem.equals('stream)
+
   def writeSelectedItem = selectedItem(writeGroup, Mappings.writeMapping)
+
+  def writePretty = writeSelectedItem.equals('pretty)
 
   def components = List(readGroup, writeGroup, nativeGroup, configLabel)
 
@@ -25,6 +29,5 @@ class ComponentsRW extends UIUtil {
   def writeGroupApply = radioButtonGroup("Write:", Mappings.writeMapping)
 
   def nativeGroupApply = new CheckBoxGroup("Native:", natives.asJavaCollection)
-
 
 }

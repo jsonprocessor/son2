@@ -26,8 +26,8 @@ class UIConverter extends UITrait {
         val inputFormat = selectedItem(inputFormats, Mappings.jacksonFormatsMapping)
         val outputFormat = selectedItem(outputFormats, Mappings.jacksonFormatsMapping)
         val config = Config(
-          RConfig(format = inputFormat, stream = rw.readSelectedItem.equals('stream)),
-          WConfig(format = outputFormat, style = rw.readSelectedItem.equals('style))
+          RConfig(format = inputFormat, stream = rw.readStream),
+          WConfig(format = outputFormat, style = rw.writePretty)
         )
         val set = rw.nativeGroup.getValue.asScala.toSet
         debug(rw.configLabel, config, set)
