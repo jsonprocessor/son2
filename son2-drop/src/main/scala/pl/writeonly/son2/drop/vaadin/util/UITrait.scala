@@ -4,7 +4,7 @@ import com.vaadin.server.VaadinRequest
 import com.vaadin.ui.{CheckBoxGroup, _}
 import pl.writeonly.son2.core.config.Config
 import pl.writeonly.son2.core.converters.Converter
-import pl.writeonly.son2.core.glue.Streamers
+import pl.writeonly.son2.core.glue.{Piper, Streamers}
 
 import scala.collection.JavaConverters._
 
@@ -21,9 +21,9 @@ trait UITrait extends UI with UIUtil {
 
   def debug(configLabel: Label, config: Config, set: Set[String]) = configLabel.setValue(config.toString + "\n" + set)
 
-  def convert2(provider: Converter, input: TextArea, output: Label, items: Set[String]) = {
+  def convert2(converter: Converter, input: TextArea, output: Label, items: Set[String]) = {
     val inputValue = input.getValue
-    val streamer = Streamers.print(items.contains("Print"), false, provider)
+    val streamer = new Piper(null, converter).print(items.contains("Print"))
     val outputValue = streamer.convertString(items.contains("String"), inputValue)
     output.setValue(outputValue)
   }

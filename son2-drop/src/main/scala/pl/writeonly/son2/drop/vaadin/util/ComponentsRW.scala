@@ -5,12 +5,10 @@ import com.vaadin.ui.CheckBoxGroup
 import scala.collection.JavaConverters._
 
 class ComponentsRW extends UIUtil {
-
   val readGroup = readGroupApply
   val writeGroup = writeGroupApply
   val nativeGroup = nativeGroupApply
   val configLabel = outputLabel
-  val natives = List("Print", "String")
 
   def readSelectedItem = selectedItem(readGroup, Mappings.readMapping)
 
@@ -28,6 +26,6 @@ class ComponentsRW extends UIUtil {
 
   def writeGroupApply = radioButtonGroup("Write:", Mappings.writeMapping)
 
-  def nativeGroupApply = new CheckBoxGroup("Native:", natives.asJavaCollection)
+  def nativeGroupApply = new CheckBoxGroup("Native:", List("Print", "String").asJavaCollection)
 
 }
