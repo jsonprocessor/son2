@@ -30,7 +30,7 @@ class UIConverter extends UITrait {
           RConfig(format = inputFormat, stream = rw.readStream),
           WConfig(format = outputFormat, style = rw.writePretty)
         )
-        val set = rw.nativeGroup.getValue.asScala.toSet
+        val set = rw.set
         debug(rw.configLabel, config, set)
         convert2(CreatorConverterJack(config), io.input, io.output, set)
       }

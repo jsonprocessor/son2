@@ -17,9 +17,11 @@ trait UITrait extends UI with UIUtil {
 
   def components: List[Component]
 
-  def nativeGroup = new CheckBoxGroup("Native:", natives.asJavaCollection)
+  def nativeGroup = checkBoxGroup("Native:", natives)
 
-  def debug(configLabel: Label, config: Config, set: Set[String]) = configLabel.setValue(config.toString + "\n" + set)
+//  def debug(configLabel: Label, config: Config, set: Set[String]) = configLabel.setValue(config.toString + "\n" + set)
+
+  def debug(configLabel: Label, config: Any, set: Set[_]) = configLabel.setValue(config.toString + "\n" + set)
 
   def convert2(converter: Converter, input: TextArea, output: Label, items: Set[String]) = {
     val inputValue = input.getValue

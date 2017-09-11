@@ -29,7 +29,7 @@ class UIFormatter extends UITrait {
           RConfig(format = provider, stream = rw.readStream),
           WConfig(format = provider, style = rw.writePretty)
         )
-        val set = rw.nativeGroup.getValue.asScala.toSet
+        val set = rw.set
         debug(rw.configLabel, config, set)
         convert2(CreatorConverterJson(config), io.input, io.output, set)
       }

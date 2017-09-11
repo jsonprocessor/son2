@@ -56,6 +56,12 @@ trait UIUtil {
     result
   }
 
+  def checkBoxGroup(caption: String, items: Map[String, _]) : CheckBoxGroup[String] = checkBoxGroup(caption, items.keySet)
+
+  def checkBoxGroup(caption: String, items: Set[String]) : CheckBoxGroup[String] = checkBoxGroup(caption, items.toList.sorted)
+
+  def checkBoxGroup(caption: String, items: List[String]): CheckBoxGroup[String] = new CheckBoxGroup(caption, items.asJavaCollection)
+
   def setWidth(c: AbstractComponent) = c.setWidth("100%")
 
   def radioButtonGroup(caption: String, items: Map[String, _], selected: String): RadioButtonGroup[String] = radioButtonGroup(caption, items.keySet, selected)
@@ -79,5 +85,10 @@ trait UIUtil {
   def getSelectedItem[A](group: RadioButtonGroup[String], mapping: Map[String, A]): Optional[A] = group
     .getSelectedItem()
     .map((it: String) => mapping.get(it).get)
+
+  def getSelectedItem[A](group: CheckBoxGroup[String], mapping: Map[String, A]): Set[A] = group
+      .getSelectedItems.asScala.toSet.map((it: String) => mapping.get(it).get)
+
+
 
 }

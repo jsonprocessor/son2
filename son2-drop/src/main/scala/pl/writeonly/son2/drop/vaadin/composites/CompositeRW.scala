@@ -32,5 +32,5 @@ object ComponentsRW extends UIUtil{
 
   def writeGroupApply = radioButtonGroup("Write:", Mappings.writeMapping)
 
-  def nativeGroupApply = new CheckBoxGroup("Native:", ComponentsRW.natives.asJavaCollection)
+  def nativeGroupApply = checkBoxGroup("Native:", ComponentsRW.natives)
 }
