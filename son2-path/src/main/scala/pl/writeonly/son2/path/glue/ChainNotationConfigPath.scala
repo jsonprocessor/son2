@@ -9,9 +9,17 @@ class ChainNotationConfigPath extends ChainNotationConfig(
     orElse
     new PCreatorConfigPath(FormatsPath.GSON)
     orElse
+    new PCreatorConfigPath(FormatsPath.JACKSON)
+    orElse
+    new PCreatorConfigPath(FormatsPath.JACKSON_NODE)
+    orElse
+    new PCreatorConfigPath(FormatsPath.JETTISON)
+    orElse
     new PCreatorConfigPath(FormatsPath.ORG)
     orElse
     new PCreatorConfigPath(FormatsPath.SMART)
     orElse
     new PCreatorConfigPath(FormatsPath.STRICT)
+    orElse
+    new PCreatorConfigPath(FormatsPath.TAPESTRY)
 )
