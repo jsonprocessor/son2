@@ -8,8 +8,6 @@ import pl.writeonly.son2.drop.vaadin.composites.{CompositeIO, CompositeRW}
 import pl.writeonly.son2.drop.vaadin.util._
 import pl.writeonly.son2.json.glue.CreatorConverterJson
 
-import scala.collection.JavaConverters._
-
 @Title("json formatter")
 @Theme("valo")
 class UIFormatter extends UITrait {

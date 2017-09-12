@@ -3,7 +3,7 @@ package pl.writeonly.son2.drop.vaadin.ui
 import com.vaadin.annotations.{Theme, Title}
 import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui._
-import pl.writeonly.son2.drop.vaadin.util.{Mappings, TopMenu, UITrait}
+import pl.writeonly.son2.drop.vaadin.util.{Mappings, UITrait}
 import pl.writeonly.son2.path.core.ConfigPath
 import pl.writeonly.son2.path.glue.CreatorConverterPath
 

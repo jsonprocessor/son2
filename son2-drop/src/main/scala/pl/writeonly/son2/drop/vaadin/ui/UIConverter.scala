@@ -4,11 +4,9 @@ import com.vaadin.annotations.{Theme, Title}
 import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui._
 import pl.writeonly.son2.core.config.{Config, RConfig, WConfig}
-import pl.writeonly.son2.drop.vaadin.composites.{CompositeIO, CompositeRW, CompositeRW$}
+import pl.writeonly.son2.drop.vaadin.composites.{CompositeIO, CompositeRW}
 import pl.writeonly.son2.drop.vaadin.util._
 import pl.writeonly.son2.jack.glue.CreatorConverterJack
-
-import scala.collection.JavaConverters._
 
 @Title("jackson converter")
 @Theme("valo")

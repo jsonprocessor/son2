@@ -8,8 +8,6 @@ import pl.writeonly.son2.drop.vaadin.composites.{CompositeIO, CompositeRW}
 import pl.writeonly.son2.drop.vaadin.util._
 import pl.writeonly.son2.path.glue.CreatorConverterPath
 
-import scala.collection.JavaConverters._
-
 @Title("json path")
 @Theme("valo")
 class UIPath extends UITrait {
@@ -27,7 +25,7 @@ class UIPath extends UITrait {
     val convert = convertButton(new Button.ClickListener() {
       override def buttonClick(clickEvent: ClickEvent): Unit = {
         val path = inputPath.getValue
-        val provider = Symbol(providerGroup.getSelectedItem.get())
+        val provider = selectedItem(providerGroup, Mappings.pathProvidersMapping)
         val config = Config(
           RConfig(format = Symbol(path), stream = rw.readStream, query = Option(path)),
           WConfig(format = provider, style = rw.writePretty)
