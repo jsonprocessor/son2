@@ -1,21 +1,20 @@
 package pl.writeonly.son2.drop.vaadin.composites
 
-import com.vaadin.ui.CheckBoxGroup
 import pl.writeonly.son2.drop.vaadin.util.{Mappings, UIUtil}
 
 import scala.collection.JavaConverters._
 
-class ComponentsRW extends Composite {
-  val readGroup = ComponentsRW.readGroupApply
-  val writeGroup = ComponentsRW.writeGroupApply
-  val nativeGroup = ComponentsRW.nativeGroupApply
-  val configLabel = ComponentsRW.outputLabel
+class CompositeRW extends Composite {
+  val readGroup = CompositeRW.readGroupApply
+  val writeGroup = CompositeRW.writeGroupApply
+  val nativeGroup = CompositeRW.nativeGroupApply
+  val configLabel = CompositeRW.outputLabel
 
-  def readSelectedItem = ComponentsRW.selectedItem(readGroup, Mappings.readMapping)
+  def readSelectedItem = CompositeRW.selectedItem(readGroup, Mappings.readMapping)
 
   def readStream = readSelectedItem.equals('stream)
 
-  def writeSelectedItem = ComponentsRW.selectedItem(writeGroup, Mappings.writeMapping)
+  def writeSelectedItem = CompositeRW.selectedItem(writeGroup, Mappings.writeMapping)
 
   def writePretty = writeSelectedItem.equals('pretty)
 
@@ -25,12 +24,12 @@ class ComponentsRW extends Composite {
 
 }
 
-object ComponentsRW extends UIUtil{
+object CompositeRW extends UIUtil{
   val natives = List("Print", "String")
 
   def readGroupApply = radioButtonGroup("Read:", Mappings.readMapping)
 
   def writeGroupApply = radioButtonGroup("Write:", Mappings.writeMapping)
 
-  def nativeGroupApply = checkBoxGroup("Native:", ComponentsRW.natives)
+  def nativeGroupApply = checkBoxGroup("Native:", CompositeRW.natives)
 }

@@ -13,7 +13,7 @@ import scala.collection.JavaConverters._
 @Title("json patch")
 @Theme("valo")
 class UIPatch extends UITrait {
-  override def components: List[Component] = {
+  override def components2: List[Component] = {
     val checkBoxes = nativeGroup
     val configLabel = outputLabel
     val io = new CompositeIO
@@ -35,6 +35,6 @@ class UIPatch extends UITrait {
       }
     })
 
-    return List(new TopMenu().linkPanel, optionsPanel(components), inputPatch, io.input, convert, io.output)
+    return List(optionsPanel(components), inputPatch, io.input, convert, io.output)
   }
 }

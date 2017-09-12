@@ -11,13 +11,13 @@ import pl.writeonly.son2.drop.vaadin.util.{Mappings, TopMenu, UITrait}
 @Theme("valo")
 class UIComparator extends UITrait {
 
-  override def components: List[Component] = {
+  override def components2: List[Component] = {
     val inputLeft = inputTextArea("Expected json:")
     val inputRight = inputTextArea("Actual json:")
     val output = outputLabel
     val configLabel = outputLabel
 
-    val modeGroup = checkBoxGroup("", Mappings.modeSymbolMapping)
+    val modeGroup = checkBoxGroup(null, Mappings.modeSymbolMapping)
     modeGroup.addStyleName(ValoTheme.OPTIONGROUP_HORIZONTAL)
 
     val components: List[Component] = List(modeGroup, configLabel)
@@ -33,6 +33,6 @@ class UIComparator extends UITrait {
         output.setValue(value)
       }
     })
-    return List(new TopMenu().linkPanel, optionsPanel(components), inputLeft, inputRight, convert, output)
+    return List(optionsPanel(components), inputLeft, inputRight, convert, output)
   }
 }

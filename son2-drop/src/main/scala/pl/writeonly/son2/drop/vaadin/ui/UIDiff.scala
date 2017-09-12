@@ -12,7 +12,7 @@ import scala.collection.JavaConverters._
 @Title("json path")
 @Theme("valo")
 class UIDiff extends UITrait {
-  override def components: List[Component] = {
+  override def components2: List[Component] = {
     val checkBoxes = nativeGroup
     val configLabel = outputLabel
     val input = inputTextArea
@@ -35,6 +35,6 @@ class UIDiff extends UITrait {
       }
     })
 
-    return List(new TopMenu().linkPanel, optionsPanel(components), inputPatch, input, convert, output)
+    return List( optionsPanel(components), inputPatch, input, convert, output)
   }
 }

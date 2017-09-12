@@ -4,7 +4,7 @@ import com.vaadin.annotations.{Theme, Title}
 import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui._
 import pl.writeonly.son2.core.config.{Config, RConfig, WConfig}
-import pl.writeonly.son2.drop.vaadin.composites.{ComponentsRW, CompositeIO}
+import pl.writeonly.son2.drop.vaadin.composites.{CompositeRW$, CompositeIO}
 import pl.writeonly.son2.drop.vaadin.util._
 import pl.writeonly.son2.jack.glue.CreatorConverterJack
 
@@ -14,8 +14,8 @@ import scala.collection.JavaConverters._
 @Theme("valo")
 class UIConverter extends UITrait {
 
-  override def components: List[Component] = {
-    val rw = new ComponentsRW
+  override def components2: List[Component] = {
+    val rw = new CompositeRW
     val io = new CompositeIO
 
     val inputFormats = radioButtonGroup("Input formats:", Mappings.jacksonFormatsMapping, "JSON")
@@ -36,6 +36,6 @@ class UIConverter extends UITrait {
       }
     })
 
-    return List[Component](new TopMenu().linkPanel, optionsPanel(components), io.input, convert, io.output)
+    return List[Component](optionsPanel(components), io.input, convert, io.output)
   }
 }

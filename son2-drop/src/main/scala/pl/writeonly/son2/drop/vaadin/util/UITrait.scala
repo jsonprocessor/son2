@@ -15,7 +15,9 @@ trait UITrait extends UI with UIUtil {
 
   def jacksonOutputFormat(selected: String) = radioButtonGroup("Output formats:", Mappings.jacksonFormatsMapping, selected)
 
-  def components: List[Component]
+  def components: List[Component] = List(new TopMenu().linkPanel) ++ components2
+
+  def components2: List[Component] = List()
 
   def nativeGroup = checkBoxGroup("Native:", natives)
 
