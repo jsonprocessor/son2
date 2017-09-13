@@ -1,6 +1,7 @@
 package pl.writeonly.son2.path.notation
 
 import com.jayway.jsonpath.spi.json.JsonSmartJsonProvider
+import com.jayway.jsonpath.spi.mapper.JsonSmartMappingProvider
 import net.minidev.json.{JSONStyle, JSONValue}
 import pl.writeonly.son2.core.config.WConfig
 import pl.writeonly.son2.core.notation.{NotationReader, NotationWriter}
@@ -8,7 +9,9 @@ import pl.writeonly.son2.path.core.FormatsPath
 
 
 case class NotationCaseStrict()
-  extends NotationCasePath(FormatsPath.STRICT, new NotationReaderStrict, c => new NotationWriterStrict(c), new JsonSmartJsonProvider())
+  extends NotationCasePath(FormatsPath.STRICT,
+    new NotationReaderStrict, c => new NotationWriterStrict(c),
+    new JsonSmartJsonProvider(), new JsonSmartMappingProvider)
 
 class NotationReaderStrict() extends NotationReader {
   def apply(content: String): Any = JSONValue.parseStrict(content)

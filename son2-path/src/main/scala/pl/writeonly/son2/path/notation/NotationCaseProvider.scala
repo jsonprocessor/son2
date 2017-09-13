@@ -1,17 +1,20 @@
 package pl.writeonly.son2.path.notation
 
 import com.jayway.jsonpath.spi.json.JsonProvider
+import com.jayway.jsonpath.spi.mapper.MappingProvider
 import pl.writeonly.son2.core.config.WConfig
 import pl.writeonly.son2.core.notation.{NotationReader, NotationWriter}
 
 abstract class NotationCaseProvider(
                                  format: Symbol,
-                                 provider : JsonProvider
+                                 provider : JsonProvider,
+                                 mapper : MappingProvider
                                ) extends NotationCasePath(
   format,
   new NotationReaderProvider(provider),
   c => new NotationWriterProvider(provider, c),
-  provider)
+  provider, mapper
+)
 
 class NotationReaderProvider(provider : JsonProvider) extends NotationReader {
   override def apply(content: String): Any = provider.parse(content)
