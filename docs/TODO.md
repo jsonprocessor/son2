@@ -32,17 +32,11 @@
 - [ ] Add BigDeal format
 
 ## path - processor
-- [ ] Create module with all filtring code
 - [ ] Add JsonSurfer https://github.com/jsurfer/JsonSurfer
 - [ ] Add JQL https://github.com/benmfaul/JQL 
 - [ ] Add jfunk https://github.com/mgm-tp/jfunk
 - [ ] Add jolt https://github.com/bazaarvoice/jolt
 - [ ] Add jsoniq
-- [ ] Add JSONassert
-- [ ] Add JsonProvider
-  * Add Tapestry Json
-  * Add Gson
-  * Add Jettison
 
 ## diff - patch
 - http://jsonpatch.com/
@@ -59,5 +53,13 @@
 - [ ] Coloring as a ./jq https://stedolan.github.io/jq/
 
 ## drop
+- [ ] Extract Vaadin
+
+## play
+- [ ] https://github.com/henrikerola/play-vaadin-integration
+
+## back
 - [ ] Add persistance by redisson
 - [ ] Add persistance by mongojack
+
+
