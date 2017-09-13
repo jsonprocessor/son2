@@ -5,7 +5,7 @@ import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui._
 import pl.writeonly.son2.drop.vaadin.util.{Mappings, UITrait}
 import pl.writeonly.son2.path.core.ConfigPath
-import pl.writeonly.son2.path.glue.CreatorConverterPath
+import pl.writeonly.son2.path.glue.CreatorConverterPathMain
 
 import scala.collection.JavaConverters._
 
@@ -31,7 +31,7 @@ class UIDiff extends UITrait {
 
         val set = checkBoxes.getValue.asScala.toSet
         debug(configLabel, config, set)
-        convert2(CreatorConverterPath(config), input, output, set)
+        convert2(CreatorConverterPathMain(config), input, output, set)
       }
     })
 

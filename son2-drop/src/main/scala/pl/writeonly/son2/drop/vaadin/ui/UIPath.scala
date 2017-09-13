@@ -6,7 +6,7 @@ import com.vaadin.ui._
 import pl.writeonly.son2.core.config.{Config, RConfig, WConfig}
 import pl.writeonly.son2.drop.vaadin.composites.{CompositeIO, CompositeRW}
 import pl.writeonly.son2.drop.vaadin.util._
-import pl.writeonly.son2.path.glue.CreatorConverterPath
+import pl.writeonly.son2.path.glue.CreatorConverterPathMain
 
 @Title("json path")
 @Theme("valo")
@@ -33,7 +33,7 @@ class UIPath extends UITrait {
 
         val set = rw.set
         debug(rw.configLabel, config, set)
-        convert2(CreatorConverterPath(config), io.input, io.output, set)
+        convert2(CreatorConverterPathMain(config), io.input, io.output, set)
       }
     })
 

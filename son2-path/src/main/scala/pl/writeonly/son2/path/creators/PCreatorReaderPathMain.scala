@@ -5,7 +5,7 @@ import pl.writeonly.son2.core.notation.NotationReader
 import pl.writeonly.son2.core.pcreators.PCreatorReader
 import pl.writeonly.son2.path.notation.NotationReaderPath
 
-class PCreatorReaderPathQuery extends PCreatorReader {
+class PCreatorReaderPathMain extends PCreatorReader {
 
   override def isDefinedAt(c: RConfig): Boolean = isDefinedAt(c.query)
 

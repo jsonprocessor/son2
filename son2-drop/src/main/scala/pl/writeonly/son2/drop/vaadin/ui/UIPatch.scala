@@ -6,7 +6,7 @@ import com.vaadin.ui._
 import pl.writeonly.son2.drop.vaadin.composites.CompositeIO
 import pl.writeonly.son2.drop.vaadin.util.{Mappings, TopMenu, UITrait}
 import pl.writeonly.son2.path.core.ConfigPath
-import pl.writeonly.son2.path.glue.CreatorConverterPath
+import pl.writeonly.son2.path.glue.CreatorConverterPathMain
 
 import scala.collection.JavaConverters._
 
@@ -31,7 +31,7 @@ class UIPatch extends UITrait {
 
         val set = checkBoxes.getValue.asScala.toSet
         debug(configLabel, config, set)
-        convert2(CreatorConverterPath(config), io.input, io.output, set)
+        convert2(CreatorConverterPathMain(config), io.input, io.output, set)
       }
     })
 

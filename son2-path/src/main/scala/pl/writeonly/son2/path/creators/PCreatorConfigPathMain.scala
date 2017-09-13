@@ -4,7 +4,7 @@ import pl.writeonly.son2.core.config.{Config, RConfig, WConfig}
 import pl.writeonly.son2.core.pcreators.PCreatorConfig
 import pl.writeonly.son2.path.core.FormatsPath
 
-class PCreatorConfigPathQuery extends PCreatorConfig {
+class PCreatorConfigPathMain extends PCreatorConfig {
 
   override def isDefinedAt(s: String) = s != null && s.startsWith("$")
 

@@ -2,12 +2,10 @@ package pl.writeonly.son2.path.glue
 
 import pl.writeonly.son2.core.chain.ChainNotationConfig
 import pl.writeonly.son2.path.core.FormatsPath
-import pl.writeonly.son2.path.creators.{PCreatorConfigPath, PCreatorConfigPathQuery}
+import pl.writeonly.son2.path.creators.{PCreatorConfigPath, PCreatorConfigPathMain}
 
 class ChainNotationConfigPath extends ChainNotationConfig(
-  new PCreatorConfigPathQuery
-    orElse
-    new PCreatorConfigPath(FormatsPath.GSON)
+  new PCreatorConfigPath(FormatsPath.GSON)
     orElse
     new PCreatorConfigPath(FormatsPath.JACKSON)
     orElse
@@ -22,4 +20,10 @@ class ChainNotationConfigPath extends ChainNotationConfig(
     new PCreatorConfigPath(FormatsPath.STRICT)
     orElse
     new PCreatorConfigPath(FormatsPath.TAPESTRY)
+)
+
+class ChainNotationConfigPathMain extends ChainNotationConfig(
+  new PCreatorConfigPathMain
+    orElse
+    new ChainNotationConfigPath().get
 )

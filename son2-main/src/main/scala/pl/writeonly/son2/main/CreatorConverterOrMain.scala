@@ -5,12 +5,12 @@ import pl.writeonly.son2.core.config.Config
 import pl.writeonly.son2.core.glue.CreatorConverterOr
 import pl.writeonly.son2.jack.chain.ChainReaderJack
 import pl.writeonly.son2.jack.glue.{ChainNotationConfigJack, ChainNotationRWTJack}
-import pl.writeonly.son2.path.glue.{ChainNotationConfigPath, ChainNotationRWTPath}
+import pl.writeonly.son2.path.glue.{ChainNotationConfigPathMain, ChainNotationRWTPath}
 import pl.writeonly.son2.text.creators.PCreatorConfigText
 import pl.writeonly.son2.text.glue.ChainNotationRWTText
 
 class CreatorConverterOrMain extends CreatorConverterOr(
-  new ChainNotationConfigPath().get
+  new ChainNotationConfigPathMain().get
     orElse
     new ChainNotationConfigJack().get
     orElse
