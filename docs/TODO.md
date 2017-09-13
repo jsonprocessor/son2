@@ -59,6 +59,7 @@
 - [ ] https://github.com/henrikerola/play-vaadin-integration
 
 ## back
+- [ ] Add cassandra http://getquill.io/#docs
 - [ ] Add persistance by redisson
 - [ ] Add persistance by mongojack
 
