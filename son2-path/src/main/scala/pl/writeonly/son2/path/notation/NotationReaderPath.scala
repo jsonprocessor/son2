@@ -1,31 +1,19 @@
 package pl.writeonly.son2.path.notation
 
-import com.jayway.jsonpath.spi.json.JsonProvider
-import com.jayway.jsonpath.{Configuration, JsonPath}
-import java.util.{Set => jSet}
+import com.jayway.jsonpath.{Configuration, JsonPath, ParseContext}
 
-import com.jayway.jsonpath.spi.mapper.MappingProvider
+import com.jayway.jsonpath.Configuration.Defaults
 import pl.writeonly.son2.core.notation.NotationReader
-import com.jayway.jsonpath.{Option => jOption}
 
-class NotationReaderPath(val path: String) extends NotationReader {
+class NotationReaderPath(val defaults : Defaults, val path: String) extends NotationReader {
 
-  def apply(content: String): Any = JsonPath
-    .using(configuration)
-    .parse(content)
-    .read(path)
+  def apply(content: String): Any = using.parse(content).read(path)
 
-  def configuration = Configuration.defaultConfiguration()
+  def using : ParseContext = JsonPath.using(configuration)
 
-  def build = Configuration.builder
-    .jsonProvider(jsonProvider)
-    .mappingProvider(mappingProvider)
-    .options(options)
+  def configuration = Configuration.builder
+    .jsonProvider(defaults.jsonProvider)
+    .mappingProvider(defaults.mappingProvider)
+    .options(defaults.options)
     .build
-
-  def jsonProvider : JsonProvider = ???
-
-  def mappingProvider : MappingProvider = ???
-
-  def options : jSet[jOption] = ???
 }
