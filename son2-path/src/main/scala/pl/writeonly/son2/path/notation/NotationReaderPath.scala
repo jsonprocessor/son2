@@ -9,7 +9,7 @@ class NotationReaderPath(val defaults : Defaults, val path: Option[String]) exte
 
   def apply(content: String): Any = path
     .map(read(content, _))
-    .getOrElse(json(content))
+    .getOrElse(parse(content))
 
   def read(content: String,  it: String): Any = using.parse(content).read(it)
 
