@@ -12,8 +12,6 @@ class Piper(params: Params, converter: Converter) {
     case _ => convertFile(args(0), args(1));
   }
 
-  def print(print: Boolean) = Streamers.print(print, converter.config.read.stream, converter)
-
   def convertStream() = pipe.convertStream(params.in, params.out)
 
   def convertFile(in: String, out: String) = pipe.convertFile(in, out)
@@ -25,6 +23,8 @@ class Piper(params: Params, converter: Converter) {
   def convertStream(in: InputStream) = source.convertStream(in, params.out)
 
   def source = Streamers.source(converter.config.read.stream, converter)
+
+  def print(print: Boolean) = Streamers.print(print, converter.config.read.stream, converter)
 
   def convertResource(name: String) = convertStream(resourceAsStream(name))
 

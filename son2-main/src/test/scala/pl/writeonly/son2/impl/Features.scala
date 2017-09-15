@@ -21,11 +21,11 @@ object Features {
 
   def inputFile = new File(inputURI(NAME))
 
-  def inputURI(name: String): URI = getClass.getResource("/" + name).toURI
-
   def inputPathname: String = inputPathname(NAME)
 
   def inputPathname(name: String): String = Paths.get(inputURI(name)).toString
+
+  def inputURI(name: String): URI = getClass.getResource("/" + name).toURI
 
   def toURI(pathname: String) = toFile(pathname).toURI
 
