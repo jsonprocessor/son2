@@ -1,12 +1,9 @@
 package pl.writeonly.son2.drop.vaadin.util
 
 import com.vaadin.server.VaadinRequest
-import com.vaadin.ui.{CheckBoxGroup, _}
-import pl.writeonly.son2.core.config.Config
+import com.vaadin.ui._
 import pl.writeonly.son2.core.converters.Converter
-import pl.writeonly.son2.core.glue.{Piper, Streamers}
-
-import scala.collection.JavaConverters._
+import pl.writeonly.son2.core.glue.Piper
 
 
 trait UITrait extends UI with UIUtil {
@@ -21,7 +18,7 @@ trait UITrait extends UI with UIUtil {
 
   def nativeGroup = checkBoxGroup("Native:", natives)
 
-//  def debug(configLabel: Label, config: Config, set: Set[String]) = configLabel.setValue(config.toString + "\n" + set)
+  //  def debug(configLabel: Label, config: Config, set: Set[String]) = configLabel.setValue(config.toString + "\n" + set)
 
   def debug(configLabel: Label, config: Any, set: Set[_]) = configLabel.setValue(config.toString + "\n" + set)
 

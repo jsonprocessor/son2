@@ -3,12 +3,11 @@ package pl.writeonly.son2.drop.vaadin.util
 import java.util.Optional
 
 import com.vaadin.server.ExternalResource
+import com.vaadin.shared.ui.ContentMode
 import com.vaadin.ui.{RadioButtonGroup, _}
 import pl.writeonly.son2.drop.vaadin.util.JavaFunctions._
 
 import scala.collection.JavaConverters._
-import JavaFunctions._
-import com.vaadin.shared.ui.ContentMode
 
 trait UIUtil {
 
@@ -56,9 +55,9 @@ trait UIUtil {
     result
   }
 
-  def checkBoxGroup(caption: String, items: Map[String, _]) : CheckBoxGroup[String] = checkBoxGroup(caption, items.keySet)
+  def checkBoxGroup(caption: String, items: Map[String, _]): CheckBoxGroup[String] = checkBoxGroup(caption, items.keySet)
 
-  def checkBoxGroup(caption: String, items: Set[String]) : CheckBoxGroup[String] = checkBoxGroup(caption, items.toList.sorted)
+  def checkBoxGroup(caption: String, items: Set[String]): CheckBoxGroup[String] = checkBoxGroup(caption, items.toList.sorted)
 
   def checkBoxGroup(caption: String, items: List[String]): CheckBoxGroup[String] = new CheckBoxGroup(caption, items.asJavaCollection)
 
@@ -87,8 +86,7 @@ trait UIUtil {
     .map((it: String) => mapping.get(it).get)
 
   def getSelectedItem[A](group: CheckBoxGroup[String], mapping: Map[String, A]): Set[A] = group
-      .getSelectedItems.asScala.toSet.map((it: String) => mapping.get(it).get)
-
+    .getSelectedItems.asScala.toSet.map((it: String) => mapping.get(it).get)
 
 
 }

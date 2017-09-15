@@ -16,9 +16,9 @@ case class NotationCaseNode()
   extends NotationCasePath(FormatsPath.JACKSON_NODE, null, null)
 
 
-class DefaultsJackson(c:RConfig, objectMapper: ObjectMapper)
+class DefaultsJackson(c: RConfig, objectMapper: ObjectMapper)
   extends DefaultsPath(c, new JacksonJsonNodeJsonProvider(objectMapper), new JacksonMappingProvider(objectMapper)) {
-  def this(c:RConfig) = this(c, new ObjectMapper())
+  def this(c: RConfig) = this(c, new ObjectMapper())
 }
 
 

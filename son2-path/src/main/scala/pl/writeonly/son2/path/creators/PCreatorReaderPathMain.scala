@@ -16,5 +16,5 @@ class PCreatorReaderPathMain extends PCreatorReader {
 
   override def apply(c: RConfig): NotationReader = new NotationReaderPath(defaults(c), c.query)
 
-  def defaults(c:RConfig) : Defaults = new DefaultsSmart(c)
+  def defaults(c: RConfig): Defaults = new DefaultsSmart(c)
 }

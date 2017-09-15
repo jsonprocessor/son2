@@ -35,6 +35,6 @@ class UIDiff extends UITrait {
       }
     })
 
-    return List( optionsPanel(components), inputPatch, input, convert, output)
+    return List(optionsPanel(components), inputPatch, input, convert, output)
   }
 }

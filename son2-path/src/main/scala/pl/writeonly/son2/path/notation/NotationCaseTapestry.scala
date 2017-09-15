@@ -10,7 +10,7 @@ case class NotationCaseTapestry()
   extends NotationCaseProvider(FormatsPath.TAPESTRY, c => new DefaultsTapesty(c))
 
 
-class DefaultsTapesty(c:RConfig)
+class DefaultsTapesty(c: RConfig)
   extends DefaultsPath(c, new TapestryJsonProvider(), new TapestryMappingProvider())
 
 

@@ -6,17 +6,17 @@ import scala.util.control.Exception.catching
 
 object JsonComparator {
 
-  def apply(c : CompareConfig, expected: String, actual: String): String
+  def apply(c: CompareConfig, expected: String, actual: String): String
   = apply(mode(c), expected: String, actual: String)
 
-  def mode(c : CompareConfig) : JSONCompareMode = JSONCompareMode.STRICT
+  def mode(c: CompareConfig): JSONCompareMode = JSONCompareMode.STRICT
     .withExtensible(c.extensible)
     .withStrictOrdering(c.strictOrder)
 
   def apply(mode: JSONCompareMode, expected: String, actual: String): String
   = either(mode, expected, actual) match {
-      case Right(result) => result.toString
-      case Left(exception) => exception.getMessage
+    case Right(result) => result.toString
+    case Left(exception) => exception.getMessage
   }
 
   def either(mode: JSONCompareMode, expected: String, actual: String): Either[Throwable, JSONCompareResult]

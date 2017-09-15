@@ -7,7 +7,7 @@ import pl.writeonly.son2.path.core.FormatsPath
 import pl.writeonly.son2.path.defaults.DefaultsPath
 
 case class NotationCaseOrgJson()
-  extends  NotationCaseProvider(FormatsPath.ORG, c => new DefaultsOrgJson(c))
+  extends NotationCaseProvider(FormatsPath.ORG, c => new DefaultsOrgJson(c))
 
-class DefaultsOrgJson(c:RConfig)
+class DefaultsOrgJson(c: RConfig)
   extends DefaultsPath(c, new JsonOrgJsonProvider(), new JsonOrgMappingProvider())

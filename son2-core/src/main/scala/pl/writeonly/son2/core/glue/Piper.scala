@@ -12,7 +12,7 @@ class Piper(params: Params, converter: Converter) {
     case _ => convertFile(args(0), args(1));
   }
 
-  def print(print : Boolean) =  Streamers.print(print, converter.config.read.stream, converter)
+  def print(print: Boolean) = Streamers.print(print, converter.config.read.stream, converter)
 
   def convertStream() = pipe.convertStream(params.in, params.out)
 

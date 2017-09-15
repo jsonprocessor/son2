@@ -24,7 +24,7 @@ class CompositeRW extends Composite {
 
 }
 
-object CompositeRW extends UIUtil{
+object CompositeRW extends UIUtil {
   val natives = List("Print", "String")
 
   def readGroupApply = radioButtonGroup("Read:", Mappings.readMapping)
