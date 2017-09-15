@@ -1,19 +1,18 @@
 package pl.writeonly.son2.path.notation
 
+import com.jayway.jsonpath.Configuration.Defaults
 import com.jayway.jsonpath.spi.json.JsonProvider
 import com.jayway.jsonpath.spi.mapper.MappingProvider
-import pl.writeonly.son2.core.config.WConfig
+import pl.writeonly.son2.core.config.{RConfig, WConfig}
 import pl.writeonly.son2.core.notation.{NotationReader, NotationWriter}
 
 abstract class NotationCaseProvider(
                                  format: Symbol,
-                                 provider : JsonProvider,
-                                 mapper : MappingProvider
+                                 defaults : RConfig => Defaults
                                ) extends NotationCasePath(
   format,
-  new NotationReaderProvider(provider),
-  c => new NotationWriterProvider(provider, c),
-  provider, mapper
+  c => new NotationReaderPath(defaults(c), c.query),
+  c => new NotationWriterProvider(defaults(null).jsonProvider(), c)
 )
 
 class NotationReaderProvider(provider : JsonProvider) extends NotationReader {

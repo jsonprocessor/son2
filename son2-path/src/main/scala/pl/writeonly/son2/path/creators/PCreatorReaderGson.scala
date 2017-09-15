@@ -4,4 +4,4 @@ import pl.writeonly.son2.core.chain.PCreatorReaderSymbol
 import pl.writeonly.son2.path.core.FormatsPath
 import pl.writeonly.son2.path.notation.NotationReaderGson
 
-class PCreatorReaderGson extends PCreatorReaderSymbol(FormatsPath.GSON, _ => new NotationReaderGson())
+class PCreatorReaderGson extends PCreatorReaderSymbol(FormatsPath.GSON, c => new NotationReaderGson(c))

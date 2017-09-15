@@ -4,8 +4,7 @@ import com.jayway.jsonpath.Configuration.Defaults
 import pl.writeonly.son2.core.config.RConfig
 import pl.writeonly.son2.core.notation.NotationReader
 import pl.writeonly.son2.core.pcreators.PCreatorReader
-import pl.writeonly.son2.path.defaults.DefaultsSmart
-import pl.writeonly.son2.path.notation.NotationReaderPath
+import pl.writeonly.son2.path.notation.{DefaultsSmart, NotationReaderPath}
 
 class PCreatorReaderPathMain extends PCreatorReader {
 
@@ -15,7 +14,7 @@ class PCreatorReaderPathMain extends PCreatorReader {
 
   def isDefinedAt(s: String): Boolean = s != null && s.startsWith("$")
 
-  override def apply(c: RConfig): NotationReader = new NotationReaderPath(defaults(c), c.query.get)
+  override def apply(c: RConfig): NotationReader = new NotationReaderPath(defaults(c), c.query)
 
   def defaults(c:RConfig) : Defaults = new DefaultsSmart(c)
 }

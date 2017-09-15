@@ -4,4 +4,4 @@ import pl.writeonly.son2.core.chain.PCreatorReaderSymbol
 import pl.writeonly.son2.path.core.FormatsPath
 import pl.writeonly.son2.path.notation.NotationReaderSmart
 
-class PCreatorReaderSmart extends PCreatorReaderSymbol(FormatsPath.SMART, _ => new NotationReaderSmart())
+class PCreatorReaderSmart extends PCreatorReaderSymbol(FormatsPath.SMART, c => new NotationReaderSmart(c))
