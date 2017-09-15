@@ -1,12 +1,14 @@
 package pl.writeonly.son2.path.notation
 
-import com.jayway.jsonpath.Configuration.Defaults
 import com.jayway.jsonpath.{Configuration, JsonPath, ParseContext}
 import pl.writeonly.son2.core.notation.NotationReader
+import pl.writeonly.son2.path.core.DefaultsPath
 
-class NotationReaderPath(val defaults: Defaults, val path: Option[String]) extends NotationReader {
+class NotationReaderPath(val defaults: DefaultsPath) extends NotationReader {
 
-  def apply(content: String): Any = path
+  def apply(content: String): Any = defaults
+    .config
+    .path
     .map(read(content, _))
     .getOrElse(parse(content))
 

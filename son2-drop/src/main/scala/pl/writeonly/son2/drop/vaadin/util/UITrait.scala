@@ -10,15 +10,7 @@ trait UITrait extends UI with UIUtil {
 
   val natives = List("Print", "String")
 
-  def jacksonOutputFormat(selected: String) = radioButtonGroup("Output formats:", Mappings.jacksonFormatsMapping, selected)
-
-  def components: List[Component] = List(new TopMenu().linkPanel) ++ components2
-
-  def components2: List[Component] = List()
-
   def nativeGroup = checkBoxGroup("Native:", natives)
-
-  //  def debug(configLabel: Label, config: Config, set: Set[String]) = configLabel.setValue(config.toString + "\n" + set)
 
   def debug(configLabel: Label, config: Any, set: Set[_]) = configLabel.setValue(config.toString + "\n" + set)
 
@@ -28,6 +20,8 @@ trait UITrait extends UI with UIUtil {
     val outputValue = streamer.convertString(items.contains("String"), inputValue)
     output.setValue(outputValue)
   }
+
+  //  def debug(configLabel: Label, config: Config, set: Set[String]) = configLabel.setValue(config.toString + "\n" + set)
 
   def optionsPanel(components: List[Component]): Panel = {
     val result = new Panel("Options", optionsHorizontalLayout(components))
@@ -51,6 +45,10 @@ trait UITrait extends UI with UIUtil {
     setContent(layout)
     layout.addComponents(components: _*)
   }
+
+  def components: List[Component] = List(new TopMenu().linkPanel) ++ components2
+
+  def components2: List[Component] = List()
 
 
 }

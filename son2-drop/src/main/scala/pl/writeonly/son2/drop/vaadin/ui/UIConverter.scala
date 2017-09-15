@@ -4,7 +4,7 @@ import com.vaadin.annotations.{Theme, Title}
 import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui._
 import pl.writeonly.son2.core.config.{Config, RConfig, WConfig}
-import pl.writeonly.son2.drop.vaadin.composites.{CompositeIO, CompositeRW}
+import pl.writeonly.son2.drop.vaadin.composites.{CompositeIO, CompositeJack, CompositeRW}
 import pl.writeonly.son2.drop.vaadin.util._
 import pl.writeonly.son2.jack.glue.CreatorConverterJack
 
@@ -15,15 +15,14 @@ class UIConverter extends UITrait {
   override def components2: List[Component] = {
     val rw = new CompositeRW
     val io = new CompositeIO
+    val jack = new CompositeJack
 
-    val inputFormats = radioButtonGroup("Input formats:", Mappings.jacksonFormatsMapping, "JSON")
-    val outputFormats = jacksonOutputFormat("YAML")
-    val components: List[Component] = List(inputFormats, outputFormats) ++ rw.components
+    val components: List[Component] = jack.components ++ rw.components
 
     val convert = convertButton(new Button.ClickListener() {
       override def buttonClick(clickEvent: ClickEvent): Unit = {
-        val inputFormat = selectedItem(inputFormats, Mappings.jacksonFormatsMapping)
-        val outputFormat = selectedItem(outputFormats, Mappings.jacksonFormatsMapping)
+        val inputFormat = selectedItem(jack.inputFormats, Mappings.jacksonFormatsMapping)
+        val outputFormat = selectedItem(jack.outputFormats, Mappings.jacksonFormatsMapping)
         val config = Config(
           RConfig(format = inputFormat, stream = rw.readStream),
           WConfig(format = outputFormat, style = rw.writePretty)

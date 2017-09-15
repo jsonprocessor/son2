@@ -10,13 +10,13 @@ class CompositeRW extends Composite {
   val nativeGroup = CompositeRW.nativeGroupApply
   val configLabel = CompositeRW.outputLabel
 
-  def readSelectedItem = CompositeRW.selectedItem(readGroup, Mappings.readMapping)
-
   def readStream = readSelectedItem.equals('stream)
 
-  def writeSelectedItem = CompositeRW.selectedItem(writeGroup, Mappings.writeMapping)
+  def readSelectedItem = CompositeRW.selectedItem(readGroup, Mappings.readMapping)
 
   def writePretty = writeSelectedItem.equals('pretty)
+
+  def writeSelectedItem = CompositeRW.selectedItem(writeGroup, Mappings.writeMapping)
 
   def components = List(readGroup, writeGroup, nativeGroup, configLabel)
 

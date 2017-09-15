@@ -7,8 +7,7 @@ import net.minidev.json.writer.JsonReaderI
 import net.minidev.json.{JSONStyle, JSONValue}
 import pl.writeonly.son2.core.config.{RConfig, WConfig}
 import pl.writeonly.son2.core.notation.NotationWriter
-import pl.writeonly.son2.path.core.FormatsPath
-import pl.writeonly.son2.path.defaults.DefaultsPath
+import pl.writeonly.son2.path.core.{DefaultsPath, FormatsPath}
 
 case class NotationCaseSmart()
   extends NotationCasePath(FormatsPath.SMART,
@@ -21,7 +20,7 @@ class DefaultsSmart(c: RConfig, parseMode: Int, mapper: JsonReaderI[_])
   def this(c: RConfig) = this(c, JSONParser.MODE_PERMISSIVE, JSONValue.defaultReader.DEFAULT_ORDERED)
 }
 
-class NotationReaderSmart(c: RConfig) extends NotationReaderPath(new DefaultsSmart(c), c.query) {
+class NotationReaderSmart(c: RConfig) extends NotationReaderPath(new DefaultsSmart(c)) {
 
   override def isDefinedAt(content: String): Boolean = JSONValue.isValidJson(content)
 }

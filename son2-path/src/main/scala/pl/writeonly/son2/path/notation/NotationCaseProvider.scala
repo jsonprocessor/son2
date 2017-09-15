@@ -4,13 +4,14 @@ import com.jayway.jsonpath.Configuration.Defaults
 import com.jayway.jsonpath.spi.json.JsonProvider
 import pl.writeonly.son2.core.config.{RConfig, WConfig}
 import pl.writeonly.son2.core.notation.{NotationReader, NotationWriter}
+import pl.writeonly.son2.path.core.DefaultsPath
 
 abstract class NotationCaseProvider(
                                      format: Symbol,
-                                     defaults: RConfig => Defaults
+                                     defaults: RConfig => DefaultsPath
                                    ) extends NotationCasePath(
   format,
-  c => new NotationReaderPath(defaults(c), c.query),
+  c => new NotationReaderPath(defaults(c)),
   c => new NotationWriterProvider(defaults(null).jsonProvider(), c)
 )
 

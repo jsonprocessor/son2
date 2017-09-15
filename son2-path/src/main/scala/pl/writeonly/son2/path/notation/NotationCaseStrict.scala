@@ -13,7 +13,8 @@ case class NotationCaseStrict()
     c => new NotationWriterStrict(c)
   )
 
-class NotationReaderStrict(c: RConfig) extends NotationReaderPath(new DefaultsSmart(c, JSONParser.MODE_RFC4627, JSONValue.defaultReader.DEFAULT), c.query) {
+class NotationReaderStrict(c: RConfig)
+  extends NotationReaderPath(new DefaultsSmart(c, JSONParser.MODE_RFC4627, JSONValue.defaultReader.DEFAULT)) {
   override def isDefinedAt(content: String): Boolean = JSONValue.isValidJsonStrict(content)
 }
 

@@ -9,7 +9,7 @@ class PCreatorConfigPathMain extends PCreatorConfig {
   override def isDefinedAt(s: String) = s != null && s.startsWith("$")
 
   override def apply(s: String) = new Config(
-    read = RConfig(format = Symbol(s), query = Option(s)), write = WConfig(format = FormatsPath.STRICT, style = false)
+    read = RConfig(format = Symbol(s), path = Option(s)), write = WConfig(format = FormatsPath.STRICT, style = false)
   )
 
 }

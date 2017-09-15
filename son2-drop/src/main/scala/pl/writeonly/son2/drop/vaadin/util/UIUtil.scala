@@ -19,6 +19,8 @@ trait UIUtil {
     result
   }
 
+  def setWidth(c: AbstractComponent) = c.setWidth("100%")
+
   def horizontaPanel(caption: String, components: Component*) = new Panel(caption, new HorizontalLayout(components: _*))
 
   def horizontaPanelEx(caption: String, components: Component*): Panel = {
@@ -27,9 +29,7 @@ trait UIUtil {
     new Panel(caption, l)
   }
 
-
   def link(caption: String, sourceURL: String) = new Link(caption, new ExternalResource(sourceURL));
-
 
   def inputTextArea(caption: String): TextArea = {
     val result = new TextArea(caption)
@@ -60,8 +60,6 @@ trait UIUtil {
   def checkBoxGroup(caption: String, items: Set[String]): CheckBoxGroup[String] = checkBoxGroup(caption, items.toList.sorted)
 
   def checkBoxGroup(caption: String, items: List[String]): CheckBoxGroup[String] = new CheckBoxGroup(caption, items.asJavaCollection)
-
-  def setWidth(c: AbstractComponent) = c.setWidth("100%")
 
   def radioButtonGroup(caption: String, items: Map[String, _], selected: String): RadioButtonGroup[String] = radioButtonGroup(caption, items.keySet, selected)
 

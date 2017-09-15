@@ -5,8 +5,7 @@ import com.jayway.jsonpath.spi.json.GsonJsonProvider
 import com.jayway.jsonpath.spi.mapper.GsonMappingProvider
 import pl.writeonly.son2.core.config.{RConfig, WConfig}
 import pl.writeonly.son2.core.notation.NotationWriter
-import pl.writeonly.son2.path.core.FormatsPath
-import pl.writeonly.son2.path.defaults.DefaultsPath
+import pl.writeonly.son2.path.core.{DefaultsPath, FormatsPath}
 
 case class NotationCaseGson()
   extends NotationCasePath(FormatsPath.GSON,
@@ -14,7 +13,7 @@ case class NotationCaseGson()
     c => new NotationWriterGson(c))
 
 class NotationReaderGson(c: RConfig)
-  extends NotationReaderPath(new DefaultsGson(c), c.query)
+  extends NotationReaderPath(new DefaultsGson(c))
 
 class DefaultsGson(c: RConfig, gson: Gson)
   extends DefaultsPath(c, new GsonJsonProvider(gson), new GsonMappingProvider(gson)) {

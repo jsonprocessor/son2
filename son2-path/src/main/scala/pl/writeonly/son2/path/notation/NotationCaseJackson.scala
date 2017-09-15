@@ -4,8 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.jayway.jsonpath.spi.json.JacksonJsonNodeJsonProvider
 import com.jayway.jsonpath.spi.mapper.JacksonMappingProvider
 import pl.writeonly.son2.core.config.RConfig
-import pl.writeonly.son2.path.core.FormatsPath
-import pl.writeonly.son2.path.defaults.DefaultsPath
+import pl.writeonly.son2.path.core.{DefaultsPath, FormatsPath}
 
 
 case class NotationCaseJackson()
