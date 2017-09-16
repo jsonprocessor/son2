@@ -1,4 +1,4 @@
-package pl.writeonly.son2.jack.providers
+package pl.writeonly.son2.json.providers
 
 import com.fasterxml.jackson.core.JsonParseException
 import com.fasterxml.jackson.databind.JsonMappingException

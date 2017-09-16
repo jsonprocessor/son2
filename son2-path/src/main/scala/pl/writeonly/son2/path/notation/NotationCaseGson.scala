@@ -5,10 +5,10 @@ import com.jayway.jsonpath.spi.json.GsonJsonProvider
 import com.jayway.jsonpath.spi.mapper.GsonMappingProvider
 import pl.writeonly.son2.core.config.{RConfig, WConfig}
 import pl.writeonly.son2.core.notation.NotationWriter
-import pl.writeonly.son2.path.core.{DefaultsPath, FormatsPath}
+import pl.writeonly.son2.path.core.{DefaultsPath, ProvidersPath}
 
 case class NotationCaseGson()
-  extends NotationCasePath(FormatsPath.GSON,
+  extends NotationCasePath(ProvidersPath.GSON,
     c => new NotationReaderGson(c),
     c => new NotationWriterGson(c))
 

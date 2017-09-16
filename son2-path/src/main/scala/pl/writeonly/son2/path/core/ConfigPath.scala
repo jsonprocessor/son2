@@ -5,9 +5,9 @@ import pl.writeonly.son2.core.config.{Config, RConfig, WConfig}
 object ConfigPath {
   def apply(
              q: Option[String] = Option.empty,
-             i: Symbol = FormatsPath.SMART,
+             i: Symbol = ProvidersPath.SMART,
              s: Boolean = true,
-             o: Symbol = FormatsPath.SMART,
+             o: Symbol = ProvidersPath.SMART,
              p: Boolean = false
            ) = new Config(
     read = RConfig(format = i, stream = s, path = q),

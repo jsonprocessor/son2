@@ -4,11 +4,11 @@ import net.minidev.json.parser.JSONParser
 import net.minidev.json.{JSONStyle, JSONValue}
 import pl.writeonly.son2.core.config.{RConfig, WConfig}
 import pl.writeonly.son2.core.notation.NotationWriter
-import pl.writeonly.son2.path.core.FormatsPath
+import pl.writeonly.son2.path.core.ProvidersPath
 
 
 case class NotationCaseStrict()
-  extends NotationCasePath(FormatsPath.STRICT,
+  extends NotationCasePath(ProvidersPath.STRICT,
     c => new NotationReaderStrict(c),
     c => new NotationWriterStrict(c)
   )

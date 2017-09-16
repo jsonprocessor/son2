@@ -1,9 +1,9 @@
 package pl.writeonly.son2.path.core
 
-object FormatsPath {
+object ProvidersPath {
   val GSON = 'gson
-  val JACKSON_NODE = 'node
-  val JACKSON_TYPE = 'jackson
+  val JACKSON = 'jackson
+  val JACKSON_TYPED = 'jackson_typed
   val JETTISON = 'jettison
   val ORG = 'org
   val SMART = 'smart
@@ -12,5 +12,5 @@ object FormatsPath {
 
   val PATH = '$
 
-  val ALL = List(GSON, JACKSON_NODE, JACKSON_TYPE, JETTISON, ORG, STRICT, TAPESTRY)
+  val ALL = List(GSON, JACKSON, JACKSON_TYPED, JETTISON, ORG, SMART, STRICT, TAPESTRY)
 }

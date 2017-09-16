@@ -1,14 +1,15 @@
-package pl.writeonly.son2.jack.providers
+package pl.writeonly.son2.json.providers
 
 import pl.writeonly.son2.core.converters.{Converter, Converter2}
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.json.core.{ConfigJson, ProvidersJson}
 import pl.writeonly.son2.json.glue.CreatorConverterJson
+import pl.writeonly.son2.path.core.ProvidersPath
 import pl.writeonly.son2.spec.WhiteResultSpec
 
 class GsonWordSpec extends WhiteResultSpec {
 
-  val provider: Converter = CreatorConverterJson(ProvidersJson.GSON)
+  val provider: Converter = CreatorConverterJson(ProvidersPath.GSON)
   "A Provider" should {
     "produce JsonParseException when convert a" in {
       assertResult("\"a\"")(provider.convert("a"))
@@ -28,7 +29,7 @@ class GsonWordSpec extends WhiteResultSpec {
     }
   }
 
-  val providerRaw: Converter = CreatorConverterJson(ConfigJson(o = ProvidersJson.GSON, p = false))
+  val providerRaw: Converter = CreatorConverterJson(ConfigJson(o = ProvidersPath.GSON, p = false))
   "A ProviderRaw" should {
     "have pretty == false" in {
       assertResult(false)(providerRaw.config.write.style)

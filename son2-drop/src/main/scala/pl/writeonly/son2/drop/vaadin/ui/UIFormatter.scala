@@ -15,8 +15,6 @@ class UIFormatter extends UITrait {
   override def components2: List[Component] = {
     val rw = new CompositeRW
     val io = new CompositeIO
-
-
     val providerGroup = radioButtonGroup("Providers", Mappings.pathProvidersMapping)
 
     val components: List[Component] = List(providerGroup) ++ rw.components

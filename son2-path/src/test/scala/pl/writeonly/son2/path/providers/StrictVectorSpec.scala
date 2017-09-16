@@ -4,7 +4,7 @@ import pl.writeonly.son2.core.converters.Converter
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.core.streamers.{Streamer, StreamerPipeForeach}
 import pl.writeonly.son2.path.chain.ChainNotationPairPath
-import pl.writeonly.son2.path.core.{ConfigPath, FormatsPath}
+import pl.writeonly.son2.path.core.{ConfigPath, ProvidersPath}
 import pl.writeonly.son2.spec.GrayVectorSpec
 
 class StrictVectorSpec extends GrayVectorSpec {
@@ -27,7 +27,7 @@ class StrictVectorSpec extends GrayVectorSpec {
     "in",
     "a"
   )
-  val provider: Converter = ChainNotationPairPath(ConfigPath(i = FormatsPath.STRICT, o = FormatsPath.STRICT))
+  val provider: Converter = ChainNotationPairPath(ConfigPath(i = ProvidersPath.STRICT, o = ProvidersPath.STRICT))
   val liner: Liner = new LinerOpt(provider)
   property("convert son to smart by provider") {
     forAll(toSuccess) { (in, out) =>

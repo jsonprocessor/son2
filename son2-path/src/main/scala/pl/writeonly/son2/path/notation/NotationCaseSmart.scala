@@ -7,10 +7,10 @@ import net.minidev.json.writer.JsonReaderI
 import net.minidev.json.{JSONStyle, JSONValue}
 import pl.writeonly.son2.core.config.{RConfig, WConfig}
 import pl.writeonly.son2.core.notation.NotationWriter
-import pl.writeonly.son2.path.core.{DefaultsPath, FormatsPath}
+import pl.writeonly.son2.path.core.{DefaultsPath, ProvidersPath}
 
 case class NotationCaseSmart()
-  extends NotationCasePath(FormatsPath.SMART,
+  extends NotationCasePath(ProvidersPath.SMART,
     c => new NotationReaderSmart(c),
     c => new NotationWriterSmart(c))
 

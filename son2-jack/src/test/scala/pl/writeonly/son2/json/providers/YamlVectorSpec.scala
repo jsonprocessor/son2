@@ -1,26 +1,26 @@
-package pl.writeonly.son2.jack.providers
+package pl.writeonly.son2.json.providers
 
 import pl.writeonly.son2.core.converters.Converter
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.core.streamers.{Streamer, StreamerPipeForeach}
-import pl.writeonly.son2.jack.core.{ConfigJack, FormatsJack}
+import pl.writeonly.son2.jack.core.FormatsJack
 import pl.writeonly.son2.jack.glue.CreatorConverterJack
 import pl.writeonly.son2.spec.GrayVectorSpec
 
-class ObjectVectorSpec extends GrayVectorSpec {
+class YamlVectorSpec extends GrayVectorSpec {
 
   val toSuccess = Table(
     ("in", "out"),
-    ("0", "0"),
-    ("\"a\"", "\"a\""),
-    ("[]", "[]"),
-    ("[0]", "[0]"),
-    ("[0,1]", "[0,1]"),
-    ("{}", "{}"),
-    ("{\"a\":0}", "{\"a\":0}"),
-    ("{\"a\":0,\"b\":1}", "{\"a\":0,\"b\":1}"),
-    ("[{}]", "[{}]"),
-    ("{\"a\":[]}", "{\"a\":[]}")
+    ("0", "--- 0\n"),
+    ("\"a\"", "--- \"a\"\n"),
+    ("[]", "--- []\n"),
+    ("[0]", "---\n- 0\n"),
+    ("[0,1]", "---\n- 0\n- 1\n"),
+    ("{}", "--- {}\n"),
+    ("{\"a\":0}", "---\na: 0\n"),
+    ("{\"a\":0, \"b\":1}", "---\na: 0\nb: 1\n"),
+    ("[{}]", "---\n- {}\n"),
+    ("{\"a\":[]}", "---\na: []\n")
   )
 
   val toFailure = Table(
@@ -28,7 +28,7 @@ class ObjectVectorSpec extends GrayVectorSpec {
     "a"
   )
 
-  val provider: Converter = CreatorConverterJack(ConfigJack(o = FormatsJack.OBJECT, p = false))
+  val provider: Converter = CreatorConverterJack(FormatsJack.YAML)
   property("convert son to yaml by provider") {
     forAll(toSuccess) { (in, out) =>
       provider.convert(in) should be(out)

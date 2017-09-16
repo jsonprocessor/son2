@@ -1,4 +1,4 @@
-package pl.writeonly.son2.jack.providers
+package pl.writeonly.son2.json.providers
 
 import pl.writeonly.son2.core.converters.Converter
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}

@@ -6,13 +6,13 @@ import pl.writeonly.son2.path.core.DefaultsPath
 
 class NotationReaderPath(val defaults: DefaultsPath) extends NotationReader {
 
-  def apply(content: String): Any = defaults
-    .config
-    .path
-    .map(read(content, _))
-    .getOrElse(parse(content))
+  def apply(content: String): Any = defaults.config.path match {
+    case null => parse(content)
+    case None => json(content)
+    case Some(path) => read(content, path)
+  }
 
-  def read(content: String, it: String): Any = using.parse(content).read(it)
+  def read(content: String, path: String): Any = using.parse(content).read(path)
 
   def json(content: String): Any = using.parse(content).json()
 

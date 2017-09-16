@@ -1,25 +1,25 @@
 package pl.writeonly.son2.path.glue
 
 import pl.writeonly.son2.core.chain.ChainNotationConfig
-import pl.writeonly.son2.path.core.FormatsPath
+import pl.writeonly.son2.path.core.ProvidersPath
 import pl.writeonly.son2.path.creators.{PCreatorConfigPath, PCreatorConfigPathMain}
 
 class ChainNotationConfigPath extends ChainNotationConfig(
-  new PCreatorConfigPath(FormatsPath.GSON)
+  new PCreatorConfigPath(ProvidersPath.GSON)
     orElse
-    new PCreatorConfigPath(FormatsPath.JACKSON_TYPE)
+    new PCreatorConfigPath(ProvidersPath.JACKSON_TYPED)
     orElse
-    new PCreatorConfigPath(FormatsPath.JACKSON_NODE)
+    new PCreatorConfigPath(ProvidersPath.JACKSON)
     orElse
-    new PCreatorConfigPath(FormatsPath.JETTISON)
+    new PCreatorConfigPath(ProvidersPath.JETTISON)
     orElse
-    new PCreatorConfigPath(FormatsPath.ORG)
+    new PCreatorConfigPath(ProvidersPath.ORG)
     orElse
-    new PCreatorConfigPath(FormatsPath.SMART)
+    new PCreatorConfigPath(ProvidersPath.SMART)
     orElse
-    new PCreatorConfigPath(FormatsPath.STRICT)
+    new PCreatorConfigPath(ProvidersPath.STRICT)
     orElse
-    new PCreatorConfigPath(FormatsPath.TAPESTRY)
+    new PCreatorConfigPath(ProvidersPath.TAPESTRY)
 )
 
 class ChainNotationConfigPathMain extends ChainNotationConfig(
