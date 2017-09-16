@@ -1,6 +1,5 @@
 package pl.writeonly.son2.path.notation
 
-import com.jayway.jsonpath.Configuration.Defaults
 import com.jayway.jsonpath.spi.json.JsonProvider
 import pl.writeonly.son2.core.config.{RConfig, WConfig}
 import pl.writeonly.son2.core.notation.{NotationReader, NotationWriter}

@@ -1,11 +1,11 @@
 package pl.writeonly.son2.path.glue
 
-import pl.writeonly.son2.path.core.{ConfigPath, ProvidersPath}
+import pl.writeonly.son2.path.core.ProvidersPath
 import pl.writeonly.son2.spec.GrayVectorSpec
 
 class CreatorConverterPathVectorSpec extends GrayVectorSpec {
 
-  val formats = Table("format", ProvidersPath.ALL :_*)
+  val formats = Table("format", ProvidersPath.ALL: _*)
 
 
   val pf = new ChainNotationConfigPath().get

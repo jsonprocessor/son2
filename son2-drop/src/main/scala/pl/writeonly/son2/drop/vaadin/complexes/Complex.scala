@@ -4,6 +4,7 @@ import com.vaadin.ui.Component
 
 trait Complex {
   def components: List[Component]
+
   def toComponent: Component
 
 }

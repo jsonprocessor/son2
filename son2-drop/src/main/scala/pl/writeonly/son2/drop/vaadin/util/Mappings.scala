@@ -14,7 +14,6 @@ object Mappings {
   )
 
 
-
   val patchProviderMapping = Map[String, Symbol](
     "Gson" -> 'gson,
     "Jackson" -> 'object,

@@ -1,12 +1,16 @@
 package pl.writeonly.son2.drop.vaadin.complexes
-import com.vaadin.ui.Component
-import pl.writeonly.son2.drop.vaadin.util.{UITrait}
+
 import com.jayway.jsonpath.{Option => jOption}
+import com.vaadin.ui.Component
+import pl.writeonly.son2.drop.vaadin.util.UITrait
 
 class ComplexPathOptions extends Complex {
   private val component = ComplexPathOptions.apply
-  override def toComponent: Component = component
+
   override def components: List[Component] = List(toComponent)
+
+  override def toComponent: Component = component
+
   def selectedItem = ComplexPathOptions.selectedItem(component, ComplexPathOptions.mapping)
 }
 
@@ -18,7 +22,7 @@ object ComplexPathOptions extends UITrait {
     "requite properties" -> toSymbol(jOption.REQUIRE_PROPERTIES),
     "suppress exception" -> toSymbol(jOption.SUPPRESS_EXCEPTIONS))
 
-  private def toSymbol(option : jOption) = Symbol(option.name())
+  private def toSymbol(option: jOption) = Symbol(option.name())
 
   private def apply = checkBoxGroup("Path options:", ComplexPathOptions.mapping)
 }

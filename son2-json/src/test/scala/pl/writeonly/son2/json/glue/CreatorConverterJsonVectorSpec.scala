@@ -5,7 +5,7 @@ import pl.writeonly.son2.spec.GrayVectorSpec
 
 class CreatorConverterJsonVectorSpec extends GrayVectorSpec {
 
-  val formats = Table("format", ProvidersJson.ALL :_*)
+  val formats = Table("format", ProvidersJson.ALL: _*)
 
   val pf = new ChainNotationConfigJson().get
   val chain = new ChainNotationRWTJson

@@ -24,8 +24,8 @@ class UIConverter extends UITrait {
         val inputFormat = jackFormats.inputSelectedItem
         val outputFormat = jackFormats.outputSelectedItem
         val config = Config(
-          RConfig(provider = inputFormat, format=inputFormat, stream = rw.readStream),
-          WConfig(provider = outputFormat, format=outputFormat, style = rw.writePretty)
+          RConfig(provider = inputFormat, format = inputFormat, stream = rw.readStream),
+          WConfig(provider = outputFormat, format = outputFormat, style = rw.writePretty)
         )
         val set = rw.set
         logger.info("{} {}", config, set)

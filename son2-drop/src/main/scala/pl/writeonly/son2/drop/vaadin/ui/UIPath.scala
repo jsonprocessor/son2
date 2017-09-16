@@ -6,7 +6,7 @@ import com.vaadin.ui._
 import pl.writeonly.son2.core.config.{Config, RConfig, WConfig}
 import pl.writeonly.son2.drop.vaadin.complexes._
 import pl.writeonly.son2.drop.vaadin.util._
-import pl.writeonly.son2.path.glue.{CreatorConverterPath, CreatorConverterPathMain}
+import pl.writeonly.son2.path.glue.CreatorConverterPath
 
 @Title("json path")
 @Theme("valo")

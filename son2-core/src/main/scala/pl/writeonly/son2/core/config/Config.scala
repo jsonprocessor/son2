@@ -4,7 +4,7 @@ case class Config(read: RConfig = RConfig(), write: WConfig = WConfig(), transla
 
 case class RConfig(
                     provider: Symbol = Symbol(""),
-                    format : Symbol = Symbol(""),
+                    format: Symbol = Symbol(""),
                     stream: Boolean = true,
                     path: Option[String] = Option.empty,
                     options: Set[Symbol] = Set()
@@ -12,10 +12,10 @@ case class RConfig(
 
 case class WConfig(
                     provider: Symbol = Symbol(""),
-                    format : Symbol = Symbol(""),
+                    format: Symbol = Symbol(""),
                     style: Boolean = false,
                     addEndLine: Boolean = true,
-                    gson : Set[Symbol] = Set()
+                    gson: Set[Symbol] = Set()
                   )
 
 case class TConfig(action: Symbol = Symbol(""), format: Symbol = Symbol(""), level: Short = 0) {

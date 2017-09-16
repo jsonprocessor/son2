@@ -10,6 +10,7 @@ class ComplexIO extends Complex {
   def inputTextArea: TextArea = ComplexIO.inputTextArea("Input json:")
 
   override def toComponent: Component = ???
+
   override def components: List[Component] = ???
 
 }

@@ -4,11 +4,14 @@ import com.vaadin.ui.{CheckBoxGroup, Component}
 import pl.writeonly.son2.drop.vaadin.util.UITrait
 
 class ComplexSmartOptions extends Complex {
-    private val component = ComplexSmartOptions.apply
-  override def toComponent: Component = component
+  private val component = ComplexSmartOptions.apply
+
   override def components: List[Component] = List(toComponent)
-    def selectedItem = ComplexSmartOptions.selectedItem(component)
-  }
+
+  override def toComponent: Component = component
+
+  def selectedItem = ComplexSmartOptions.selectedItem(component)
+}
 
 object ComplexSmartOptions extends UITrait {
   private val mapping = Map[String, Symbol](
@@ -24,7 +27,7 @@ object ComplexSmartOptions extends UITrait {
 
   private def apply = checkBoxGroup("Smart options:", ComplexSmartOptions.mapping)
 
-  private def selectedItem(component : CheckBoxGroup[String]) : Set[Symbol] = selectedItem(component, ComplexSmartOptions.mapping)
+  private def selectedItem(component: CheckBoxGroup[String]): Set[Symbol] = selectedItem(component, ComplexSmartOptions.mapping)
 
 
 }
