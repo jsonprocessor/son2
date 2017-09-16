@@ -10,9 +10,9 @@ class ChainNotationRWTPath extends ChainNotationRWT(
       orElse
       new PCreatorReaderPath(NotationCaseGson())
       orElse
-      new PCreatorReaderPath(NotationCaseJackson())
+      new PCreatorReaderPath(NotationCaseJacksonType())
       orElse
-      new PCreatorReaderPath(NotationCaseNode())
+      new PCreatorReaderPath(NotationCaseJacksonNode())
       orElse
       new PCreatorReaderPath(NotationCaseJettison())
       orElse
@@ -27,9 +27,9 @@ class ChainNotationRWTPath extends ChainNotationRWT(
   (
     new PCreatorWriterPath(NotationCaseGson())
       orElse
-      new PCreatorWriterPath(NotationCaseJackson())
+      new PCreatorWriterPath(NotationCaseJacksonType())
       orElse
-      new PCreatorWriterPath(NotationCaseNode())
+      new PCreatorWriterPath(NotationCaseJacksonNode())
       orElse
       new PCreatorWriterPath(NotationCaseJettison())
       orElse

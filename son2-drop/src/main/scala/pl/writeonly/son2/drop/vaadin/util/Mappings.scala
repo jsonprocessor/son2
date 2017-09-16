@@ -4,7 +4,7 @@ import org.skyscreamer.jsonassert.JSONCompareMode
 
 object Mappings {
   val readMapping = Map[String, Symbol](
-    "All" -> 'all,
+    "All line" -> 'all,
     "Line-by-line" -> 'stream
   )
 
@@ -13,17 +13,13 @@ object Mappings {
     "Raw" -> 'raw
   )
 
-  val jacksonFormatsMapping = Map[String, Symbol](
-    "JSON" -> 'object,
-    "YAML" -> 'yaml,
-    "XML" -> 'xml,
-    "Java properties" -> 'properties)
+
 
   val pathProvidersMapping = Map[String, Symbol](
     "Gson" -> 'gson,
     "Jackson" -> 'object,
     "Jettison" -> 'jettison,
-    "Json" -> 'json,
+    "Org" -> 'org,
     "Smart" -> 'smart,
     "Strict" -> 'strict,
     "Tapestry" -> 'tapestry

@@ -18,7 +18,10 @@ class ChainNotationCreator(parser: PCreatorConfig, rwt: ChainNotationRWT)
 
   private def translator(c: Config): Option[NotationTranslator] = rwt.t.lift(c)
 
-  private def input(c: Config): NotationReader = rwt.r.lift(c.read).get
+  private def input(c: Config): NotationReader = rwt.r.lift(c.read)
+    .getOrElse(throw new IllegalStateException(c.read.toString))
 
-  private def output(c: Config): NotationWriter = rwt.w.lift(c.write).get
+  private def output(c: Config): NotationWriter = rwt.w.lift(c.write)
+    .getOrElse(throw new IllegalStateException(c.write.toString))
+
 }

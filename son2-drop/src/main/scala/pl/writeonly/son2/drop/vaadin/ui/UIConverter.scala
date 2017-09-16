@@ -21,8 +21,8 @@ class UIConverter extends UITrait {
 
     val convert = convertButton(new Button.ClickListener() {
       override def buttonClick(clickEvent: ClickEvent): Unit = {
-        val inputFormat = selectedItem(jack.inputFormats, Mappings.jacksonFormatsMapping)
-        val outputFormat = selectedItem(jack.outputFormats, Mappings.jacksonFormatsMapping)
+        val inputFormat = jack.inputSelectedItem
+        val outputFormat = jack.outputSelectedItem
         val config = Config(
           RConfig(format = inputFormat, stream = rw.readStream),
           WConfig(format = outputFormat, style = rw.writePretty)

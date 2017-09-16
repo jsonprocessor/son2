@@ -21,7 +21,6 @@ class CompositeRW extends Composite {
   def components = List(readGroup, writeGroup, nativeGroup, configLabel)
 
   def set = nativeGroup.getValue.asScala.toSet
-
 }
 
 object CompositeRW extends UIUtil {

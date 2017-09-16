@@ -7,7 +7,7 @@ import pl.writeonly.son2.path.creators.{PCreatorConfigPath, PCreatorConfigPathMa
 class ChainNotationConfigPath extends ChainNotationConfig(
   new PCreatorConfigPath(FormatsPath.GSON)
     orElse
-    new PCreatorConfigPath(FormatsPath.JACKSON)
+    new PCreatorConfigPath(FormatsPath.JACKSON_TYPE)
     orElse
     new PCreatorConfigPath(FormatsPath.JACKSON_NODE)
     orElse
