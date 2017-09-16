@@ -4,7 +4,7 @@ import com.vaadin.annotations.{Theme, Title}
 import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui._
 import pl.writeonly.son2.core.config.{Config, RConfig, WConfig}
-import pl.writeonly.son2.drop.vaadin.composites.{ComplexIO,  ComplexPathProvider, ComplexRW}
+import pl.writeonly.son2.drop.vaadin.complexes._
 import pl.writeonly.son2.drop.vaadin.util._
 import pl.writeonly.son2.json.glue.CreatorConverterJson
 
@@ -13,21 +13,23 @@ import pl.writeonly.son2.json.glue.CreatorConverterJson
 class UIFormatter extends UITrait {
 
   override def componentsCenter: List[Component] = {
-    val rw = new ComplexRW
+    val rw = new ComplexRWVertical
     val io = new ComplexIO
     val pathProvider = new ComplexPathProvider
+    val jackFormats = new ComplexJackFormatsVertical
+    val gsonOptions = new ComplexGsonOptions
 
-    val components: Seq[Component] = toComponents(pathProvider, rw)
+    val components: Seq[Component] = toComponents(pathProvider, jackFormats, gsonOptions, rw)
 
     val convert = convertButton(new Button.ClickListener() {
       override def buttonClick(clickEvent: ClickEvent): Unit = {
         val provider = pathProvider.selectedItem
         val config = Config(
-          RConfig(provider = provider, stream = rw.readStream, path = null),
-          WConfig(provider = provider, style = rw.writePretty)
+          RConfig(provider = provider, format = jackFormats.inputSelectedItem, stream = rw.readStream, path = null),
+          WConfig(provider = provider, format = jackFormats.outputSelectedItem, style = rw.writePretty, gson = gsonOptions.selectedItem)
         )
         val set = rw.set
-        debug(rw.configLabel, config, set)
+        logger.info("{} {}", config, set)
         convert2(CreatorConverterJson(config), io.input, io.output, set)
       }
     })

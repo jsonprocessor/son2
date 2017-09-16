@@ -25,9 +25,18 @@ trait UIUtil {
 
   def setWidth(c: AbstractComponent) = c.setWidth("100%")
 
-  def verticalPanel(caption: String, components: Component*) = new Panel(caption, new VerticalLayout(components: _*))
+  def setMargineFalse(c: AbstractOrderedLayout) = {
+    c.setMargin(false)
+    c
+  };
 
-  def horizontalPanel(caption: String, components: Component*) = new Panel(caption, new HorizontalLayout(components: _*))
+  def verticalLayout(components: Component*) = setMargineFalse(new VerticalLayout(components: _*))
+
+  def horizontalLayout(components: Component*) = setMargineFalse(new HorizontalLayout(components: _*))
+
+  def verticalPanel(caption: String, components: Component*) = new Panel(caption, verticalLayout(components: _*))
+
+  def horizontalPanel(caption: String, components: Component*) = new Panel(caption, horizontalLayout(components: _*))
 
   def horizontalPanelEx(caption: String, components: Component*): Panel = {
     val l = new HorizontalLayout()

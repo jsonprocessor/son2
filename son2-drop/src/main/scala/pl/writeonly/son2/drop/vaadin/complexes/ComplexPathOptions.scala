@@ -1,11 +1,12 @@
-package pl.writeonly.son2.drop.vaadin.composites
+package pl.writeonly.son2.drop.vaadin.complexes
 import com.vaadin.ui.Component
 import pl.writeonly.son2.drop.vaadin.util.{UITrait}
 import com.jayway.jsonpath.{Option => jOption}
 
 class ComplexPathOptions extends Complex {
   private val component = ComplexPathOptions.apply
-  override def components: List[Component] = List(component)
+  override def toComponent: Component = component
+  override def components: List[Component] = List(toComponent)
   def selectedItem = ComplexPathOptions.selectedItem(component, ComplexPathOptions.mapping)
 }
 

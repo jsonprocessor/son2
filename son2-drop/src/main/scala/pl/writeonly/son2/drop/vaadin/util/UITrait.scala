@@ -1,13 +1,14 @@
 package pl.writeonly.son2.drop.vaadin.util
 
+import com.typesafe.scalalogging.LazyLogging
 import com.vaadin.server.VaadinRequest
 import com.vaadin.ui._
 import pl.writeonly.son2.core.converters.Converter
 import pl.writeonly.son2.core.glue.Piper
-import pl.writeonly.son2.drop.vaadin.composites.Complex
+import pl.writeonly.son2.drop.vaadin.complexes.Complex
 
 
-trait UITrait extends UI with UIUtil {
+trait UITrait extends UI with UIUtil with LazyLogging {
 
   val natives = List("Print", "String")
 
@@ -51,6 +52,7 @@ trait UITrait extends UI with UIUtil {
 
   def componentsCenter: List[Component] = List()
 
-  def toComponents(complexes :Complex*) = complexes.flatMap( _.components)
+  def toComponents(complexes :Complex*) = complexes.map(_.toComponent)
+  def toComponentsFlat(complexes :Complex*) = complexes.flatMap( _.components)
 
 }

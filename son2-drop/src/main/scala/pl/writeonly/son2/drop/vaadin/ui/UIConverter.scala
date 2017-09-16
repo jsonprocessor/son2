@@ -4,7 +4,7 @@ import com.vaadin.annotations.{Theme, Title}
 import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui._
 import pl.writeonly.son2.core.config.{Config, RConfig, WConfig}
-import pl.writeonly.son2.drop.vaadin.composites.{ComplexIO, ComplexJackFormats, ComplexRW}
+import pl.writeonly.son2.drop.vaadin.complexes._
 import pl.writeonly.son2.drop.vaadin.util._
 import pl.writeonly.son2.jack.glue.CreatorConverterJack
 
@@ -13,9 +13,9 @@ import pl.writeonly.son2.jack.glue.CreatorConverterJack
 class UIConverter extends UITrait {
 
   override def componentsCenter: List[Component] = {
-    val rw = new ComplexRW
+    val rw = new ComplexRWHorizontal
     val io = new ComplexIO
-    val jackFormats = new ComplexJackFormats
+    val jackFormats = new ComplexJackFormatsHorizontal
 
     val components: Seq[Component] = toComponents(jackFormats, rw)
 
@@ -28,7 +28,7 @@ class UIConverter extends UITrait {
           WConfig(provider = outputFormat, format=outputFormat, style = rw.writePretty)
         )
         val set = rw.set
-        debug(rw.configLabel, config, set)
+        logger.info("{} {}", config, set)
         convert2(CreatorConverterJack(config), io.input, io.output, set)
       }
     })

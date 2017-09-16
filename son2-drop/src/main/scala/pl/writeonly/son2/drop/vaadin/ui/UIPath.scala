@@ -4,7 +4,7 @@ import com.vaadin.annotations.{Theme, Title}
 import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui._
 import pl.writeonly.son2.core.config.{Config, RConfig, WConfig}
-import pl.writeonly.son2.drop.vaadin.composites._
+import pl.writeonly.son2.drop.vaadin.complexes._
 import pl.writeonly.son2.drop.vaadin.util._
 import pl.writeonly.son2.path.glue.{CreatorConverterPath, CreatorConverterPathMain}
 
@@ -13,11 +13,11 @@ import pl.writeonly.son2.path.glue.{CreatorConverterPath, CreatorConverterPathMa
 class UIPath extends UITrait {
 
   override def componentsCenter: List[Component] = {
-    val rw = new ComplexRW
+    val rw = new ComplexRWVertical
     val io = new ComplexIO
     val pathProvider = new ComplexPathProvider
     val pathOptions = new ComplexPathOptions
-    val jackFormats = new ComplexJackFormats2
+    val jackFormats = new ComplexJackFormatsVertical
     val gsonOptions = new ComplexGsonOptions
 
     val components: Seq[Component] = toComponents(pathProvider, pathOptions, jackFormats, gsonOptions, rw)
@@ -30,12 +30,12 @@ class UIPath extends UITrait {
         val provider = pathProvider.selectedItem
         val options = pathOptions.selectedItem
         val config = Config(
-          RConfig(provider = Symbol(path), stream = rw.readStream, path = Option(path), options = options),
-          WConfig(provider = provider, style = rw.writePretty)
+          RConfig(provider = Symbol(path), format = jackFormats.inputSelectedItem, stream = rw.readStream, path = Option(path), options = options),
+          WConfig(provider = provider, format = jackFormats.outputSelectedItem, style = rw.writePretty, gson = gsonOptions.selectedItem)
         )
 
         val set = rw.set
-        debug(rw.configLabel, config, set)
+        logger.info("{} {}", config, set)
         convert2(CreatorConverterPath(config), io.input, io.output, set)
       }
     })

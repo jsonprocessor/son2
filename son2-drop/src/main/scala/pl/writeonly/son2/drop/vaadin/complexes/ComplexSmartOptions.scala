@@ -1,11 +1,12 @@
-package pl.writeonly.son2.drop.vaadin.composites
+package pl.writeonly.son2.drop.vaadin.complexes
 
 import com.vaadin.ui.{CheckBoxGroup, Component}
 import pl.writeonly.son2.drop.vaadin.util.UITrait
 
 class ComplexSmartOptions extends Complex {
     private val component = ComplexSmartOptions.apply
-    override def components: List[Component] = List(component)
+  override def toComponent: Component = component
+  override def components: List[Component] = List(toComponent)
     def selectedItem = ComplexSmartOptions.selectedItem(component)
   }
 
