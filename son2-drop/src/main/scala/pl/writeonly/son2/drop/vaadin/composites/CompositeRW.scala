@@ -5,18 +5,18 @@ import pl.writeonly.son2.drop.vaadin.util.{Mappings, UIUtil}
 import scala.collection.JavaConverters._
 
 class CompositeRW extends Composite {
-  val readGroup = CompositeRW.readGroupApply
-  val writeGroup = CompositeRW.writeGroupApply
-  val nativeGroup = CompositeRW.nativeGroupApply
+  private val readGroup = CompositeRW.readGroupApply
+  private val writeGroup = CompositeRW.writeGroupApply
+  private val nativeGroup = CompositeRW.nativeGroupApply
   val configLabel = CompositeRW.outputLabel
 
   def readStream = readSelectedItem.equals('stream)
 
-  def readSelectedItem = CompositeRW.selectedItem(readGroup, Mappings.readMapping)
+  def readSelectedItem = CompositeRW.selectedItemOpt(readGroup, Mappings.readMapping)
 
   def writePretty = writeSelectedItem.equals('pretty)
 
-  def writeSelectedItem = CompositeRW.selectedItem(writeGroup, Mappings.writeMapping)
+  def writeSelectedItem = CompositeRW.selectedItemOpt(writeGroup, Mappings.writeMapping)
 
   def components = List(readGroup, writeGroup, nativeGroup, configLabel)
 

@@ -24,7 +24,7 @@ class UIComparator extends UITrait {
 
     val convert = convertButton(new Button.ClickListener() {
       override def buttonClick(clickEvent: ClickEvent): Unit = {
-        val selected = getSelectedItem(modeGroup, Mappings.modeSymbolMapping)
+        val selected = selectedItem(modeGroup, Mappings.modeSymbolMapping)
         val extensible = selected.contains('extensible)
         val strictOrder = selected.contains('strictOrder)
         val config = CompareConfig(extensible, strictOrder)

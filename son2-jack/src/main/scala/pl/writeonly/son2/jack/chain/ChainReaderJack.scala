@@ -34,12 +34,12 @@ object ChainReaderJack {
   )
 
   def rConfig(n: JsonNode, c: RConfig) = new RConfig(
-    format = asText(n, ConfigPath.I).getOrElse(c.format),
+    provider = asText(n, ConfigPath.I).getOrElse(c.provider),
     stream = asBoolean(n, ConfigPath.S).getOrElse(c.stream)
   )
 
   def wConfig(n: JsonNode, c: WConfig) = new WConfig(
-    format = asText(n, ConfigPath.O).getOrElse(c.format),
+    provider = asText(n, ConfigPath.O).getOrElse(c.provider),
     style = asBoolean(n, ConfigPath.P).getOrElse(c.style)
   )
 

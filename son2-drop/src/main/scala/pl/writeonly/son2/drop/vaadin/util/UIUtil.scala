@@ -77,13 +77,13 @@ trait UIUtil {
     result
   }
 
-  def selectedItem[A](group: RadioButtonGroup[String], mapping: Map[String, A]): A = getSelectedItem(group, mapping).get()
+  def selectedItem[A](group: RadioButtonGroup[String], mapping: Map[String, A]): A = selectedItemOpt(group, mapping).get()
 
-  def getSelectedItem[A](group: RadioButtonGroup[String], mapping: Map[String, A]): Optional[A] = group
+  def selectedItemOpt[A](group: RadioButtonGroup[String], mapping: Map[String, A]): Optional[A] = group
     .getSelectedItem()
     .map((it: String) => mapping.get(it).get)
 
-  def getSelectedItem[A](group: CheckBoxGroup[String], mapping: Map[String, A]): Set[A] = group
+  def selectedItem[A](group: CheckBoxGroup[String], mapping: Map[String, A]): Set[A] = group
     .getSelectedItems.asScala.toSet.map((it: String) => mapping.get(it).get)
 
 

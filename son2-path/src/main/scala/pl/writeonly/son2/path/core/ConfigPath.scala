@@ -10,8 +10,8 @@ object ConfigPath {
              o: Symbol = ProvidersPath.SMART,
              p: Boolean = false
            ) = new Config(
-    read = RConfig(format = i, stream = s, path = q),
-    write = WConfig(format = o, style = p)
+    read = RConfig(provider = i, stream = s, path = q),
+    write = WConfig(provider = o, style = p)
   )
 }
 

@@ -15,16 +15,6 @@ object Mappings {
 
 
 
-  val pathProvidersMapping = Map[String, Symbol](
-    "Gson" -> 'gson,
-    "Jackson" -> 'object,
-    "Jettison" -> 'jettison,
-    "Org" -> 'org,
-    "Smart" -> 'smart,
-    "Strict" -> 'strict,
-    "Tapestry" -> 'tapestry
-  )
-
   val patchProviderMapping = Map[String, Symbol](
     "Gson" -> 'gson,
     "Jackson" -> 'object,

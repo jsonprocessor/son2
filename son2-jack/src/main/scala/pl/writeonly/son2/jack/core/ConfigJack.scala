@@ -10,7 +10,7 @@ object ConfigJack {
   def apply(s: Symbol): Config = ConfigJack.apply(o = s)
 
   def apply(i: Symbol = FormatsJack.OBJECT, s: Boolean = true, o: Symbol, p: Boolean = true) = new Config(
-    read = RConfig(format = i, stream = s), write = WConfig(format = o, style = p)
+    read = RConfig(provider = i, stream = s), write = WConfig(provider = o, style = p)
   )
 
 }

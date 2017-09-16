@@ -18,8 +18,7 @@ class UIDiff extends UITrait {
     val input = inputTextArea
     val output = outputLabel
 
-    val providerGroup = radioButtonGroup("Providers", Mappings.pathProvidersMapping, "Smart");
-    val components: List[Component] = List(providerGroup, checkBoxes, configLabel)
+    val components: List[Component] = List(checkBoxes, configLabel)
 
     val inputPatch = inputTextArea("json-patch")
 

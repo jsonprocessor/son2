@@ -7,7 +7,7 @@ object ConfigJson {
   def apply(s: String): Config = ConfigJson.apply(o = Symbol(s))
 
   def apply(i: Symbol = ProvidersPath.GSON, s: Boolean = true, o: Symbol, p: Boolean = true) = new Config(
-    read = RConfig(format = i, stream = s, path = null), write = WConfig(format = o, style = p)
+    read = RConfig(provider = i, stream = s, path = null), write = WConfig(provider = o, style = p)
   )
 
   def apply(): Config = ConfigJson.apply(ProvidersPath.GSON)

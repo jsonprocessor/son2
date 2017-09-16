@@ -18,8 +18,7 @@ class UIPatch extends UITrait {
     val configLabel = outputLabel
     val io = new CompositeIO
 
-    val providerGroup = radioButtonGroup("Providers", Mappings.pathProvidersMapping, "Smart");
-    val components: List[Component] = List(providerGroup, checkBoxes, configLabel)
+    val components: List[Component] = List(checkBoxes, configLabel)
 
     val inputPatch = inputTextArea("json-patch")
 

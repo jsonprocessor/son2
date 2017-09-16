@@ -18,7 +18,7 @@ class DefaultsPath(val config: RConfig, json: JsonProvider, mapping: MappingProv
     .map(toOption)
     .asJavaCollection
 
-  private def toOption(name: String): com.jayway.jsonpath.Option = com.jayway.jsonpath.Option.valueOf(name)
+  private def toOption(s: Symbol): com.jayway.jsonpath.Option = com.jayway.jsonpath.Option.valueOf(s.name)
 
 }
 

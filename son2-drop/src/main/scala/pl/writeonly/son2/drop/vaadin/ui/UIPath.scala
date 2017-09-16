@@ -4,7 +4,7 @@ import com.vaadin.annotations.{Theme, Title}
 import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui._
 import pl.writeonly.son2.core.config.{Config, RConfig, WConfig}
-import pl.writeonly.son2.drop.vaadin.composites.{CompositeIO, CompositeJack, CompositeRW}
+import pl.writeonly.son2.drop.vaadin.composites._
 import pl.writeonly.son2.drop.vaadin.util._
 import pl.writeonly.son2.path.glue.{CreatorConverterPath, CreatorConverterPathMain}
 
@@ -15,20 +15,22 @@ class UIPath extends UITrait {
   override def components2: List[Component] = {
     val rw = new CompositeRW
     val io = new CompositeIO
-    val jack = new CompositeJack
+    val pathProvider = new CompositePathProvider
+    val pathOptions = new CompositePathOptions
+    val jackFormats = new CompositeJack
 
-    val providerGroup = radioButtonGroup("Providers", Mappings.pathProvidersMapping, "Smart");
-    val components: List[Component] = List(providerGroup) ++ jack.components ++ rw.components
+    val components: List[Component] = pathProvider.components ++ pathOptions.components ++ jackFormats.components ++ rw.components
 
     val inputPath = inputTextField("json-path")
 
     val convert = convertButton(new Button.ClickListener() {
       override def buttonClick(clickEvent: ClickEvent): Unit = {
         val path = inputPath.getValue
-        val provider = selectedItem(providerGroup, Mappings.pathProvidersMapping)
+        val provider = pathProvider.selectedItem
+        val options = pathOptions.selectedItem
         val config = Config(
-          RConfig(format = Symbol(path), stream = rw.readStream, path = Option(path)),
-          WConfig(format = provider, style = rw.writePretty)
+          RConfig(provider = Symbol(path), stream = rw.readStream, path = Option(path), options = options),
+          WConfig(provider = provider, style = rw.writePretty)
         )
 
         val set = rw.set
