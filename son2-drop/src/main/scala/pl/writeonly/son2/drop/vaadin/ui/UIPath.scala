@@ -12,14 +12,14 @@ import pl.writeonly.son2.path.glue.{CreatorConverterPath, CreatorConverterPathMa
 @Theme("valo")
 class UIPath extends UITrait {
 
-  override def components2: List[Component] = {
-    val rw = new CompositeRW
-    val io = new CompositeIO
-    val pathProvider = new CompositePathProvider
-    val pathOptions = new CompositePathOptions
-    val jackFormats = new CompositeJack
+  override def componentsCenter: List[Component] = {
+    val rw = new ComplexRW
+    val io = new ComplexIO
+    val pathProvider = new ComplexPathProvider
+    val pathOptions = new ComplexPathOptions
+    val jackFormats = new ComplexJackFormats
 
-    val components: List[Component] = pathProvider.components ++ pathOptions.components ++ jackFormats.components ++ rw.components
+    val components: Seq[Component] = toComponents(pathProvider, pathOptions, jackFormats, rw)
 
     val inputPath = inputTextField("json-path")
 

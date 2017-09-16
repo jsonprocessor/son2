@@ -4,7 +4,7 @@ import com.vaadin.annotations.{Theme, Title}
 import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui._
 import pl.writeonly.son2.core.config.{Config, RConfig, WConfig}
-import pl.writeonly.son2.drop.vaadin.composites.{CompositeIO, CompositeJack, CompositePathProvider, CompositeRW}
+import pl.writeonly.son2.drop.vaadin.composites.{ComplexIO,  ComplexPathProvider, ComplexRW}
 import pl.writeonly.son2.drop.vaadin.util._
 import pl.writeonly.son2.json.glue.CreatorConverterJson
 
@@ -12,12 +12,12 @@ import pl.writeonly.son2.json.glue.CreatorConverterJson
 @Theme("valo")
 class UIFormatter extends UITrait {
 
-  override def components2: List[Component] = {
-    val rw = new CompositeRW
-    val io = new CompositeIO
-    val pathProvider = new CompositePathProvider
+  override def componentsCenter: List[Component] = {
+    val rw = new ComplexRW
+    val io = new ComplexIO
+    val pathProvider = new ComplexPathProvider
 
-    val components: List[Component] = pathProvider.components ++ rw.components
+    val components: Seq[Component] = toComponents(pathProvider, rw)
 
     val convert = convertButton(new Button.ClickListener() {
       override def buttonClick(clickEvent: ClickEvent): Unit = {

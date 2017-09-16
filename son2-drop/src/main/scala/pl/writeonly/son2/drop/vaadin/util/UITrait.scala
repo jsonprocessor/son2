@@ -4,6 +4,7 @@ import com.vaadin.server.VaadinRequest
 import com.vaadin.ui._
 import pl.writeonly.son2.core.converters.Converter
 import pl.writeonly.son2.core.glue.Piper
+import pl.writeonly.son2.drop.vaadin.composites.Complex
 
 
 trait UITrait extends UI with UIUtil {
@@ -23,7 +24,7 @@ trait UITrait extends UI with UIUtil {
 
   //  def debug(configLabel: Label, config: Config, set: Set[String]) = configLabel.setValue(config.toString + "\n" + set)
 
-  def optionsPanel(components: List[Component]): Panel = {
+  def optionsPanel(components: Seq[Component]): Panel = {
     val result = new Panel("Options", optionsHorizontalLayout(components))
     setWidth(result)
     result
@@ -46,9 +47,10 @@ trait UITrait extends UI with UIUtil {
     layout.addComponents(components: _*)
   }
 
-  def components: List[Component] = List(new TopMenu().linkPanel) ++ components2
+  def components: List[Component] = List(new TopMenu().linkPanel) ++ componentsCenter
 
-  def components2: List[Component] = List()
+  def componentsCenter: List[Component] = List()
 
+  def toComponents(complexes :Complex*) = complexes.flatMap( _.components)
 
 }

@@ -45,7 +45,7 @@ trait UIUtil {
     result
   }
 
-  def optionsHorizontalLayout(components: List[Component]): HorizontalLayout = {
+  def optionsHorizontalLayout(components: Seq[Component]): HorizontalLayout = {
     new HorizontalLayout(components: _*)
   }
 

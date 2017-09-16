@@ -4,7 +4,7 @@ import com.vaadin.annotations.{Theme, Title}
 import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui._
 import pl.writeonly.son2.core.config.{Config, RConfig, WConfig}
-import pl.writeonly.son2.drop.vaadin.composites.{CompositeIO, CompositeJack, CompositeRW}
+import pl.writeonly.son2.drop.vaadin.composites.{ComplexIO, ComplexJackFormats, ComplexRW}
 import pl.writeonly.son2.drop.vaadin.util._
 import pl.writeonly.son2.jack.glue.CreatorConverterJack
 
@@ -12,20 +12,20 @@ import pl.writeonly.son2.jack.glue.CreatorConverterJack
 @Theme("valo")
 class UIConverter extends UITrait {
 
-  override def components2: List[Component] = {
-    val rw = new CompositeRW
-    val io = new CompositeIO
-    val jack = new CompositeJack
+  override def componentsCenter: List[Component] = {
+    val rw = new ComplexRW
+    val io = new ComplexIO
+    val jackFormats = new ComplexJackFormats
 
-    val components: List[Component] = jack.components ++ rw.components
+    val components: Seq[Component] = toComponents(jackFormats, rw)
 
     val convert = convertButton(new Button.ClickListener() {
       override def buttonClick(clickEvent: ClickEvent): Unit = {
-        val inputFormat = jack.inputSelectedItem
-        val outputFormat = jack.outputSelectedItem
+        val inputFormat = jackFormats.inputSelectedItem
+        val outputFormat = jackFormats.outputSelectedItem
         val config = Config(
-          RConfig(provider = inputFormat, stream = rw.readStream),
-          WConfig(provider = outputFormat, style = rw.writePretty)
+          RConfig(provider = inputFormat, format=inputFormat, stream = rw.readStream),
+          WConfig(provider = outputFormat, format=outputFormat,  style = rw.writePretty)
         )
         val set = rw.set
         debug(rw.configLabel, config, set)

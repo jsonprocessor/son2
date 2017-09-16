@@ -3,7 +3,7 @@ package pl.writeonly.son2.drop.vaadin.ui
 import com.vaadin.annotations.{Theme, Title}
 import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui._
-import pl.writeonly.son2.drop.vaadin.composites.CompositeIO
+import pl.writeonly.son2.drop.vaadin.composites.ComplexIO
 import pl.writeonly.son2.drop.vaadin.util.{Mappings, UITrait}
 import pl.writeonly.son2.path.core.ConfigPath
 import pl.writeonly.son2.path.glue.CreatorConverterPathMain
@@ -13,10 +13,10 @@ import scala.collection.JavaConverters._
 @Title("json patch")
 @Theme("valo")
 class UIPatch extends UITrait {
-  override def components2: List[Component] = {
+  override def componentsCenter: List[Component] = {
     val checkBoxes = nativeGroup
     val configLabel = outputLabel
-    val io = new CompositeIO
+    val io = new ComplexIO
 
     val components: List[Component] = List(checkBoxes, configLabel)
 

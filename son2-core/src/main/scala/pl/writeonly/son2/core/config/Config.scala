@@ -11,7 +11,11 @@ case class RConfig(
                   )
 
 //case class WConfig(val format: Symbol = Symbol(""), val style: RStyle = Raw())
-case class WConfig(provider: Symbol = Symbol(""), style: Boolean = false, addEndLine: Boolean = true)
+case class WConfig(
+                    provider: Symbol = Symbol(""),
+                    format : Symbol = Symbol(""),
+                    style: Boolean = false,
+                    addEndLine: Boolean = true)
 
 case class TConfig(action: Symbol = Symbol(""), format: Symbol = Symbol(""), level: Short = 0) {
   def actionAndFormat = name(action) + "_" + name(format)

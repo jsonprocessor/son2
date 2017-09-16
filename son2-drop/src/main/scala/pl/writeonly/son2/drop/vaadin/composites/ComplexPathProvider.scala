@@ -3,13 +3,13 @@ package pl.writeonly.son2.drop.vaadin.composites
 import com.vaadin.ui.Component
 import pl.writeonly.son2.drop.vaadin.util.UITrait
 
-class CompositePathProvider extends Composite {
-  private val component = CompositePathProvider.apply
+class ComplexPathProvider extends Complex {
+  private val component = ComplexPathProvider.apply
   override def components: List[Component] = List(component)
-  def selectedItem = CompositePathProvider.selectedItem(component, CompositePathProvider.mapping)
+  def selectedItem = ComplexPathProvider.selectedItem(component, ComplexPathProvider.mapping)
 }
 
-object CompositePathProvider extends UITrait {
+object ComplexPathProvider extends UITrait {
   val mapping = Map[String, Symbol](
     "Gson" -> 'gson,
     "Jackson" -> 'jackson,
@@ -20,5 +20,5 @@ object CompositePathProvider extends UITrait {
     "Tapestry" -> 'tapestry
   )
 
-  private def apply = radioButtonGroup("Providers", mapping, "Smart");
+  private def apply = radioButtonGroup("Providers:", mapping, "Smart");
 }

@@ -3,15 +3,15 @@ package pl.writeonly.son2.drop.vaadin.composites
 import com.vaadin.ui.{Component, TextArea}
 import pl.writeonly.son2.drop.vaadin.util.UIUtil
 
-class CompositeIO extends Composite {
+class ComplexIO extends Complex {
   val input = inputTextArea
-  val output = CompositeIO.outputLabel
+  val output = ComplexIO.outputLabel
 
-  def inputTextArea: TextArea = CompositeIO.inputTextArea("Input json:")
+  def inputTextArea: TextArea = ComplexIO.inputTextArea("Input json:")
 
   override def components: List[Component] = ???
 }
 
-object CompositeIO extends UIUtil {
+object ComplexIO extends UIUtil {
 
 }

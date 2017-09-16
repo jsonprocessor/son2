@@ -11,7 +11,7 @@ import pl.writeonly.son2.drop.vaadin.util.{Mappings, UITrait}
 @Theme("valo")
 class UIComparator extends UITrait {
 
-  override def components2: List[Component] = {
+  override def componentsCenter: List[Component] = {
     val inputLeft = inputTextArea("Expected json:")
     val inputRight = inputTextArea("Actual json:")
     val output = outputLabel

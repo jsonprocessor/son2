@@ -12,7 +12,7 @@ import scala.collection.JavaConverters._
 @Title("json path")
 @Theme("valo")
 class UIDiff extends UITrait {
-  override def components2: List[Component] = {
+  override def componentsCenter: List[Component] = {
     val checkBoxes = nativeGroup
     val configLabel = outputLabel
     val input = inputTextArea
