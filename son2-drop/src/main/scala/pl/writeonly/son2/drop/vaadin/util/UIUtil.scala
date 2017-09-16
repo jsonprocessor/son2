@@ -58,13 +58,13 @@ trait UIUtil {
     result
   }
 
+  def setWidth(c: AbstractComponent) = c.setWidth("100%")
+
   def outputLabel: Label = {
     val result = new Label("", ContentMode.PREFORMATTED)
     setWidth(result)
     result
   }
-
-  def setWidth(c: AbstractComponent) = c.setWidth("100%")
 
   def checkBoxGroup(caption: String, items: Map[String, _]): CheckBoxGroup[String] = checkBoxGroup(caption, items.keySet)
 
@@ -76,17 +76,17 @@ trait UIUtil {
 
   def radioButtonGroup(caption: String, items: Set[String], selected: String): RadioButtonGroup[String] = radioButtonGroup(caption, items.toList.sorted, selected)
 
-  def radioButtonGroup(caption: String, items: List[String], selected: String): RadioButtonGroup[String] = {
-    val result = new RadioButtonGroup[String](caption, items.asJavaCollection)
-    result.setSelectedItem(selected)
-    result
-  }
-
   def radioButtonGroup(caption: String, items: Map[String, _]): RadioButtonGroup[String] = radioButtonGroup(caption, items.keySet)
 
   def radioButtonGroup(caption: String, items: Set[String]): RadioButtonGroup[String] = radioButtonGroup(caption, items.toList.sorted)
 
   def radioButtonGroup(caption: String, items: List[String]): RadioButtonGroup[String] = radioButtonGroup(caption, items, items.iterator.next)
+
+  def radioButtonGroup(caption: String, items: List[String], selected: String): RadioButtonGroup[String] = {
+    val result = new RadioButtonGroup[String](caption, items.asJavaCollection)
+    result.setSelectedItem(selected)
+    result
+  }
 
   def selectedItem[A](group: RadioButtonGroup[String], mapping: Map[String, A]): A = selectedItemOpt(group, mapping).get()
 

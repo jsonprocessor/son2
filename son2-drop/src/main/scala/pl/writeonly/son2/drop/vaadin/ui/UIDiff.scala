@@ -25,7 +25,7 @@ class UIDiff extends UITrait {
     val convert = convertButton(new Button.ClickListener() {
       override def buttonClick(clickEvent: ClickEvent): Unit = {
         val path = inputPatch.getValue
-        val config = ConfigPath(i = Symbol(path))
+        val config = ConfigPath(provider = Symbol(path))
 
         val set = checkBoxes.getValue.asScala.toSet
         debug(configLabel, config, set)

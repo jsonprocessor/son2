@@ -1,6 +1,5 @@
 package pl.writeonly.son2.jack.glue
 
-import org.skyscreamer.jsonassert.JSONAssert
 import pl.writeonly.son2.jack.core.FormatsJack
 import pl.writeonly.son2.spec.GrayVectorSpec
 

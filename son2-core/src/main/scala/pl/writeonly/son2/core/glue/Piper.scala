@@ -14,19 +14,19 @@ class Piper(params: Params, converter: Converter) {
 
   def convertStream() = pipe.convertStream(params.in, params.out)
 
-  def pipe = Streamers.pipe(converter.config.read.stream, converter)
-
   def convertFile(in: String, out: String) = pipe.convertFile(in, out)
 
+  def pipe = Streamers.pipe(converter.config.read.stream, converter)
+
   def convertFile(in: String) = convertStream(new FileInputStream(in))
-
-  def print(print: Boolean) = Streamers.print(print, converter.config.read.stream, converter)
-
-  def convertResource(name: String) = convertStream(resourceAsStream(name))
 
   def convertStream(in: InputStream) = source.convertStream(in, params.out)
 
   def source = Streamers.source(converter.config.read.stream, converter)
+
+  def print(print: Boolean) = Streamers.print(print, converter.config.read.stream, converter)
+
+  def convertResource(name: String) = convertStream(resourceAsStream(name))
 
   def resourceAsStream(name: String) = getClass().getClassLoader().getResourceAsStream(name)
 
