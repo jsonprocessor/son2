@@ -17,8 +17,6 @@ class ChainReaderJack extends ChainImpl[Any](
     orElse
     new NotationReaderJavaProps) with HasConfigOpt {
 
-  def config(s: String): Config = configOpt(s).get
-
   def configOpt(s: String): Option[Config] = get.lift(s).map(a => ChainReaderJack.config(a.asInstanceOf[JsonNode]))
 
   def parse(s: String): JsonNode = get.lift(s).get.asInstanceOf[JsonNode]

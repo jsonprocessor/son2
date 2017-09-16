@@ -30,7 +30,7 @@ class UIPath extends UITrait {
         val provider = pathProvider.selectedItem
         val options = pathOptions.selectedItem
         val config = Config(
-          RConfig(provider = Symbol(path), format = jackFormats.inputSelectedItem, stream = rw.readStream, path = Option(path), options = options),
+          RConfig(provider = provider, format = jackFormats.inputSelectedItem, stream = rw.readStream, path = Option(path), options = options),
           WConfig(provider = provider, format = jackFormats.outputSelectedItem, style = rw.writePretty, gson = gsonOptions.selectedItem)
         )
 

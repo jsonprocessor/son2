@@ -5,5 +5,5 @@ import pl.writeonly.son2.core.notation.PartialCreatorConfigSymbol
 import pl.writeonly.son2.path.core.ConfigPath
 
 class PCreatorConfigPath(f: Symbol) extends PartialCreatorConfigSymbol(f) {
-  override def apply(s: String): Config = ConfigPath(o = Symbol(s))
+  override def apply(s: String): Config = ConfigPath(provider = Symbol(s))
 }

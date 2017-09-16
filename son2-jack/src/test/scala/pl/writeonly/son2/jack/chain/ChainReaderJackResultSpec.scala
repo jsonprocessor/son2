@@ -12,6 +12,8 @@ class ChainReaderJackResultSpec extends WhiteResultSpec {
         val node = parser.parse("{}")
         assertResult(true, "is not object")(node.isObject)
         assertResult(0, "object is not empty")(node.size)
+        val config = parser.configOpt("{}")
+        assertResult(true, "is not defined")(config.isDefined)
       }
     }
     "param is empty array json" should {
@@ -19,6 +21,8 @@ class ChainReaderJackResultSpec extends WhiteResultSpec {
         val node = parser.parse("[]")
         assertResult(true, "is not array")(node.isArray)
         assertResult(0, "array is not empty")(node.size)
+        val config = parser.configOpt("[]")
+        assertResult(true, "is not defined")(config.isDefined)
       }
     }
     "param is empty object yaml" should {
@@ -33,6 +37,9 @@ class ChainReaderJackResultSpec extends WhiteResultSpec {
         val node = parser.parse("<root></root>")
         assert(node.isObject, "is not object")
         assert(node.size == 0, "object is not empty")
+        val config = parser.configOpt("<root></root>\"")
+        assertResult(true, "is not defined")(config.isDefined)
+
       }
     }
     "param is empty object csv" should {

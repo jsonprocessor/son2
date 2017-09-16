@@ -1,31 +1,37 @@
 package pl.writeonly.son2.path.glue
 
+import org.skyscreamer.jsonassert.JSONAssert
 import pl.writeonly.son2.path.core.ProvidersPath
 import pl.writeonly.son2.spec.GrayVectorSpec
 
 class CreatorConverterPathVectorSpec extends GrayVectorSpec {
 
-  val formats = Table("format", ProvidersPath.ALL: _*)
+  val providers = Table("format", ProvidersPath.ALL: _*)
 
 
-  val pf = new ChainNotationConfigPath().get
+  val configer = new ChainNotationConfigPath().get
   val chain = new ChainNotationRWTPath
   val reader = chain.r
   val writer = chain.w
   property("PF should isDefinedAt for format") {
-    forAll(formats) { (format) =>
-      pf.isDefinedAt(format.name) should be(true)
-      val config = pf.apply(format.name)
+    forAll(providers) { (provider) =>
+      configer.isDefinedAt(provider.name) should be(true)
+      val config = configer.apply(provider.name)
       reader.isDefinedAt(config.read) should be(true)
       writer.isDefinedAt(config.write) should be(true)
 
-      reader.apply(config.read)
-      writer.apply(config.write)
+      val r = reader.apply(config.read)
+      val w = writer.apply(config.write)
+      val expectedStr = "{}"
+      val json = r.apply(expectedStr)
+      val actualStr = w.write(json)
+      JSONAssert.assertEquals(expectedStr, actualStr, false)
+      JSONAssert.assertEquals(expectedStr, actualStr, true)
     }
   }
   property("Apply creatorConverterPath with format") {
-    forAll(formats) { (format) =>
-      CreatorConverterPath.apply(format)
+    forAll(providers) { (provider) =>
+      CreatorConverterPath.apply(provider)
     }
   }
 

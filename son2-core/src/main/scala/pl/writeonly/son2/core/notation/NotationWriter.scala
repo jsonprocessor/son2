@@ -1,5 +1,6 @@
 package pl.writeonly.son2.core.notation
 
+import com.google.common.base.MoreObjects
 import org.scalactic.{Bad, Good, Or}
 import pl.writeonly.son2.core.config.WConfig
 
@@ -20,4 +21,6 @@ abstract class NotationWriter(val config: WConfig) {
   def writePretty(value: Any): String //= value.toString()
 
   def writeRaw(value: Any): String //= value.toString()
+
+  override def toString() = MoreObjects.toStringHelper(this).addValue(config).toString
 }

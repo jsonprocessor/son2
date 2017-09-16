@@ -1,4 +1,4 @@
-package pl.writeonly.son2.json.providers
+package pl.writeonly.son2.jack.converters
 
 import com.fasterxml.jackson.core.JsonParseException
 import com.fasterxml.jackson.databind.JsonMappingException
@@ -8,9 +8,9 @@ import pl.writeonly.son2.jack.core.FormatsJack
 import pl.writeonly.son2.jack.glue.CreatorConverterJack
 import pl.writeonly.son2.spec.WhiteResultSpec
 
-class CsvWordSpec extends WhiteResultSpec {
+class XmlWordSpec extends WhiteResultSpec {
 
-  val provider: Converter = CreatorConverterJack(FormatsJack.CSV)
+  val provider: Converter = CreatorConverterJack(FormatsJack.XML)
   "A Provider" should {
     "produce JsonParseException when convert a" in {
       assertThrows[JsonParseException] {
@@ -20,6 +20,16 @@ class CsvWordSpec extends WhiteResultSpec {
     "produce JsonMappingException when convert empty string" in {
       assertThrows[JsonMappingException] {
         provider.convert("")
+      }
+    }
+    "produce JsonMappingException when convert []" in {
+      assertThrows[JsonMappingException] {
+        provider.convert("[]")
+      }
+    }
+    "produce JsonMappingException when convert [0,1]" in {
+      assertThrows[JsonMappingException] {
+        provider.convert("[0,1]")
       }
     }
   }
