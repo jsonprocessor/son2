@@ -11,7 +11,7 @@ import scala.collection.JavaConverters._
 
 trait UIUtil {
 
-  def layoutVerticalLayout: VerticalLayout = {
+  def verticalLayout: VerticalLayout = {
     val result = new VerticalLayout()
     setWidth(result)
     result.setSpacing(true)
@@ -19,11 +19,17 @@ trait UIUtil {
     result
   }
 
+  def optionsHorizontalLayout(components: Seq[Component]): HorizontalLayout = {
+    new HorizontalLayout(components: _*)
+  }
+
   def setWidth(c: AbstractComponent) = c.setWidth("100%")
 
-  def horizontaPanel(caption: String, components: Component*) = new Panel(caption, new HorizontalLayout(components: _*))
+  def verticalPanel(caption: String, components: Component*) = new Panel(caption, new VerticalLayout(components: _*))
 
-  def horizontaPanelEx(caption: String, components: Component*): Panel = {
+  def horizontalPanel(caption: String, components: Component*) = new Panel(caption, new HorizontalLayout(components: _*))
+
+  def horizontalPanelEx(caption: String, components: Component*): Panel = {
     val l = new HorizontalLayout()
     l.addComponentsAndExpand(components: _*)
     new Panel(caption, l)
@@ -45,9 +51,6 @@ trait UIUtil {
     result
   }
 
-  def optionsHorizontalLayout(components: Seq[Component]): HorizontalLayout = {
-    new HorizontalLayout(components: _*)
-  }
 
   def outputLabel: Label = {
     val result = new Label("", ContentMode.PREFORMATTED)

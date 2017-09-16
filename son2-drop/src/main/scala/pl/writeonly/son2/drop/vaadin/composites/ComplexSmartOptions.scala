@@ -1,15 +1,15 @@
 package pl.writeonly.son2.drop.vaadin.composites
-import com.vaadin.ui.Component
-import pl.writeonly.son2.drop.vaadin.util.{UITrait}
-import com.jayway.jsonpath.{Option => jOption}
 
-class ComplexGsonOptions extends Complex {
-  private val component = ComplexGsonOptions.apply
-  override def components: List[Component] = List(component)
-  def selectedItem = ComplexPathOptions.selectedItem(component, ComplexGsonOptions.mapping)
-}
+import com.vaadin.ui.{CheckBoxGroup, Component}
+import pl.writeonly.son2.drop.vaadin.util.UITrait
 
-object ComplexGsonOptions extends UITrait {
+class ComplexSmartOptions extends Complex {
+    private val component = ComplexSmartOptions.apply
+    override def components: List[Component] = List(component)
+    def selectedItem = ComplexSmartOptions.selectedItem(component)
+  }
+
+object ComplexSmartOptions extends UITrait {
   private val mapping = Map[String, Symbol](
     "disableHtmlEscaping" -> 'disableHtmlEscaping,
     "disableInnerClassSerialization" -> 'disableInnerClassSerialization,
@@ -21,6 +21,9 @@ object ComplexGsonOptions extends UITrait {
     "setLenient" -> 'setLenient
   )
 
+  private def apply = checkBoxGroup("Smart options:", ComplexSmartOptions.mapping)
 
-  private def apply = checkBoxGroup("Gson options:", ComplexGsonOptions.mapping)
+  private def selectedItem(component : CheckBoxGroup[String]) : Set[Symbol] = selectedItem(component, ComplexSmartOptions.mapping)
+
+
 }

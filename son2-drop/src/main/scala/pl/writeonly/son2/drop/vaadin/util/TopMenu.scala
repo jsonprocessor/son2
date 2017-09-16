@@ -4,7 +4,7 @@ import com.vaadin.ui.{Link, Panel}
 
 class TopMenu extends UIUtil {
 
-  def linkPanel: Panel = horizontaPanelEx("Top Menu",
+  def linkPanel: Panel = horizontalPanelEx("Top Menu",
     mainLink,
     jacksonConverter,
     jsonComparatorLink,

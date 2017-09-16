@@ -1,16 +1,24 @@
 package pl.writeonly.son2.drop.vaadin.composites
 
 import com.vaadin.ui.Component
-import pl.writeonly.son2.drop.vaadin.util.{Mappings, UITrait, UIUtil}
+import pl.writeonly.son2.drop.vaadin.util.{UITrait}
 
 class ComplexJackFormats extends Complex {
-  private val inputFormats = ComplexJackFormats.jacksonInputFormat
-  private val outputFormats = ComplexJackFormats.jacksonOutputFormat
+  protected val inputFormats = ComplexJackFormats.jacksonInputFormat
+  protected val outputFormats = ComplexJackFormats.jacksonOutputFormat
+  protected val vertical = ComplexJackFormats.verticalPanel("Jackson options:", inputFormats, outputFormats)
+  protected val horizonta = ComplexJackFormats.horizontalPanel("Jackson options:", inputFormats, outputFormats)
 
   def inputSelectedItem = ComplexJackFormats.selectedItem(inputFormats, ComplexJackFormats.mapping)
   def outputSelectedItem = ComplexJackFormats.selectedItem(outputFormats, ComplexJackFormats.mapping)
 
+
   override def components: List[Component] = List(inputFormats, outputFormats)
+}
+
+class ComplexJackFormats2 extends ComplexJackFormats {
+
+  override def components: List[Component] = List(vertical)
 }
 
 object ComplexJackFormats extends UITrait {

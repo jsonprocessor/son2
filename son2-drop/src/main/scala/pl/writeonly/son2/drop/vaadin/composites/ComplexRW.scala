@@ -12,11 +12,11 @@ class ComplexRW extends Complex {
 
   def readStream = readSelectedItem.equals('stream)
 
-  def readSelectedItem = ComplexRW.selectedItemOpt(readGroup, Mappings.readMapping)
+  def readSelectedItem = ComplexRW.selectedItem(readGroup, Mappings.readMapping)
 
   def writePretty = writeSelectedItem.equals('pretty)
 
-  def writeSelectedItem = ComplexRW.selectedItemOpt(writeGroup, Mappings.writeMapping)
+  def writeSelectedItem = ComplexRW.selectedItem(writeGroup, Mappings.writeMapping)
 
   def components = List(readGroup, writeGroup, nativeGroup, configLabel)
 

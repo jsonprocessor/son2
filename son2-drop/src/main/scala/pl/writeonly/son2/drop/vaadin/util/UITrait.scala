@@ -42,7 +42,7 @@ trait UITrait extends UI with UIUtil {
 
   @Override
   override protected def init(vaadinRequest: VaadinRequest): Unit = {
-    val layout = layoutVerticalLayout
+    val layout = verticalLayout
     setContent(layout)
     layout.addComponents(components: _*)
   }
