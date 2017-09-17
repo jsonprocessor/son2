@@ -41,10 +41,9 @@ class CreatorConverterPathResultSpec extends WhiteResultSpec {
         val streamer = new Piper(null, converter).print(false)
         val json = streamer.convertString(false, expectedStr)
         JSONAssert.assertEquals("[]", json, true)
-        }
       }
       "return [] for {}" in {
-        val json =  converter.convert(expectedStr)
+        val json = converter.convert(expectedStr)
         JSONAssert.assertEquals("[]", json, true)
       }
       "return 'tapestry from config read provider" in {
