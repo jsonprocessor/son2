@@ -6,9 +6,8 @@ import pl.writeonly.son2.path.notation._
 
 class ChainNotationRWTPath extends ChainNotationRWT(
   (
-    new PCreatorReaderPathMain()
-      orElse
-      new PCreatorReaderPath(NotationCaseGson())
+
+    new PCreatorReaderPath(NotationCaseGson())
       orElse
       new PCreatorReaderPath(NotationCaseJackson())
       orElse
@@ -23,6 +22,8 @@ class ChainNotationRWTPath extends ChainNotationRWT(
       new PCreatorReaderPath(NotationCaseStrict())
       orElse
       new PCreatorReaderPath(NotationCaseTapestry())
+      orElse
+      new PCreatorReaderPathMain()
     ),
   (
     new PCreatorWriterPath(NotationCaseGson())

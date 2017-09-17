@@ -19,6 +19,8 @@ trait UIUtil {
     result
   }
 
+  def setWidth(c: AbstractComponent) = c.setWidth("100%")
+
   def optionsHorizontalLayout(components: Seq[Component]): HorizontalLayout = {
     new HorizontalLayout(components: _*)
   }
@@ -57,8 +59,6 @@ trait UIUtil {
     setWidth(result)
     result
   }
-
-  def setWidth(c: AbstractComponent) = c.setWidth("100%")
 
   def outputLabel: Label = {
     val result = new Label("", ContentMode.PREFORMATTED)

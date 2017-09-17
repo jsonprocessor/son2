@@ -14,9 +14,9 @@ class Piper(params: Params, converter: Converter) {
 
   def convertStream() = pipe.convertStream(params.in, params.out)
 
-  def convertFile(in: String, out: String) = pipe.convertFile(in, out)
-
   def pipe = Streamers.pipe(converter.config.read.stream, converter)
+
+  def convertFile(in: String, out: String) = pipe.convertFile(in, out)
 
   def convertFile(in: String) = convertStream(new FileInputStream(in))
 
