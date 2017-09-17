@@ -1,5 +1,6 @@
 package pl.writeonly.son2.path.glue
 
+import org.skyscreamer.jsonassert.JSONAssert
 import pl.writeonly.son2.core.config.{Config, RConfig, TConfig, WConfig}
 import pl.writeonly.son2.core.converters.Converter2
 import pl.writeonly.son2.core.glue.Piper
@@ -37,15 +38,14 @@ class CreatorConverterPathResultSpec extends WhiteResultSpec {
         TConfig())
       val converter = CreatorConverterPath(config)
       "return [] for {} by streamer" in {
-        assertResult("[]") {
-          val streamer = new Piper(null, converter).print(false)
-          streamer.convertString(false, expectedStr)
+        val streamer = new Piper(null, converter).print(false)
+        val json = streamer.convertString(false, expectedStr)
+        JSONAssert.assertEquals("[]", json, true)
         }
       }
       "return [] for {}" in {
-        assertResult("[]") {
-          converter.convert(expectedStr)
-        }
+        val json =  converter.convert(expectedStr)
+        JSONAssert.assertEquals("[]", json, true)
       }
       "return 'tapestry from config read provider" in {
         assertResult(provider) {
