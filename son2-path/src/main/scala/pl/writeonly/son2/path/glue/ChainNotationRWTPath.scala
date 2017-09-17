@@ -22,8 +22,6 @@ class ChainNotationRWTPath extends ChainNotationRWT(
       new PCreatorReaderPath(NotationCaseStrict())
       orElse
       new PCreatorReaderPath(NotationCaseTapestry())
-      orElse
-      new PCreatorReaderPathMain()
     ),
   (
     new PCreatorWriterPath(NotationCaseGson())
