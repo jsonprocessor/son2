@@ -11,8 +11,6 @@ class ComplexIO extends Complex {
 
   override def toComponent: Component = ???
 
-  override def components: List[Component] = ???
-
 }
 
 object ComplexIO extends UIUtil {

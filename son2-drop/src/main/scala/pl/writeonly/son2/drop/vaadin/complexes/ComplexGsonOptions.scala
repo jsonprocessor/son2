@@ -6,8 +6,6 @@ import pl.writeonly.son2.drop.vaadin.util.UITrait
 class ComplexGsonOptions extends Complex {
   private val component = ComplexGsonOptions.apply
 
-  override def components: List[Component] = List(toComponent)
-
   override def toComponent: Component = component
 
   def selectedItem = ComplexPathOptions.selectedItem(component, ComplexGsonOptions.mapping)

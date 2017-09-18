@@ -19,6 +19,7 @@ abstract class ComplexRW extends Complex {
   private val readGroup = ComplexRW.readGroupApply
   private val writeGroup = ComplexRW.writeGroupApply
   private val nativeGroup = ComplexRW.nativeGroupApply
+  protected val components: List[Component] = List(readGroup, writeGroup, nativeGroup)
 
   def readStream = readSelectedItem.equals('stream)
 
@@ -28,23 +29,17 @@ abstract class ComplexRW extends Complex {
 
   def writeSelectedItem = ComplexRW.selectedItem(writeGroup, Mappings.writeMapping)
 
-  override def components: List[Component] = List(readGroup, writeGroup, nativeGroup)
-
   def set = nativeGroup.getValue.asScala.toSet
 }
 
 class ComplexRWHorizontal extends ComplexRW {
-  private val component: Component = ComplexJackFormats.horizontalLayout(super.components: _*)
-
-  override def components: List[Component] = List(toComponent)
+  private val component: Component = ComplexJackFormats.horizontalLayout(components: _*)
 
   override def toComponent: Component = component
 }
 
 class ComplexRWVertical extends ComplexRW {
-  private val component: Component = ComplexJackFormats.verticalLayout(super.components: _*)
-
-  override def components: List[Component] = List(toComponent)
+  private val component: Component = ComplexJackFormats.verticalLayout(components: _*)
 
   override def toComponent: Component = component
 }

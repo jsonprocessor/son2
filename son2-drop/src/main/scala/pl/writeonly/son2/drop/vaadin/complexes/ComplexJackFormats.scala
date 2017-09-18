@@ -28,15 +28,11 @@ abstract class ComplexJackFormats extends Complex {
 class ComplexJackFormatsHorizontal extends ComplexJackFormats {
   private val layout = ComplexJackFormats.horizontalLayout(inputFormats, outputFormats)
 
-  override def components: List[Component] = List(toComponent)
-
   override def toComponent: Component = layout
 }
 
 class ComplexJackFormatsVertical extends ComplexJackFormats {
   private val layout = ComplexJackFormats.verticalLayout(inputFormats, outputFormats)
-
-  override def components: List[Component] = List(toComponent)
 
   override def toComponent: Component = layout
 }

@@ -6,8 +6,6 @@ import pl.writeonly.son2.drop.vaadin.util.UITrait
 class ComplexPathProvider extends Complex {
   private val component = ComplexPathProvider.apply
 
-  override def components: List[Component] = List(toComponent)
-
   override def toComponent: Component = component
 
   def selectedItem = ComplexPathProvider.selectedItem(component, ComplexPathProvider.mapping)
