@@ -7,29 +7,20 @@ import pl.writeonly.son2.drop.vaadin.util.UITrait
 
 class ComplexSmartOptions extends Complex with LazyLogging{
   private val component = ComplexSmartOptions.apply
-  private val MODE_JSON_SIMPLE = new Button("MODE_JSON_SIMPLE", new Button.ClickListener(){
-    override def buttonClick(event: ClickEvent): Unit = {
-      logger.info("{}", event)
-      val set : Set[String] = ComplexSmartOptions.MODE_JSON_SIMPLE.map(ComplexSmartOptions.swap.get(_).get)
-      component.select(set.toSeq:_*)
-    }
-  })
-  private val MODE_RFC4627 = new Button("MODE_RFC4627", new Button.ClickListener(){
-    override def buttonClick(event: ClickEvent): Unit = {
-      logger.info("{}", event)
-      val set : Set[String] = ComplexSmartOptions.MODE_RFC4627.map(ComplexSmartOptions.swap.get(_).get)
-      component.select(set.toSeq:_*)
-    }
-  })
-  private val MODE_STRICTEST = new Button("MODE_STRICTEST", new Button.ClickListener(){
-    override def buttonClick(event: ClickEvent): Unit = {
-      logger.info("{}", event)
-      val set : Set[String] = ComplexSmartOptions.MODE_STRICTEST.map(ComplexSmartOptions.swap.get(_).get)
-      component.select(set.toSeq:_*)
-    }
-  })
-  val layout = ComplexSmartOptions.horizontalLayout(components:_*)
+  private val MODE_JSON_SIMPLE = button("MODE_JSON_SIMPLE", ComplexSmartOptions.MODE_JSON_SIMPLE)
+  private val MODE_RFC4627 = button("MODE_RFC4627", ComplexSmartOptions.MODE_RFC4627)
+  private val MODE_STRICTEST = button("MODE_STRICTEST", ComplexSmartOptions.MODE_STRICTEST)
+  private val layout = ComplexSmartOptions.verticalLayout(components:_*)
 
+  private def button(caption:String, select: Set[Symbol]) = new Button(caption, new Button.ClickListener(){
+    override def buttonClick(event: ClickEvent): Unit = {
+      logger.info("{}", event)
+      component.clear()
+      val set : Set[String] = select.map(ComplexSmartOptions.swap.get(_).get)
+      component.select(set.toSeq:_*)
+    }
+  })
+  
   override def components: List[Component] = List(component, MODE_JSON_SIMPLE, MODE_RFC4627, MODE_STRICTEST)
 
   override def toComponent: Component = layout
@@ -72,6 +63,7 @@ object ComplexSmartOptions extends UITrait {
   private def apply = checkBoxGroup("Smart options:", ComplexSmartOptions.mapping)
 
   private def selectedItem(component: CheckBoxGroup[String]): Set[Symbol] = selectedItem(component, ComplexSmartOptions.mapping)
+
 
 
 }
