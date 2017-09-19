@@ -2,25 +2,26 @@ package pl.writeonly.son2.drop.vaadin.complexes
 
 import com.jayway.jsonpath.{Option => jOption}
 import com.vaadin.ui.Component
-import pl.writeonly.son2.drop.vaadin.util.UITrait
+import pl.writeonly.son2.drop.vaadin.util.{ItemSymbol, UITrait}
 
 class ComplexPathOptions extends Complex {
   private val component = ComplexPathOptions.apply
 
   override def toComponent: Component = component
 
-  def selectedItem = ComplexPathOptions.selectedItem(component, ComplexPathOptions.mapping)
+  def selectedItem = ComplexPathOptions.selectedItem2(component).map(_.value)
 }
 
 object ComplexPathOptions extends UITrait {
-  private val mapping = Map[String, Symbol](
-    "As path list" -> toSymbol(jOption.AS_PATH_LIST),
-    "Always return list" -> toSymbol(jOption.ALWAYS_RETURN_LIST),
-    "default path leaf to null" -> toSymbol(jOption.DEFAULT_PATH_LEAF_TO_NULL),
-    "requite properties" -> toSymbol(jOption.REQUIRE_PROPERTIES),
-    "suppress exception" -> toSymbol(jOption.SUPPRESS_EXCEPTIONS))
+  private val items = Set[ItemSymbol](
+    ItemSymbol(toSymbol(jOption.AS_PATH_LIST), "As path list"),
+    ItemSymbol(toSymbol(jOption.ALWAYS_RETURN_LIST), "Always return list"),
+    ItemSymbol(toSymbol(jOption.DEFAULT_PATH_LEAF_TO_NULL), "default path leaf to null"),
+    ItemSymbol(toSymbol(jOption.REQUIRE_PROPERTIES), "requite properties"),
+    ItemSymbol(toSymbol(jOption.SUPPRESS_EXCEPTIONS), "suppress exception")
+  )
 
   private def toSymbol(option: jOption) = Symbol(option.name())
 
-  private def apply = checkBoxGroup("Path options:", ComplexPathOptions.mapping)
+  private def apply = checkBoxGroup2("Path options:", items)
 }
