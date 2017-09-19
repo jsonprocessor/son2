@@ -28,9 +28,6 @@ object Mappings {
     "Strict order (extensible=true, strictOrder=true)" -> JSONCompareMode.STRICT_ORDER
   )
 
-  val modeSymbolMapping = Map[String, Symbol](
-    "Extensible" -> 'extensible,
-    "Strict Order" -> 'strictOrder
-  )
+
 
 }
