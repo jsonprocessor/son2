@@ -1,28 +1,26 @@
 package pl.writeonly.son2.drop.vaadin.complexes
 
 import com.vaadin.ui.Component
-import pl.writeonly.son2.drop.vaadin.util.UITrait
+import pl.writeonly.son2.drop.vaadin.util.{ItemSymbol, UITrait}
 
 class ComplexGsonOptions extends Complex {
   private val component = ComplexGsonOptions.apply
 
   override def toComponent: Component = component
 
-  def selectedItem = ComplexPathOptions.selectedItem(component, ComplexGsonOptions.mapping)
+  def selectedItem = ComplexPathOptions.selectedItem2(component).map(_.value)
 }
 
 object ComplexGsonOptions extends UITrait {
-  private val mapping = Map[String, Symbol](
-    "disableHtmlEscaping" -> 'disableHtmlEscaping,
-    "disableInnerClassSerialization" -> 'disableInnerClassSerialization,
-    "enableComplexMapKeySerialization" -> 'enableComplexMapKeySerialization,
-    "excludeFieldsWithoutExposeAnnotation" -> 'excludeFieldsWithoutExposeAnnotation,
-    "generateNonExecutableJson" -> 'generateNonExecutableJson,
-    "serializeNulls" -> 'serializeNulls,
-    "serializeSpecialFloatingPointValues" -> 'serializeSpecialFloatingPointValues,
-    "setLenient" -> 'setLenient
+  private val items = Set(
+    ItemSymbol('disableHtmlEscaping),
+    ItemSymbol('disableInnerClassSerialization),
+    ItemSymbol('enableComplexMapKeySerialization),
+    ItemSymbol('excludeFieldsWithoutExposeAnnotation),
+    ItemSymbol('generateNonExecutableJson),
+    ItemSymbol('serializeNulls),
+    ItemSymbol('serializeSpecialFloatingPointValues),
+    ItemSymbol('setLenient)
   )
-
-
-  private def apply = checkBoxGroup("Gson options:", ComplexGsonOptions.mapping)
+  private def apply = checkBoxGroup2("Gson options:", items)
 }
