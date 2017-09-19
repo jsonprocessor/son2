@@ -3,7 +3,7 @@ package pl.writeonly.son2.drop.vaadin.complexes
 import com.typesafe.scalalogging.LazyLogging
 import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui.{Button, CheckBoxGroup, Component}
-import pl.writeonly.son2.drop.vaadin.util.UITrait
+import pl.writeonly.son2.drop.vaadin.util.{ItemSymbol, UITrait}
 
 class ComplexSmartOptions extends Complex with LazyLogging{
   private val options = ComplexSmartOptions.apply
@@ -30,6 +30,20 @@ class ComplexSmartOptions extends Complex with LazyLogging{
 }
 
 object ComplexSmartOptions extends UITrait {
+  private val items = Set(
+    ItemSymbol('ACCEPT_SIMPLE_QUOTE),
+    ItemSymbol('ACCEPT_NON_QUOTE),
+    ItemSymbol('ACCEPT_NAN),
+    ItemSymbol('IGNORE_CONTROL_CHAR),
+    ItemSymbol('USE_INTEGER_STORAGE),
+    ItemSymbol('ACCEPT_LEADING_ZERO),
+    ItemSymbol('ACCEPT_USELESS_COMMA),
+    ItemSymbol('USE_HI_PRECISION_FLOAT),
+    ItemSymbol('ACCEPT_TAILLING_DATA),
+    ItemSymbol('ACCEPT_TAILLING_SPACE),
+    ItemSymbol('ACCEPT_USELESS_COMMA),
+    ItemSymbol('REJECT_127_CHAR)
+  )
   private val mapping = Map[String, Symbol](
     "ACCEPT_SIMPLE_QUOTE" -> 'ACCEPT_SIMPLE_QUOTE,
     "ACCEPT_NON_QUOTE" -> 'ACCEPT_NON_QUOTE,
@@ -44,7 +58,7 @@ object ComplexSmartOptions extends UITrait {
     "ACCEPT_USELESS_COMMA" -> 'ACCEPT_USELESS_COMMA,
     "REJECT_127_CHAR" -> 'REJECT_127_CHAR
   )
-  val MODE_PERMISSIVE: Set[Symbol] = mapping.values.toSet
+  val MODE_PERMISSIVE: Set[Symbol] = items.map(_.value)
   val MODE_JSON_SIMPLE: Set[Symbol] = Set(
     'ACCEPT_USELESS_COMMA,
     'USE_HI_PRECISION_FLOAT,

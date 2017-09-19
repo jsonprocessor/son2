@@ -1,27 +1,28 @@
 package pl.writeonly.son2.drop.vaadin.complexes
 
 import com.vaadin.ui.Component
-import pl.writeonly.son2.drop.vaadin.util.UITrait
+import pl.writeonly.son2.drop.vaadin.util.{ItemSymbol, UITrait}
 
 object ComplexJackFormats extends UITrait {
-  private val mapping = Map[String, Symbol](
-    "JSON" -> 'object,
-    "YAML" -> 'yaml,
-    "XML" -> 'xml,
-    "Java properties" -> 'properties)
+  private val json = ItemSymbol('object, "json")
+  private val yaml = ItemSymbol('yaml)
+  private val xml = ItemSymbol('xml)
+  private val properties = ItemSymbol('properties, "java properties")
 
-  def jacksonInputFormat = radioButtonGroup("Jackson input formats:", mapping, "JSON")
+  private val items = Set(json, yaml, xml, properties)
 
-  def jacksonOutputFormat = radioButtonGroup("Jackson output formats:", mapping, "YAML")
+  def jacksonInputFormat = radioButtonGroup2("Jackson input formats:", items, json)
+
+  def jacksonOutputFormat = radioButtonGroup2("Jackson output formats:", items, yaml)
 }
 
 abstract class ComplexJackFormats extends Complex {
   protected val inputFormats = ComplexJackFormats.jacksonInputFormat
   protected val outputFormats = ComplexJackFormats.jacksonOutputFormat
 
-  def inputSelectedItem = ComplexJackFormats.selectedItem(inputFormats, ComplexJackFormats.mapping)
+  def inputSelectedItem = ComplexJackFormats.selectedItem2(inputFormats).value
 
-  def outputSelectedItem = ComplexJackFormats.selectedItem(outputFormats, ComplexJackFormats.mapping)
+  def outputSelectedItem = ComplexJackFormats.selectedItem2(outputFormats).value
 }
 
 

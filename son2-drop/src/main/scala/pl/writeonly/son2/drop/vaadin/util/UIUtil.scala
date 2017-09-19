@@ -102,9 +102,11 @@ trait UIUtil {
 
   def radioButtonGroup2(caption: String, items: Set[ItemSymbol]): RadioButtonGroup[ItemSymbol] = radioButtonGroup2(caption, items.toList.sorted)
 
-  def radioButtonGroup2(caption: String, items: List[ItemSymbol]): RadioButtonGroup[ItemSymbol] = radioButtonGroup(caption, items, items.iterator.next)
+  def radioButtonGroup2(caption: String, items: Set[ItemSymbol], selected: ItemSymbol): RadioButtonGroup[ItemSymbol] = radioButtonGroup2(caption, items.toList.sorted, selected)
 
-  def radioButtonGroup(caption: String, items: List[ItemSymbol], selected: ItemSymbol): RadioButtonGroup[ItemSymbol] = {
+  def radioButtonGroup2(caption: String, items: List[ItemSymbol]): RadioButtonGroup[ItemSymbol] = radioButtonGroup2(caption, items, items.iterator.next)
+
+  def radioButtonGroup2(caption: String, items: List[ItemSymbol], selected: ItemSymbol): RadioButtonGroup[ItemSymbol] = {
     val result = new RadioButtonGroup[ItemSymbol](caption, items.asJavaCollection)
     result.setSelectedItem(selected)
     result.setItemCaptionGenerator(new ItemCaptionGenerator[ItemSymbol](){

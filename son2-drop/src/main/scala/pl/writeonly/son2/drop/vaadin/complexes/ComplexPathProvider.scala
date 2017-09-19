@@ -1,26 +1,27 @@
 package pl.writeonly.son2.drop.vaadin.complexes
 
 import com.vaadin.ui.Component
-import pl.writeonly.son2.drop.vaadin.util.UITrait
+import pl.writeonly.son2.drop.vaadin.util.{ItemSymbol, UITrait}
 
 class ComplexPathProvider extends Complex {
   private val component = ComplexPathProvider.apply
 
   override def toComponent: Component = component
 
-  def selectedItem = ComplexPathProvider.selectedItem(component, ComplexPathProvider.mapping)
+  def selectedItem = ComplexPathProvider.selectedItem2(component).value
 }
 
 object ComplexPathProvider extends UITrait {
-  val mapping = Map[String, Symbol](
-    "Gson" -> 'gson,
-    "Jackson" -> 'jackson,
-    "Jettison" -> 'jettison,
-    "Org" -> 'org,
-    "Smart" -> 'smart,
-    "Strict" -> 'strict,
-    "Tapestry" -> 'tapestry
+  private val smart =  ItemSymbol('smart)
+  private val items = Set(
+    ItemSymbol('gson),
+    ItemSymbol('jackson),
+    ItemSymbol('jettison),
+    ItemSymbol('org),
+    smart,
+    ItemSymbol('strict),
+    ItemSymbol('tapestry)
   )
 
-  private def apply = radioButtonGroup("Providers:", mapping, "Smart");
+  private def apply = radioButtonGroup2("Providers:", items,  smart);
 }
