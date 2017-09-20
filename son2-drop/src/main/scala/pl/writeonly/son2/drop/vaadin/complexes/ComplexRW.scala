@@ -8,9 +8,19 @@ import scala.collection.JavaConverters._
 object ComplexRW extends UIUtil {
   val natives = List("Print", "String")
 
-  def readGroupApply = radioButtonGroup("Read:", Mappings.readMapping)
+  val readMapping = Map[String, Symbol](
+    "All line" -> 'all,
+    "Line-by-line" -> 'stream
+  )
 
-  def writeGroupApply = radioButtonGroup("Write:", Mappings.writeMapping)
+  val writeMapping = Map[String, Symbol](
+    "Pretty" -> 'pretty,
+    "Raw" -> 'raw
+  )
+
+  def readGroupApply = radioButtonGroup("Read:", ComplexRW.readMapping)
+
+  def writeGroupApply = radioButtonGroup("Write:", ComplexRW.writeMapping)
 
   def nativeGroupApply = checkBoxGroup("Native:", ComplexRW.natives)
 }
@@ -23,11 +33,11 @@ abstract class ComplexRW extends Complex {
 
   def readStream = readSelectedItem.equals('stream)
 
-  def readSelectedItem = ComplexRW.selectedItem(readGroup, Mappings.readMapping)
+  def readSelectedItem = ComplexRW.selectedItem(readGroup, ComplexRW.readMapping)
 
   def writePretty = writeSelectedItem.equals('pretty)
 
-  def writeSelectedItem = ComplexRW.selectedItem(writeGroup, Mappings.writeMapping)
+  def writeSelectedItem = ComplexRW.selectedItem(writeGroup, ComplexRW.writeMapping)
 
   def set = nativeGroup.getValue.asScala.toSet
 }
