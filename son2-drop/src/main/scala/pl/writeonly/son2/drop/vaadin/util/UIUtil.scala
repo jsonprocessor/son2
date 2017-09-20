@@ -68,10 +68,6 @@ trait UIUtil {
 
   def checkBoxGroup(caption: String, items: List[String]): CheckBoxGroup[String] = new CheckBoxGroup(caption, items.asJavaCollection)
 
-  def radioButtonGroup(caption: String, items: Map[String, _], selected: String): RadioButtonGroup[String] = radioButtonGroup(caption, items.keySet, selected)
-
-  def radioButtonGroup(caption: String, items: Set[String], selected: String): RadioButtonGroup[String] = radioButtonGroup(caption, items.toList.sorted, selected)
-
   def radioButtonGroup(caption: String, items: Map[String, _]): RadioButtonGroup[String] = radioButtonGroup(caption, items.keySet)
 
   def radioButtonGroup(caption: String, items: Set[String]): RadioButtonGroup[String] = radioButtonGroup(caption, items.toList.sorted)
