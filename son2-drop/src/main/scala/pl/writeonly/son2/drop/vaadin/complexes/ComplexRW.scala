@@ -1,7 +1,7 @@
 package pl.writeonly.son2.drop.vaadin.complexes
 
 import com.vaadin.ui.Component
-import pl.writeonly.son2.drop.vaadin.util.{Mappings, UIUtil}
+import pl.writeonly.son2.drop.vaadin.util.UIUtil
 
 import scala.collection.JavaConverters._
 
