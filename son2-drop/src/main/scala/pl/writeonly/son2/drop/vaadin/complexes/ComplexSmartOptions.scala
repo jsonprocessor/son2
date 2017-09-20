@@ -64,9 +64,9 @@ object ComplexSmartOptions extends UITrait {
     REJECT_127_CHAR
   )
 
-  private def apply = checkBoxGroup2("Smart options:", items)
+  private def apply = checkBoxGroup("Smart options:", items)
 
-  private def selectedItem(component: CheckBoxGroup[ItemSymbol]): Set[Symbol] = selectedItem2(component).map(_.value)
+  private def selectedItem(component: CheckBoxGroup[ItemSymbol]): Set[Symbol] = selectedItem(component).map(_.value)
 
 
 }

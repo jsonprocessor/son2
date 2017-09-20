@@ -11,18 +11,18 @@ object ComplexJackFormats extends UITrait {
 
   private val items = Set(json, yaml, xml, properties)
 
-  def jacksonInputFormat = radioButtonGroup2("Jackson input formats:", items, json)
+  def jacksonInputFormat = radioButtonGroup("Jackson input formats:", items, json)
 
-  def jacksonOutputFormat = radioButtonGroup2("Jackson output formats:", items, yaml)
+  def jacksonOutputFormat = radioButtonGroup("Jackson output formats:", items, yaml)
 }
 
 abstract class ComplexJackFormats extends Complex {
   protected val inputFormats = ComplexJackFormats.jacksonInputFormat
   protected val outputFormats = ComplexJackFormats.jacksonOutputFormat
 
-  def inputSelectedItem = ComplexJackFormats.selectedItem2(inputFormats).value
+  def inputSelectedItem = ComplexJackFormats.selectedItem(inputFormats).value
 
-  def outputSelectedItem = ComplexJackFormats.selectedItem2(outputFormats).value
+  def outputSelectedItem = ComplexJackFormats.selectedItem(outputFormats).value
 }
 
 

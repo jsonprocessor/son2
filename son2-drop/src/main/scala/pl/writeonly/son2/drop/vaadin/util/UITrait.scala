@@ -12,7 +12,7 @@ trait UITrait extends UI with UIUtil with LazyLogging {
 
   val natives = List("Print", "String")
 
-  def nativeGroup = checkBoxGroup("Native:", natives)
+  def nativeGroup = checkBoxGroupNative("Native:", natives)
 
   def debug(configLabel: Label, config: Any, set: Set[_]) = configLabel.setValue(config.toString + "\n" + set)
 

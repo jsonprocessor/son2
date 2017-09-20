@@ -8,7 +8,7 @@ class ComplexGsonOptions extends Complex {
 
   override def toComponent: Component = component
 
-  def selectedItem = ComplexPathOptions.selectedItem2(component).map(_.value)
+  def selectedItem = ComplexPathOptions.selectedItem(component).map(_.value)
 }
 
 object ComplexGsonOptions extends UITrait {
@@ -23,5 +23,5 @@ object ComplexGsonOptions extends UITrait {
     ItemSymbol('setLenient)
   )
 
-  private def apply = checkBoxGroup2("Gson options:", items)
+  private def apply = checkBoxGroup("Gson options:", items)
 }

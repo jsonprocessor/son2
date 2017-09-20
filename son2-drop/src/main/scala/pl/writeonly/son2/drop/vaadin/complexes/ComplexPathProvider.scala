@@ -8,7 +8,7 @@ class ComplexPathProvider extends Complex {
 
   override def toComponent: Component = component
 
-  def selectedItem = ComplexPathProvider.selectedItem2(component).value
+  def selectedItem = ComplexPathProvider.selectedItem(component).value
 }
 
 object ComplexPathProvider extends UITrait {
@@ -23,5 +23,5 @@ object ComplexPathProvider extends UITrait {
     ItemSymbol('tapestry)
   )
 
-  private def apply = radioButtonGroup2("Providers:", items, smart);
+  private def apply = radioButtonGroup("Providers:", items, smart);
 }

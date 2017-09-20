@@ -9,7 +9,7 @@ class ComplexPathOptions extends Complex {
 
   override def toComponent: Component = component
 
-  def selectedItem = ComplexPathOptions.selectedItem2(component).map(_.value)
+  def selectedItem = ComplexPathOptions.selectedItem(component).map(_.value)
 }
 
 object ComplexPathOptions extends UITrait {
@@ -23,5 +23,5 @@ object ComplexPathOptions extends UITrait {
 
   private def toSymbol(option: jOption) = Symbol(option.name())
 
-  private def apply = checkBoxGroup2("Path options:", items)
+  private def apply = checkBoxGroup("Path options:", items)
 }

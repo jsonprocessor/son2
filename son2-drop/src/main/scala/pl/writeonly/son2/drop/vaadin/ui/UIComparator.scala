@@ -17,14 +17,14 @@ class UIComparator extends UITrait {
     val output = outputLabel
     val configLabel = outputLabel
 
-    val modeGroup = checkBoxGroup2(null, UIComparator.items)
+    val modeGroup = checkBoxGroup(null, UIComparator.items)
     modeGroup.addStyleName(ValoTheme.OPTIONGROUP_HORIZONTAL)
 
     val components: List[Component] = List(modeGroup, configLabel)
 
     val convert = convertButton(new Button.ClickListener() {
       override def buttonClick(clickEvent: ClickEvent): Unit = {
-        val selected = selectedItem2(modeGroup)
+        val selected = selectedItem(modeGroup)
         val extensible = selected.contains(UIComparator.extensible)
         val strictOrder = selected.contains(UIComparator.strictOrder)
         val config = CompareConfig(extensible, strictOrder)

@@ -6,23 +6,23 @@ import pl.writeonly.son2.drop.vaadin.util.{ItemSymbol, UIUtil}
 import scala.collection.JavaConverters._
 
 object ComplexRW extends UIUtil {
-  val natives = List("Print", "String")
+  val nativesItems = List("Print", "String")
 
-  val readMapping = Set[ItemSymbol](
+  val readItems = Set[ItemSymbol](
     ItemSymbol('all, "All line"),
     ItemSymbol('stream, "Line-by-line")
   )
 
-  val writeMapping = Set[ItemSymbol](
+  val writeItems = Set[ItemSymbol](
     ItemSymbol('pretty, "Pretty"),
     ItemSymbol('raw, "Raw")
   )
 
-  def readGroupApply = radioButtonGroup2("Read:", ComplexRW.readMapping)
+  def readGroupApply = radioButtonGroup("Read:", ComplexRW.readItems)
 
-  def writeGroupApply = radioButtonGroup2("Write:", ComplexRW.writeMapping)
+  def writeGroupApply = radioButtonGroup("Write:", ComplexRW.writeItems)
 
-  def nativeGroupApply = checkBoxGroup("Native:", ComplexRW.natives)
+  def nativeGroupApply = checkBoxGroupNative("Native:", ComplexRW.nativesItems)
 }
 
 abstract class ComplexRW extends Complex {
@@ -33,11 +33,11 @@ abstract class ComplexRW extends Complex {
 
   def readStream = readSelectedItem.equals('stream)
 
-  def readSelectedItem = ComplexRW.selectedItem2(readGroup).value
+  def readSelectedItem = ComplexRW.selectedItem(readGroup).value
 
   def writePretty = writeSelectedItem.equals('pretty)
 
-  def writeSelectedItem = ComplexRW.selectedItem2(writeGroup).value
+  def writeSelectedItem = ComplexRW.selectedItem(writeGroup).value
 
   def set = nativeGroup.getValue.asScala.toSet
 }
