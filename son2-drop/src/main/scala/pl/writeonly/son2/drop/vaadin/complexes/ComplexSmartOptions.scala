@@ -21,7 +21,8 @@ class ComplexSmartOptions extends Complex with LazyLogging {
 
   private def button(caption: String, select: Set[ItemSymbol]) = new Button(caption, new Button.ClickListener() {
     override def buttonClick(event: ClickEvent): Unit = {
-      logger.info("{}", event)
+      logger.info("button event {}", event)
+      logger.info("button select {}", select)
       options.clear()
       options.select(select.toSeq: _*)
     }
@@ -29,21 +30,6 @@ class ComplexSmartOptions extends Complex with LazyLogging {
 }
 
 object ComplexSmartOptions extends UITrait {
-  val MODE_PERMISSIVE: Set[ItemSymbol] = items
-  val MODE_JSON_SIMPLE: Set[ItemSymbol] = Set(
-    ACCEPT_USELESS_COMMA,
-    USE_HI_PRECISION_FLOAT,
-    ACCEPT_TAILLING_DATA,
-    ACCEPT_TAILLING_SPACE,
-    REJECT_127_CHAR)
-  val MODE_RFC4627: Set[ItemSymbol] = Set(
-    USE_INTEGER_STORAGE,
-    USE_HI_PRECISION_FLOAT,
-    ACCEPT_TAILLING_SPACE)
-  val MODE_STRICTEST: Set[ItemSymbol] = Set(
-    USE_INTEGER_STORAGE,
-    USE_HI_PRECISION_FLOAT,
-    REJECT_127_CHAR)
   private val ACCEPT_USELESS_COMMA = ItemSymbol('ACCEPT_USELESS_COMMA)
   private val USE_HI_PRECISION_FLOAT = ItemSymbol('USE_HI_PRECISION_FLOAT)
   private val ACCEPT_TAILLING_DATA = ItemSymbol('ACCEPT_TAILLING_DATA)
@@ -63,7 +49,21 @@ object ComplexSmartOptions extends UITrait {
     ACCEPT_TAILLING_SPACE,
     REJECT_127_CHAR
   )
-
+  private val MODE_JSON_SIMPLE: Set[ItemSymbol] = Set(
+    ACCEPT_USELESS_COMMA,
+    USE_HI_PRECISION_FLOAT,
+    ACCEPT_TAILLING_DATA,
+    ACCEPT_TAILLING_SPACE,
+    REJECT_127_CHAR)
+  private val MODE_RFC4627: Set[ItemSymbol] = Set(
+    USE_INTEGER_STORAGE,
+    USE_HI_PRECISION_FLOAT,
+    ACCEPT_TAILLING_SPACE)
+  private val MODE_STRICTEST: Set[ItemSymbol] = Set(
+    USE_INTEGER_STORAGE,
+    USE_HI_PRECISION_FLOAT,
+    REJECT_127_CHAR)
+  private val MODE_PERMISSIVE: Set[ItemSymbol] = items
   private def apply = checkBoxGroup("Smart options:", items)
 
 }
