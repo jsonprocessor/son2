@@ -18,7 +18,7 @@ case class NotationCaseSmart()
 
 class DefaultsSmart(c: RConfig, parseMode: Int, mapper: JsonReaderI[_])
   extends DefaultsPath(c, new JsonSmartJsonProvider(parseMode, mapper), new JsonSmartMappingProvider(mapper.base)) with StrictLogging {
-//  logger.info(this.toString(), new Exception)
+  //  logger.info(this.toString(), new Exception)
 
   def this(c: RConfig) = this(c, JSONParser.MODE_PERMISSIVE, JSONValue.defaultReader.DEFAULT_ORDERED)
 }

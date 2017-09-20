@@ -22,5 +22,6 @@ object ComplexGsonOptions extends UITrait {
     ItemSymbol('serializeSpecialFloatingPointValues),
     ItemSymbol('setLenient)
   )
+
   private def apply = checkBoxGroup2("Gson options:", items)
 }

@@ -12,7 +12,7 @@ class ComplexPathProvider extends Complex {
 }
 
 object ComplexPathProvider extends UITrait {
-  private val smart =  ItemSymbol('smart)
+  private val smart = ItemSymbol('smart)
   private val items = Set(
     ItemSymbol('gson),
     ItemSymbol('jackson),
@@ -23,5 +23,5 @@ object ComplexPathProvider extends UITrait {
     ItemSymbol('tapestry)
   )
 
-  private def apply = radioButtonGroup2("Providers:", items,  smart);
+  private def apply = radioButtonGroup2("Providers:", items, smart);
 }

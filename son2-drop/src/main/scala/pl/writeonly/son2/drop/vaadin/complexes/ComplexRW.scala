@@ -9,13 +9,13 @@ object ComplexRW extends UIUtil {
   val natives = List("Print", "String")
 
   val readMapping = Set[ItemSymbol](
-    ItemSymbol('all, "All line" ),
+    ItemSymbol('all, "All line"),
     ItemSymbol('stream, "Line-by-line")
   )
 
   val writeMapping = Set[ItemSymbol](
     ItemSymbol('pretty, "Pretty"),
-    ItemSymbol('raw,  "Raw")
+    ItemSymbol('raw, "Raw")
   )
 
   def readGroupApply = radioButtonGroup2("Read:", ComplexRW.readMapping)
@@ -26,10 +26,10 @@ object ComplexRW extends UIUtil {
 }
 
 abstract class ComplexRW extends Complex {
+  protected val components: List[Component] = List(readGroup, writeGroup, nativeGroup)
   private val readGroup = ComplexRW.readGroupApply
   private val writeGroup = ComplexRW.writeGroupApply
   private val nativeGroup = ComplexRW.nativeGroupApply
-  protected val components: List[Component] = List(readGroup, writeGroup, nativeGroup)
 
   def readStream = readSelectedItem.equals('stream)
 
