@@ -10,10 +10,6 @@ import pl.writeonly.son2.drop.vaadin.complexes.Complex
 
 trait UITrait extends UI with UIUtil with LazyLogging {
 
-  val natives = List("Print", "String")
-
-  def nativeGroup = checkBoxGroupNative("Native:", natives)
-
   def debug(configLabel: Label, config: Any, set: Set[_]) = configLabel.setValue(config.toString + "\n" + set)
 
   def convert2(converter: Converter, input: TextArea, output: Label, items: Set[String]) = {

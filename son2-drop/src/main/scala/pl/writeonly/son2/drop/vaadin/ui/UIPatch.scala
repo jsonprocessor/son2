@@ -14,11 +14,10 @@ import scala.collection.JavaConverters._
 @Theme("valo")
 class UIPatch extends UITrait {
   override def componentsCenter: List[Component] = {
-    val checkBoxes = nativeGroup
     val configLabel = outputLabel
     val io = new ComplexIO
 
-    val components: List[Component] = List(checkBoxes, configLabel)
+    val components: List[Component] = List( configLabel)
 
     val inputPatch = inputTextArea("json-patch")
 
@@ -27,9 +26,6 @@ class UIPatch extends UITrait {
         val path = inputPatch.getValue
         val config = ConfigPath(provider = Symbol(path))
 
-        val set = checkBoxes.getValue.asScala.toSet
-        debug(configLabel, config, set)
-        convert2(CreatorConverterPathMain(config), io.input, io.output, set)
       }
     })
 

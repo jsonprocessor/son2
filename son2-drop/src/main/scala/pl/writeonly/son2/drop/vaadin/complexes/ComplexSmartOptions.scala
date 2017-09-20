@@ -65,8 +65,5 @@ object ComplexSmartOptions extends UITrait {
   )
 
   private def apply = checkBoxGroup("Smart options:", items)
-
-  private def selectedItem(component: CheckBoxGroup[ItemSymbol]): Set[Symbol] = selectedItem(component).map(_.value)
-
-
+  
 }
