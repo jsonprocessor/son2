@@ -10,16 +10,12 @@ import pl.writeonly.son2.drop.vaadin.complexes.Complex
 
 trait UITrait extends UI with UIUtil with LazyLogging {
 
-  def debug(configLabel: Label, config: Any, set: Set[_]) = configLabel.setValue(config.toString + "\n" + set)
-
   def convert2(converter: Converter, input: TextArea, output: Label, items: Set[String]) = {
     val inputValue = input.getValue
     val streamer = new Piper(null, converter).print(items.contains("Print"))
     val outputValue = streamer.convertString(items.contains("String"), inputValue)
     output.setValue(outputValue)
   }
-
-  //  def debug(configLabel: Label, config: Config, set: Set[String]) = configLabel.setValue(config.toString + "\n" + set)
 
   def optionsPanel(components: Seq[Component]): Panel = {
     val result = new Panel("Options", optionsHorizontalLayout(components))

@@ -3,14 +3,14 @@ package pl.writeonly.son2.drop.vaadin.complexes
 import com.vaadin.ui.Component
 import pl.writeonly.son2.drop.vaadin.util.{ItemSymbol, UITrait}
 
-class ComplexSmartFlags extends Complex {
-  val flags = ComplexSmartFlags.checkBoxGroup("Smart flags:", ComplexSmartFlags.items)
-  val vertical = ComplexSmartFlags.verticalLayout(flags)
+class SmartFlagsComp extends Complex {
+  val flags = SmartFlagsComp.checkBoxGroup("Smart flags:", SmartFlagsComp.items)
+  val vertical = SmartFlagsComp.verticalLayout(flags)
 
   override def toComponent: Component = vertical
 }
 
-object ComplexSmartFlags extends UITrait {
+object SmartFlagsComp extends UITrait {
   val items = Set(
     ItemSymbol('FLAG_PROTECT_KEYS, "Protect keys"),
     ItemSymbol('FLAG_PROTECT_4WEB, "Protect 4web"),

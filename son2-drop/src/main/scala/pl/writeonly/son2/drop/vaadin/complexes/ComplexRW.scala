@@ -43,13 +43,13 @@ abstract class ComplexRW extends Complex {
 }
 
 class ComplexRWHorizontal extends ComplexRW {
-  private val component: Component = ComplexJackFormats.horizontalLayout(components: _*)
+  private val component: Component = JackFormatsComp.horizontalLayout(components: _*)
 
   override def toComponent: Component = component
 }
 
 class ComplexRWVertical extends ComplexRW {
-  private val component: Component = ComplexJackFormats.verticalLayout(components: _*)
+  private val component: Component = JackFormatsComp.verticalLayout(components: _*)
 
   override def toComponent: Component = component
 }

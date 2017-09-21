@@ -15,11 +15,12 @@ class UIFormatter extends UITrait {
   override def componentsCenter: List[Component] = {
     val rw = new ComplexRWVertical
     val io = new ComplexIO
-    val pathProvider = new ComplexPathProvider
-    val jackFormats = new ComplexJackFormatsVertical
-    val gsonOptions = new ComplexGsonOptions
+    val pathProvider = new PathProviderComp
+    val smartComp = new SmartComp
+    val jackFormats = new JackFormatsCompVertical
+    val gsonOptions = new GsonOptionsComp
 
-    val components: Seq[Component] = toComponents(pathProvider, jackFormats, gsonOptions, rw)
+    val components: Seq[Component] = toComponents(pathProvider, smartComp, jackFormats, gsonOptions, rw)
 
     val convert = convertButton(new Button.ClickListener() {
       override def buttonClick(clickEvent: ClickEvent): Unit = {

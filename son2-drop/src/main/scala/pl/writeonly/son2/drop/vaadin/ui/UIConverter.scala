@@ -15,7 +15,7 @@ class UIConverter extends UITrait {
   override def componentsCenter: List[Component] = {
     val rw = new ComplexRWHorizontal
     val io = new ComplexIO
-    val jackFormats = new ComplexJackFormatsHorizontal
+    val jackFormats = new JackFormatsCompHorizontal
 
     val components: Seq[Component] = toComponents(jackFormats, rw)
 

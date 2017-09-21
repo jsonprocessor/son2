@@ -3,15 +3,15 @@ package pl.writeonly.son2.drop.vaadin.complexes
 import com.vaadin.ui.Component
 import pl.writeonly.son2.drop.vaadin.util.{ItemSymbol, UITrait}
 
-class ComplexGsonOptions extends Complex {
-  private val component = ComplexGsonOptions.apply
+class GsonOptionsComp extends Complex {
+  private val component = GsonOptionsComp.apply
 
   override def toComponent: Component = component
 
-  def selectedItem = ComplexPathOptions.selectedItem(component).map(_.value)
+  def selectedItem = PathOptionsComp.selectedItem(component).map(_.value)
 }
 
-object ComplexGsonOptions extends UITrait {
+object GsonOptionsComp extends UITrait {
   private val items = Set(
     ItemSymbol('disableHtmlEscaping),
     ItemSymbol('disableInnerClassSerialization),

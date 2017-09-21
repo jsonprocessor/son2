@@ -15,22 +15,22 @@ class UIPath extends UITrait {
   override def componentsCenter: List[Component] = {
     val rw = new ComplexRWVertical
     val io = new ComplexIO
-    val pathProvider = new ComplexPathProvider
-    val pathOptions = new ComplexPathOptions
-    val jackFormats = new ComplexJackFormatsVertical
-    val gsonOptions = new ComplexGsonOptions
-    val smartOptions = new ComplexSmartOptions
-    val smartFlags = new ComplexSmartFlags
+    val pathComp = new ComplexPath
+    val smartComp = new SmartComp
+    val jackFormats = new JackFormatsCompVertical
+    val gsonOptions = new GsonOptionsComp
 
-    val components: Seq[Component] = toComponents(pathProvider, pathOptions, jackFormats, gsonOptions, smartOptions, smartFlags, rw)
+//    val tab =
+
+    val components: Seq[Component] = toComponents(pathComp, smartComp, jackFormats, gsonOptions, rw)
 
     val inputPath = inputTextField("json-path")
 
     val convert = convertButton(new Button.ClickListener() {
       override def buttonClick(clickEvent: ClickEvent): Unit = {
         val path = inputPath.getValue
-        val provider = pathProvider.selectedItem
-        val options = pathOptions.selectedItem
+        val provider = pathComp.provider.selectedItem
+        val options = pathComp.options.selectedItem
         val config = Config(
           RConfig(provider = provider, format = jackFormats.inputSelectedItem, stream = rw.readStream, path = Option(path), options = options),
           WConfig(provider = provider, format = jackFormats.outputSelectedItem, style = rw.writePretty, gson = gsonOptions.selectedItem)

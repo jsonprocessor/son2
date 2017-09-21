@@ -15,12 +15,11 @@ class UIComparator extends UITrait {
     val inputLeft = inputTextArea("Expected json:")
     val inputRight = inputTextArea("Actual json:")
     val output = outputLabel
-    val configLabel = outputLabel
 
     val modeGroup = checkBoxGroup(null, UIComparator.items)
     modeGroup.addStyleName(ValoTheme.OPTIONGROUP_HORIZONTAL)
 
-    val components: List[Component] = List(modeGroup, configLabel)
+    val components: List[Component] = List(modeGroup)
 
     val convert = convertButton(new Button.ClickListener() {
       override def buttonClick(clickEvent: ClickEvent): Unit = {
@@ -28,7 +27,6 @@ class UIComparator extends UITrait {
         val extensible = selected.contains(UIComparator.extensible)
         val strictOrder = selected.contains(UIComparator.strictOrder)
         val config = CompareConfig(extensible, strictOrder)
-        debug(configLabel, config, selected)
         val value = JsonComparator(config, inputLeft.getValue, inputRight.getValue)
         output.setValue(value)
       }
