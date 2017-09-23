@@ -1,8 +1,8 @@
 package pl.writeonly.son2.drop.vaadin.complexes
 
-import com.vaadin.ui.Component
+import com.vaadin.ui.{Component, Composite}
 
-trait Complex {
+abstract class Complex extends Composite {
 
   def toComponent: Component
 
