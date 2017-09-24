@@ -6,9 +6,6 @@ import com.vaadin.ui._
 import pl.writeonly.son2.drop.vaadin.complexes.ComplexIO
 import pl.writeonly.son2.drop.vaadin.util.UITrait
 import pl.writeonly.son2.path.core.ConfigPath
-import pl.writeonly.son2.path.glue.CreatorConverterPathMain
-
-import scala.collection.JavaConverters._
 
 @Title("json patch")
 @Theme("valo")
@@ -17,7 +14,7 @@ class UIPatch extends UITrait {
     val configLabel = outputLabel
     val io = new ComplexIO
 
-    val components: List[Component] = List( configLabel)
+    val components: List[Component] = List(configLabel)
 
     val inputPatch = inputTextArea("json-patch")
 

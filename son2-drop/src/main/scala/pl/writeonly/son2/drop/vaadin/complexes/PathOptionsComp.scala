@@ -1,7 +1,6 @@
 package pl.writeonly.son2.drop.vaadin.complexes
 
 import com.jayway.jsonpath.{Option => jOption}
-import com.vaadin.ui.Component
 import pl.writeonly.son2.drop.vaadin.util.{ItemSymbol, UITrait}
 
 class PathOptionsComp extends Complex {

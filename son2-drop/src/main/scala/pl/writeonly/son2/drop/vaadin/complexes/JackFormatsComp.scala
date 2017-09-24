@@ -1,6 +1,5 @@
 package pl.writeonly.son2.drop.vaadin.complexes
 
-import com.vaadin.ui.Component
 import pl.writeonly.son2.drop.vaadin.util.{ItemSymbol, UITrait}
 
 object JackFormatsComp extends UITrait {
@@ -16,25 +15,16 @@ object JackFormatsComp extends UITrait {
   def jacksonOutputFormat = radioButtonGroup("Jackson output formats:", items, yaml)
 }
 
-abstract class JackFormatsComp extends Complex {
+class JackFormatsComp extends Complex {
+  setCaption("Jackson")
   protected val inputFormats = JackFormatsComp.jacksonInputFormat
   protected val outputFormats = JackFormatsComp.jacksonOutputFormat
+  private val layout = JackFormatsComp.horizontalLayout(inputFormats, outputFormats)
 
   def inputSelectedItem = JackFormatsComp.selectedItem(inputFormats).value
 
   def outputSelectedItem = JackFormatsComp.selectedItem(outputFormats).value
-}
-
-
-class JackFormatsCompHorizontal extends JackFormatsComp {
-  private val layout = JackFormatsComp.horizontalLayout(inputFormats, outputFormats)
   setCompositionRoot(layout)
-//  override def toComponent: Component = this
 }
 
-class JackFormatsCompVertical extends JackFormatsComp {
-  private val layout = JackFormatsComp.verticalLayout(inputFormats, outputFormats)
-  setCompositionRoot(layout)
-//  override def toComponent: Component = this
-}
 

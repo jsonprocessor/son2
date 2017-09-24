@@ -17,12 +17,15 @@ class UIPath extends UITrait {
     val io = new ComplexIO
     val pathComp = new ComplexPath
     val smartComp = new SmartComp
-    val jackFormats = new JackFormatsCompVertical
+    val jackFormats = new JackFormatsComp
     val gsonOptions = new GsonOptionsComp
 
-//    val tab =
+    val tabSheet = new TabSheet
+    tabSheet.addTab(smartComp)
+    tabSheet.addTab(jackFormats)
+    tabSheet.addTab(gsonOptions)
 
-    val components: Seq[Component] = Seq(pathComp, smartComp, jackFormats, gsonOptions, rw)
+    val components: Seq[Component] = Seq(rw, pathComp, tabSheet)
 
     val inputPath = inputTextField("json-path")
 

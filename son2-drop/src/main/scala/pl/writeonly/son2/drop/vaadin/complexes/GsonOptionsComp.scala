@@ -1,12 +1,11 @@
 package pl.writeonly.son2.drop.vaadin.complexes
 
-import com.vaadin.ui.Component
 import pl.writeonly.son2.drop.vaadin.util.{ItemSymbol, UITrait}
 
 class GsonOptionsComp extends Complex {
+  setCaption("Gson")
   private val component = GsonOptionsComp.apply
-
-  override def toComponent: Component = component
+  setCompositionRoot(component)
 
   def selectedItem = PathOptionsComp.selectedItem(component).map(_.value)
 }

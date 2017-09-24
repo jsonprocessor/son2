@@ -1,8 +1,8 @@
 package pl.writeonly.son2.drop.vaadin.complexes
 
 import com.typesafe.scalalogging.LazyLogging
+import com.vaadin.ui.Button
 import com.vaadin.ui.Button.ClickEvent
-import com.vaadin.ui.{Button, CheckBoxGroup, Component}
 import pl.writeonly.son2.drop.vaadin.util.{ItemSymbol, UITrait}
 
 class SmartOptionsComp extends Complex with LazyLogging {
@@ -15,7 +15,6 @@ class SmartOptionsComp extends Complex with LazyLogging {
   private val vertical = SmartOptionsComp.verticalPanel("Smart modes:", modes: _*)
   private val horizontal = SmartOptionsComp.horizontalLayout(vertical, options)
   setCompositionRoot(horizontal)
-  override def toComponent: Component = this
 
   def selectedItem = SmartOptionsComp.selectedItem(options)
 
@@ -36,12 +35,8 @@ object SmartOptionsComp extends UITrait {
   private val ACCEPT_TAILLING_SPACE = ItemSymbol('ACCEPT_TAILLING_SPACE)
   private val REJECT_127_CHAR = ItemSymbol('REJECT_127_CHAR)
   private val USE_INTEGER_STORAGE = ItemSymbol('USE_INTEGER_STORAGE)
-  private val items = Set(
-    ItemSymbol('ACCEPT_SIMPLE_QUOTE),
-    ItemSymbol('ACCEPT_NON_QUOTE),
-    ItemSymbol('ACCEPT_NAN),
-    ItemSymbol('IGNORE_CONTROL_CHAR),
-    ItemSymbol('ACCEPT_LEADING_ZERO),
+
+  private val items1 = Set(
     USE_INTEGER_STORAGE,
     ACCEPT_USELESS_COMMA,
     USE_HI_PRECISION_FLOAT,
@@ -49,6 +44,15 @@ object SmartOptionsComp extends UITrait {
     ACCEPT_TAILLING_SPACE,
     REJECT_127_CHAR
   )
+  private val items2 = Set(
+    ItemSymbol('ACCEPT_SIMPLE_QUOTE),
+    ItemSymbol('ACCEPT_NON_QUOTE),
+    ItemSymbol('ACCEPT_NAN),
+    ItemSymbol('IGNORE_CONTROL_CHAR),
+    ItemSymbol('ACCEPT_LEADING_ZERO)
+  )
+
+  private val items = items1 ++ items2
   private val MODE_JSON_SIMPLE: Set[ItemSymbol] = Set(
     ACCEPT_USELESS_COMMA,
     USE_HI_PRECISION_FLOAT,
@@ -64,6 +68,7 @@ object SmartOptionsComp extends UITrait {
     USE_HI_PRECISION_FLOAT,
     REJECT_127_CHAR)
   private val MODE_PERMISSIVE: Set[ItemSymbol] = items
+
   private def apply = checkBoxGroup("Smart options:", items)
 
 }

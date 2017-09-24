@@ -17,10 +17,15 @@ class UIFormatter extends UITrait {
     val io = new ComplexIO
     val pathProvider = new PathProviderComp
     val smartComp = new SmartComp
-    val jackFormats = new JackFormatsCompVertical
+    val jackFormats = new JackFormatsComp
     val gsonOptions = new GsonOptionsComp
 
-    val components: Seq[Component] = Seq(pathProvider, smartComp, jackFormats, gsonOptions, rw)
+    val tabSheet = new TabSheet
+    tabSheet.addTab(smartComp)
+    tabSheet.addTab(jackFormats)
+    tabSheet.addTab(gsonOptions)
+
+    val components: Seq[Component] = Seq(rw, pathProvider, tabSheet)
 
     val convert = convertButton(new Button.ClickListener() {
       override def buttonClick(clickEvent: ClickEvent): Unit = {

@@ -12,9 +12,9 @@ abstract class StreamerPipe(liner: Liner) extends Streamer(liner) {
 
   override def convertFile(in: String, out: String): Unit = convertFile(new File(in), new File(out))
 
-  override def convertFile(in: File, out: File): Unit = convertStream(new FileInputStream(in), new FileOutputStream(out))
-
   override def convertFile(in: URI, out: URI): Unit = convertFile(new File(in), new File(out))
+
+  override def convertFile(in: File, out: File): Unit = convertStream(new FileInputStream(in), new FileOutputStream(out))
 
   override def convertStringNative(in: String): String = {
     val out = new StringWriter()

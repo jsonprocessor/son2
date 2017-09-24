@@ -48,14 +48,14 @@ trait UIUtil {
     result
   }
 
+  def setWidth(c: AbstractComponent) = c.setWidth("100%")
+
   def inputTextField(caption: String): TextField = {
     val result = new TextField(caption)
     result.setEnabled(true)
     setWidth(result)
     result
   }
-
-  def setWidth(c: AbstractComponent) = c.setWidth("100%")
 
   def outputLabel: Label = {
     val result = new Label("", ContentMode.PREFORMATTED)

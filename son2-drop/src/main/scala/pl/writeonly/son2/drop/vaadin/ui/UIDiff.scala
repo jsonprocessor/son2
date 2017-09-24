@@ -5,9 +5,6 @@ import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui._
 import pl.writeonly.son2.drop.vaadin.util.UITrait
 import pl.writeonly.son2.path.core.ConfigPath
-import pl.writeonly.son2.path.glue.CreatorConverterPathMain
-
-import scala.collection.JavaConverters._
 
 @Title("json path")
 @Theme("valo")

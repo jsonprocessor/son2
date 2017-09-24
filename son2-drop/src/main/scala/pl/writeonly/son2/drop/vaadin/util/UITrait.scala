@@ -5,7 +5,6 @@ import com.vaadin.server.VaadinRequest
 import com.vaadin.ui._
 import pl.writeonly.son2.core.converters.Converter
 import pl.writeonly.son2.core.glue.Piper
-import pl.writeonly.son2.drop.vaadin.complexes.Complex
 
 
 trait UITrait extends UI with UIUtil with LazyLogging {
