@@ -20,7 +20,7 @@ class UIFormatter extends UITrait {
     val jackFormats = new JackFormatsCompVertical
     val gsonOptions = new GsonOptionsComp
 
-    val components: Seq[Component] = toComponents(pathProvider, smartComp, jackFormats, gsonOptions, rw)
+    val components: Seq[Component] = Seq(pathProvider, smartComp, jackFormats, gsonOptions, rw)
 
     val convert = convertButton(new Button.ClickListener() {
       override def buttonClick(clickEvent: ClickEvent): Unit = {

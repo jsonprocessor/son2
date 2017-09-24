@@ -33,8 +33,6 @@ trait UITrait extends UI with UIUtil with LazyLogging {
     result
   }
 
-  def toComponents(complexes: Complex*) = complexes.map(_.toComponent)
-
   @Override
   override protected def init(vaadinRequest: VaadinRequest): Unit = {
     val layout = verticalLayout

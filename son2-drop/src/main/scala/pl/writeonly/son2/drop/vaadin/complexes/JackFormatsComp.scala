@@ -28,13 +28,13 @@ abstract class JackFormatsComp extends Complex {
 
 class JackFormatsCompHorizontal extends JackFormatsComp {
   private val layout = JackFormatsComp.horizontalLayout(inputFormats, outputFormats)
-
-  override def toComponent: Component = layout
+  setCompositionRoot(layout)
+//  override def toComponent: Component = this
 }
 
 class JackFormatsCompVertical extends JackFormatsComp {
   private val layout = JackFormatsComp.verticalLayout(inputFormats, outputFormats)
-
-  override def toComponent: Component = layout
+  setCompositionRoot(layout)
+//  override def toComponent: Component = this
 }
 

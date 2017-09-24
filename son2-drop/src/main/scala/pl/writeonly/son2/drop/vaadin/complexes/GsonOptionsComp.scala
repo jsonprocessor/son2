@@ -1,6 +1,6 @@
 package pl.writeonly.son2.drop.vaadin.complexes
 
-import com.vaadin.ui.{Component, Composite}
+import com.vaadin.ui.Component
 import pl.writeonly.son2.drop.vaadin.util.{ItemSymbol, UITrait}
 
 class GsonOptionsComp extends Complex {

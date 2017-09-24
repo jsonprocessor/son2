@@ -17,7 +17,7 @@ class UIConverter extends UITrait {
     val io = new ComplexIO
     val jackFormats = new JackFormatsCompHorizontal
 
-    val components: Seq[Component] = toComponents(jackFormats, rw)
+    val components: Seq[Component] = Seq(jackFormats, rw)
 
     val convert = convertButton(new Button.ClickListener() {
       override def buttonClick(clickEvent: ClickEvent): Unit = {

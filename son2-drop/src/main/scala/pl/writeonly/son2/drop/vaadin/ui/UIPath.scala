@@ -22,7 +22,7 @@ class UIPath extends UITrait {
 
 //    val tab =
 
-    val components: Seq[Component] = toComponents(pathComp, smartComp, jackFormats, gsonOptions, rw)
+    val components: Seq[Component] = Seq(pathComp, smartComp, jackFormats, gsonOptions, rw)
 
     val inputPath = inputTextField("json-path")
 

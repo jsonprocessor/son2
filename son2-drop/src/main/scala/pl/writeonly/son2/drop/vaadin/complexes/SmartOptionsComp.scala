@@ -14,8 +14,8 @@ class SmartOptionsComp extends Complex with LazyLogging {
   private val modes = List(MODE_PERMISSIVE, MODE_JSON_SIMPLE, MODE_RFC4627, MODE_STRICTEST)
   private val vertical = SmartOptionsComp.verticalPanel("Smart modes:", modes: _*)
   private val horizontal = SmartOptionsComp.horizontalLayout(vertical, options)
-
-  override def toComponent: Component = horizontal
+  setCompositionRoot(horizontal)
+  override def toComponent: Component = this
 
   def selectedItem = SmartOptionsComp.selectedItem(options)
 

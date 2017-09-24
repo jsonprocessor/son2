@@ -6,8 +6,9 @@ import pl.writeonly.son2.drop.vaadin.util.UITrait
 class SmartComp extends Complex {
   val options = new SmartOptionsComp
   val flags = new SmartFlagsComp
-  val layout = ComplexPath.horizontalLayout(options.toComponent, flags.toComponent)
-  override def toComponent: Component = layout
+  val layout = ComplexPath.horizontalLayout(options, flags)
+  setCompositionRoot(layout)
+//  override def toComponent: Component = this
 }
 
 object SmartComp extends UITrait

@@ -6,7 +6,7 @@ import pl.writeonly.son2.drop.vaadin.util.{ItemSymbol, UITrait}
 class SmartFlagsComp extends Complex {
   val flags = SmartFlagsComp.checkBoxGroup("Smart flags:", SmartFlagsComp.items)
   val vertical = SmartFlagsComp.verticalLayout(flags)
-
+  setCompositionRoot(vertical)
   override def toComponent: Component = vertical
 }
 
