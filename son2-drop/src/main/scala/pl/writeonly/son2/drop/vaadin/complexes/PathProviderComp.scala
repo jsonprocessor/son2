@@ -4,7 +4,7 @@ import pl.writeonly.son2.drop.vaadin.util.{ItemSymbol, UITrait}
 
 class PathProviderComp extends Complex {
   private val component = PathProviderComp.apply
-  setCompositionRoot(component)
+  set(component)
 
   def selectedItem = PathProviderComp.selectedItem(component).value
 }

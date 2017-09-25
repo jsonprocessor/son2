@@ -7,7 +7,7 @@ class ComplexPath extends Complex {
   val provider = new PathProviderComp
   val options = new PathOptionsComp
   val root = ComplexPath.horizontalLayout(provider, options)
-  setCompositionRoot(root)
+  set(root)
 }
 
 object ComplexPath extends UITrait

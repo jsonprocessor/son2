@@ -44,11 +44,11 @@ abstract class ComplexRW extends Complex {
 
 class ComplexRWHorizontal extends ComplexRW {
   private val component: Component = JackFormatsComp.horizontalLayout(components: _*)
-  setCompositionRoot(component)
+  set(component)
 }
 
 class ComplexRWVertical extends ComplexRW {
   private val component: Component = JackFormatsComp.verticalLayout(components: _*)
-  setCompositionRoot(component)
+  set(component)
 }
 

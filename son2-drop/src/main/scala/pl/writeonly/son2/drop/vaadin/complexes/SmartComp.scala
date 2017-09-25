@@ -8,7 +8,7 @@ class SmartComp extends Complex {
   val options = new SmartOptionsComp
   val flags = new SmartFlagsComp
   val layout = ComplexPath.horizontalLayout(options, flags)
-  setCompositionRoot(layout)
+  set(layout)
 
 }
 

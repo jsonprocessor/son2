@@ -21,9 +21,11 @@ class UIPath extends UITrait {
     val gsonOptions = new GsonOptionsComp
 
     val tabSheet = new TabSheet
+    setWidth(tabSheet)
     tabSheet.addTab(smartComp)
     tabSheet.addTab(jackFormats)
     tabSheet.addTab(gsonOptions)
+    tabSheet.setSizeUndefined
 
     val components: Seq[Component] = Seq(rw, pathComp, tabSheet)
 
