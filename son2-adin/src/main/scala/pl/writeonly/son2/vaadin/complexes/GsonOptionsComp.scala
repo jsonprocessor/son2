@@ -2,8 +2,7 @@ package pl.writeonly.son2.vaadin.complexes
 
 import pl.writeonly.son2.vaadin.util.{ItemSymbol, UITrait}
 
-class GsonOptionsComp extends Complex {
-  setCaption("Gson")
+class GsonOptionsComp extends ComplexWithCaption("Gson") {
   private val component = GsonOptionsComp.apply
   set(component)
 

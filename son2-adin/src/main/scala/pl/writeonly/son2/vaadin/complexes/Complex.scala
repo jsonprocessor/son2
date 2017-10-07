@@ -4,9 +4,12 @@ import com.vaadin.ui.{Component, CustomComponent}
 
 abstract class Complex extends CustomComponent {
 
-
   protected def set(root : Component): Unit = {
     setCompositionRoot(root)
     setSizeUndefined
   }
+}
+
+abstract class ComplexWithCaption(caption:String) extends Complex {
+  setCaption(caption)
 }

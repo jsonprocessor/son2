@@ -17,7 +17,7 @@ class UIPath extends UITrait {
   override def componentsCenter: List[Component] = {
     val rw = new ComplexRWVertical
     val io = new ComplexIO
-    val pathComp = new ComplexPath
+    val pathComp = new PathComp
     val smartComp = new SmartComp
     val jackFormats = new JackFormatsComp
     val gsonOptions = new GsonOptionsComp

@@ -6,7 +6,17 @@ import pl.writeonly.son2.spec.GrayVectorSpec
 class Composites extends GrayVectorSpec {
 
   val composites = Table("composites",
-    classOf[ComplexRWHorizontal]
+    classOf[ComplexRWHorizontal],
+    classOf[ComplexRWVertical],
+    classOf[GsonOptionsComp],
+    classOf[JackFormatsComp],
+    classOf[PathComp],
+    classOf[PathOptionsComp],
+    classOf[PathProviderComp],
+    classOf[SmartComp],
+    classOf[SmartFlagsComp],
+    classOf[SmartOptionsComp]
+
   )
   property("A new instance composite by clazz") {
     forAll(composites) { (clazz) =>

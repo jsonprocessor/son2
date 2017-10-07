@@ -3,8 +3,7 @@ package pl.writeonly.son2.vaadin.complexes
 import pl.writeonly.son2.vaadin.util.{ItemSymbol, UITrait}
 
 
-class JackFormatsComp extends Complex {
-  setCaption("Jackson")
+class JackFormatsComp extends ComplexWithCaption("Jackson") {
   protected val inputFormats = JackFormatsComp.jacksonInputFormat
   protected val outputFormats = JackFormatsComp.jacksonOutputFormat
   private val layout = JackFormatsComp.horizontalLayout(inputFormats, outputFormats)

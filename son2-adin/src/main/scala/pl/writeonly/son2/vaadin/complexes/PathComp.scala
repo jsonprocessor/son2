@@ -2,12 +2,11 @@ package pl.writeonly.son2.vaadin.complexes
 
 import pl.writeonly.son2.vaadin.util.UITrait
 
-class ComplexPath extends Complex {
-  setCaption("Path")
+class PathComp extends ComplexWithCaption("Path") {
   val provider = new PathProviderComp
   val options = new PathOptionsComp
-  val root = ComplexPath.horizontalLayout(provider, options)
+  val root = PathComp.horizontalLayout(provider, options)
   set(root)
 }
 
-object ComplexPath extends UITrait
+object PathComp extends UITrait
