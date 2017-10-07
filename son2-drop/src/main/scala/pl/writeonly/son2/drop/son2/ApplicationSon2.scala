@@ -2,7 +2,7 @@ package pl.writeonly.son2.drop.son2
 
 import io.dropwizard.Application
 import io.dropwizard.setup.{Bootstrap, Environment}
-import pl.writeonly.son2.drop.vaadin.servlets._
+import pl.writeonly.son2.vaadin.servlets._
 
 class ApplicationSon2 extends Application[ConfigurationSon2] {
 

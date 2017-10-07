@@ -46,6 +46,10 @@
             <groupId>pl.writeonly.son2</groupId>
             <artifactId>son2-json</artifactId>
         </dependency>
+        <dependency>
+            <groupId>pl.writeonly.son2</groupId>
+            <artifactId>son2-adin</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>io.dropwizard</groupId>
