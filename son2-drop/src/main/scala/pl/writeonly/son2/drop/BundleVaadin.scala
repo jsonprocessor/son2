@@ -1,4 +1,4 @@
-package pl.writeonly.son2.drop.son2
+package pl.writeonly.son2.drop
 
 import com.vaadin.server.VaadinServlet
 import io.dropwizard.Bundle

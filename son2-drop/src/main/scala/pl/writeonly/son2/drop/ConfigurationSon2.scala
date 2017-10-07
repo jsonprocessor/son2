@@ -1,4 +1,4 @@
-package pl.writeonly.son2.drop.son2
+package pl.writeonly.son2.drop
 
 import io.dropwizard.Configuration
 

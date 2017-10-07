@@ -112,7 +112,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>pl.writeonly.son2.drop.son2.AppSon2</mainClass>
+                    <mainClass>pl.writeonly.son2.drop.AppSon2</mainClass>
                     <arguments>
                         <argument>server</argument>
                         <argument>yml/default-console-console.yml</argument>
