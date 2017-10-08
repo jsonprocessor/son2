@@ -19,7 +19,9 @@ class UITraits extends GrayVectorSpec {
       ui.componentsCenter.size should be > 0
       val center = ui.componentsCenter2
       center.inputs.size should be > 0
-//      center.convert
+      val convert = center.convert
+      convert.isEnabled should be (true)
+      convert.click()
     }
   }
 }
