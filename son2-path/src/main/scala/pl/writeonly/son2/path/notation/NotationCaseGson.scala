@@ -27,8 +27,8 @@ class NotationWriterGson(c: WConfig)
     .setPrettyPrinting()
     .create(), value)
 
-  def write(gson: Gson, value: Any) = gson.toJson(value)
-
   override def writeRaw(value: Any): String = write(new Gson(), value)
+
+  def write(gson: Gson, value: Any) = gson.toJson(value)
 
 }

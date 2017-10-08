@@ -16,6 +16,8 @@ trait UIUtil {
     result
   }
 
+  def setWidth(c: AbstractComponent) = c.setWidth("100%")
+
   def optionsHorizontalLayout(components: Seq[Component]): HorizontalLayout = {
     new HorizontalLayout(components: _*)
   }
@@ -24,14 +26,14 @@ trait UIUtil {
 
   def verticalLayout(components: Component*) = setMargineFalse(new VerticalLayout(components: _*))
 
-  def horizontalPanel(caption: String, components: Component*) = new Panel(caption, horizontalLayout(components: _*))
-
-  def horizontalLayout(components: Component*) = setMargineFalse(new HorizontalLayout(components: _*))
-
   def setMargineFalse(c: AbstractOrderedLayout) = {
     c.setMargin(false)
     c
   };
+
+  def horizontalPanel(caption: String, components: Component*) = new Panel(caption, horizontalLayout(components: _*))
+
+  def horizontalLayout(components: Component*) = setMargineFalse(new HorizontalLayout(components: _*))
 
   def horizontalPanelEx(caption: String, components: Component*): Panel = {
     val l = new HorizontalLayout()
@@ -47,8 +49,6 @@ trait UIUtil {
     setWidth(result)
     result
   }
-
-  def setWidth(c: AbstractComponent) = c.setWidth("100%")
 
   def inputTextField(caption: String): TextField = {
     val result = new TextField(caption)
@@ -79,6 +79,8 @@ trait UIUtil {
 
   def radioButtonGroup(caption: String, items: List[ItemSymbol]): RadioButtonGroup[ItemSymbol] = radioButtonGroup(caption, items, items.iterator.next)
 
+  def radioButtonGroup(caption: String, items: Set[ItemSymbol], selected: ItemSymbol): RadioButtonGroup[ItemSymbol] = radioButtonGroup(caption, items.toList.sorted, selected)
+
   def radioButtonGroup(caption: String, items: List[ItemSymbol], selected: ItemSymbol): RadioButtonGroup[ItemSymbol] = {
     val result = new RadioButtonGroup[ItemSymbol](caption, items.asJavaCollection)
     result.setSelectedItem(selected)
@@ -87,8 +89,6 @@ trait UIUtil {
     })
     result
   }
-
-  def radioButtonGroup(caption: String, items: Set[ItemSymbol], selected: ItemSymbol): RadioButtonGroup[ItemSymbol] = radioButtonGroup(caption, items.toList.sorted, selected)
 
   def selectedItem(group: RadioButtonGroup[ItemSymbol]): ItemSymbol = group.getSelectedItem().get()
 

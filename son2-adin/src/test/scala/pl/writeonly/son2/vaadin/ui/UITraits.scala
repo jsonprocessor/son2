@@ -1,9 +1,9 @@
 package pl.writeonly.son2.vaadin.ui
 
-import com.vaadin.ui.UI
 import pl.writeonly.son2.spec.GrayVectorSpec
+import pl.writeonly.son2.vaadin.util.UITrait
 
-class UIes extends GrayVectorSpec {
+class UITraits extends GrayVectorSpec {
 
   val uies = Table("uies",
     classOf[UIComparator],
@@ -15,7 +15,8 @@ class UIes extends GrayVectorSpec {
   )
   property("A new instance UI by clazz ") {
     forAll(uies) { (clazz) =>
-      val ui: UI = clazz.newInstance()
+      val ui: UITrait = clazz.newInstance()
+      ui.componentsCenter.size should be > 0
     }
   }
 }

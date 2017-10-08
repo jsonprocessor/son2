@@ -1,7 +1,6 @@
 package pl.writeonly.son2.vaadin.complexes
 
 import com.vaadin.ui.Component
-import pl.writeonly.son2.vaadin.complexes.captioneds.JackComp$
 import pl.writeonly.son2.vaadin.util.{ItemSymbol, UIUtil}
 
 import scala.collection.JavaConverters._
@@ -27,10 +26,10 @@ object ComplexRW extends UIUtil {
 }
 
 abstract class ComplexRW extends Complex {
+  protected val components: List[Component] = List(readGroup, writeGroup, nativeGroup)
   private val readGroup = ComplexRW.readGroupApply
   private val writeGroup = ComplexRW.writeGroupApply
   private val nativeGroup = ComplexRW.nativeGroupApply
-  protected val components: List[Component] = List(readGroup, writeGroup, nativeGroup)
 
   def readStream = readSelectedItem.equals('stream)
 

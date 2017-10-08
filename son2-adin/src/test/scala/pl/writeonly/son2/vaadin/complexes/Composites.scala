@@ -2,8 +2,8 @@ package pl.writeonly.son2.vaadin.complexes
 
 import com.vaadin.ui.CustomComponent
 import pl.writeonly.son2.spec.GrayVectorSpec
-import pl.writeonly.son2.vaadin.complexes.hasselecteditems.{GsonOptionsComp, PathOptionsComp, PathProviderComp, SmartOptionsComp}
 import pl.writeonly.son2.vaadin.complexes.captioneds._
+import pl.writeonly.son2.vaadin.complexes.hasselecteditems.{GsonOptionsComp, PathOptionsComp, PathProviderComp, SmartOptionsComp}
 
 class Composites extends GrayVectorSpec {
 
@@ -22,7 +22,7 @@ class Composites extends GrayVectorSpec {
   )
   property("A new instance composite by clazz") {
     forAll(composites) { (clazz) =>
-      val composite : CustomComponent = clazz.newInstance()
+      val composite: CustomComponent = clazz.newInstance()
       composite.getComponentCount
     }
   }

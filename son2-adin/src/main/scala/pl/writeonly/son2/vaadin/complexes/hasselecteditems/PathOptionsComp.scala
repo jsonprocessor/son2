@@ -8,7 +8,7 @@ class PathOptionsComp extends Complex with HasCheckBoxSelectedItem {
   private val component = PathOptionsComp.apply
   set(component)
 
-  def selectedItem : Set[Symbol] = PathOptionsComp.selectedItem(component).map(_.value)
+  def selectedItem: Set[Symbol] = PathOptionsComp.selectedItem(component).map(_.value)
 }
 
 object PathOptionsComp extends UITrait {
