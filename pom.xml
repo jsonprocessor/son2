@@ -43,6 +43,8 @@
         <module>son2-main</module>
         <module>son2-adin</module>
         <module>son2-drop</module>
+        <module>son2-impl</module>
+        <module>son2-view</module>
     </modules>
 
     <repositories>
