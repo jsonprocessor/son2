@@ -26,10 +26,10 @@ object ComplexRW extends UIUtil {
 }
 
 abstract class ComplexRW extends Complex {
-  protected val components: List[Component] = List(readGroup, writeGroup, nativeGroup)
   private val readGroup = ComplexRW.readGroupApply
   private val writeGroup = ComplexRW.writeGroupApply
   private val nativeGroup = ComplexRW.nativeGroupApply
+  protected val components: List[Component] = List(readGroup, writeGroup, nativeGroup)
 
   def readStream = readSelectedItem.equals('stream)
 
