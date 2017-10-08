@@ -48,7 +48,6 @@ class UIPath extends UITrait2 {
       }
     })
 
-    val optionPanel = optionsPanel(components)
     val inputs = List(inputPath, io.input)
     val output = io.output
   }

@@ -42,7 +42,6 @@ class UIFormatter extends UITrait2 {
         convert2(CreatorConverterJson(config), io.input, io.output, set)
       }
     })
-    val optionPanel = optionsPanel(components)
     val inputs = List(io.input)
     val output = io.output
   }

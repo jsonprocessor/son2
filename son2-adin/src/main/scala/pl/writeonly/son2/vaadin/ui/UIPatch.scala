@@ -25,7 +25,6 @@ class UIPatch extends UITrait2 {
 
       }
     })
-    val optionPanel = optionsPanel(components)
     val inputs = List(inputPatch, io.input)
     val output = io.output
   }

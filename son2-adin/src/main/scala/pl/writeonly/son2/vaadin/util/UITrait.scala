@@ -16,16 +16,6 @@ trait UITrait extends UI with UIUtil with LazyLogging {
     output.setValue(outputValue)
   }
 
-  def optionsPanel(components: Seq[Component]): Panel = {
-    val result = new Panel("Options", optionsHorizontalLayout(components))
-    setWidth(result)
-    result
-  }
-
-  def inputTextArea: TextArea = inputTextArea(inputJson)
-
-  def inputJson = "Input Json"
-
   def convertButton(listener: Button.ClickListener): Button = {
     val result = new Button("Convert", listener)
     setWidth(result)

@@ -11,7 +11,7 @@ import pl.writeonly.son2.vaadin.util.UITrait
 class UIDiff extends UITrait2 {
   override def componentsCenter2: Components = new Components() {
     val configLabel = outputLabel
-    val input = inputTextArea
+    val input = inputTextArea("Input json")
     val output = outputLabel
 
     val components: List[Component] = List(configLabel)

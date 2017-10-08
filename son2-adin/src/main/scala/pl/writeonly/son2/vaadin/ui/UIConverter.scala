@@ -33,8 +33,7 @@ class UIConverter extends UITrait2 {
         convert2(CreatorConverterJack(config), io.input, io.output, set)
       }
     })
-    val optionPanel = optionsPanel(components)
-    val inputs = List(io.input)
+    val inputs = Seq(io.input)
     val output = io.output
   }
 }
