@@ -2,7 +2,7 @@ package pl.writeonly.son2.vaadin.complexes.captioneds
 
 import pl.writeonly.son2.vaadin.complexes.ComplexWithCaption
 import pl.writeonly.son2.vaadin.complexes.hasselecteditems.{PathOptionsComp, PathProviderComp}
-import pl.writeonly.son2.vaadin.util.UITrait
+import pl.writeonly.son2.vaadin.util.UIUtil
 
 class PathComp extends ComplexWithCaption("Path") {
   val provider = new PathProviderComp
@@ -11,4 +11,4 @@ class PathComp extends ComplexWithCaption("Path") {
   set(root)
 }
 
-object PathComp extends UITrait
+object PathComp extends UIUtil

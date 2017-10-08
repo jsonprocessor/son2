@@ -2,7 +2,7 @@ package pl.writeonly.son2.vaadin.complexes.captioneds
 
 import pl.writeonly.son2.vaadin.complexes.ComplexWithCaption
 import pl.writeonly.son2.vaadin.complexes.hasselecteditems.JackFormatComp
-import pl.writeonly.son2.vaadin.util.UITrait
+import pl.writeonly.son2.vaadin.util.UIUtil
 
 class JackComp extends ComplexWithCaption("Jackson") {
   protected val inputFormats = JackFormatComp.jacksonInputFormat
@@ -15,4 +15,4 @@ class JackComp extends ComplexWithCaption("Jackson") {
   def outputSelectedItem = outputFormats.selectedItem
 }
 
-object JackComp extends UITrait
+object JackComp extends UIUtil

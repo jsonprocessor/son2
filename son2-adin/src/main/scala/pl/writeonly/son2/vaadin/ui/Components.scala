@@ -1,7 +1,7 @@
 package pl.writeonly.son2.vaadin.ui
 
 import com.vaadin.ui.{Button, Component, Label, Panel}
-import pl.writeonly.son2.vaadin.util.{UITrait, UIUtil}
+import pl.writeonly.son2.vaadin.util.UIUtil
 
 trait Components extends UIUtil {
   val components : Seq[Component]

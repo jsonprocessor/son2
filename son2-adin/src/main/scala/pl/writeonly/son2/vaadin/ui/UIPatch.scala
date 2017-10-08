@@ -5,7 +5,6 @@ import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui._
 import pl.writeonly.son2.path.core.ConfigPath
 import pl.writeonly.son2.vaadin.complexes.ComplexIO
-import pl.writeonly.son2.vaadin.util.UITrait
 
 @Title("json patch")
 @Theme("valo")

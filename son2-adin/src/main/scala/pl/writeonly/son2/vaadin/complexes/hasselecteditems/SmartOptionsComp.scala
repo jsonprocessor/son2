@@ -4,7 +4,7 @@ import com.typesafe.scalalogging.LazyLogging
 import com.vaadin.ui.Button
 import com.vaadin.ui.Button.ClickEvent
 import pl.writeonly.son2.vaadin.complexes.{Complex, HasCheckBoxSelectedItem}
-import pl.writeonly.son2.vaadin.util.{ItemSymbol, UITrait}
+import pl.writeonly.son2.vaadin.util.{ItemSymbol, UIUtil}
 
 class SmartOptionsComp extends Complex with HasCheckBoxSelectedItem with LazyLogging {
   private val options = SmartOptionsComp.apply
@@ -29,7 +29,7 @@ class SmartOptionsComp extends Complex with HasCheckBoxSelectedItem with LazyLog
   })
 }
 
-object SmartOptionsComp extends UITrait {
+object SmartOptionsComp extends UIUtil {
   private val ACCEPT_USELESS_COMMA = ItemSymbol('ACCEPT_USELESS_COMMA)
   private val USE_HI_PRECISION_FLOAT = ItemSymbol('USE_HI_PRECISION_FLOAT)
   private val ACCEPT_TAILLING_DATA = ItemSymbol('ACCEPT_TAILLING_DATA)

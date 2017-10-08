@@ -1,6 +1,7 @@
 package pl.writeonly.son2.vaadin.complexes
 
-import pl.writeonly.son2.vaadin.util.{ItemSymbol, UITrait}
+import pl.writeonly.son2.vaadin.ui.UITrait
+import pl.writeonly.son2.vaadin.util.ItemSymbol
 
 class SmartFlagsComp extends Complex {
   val flags = SmartFlagsComp.checkBoxGroup("Smart flags:", SmartFlagsComp.items)

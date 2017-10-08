@@ -1,7 +1,6 @@
 package pl.writeonly.son2.vaadin.ui
 
 import pl.writeonly.son2.spec.GrayVectorSpec
-import pl.writeonly.son2.vaadin.util.UITrait
 
 class UITraits extends GrayVectorSpec {
 

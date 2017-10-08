@@ -7,7 +7,6 @@ import pl.writeonly.son2.core.config.{Config, RConfig, WConfig}
 import pl.writeonly.son2.jack.glue.CreatorConverterJack
 import pl.writeonly.son2.vaadin.complexes.captioneds.JackComp
 import pl.writeonly.son2.vaadin.complexes.{ComplexIO, ComplexRWHorizontal}
-import pl.writeonly.son2.vaadin.util.UITrait
 
 @Title("jackson converter")
 @Theme("valo")

@@ -1,7 +1,7 @@
 package pl.writeonly.son2.vaadin.complexes.hasselecteditems
 
 import pl.writeonly.son2.vaadin.complexes.{Complex, HasCheckBoxSelectedItem}
-import pl.writeonly.son2.vaadin.util.{ItemSymbol, UITrait}
+import pl.writeonly.son2.vaadin.util.{ItemSymbol, UIUtil}
 
 class GsonOptionsComp extends Complex with HasCheckBoxSelectedItem {
   private val component = GsonOptionsComp.apply
@@ -10,7 +10,7 @@ class GsonOptionsComp extends Complex with HasCheckBoxSelectedItem {
   def selectedItem = PathOptionsComp.selectedItem(component).map(_.value)
 }
 
-object GsonOptionsComp extends UITrait {
+object GsonOptionsComp extends UIUtil {
   private val items = Set(
     ItemSymbol('disableHtmlEscaping),
     ItemSymbol('disableInnerClassSerialization),

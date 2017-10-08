@@ -8,7 +8,6 @@ import pl.writeonly.son2.json.glue.CreatorConverterJson
 import pl.writeonly.son2.vaadin.complexes.captioneds._
 import pl.writeonly.son2.vaadin.complexes.hasselecteditems.PathProviderComp
 import pl.writeonly.son2.vaadin.complexes.{ComplexRWVertical, _}
-import pl.writeonly.son2.vaadin.util.UITrait
 
 @Title("json formatter")
 @Theme("valo")

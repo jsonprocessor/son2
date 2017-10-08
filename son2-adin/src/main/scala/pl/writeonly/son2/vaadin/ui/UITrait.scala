@@ -1,10 +1,11 @@
-package pl.writeonly.son2.vaadin.util
+package pl.writeonly.son2.vaadin.ui
 
 import com.typesafe.scalalogging.LazyLogging
 import com.vaadin.server.VaadinRequest
 import com.vaadin.ui._
 import pl.writeonly.son2.core.converters.Converter
 import pl.writeonly.son2.core.glue.Piper
+import pl.writeonly.son2.vaadin.util.UIUtil
 
 
 trait UITrait extends UI with UIUtil with LazyLogging {
