@@ -8,8 +8,8 @@ import pl.writeonly.son2.vaadin.util.UITrait
 
 @Title("json path")
 @Theme("valo")
-class UIDiff extends UITrait {
-  override def componentsCenter: List[Component] = {
+class UIDiff extends UITrait2 {
+  override def componentsCenter2: Components = new Components() {
     val configLabel = outputLabel
     val input = inputTextArea
     val output = outputLabel
@@ -25,7 +25,9 @@ class UIDiff extends UITrait {
 
       }
     })
+    val optionPanel = optionsPanel(components)
+    val inputs = List(inputPatch, input)
 
-    return List(optionsPanel(components), inputPatch, input, convert, output)
   }
+
 }

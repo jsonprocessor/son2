@@ -12,9 +12,9 @@ import pl.writeonly.son2.vaadin.util.UITrait
 
 @Title("json formatter")
 @Theme("valo")
-class UIFormatter extends UITrait {
+class UIFormatter extends UITrait2 {
 
-  override def componentsCenter: List[Component] = {
+  override def componentsCenter2: Components = new Components() {
     val rw = new ComplexRWVertical
     val io = new ComplexIO
     val pathProvider = new PathProviderComp
@@ -42,7 +42,9 @@ class UIFormatter extends UITrait {
         convert2(CreatorConverterJson(config), io.input, io.output, set)
       }
     })
-
-    return List(optionsPanel(components), io.input, convert, io.output)
+    val optionPanel = optionsPanel(components)
+    val inputs = List(io.input)
+    val output = io.output
   }
+
 }

@@ -11,9 +11,9 @@ import pl.writeonly.son2.vaadin.util.UITrait
 
 @Title("json path")
 @Theme("valo")
-class UIPath extends UITrait {
+class UIPath extends UITrait2 {
 
-  override def componentsCenter: List[Component] = {
+  override def componentsCenter2: Components = new Components() {
     val rw = new ComplexRWVertical
     val io = new ComplexIO
     val pathComp = new PathComp
@@ -48,6 +48,8 @@ class UIPath extends UITrait {
       }
     })
 
-    return List(optionsPanel(components), inputPath, io.input, convert, io.output)
+    val optionPanel = optionsPanel(components)
+    val inputs = List(inputPath, io.input)
+    val output = io.output
   }
 }

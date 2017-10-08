@@ -9,8 +9,8 @@ import pl.writeonly.son2.vaadin.util.UITrait
 
 @Title("json patch")
 @Theme("valo")
-class UIPatch extends UITrait {
-  override def componentsCenter: List[Component] = {
+class UIPatch extends UITrait2 {
+  override def componentsCenter2: Components = new Components() {
     val configLabel = outputLabel
     val io = new ComplexIO
 
@@ -25,7 +25,9 @@ class UIPatch extends UITrait {
 
       }
     })
-
-    return List(optionsPanel(components), inputPatch, io.input, convert, io.output)
+    val optionPanel = optionsPanel(components)
+    val inputs = List(inputPatch, io.input)
+    val output = io.output
   }
+
 }

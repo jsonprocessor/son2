@@ -15,8 +15,11 @@ class UITraits extends GrayVectorSpec {
   )
   property("A new instance UI by clazz ") {
     forAll(uies) { (clazz) =>
-      val ui: UITrait = clazz.newInstance()
+      val ui: UITrait2 = clazz.newInstance()
       ui.componentsCenter.size should be > 0
+      val center = ui.componentsCenter2
+      center.inputs.size should be > 0
+//      center.convert
     }
   }
 }

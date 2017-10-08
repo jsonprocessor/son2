@@ -11,16 +11,16 @@ import pl.writeonly.son2.vaadin.util.UITrait
 
 @Title("jackson converter")
 @Theme("valo")
-class UIConverter extends UITrait {
+class UIConverter extends UITrait2 {
 
-  override def componentsCenter: List[Component] = {
+  override def componentsCenter2: Components = new Components() {
     val rw = new ComplexRWHorizontal
     val io = new ComplexIO
     val jackFormats = new JackComp
 
     val components: Seq[Component] = Seq(jackFormats, rw)
 
-    val convert = convertButton(new Button.ClickListener() {
+    val convert: Button = convertButton(new Button.ClickListener() {
       override def buttonClick(clickEvent: ClickEvent): Unit = {
         val inputFormat = jackFormats.inputSelectedItem
         val outputFormat = jackFormats.outputSelectedItem
@@ -33,7 +33,8 @@ class UIConverter extends UITrait {
         convert2(CreatorConverterJack(config), io.input, io.output, set)
       }
     })
-
-    return List[Component](optionsPanel(components), io.input, convert, io.output)
+    val optionPanel = optionsPanel(components)
+    val inputs = List(io.input)
+    val output = io.output
   }
 }

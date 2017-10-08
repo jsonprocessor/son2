@@ -9,9 +9,9 @@ import pl.writeonly.son2.vaadin.util.{ItemSymbol, UITrait}
 
 @Title("json comparator")
 @Theme("valo")
-class UIComparator extends UITrait {
+class UIComparator extends UITrait2 {
 
-  override def componentsCenter: List[Component] = {
+  override def componentsCenter2: Components = new Components() {
     val inputLeft = inputTextArea("Expected json:")
     val inputRight = inputTextArea("Actual json:")
     val output = outputLabel
@@ -31,7 +31,8 @@ class UIComparator extends UITrait {
         output.setValue(value)
       }
     })
-    return List(optionsPanel(components), inputLeft, inputRight, convert, output)
+    val optionPanel = optionsPanel(components)
+    val inputs = List(inputLeft, inputRight)
   }
 }
 

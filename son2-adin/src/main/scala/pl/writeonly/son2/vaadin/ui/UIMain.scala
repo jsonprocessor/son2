@@ -10,4 +10,5 @@ class UIMain extends UITrait {
   override def components: List[Component] = {
     return List[Component](new TopMenu().linkPanel)
   }
+
 }
