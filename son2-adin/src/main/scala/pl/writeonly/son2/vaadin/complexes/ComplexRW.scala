@@ -1,6 +1,7 @@
 package pl.writeonly.son2.vaadin.complexes
 
 import com.vaadin.ui.Component
+import pl.writeonly.son2.vaadin.complexes.captioneds.JackFormatsComp
 import pl.writeonly.son2.vaadin.util.{ItemSymbol, UIUtil}
 
 import scala.collection.JavaConverters._

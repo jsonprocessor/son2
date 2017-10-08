@@ -1,5 +1,6 @@
-package pl.writeonly.son2.vaadin.complexes
+package pl.writeonly.son2.vaadin.complexes.captioneds
 
+import pl.writeonly.son2.vaadin.complexes.ComplexWithCaption
 import pl.writeonly.son2.vaadin.util.{ItemSymbol, UITrait}
 
 
@@ -27,6 +28,3 @@ object JackFormatsComp extends UITrait {
 
   def jacksonOutputFormat = radioButtonGroup("Jackson output formats:", items, yaml)
 }
-
-
-

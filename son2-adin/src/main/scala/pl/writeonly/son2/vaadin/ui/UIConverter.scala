@@ -7,7 +7,8 @@ import pl.writeonly.son2.core.config.{Config, RConfig, WConfig}
 import pl.writeonly.son2.vaadin.complexes._
 import pl.writeonly.son2.vaadin.util._
 import pl.writeonly.son2.jack.glue.CreatorConverterJack
-import pl.writeonly.son2.vaadin.complexes.{ComplexIO, ComplexRWHorizontal, JackFormatsComp}
+import pl.writeonly.son2.vaadin.complexes.captioneds.JackFormatsComp
+import pl.writeonly.son2.vaadin.complexes.{ComplexIO, ComplexRWHorizontal}
 import pl.writeonly.son2.vaadin.util.UITrait
 
 @Title("jackson converter")

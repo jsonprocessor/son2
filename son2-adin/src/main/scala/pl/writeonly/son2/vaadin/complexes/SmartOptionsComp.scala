@@ -5,7 +5,7 @@ import com.vaadin.ui.Button
 import com.vaadin.ui.Button.ClickEvent
 import pl.writeonly.son2.vaadin.util.{ItemSymbol, UITrait}
 
-class SmartOptionsComp extends Complex with LazyLogging {
+class SmartOptionsComp extends Complex with HasCheckBoxSelectedItem with LazyLogging {
   private val options = SmartOptionsComp.apply
   private val MODE_PERMISSIVE = button("Permissive", SmartOptionsComp.MODE_PERMISSIVE)
   private val MODE_JSON_SIMPLE = button("Json simple", SmartOptionsComp.MODE_JSON_SIMPLE)
@@ -16,7 +16,7 @@ class SmartOptionsComp extends Complex with LazyLogging {
   private val horizontal = SmartOptionsComp.horizontalLayout(vertical, options)
   set(horizontal)
 
-  def selectedItem = SmartOptionsComp.selectedItem(options)
+  def selectedItem = SmartOptionsComp.selectedItem(options).map(_.value)
 
   private def button(caption: String, select: Set[ItemSymbol]) = new Button(caption, new Button.ClickListener() {
     override def buttonClick(event: ClickEvent): Unit = {

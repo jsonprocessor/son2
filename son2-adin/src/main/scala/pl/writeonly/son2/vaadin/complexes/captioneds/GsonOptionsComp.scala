@@ -1,8 +1,9 @@
-package pl.writeonly.son2.vaadin.complexes
+package pl.writeonly.son2.vaadin.complexes.captioneds
 
+import pl.writeonly.son2.vaadin.complexes.{ComplexWithCaption, HasCheckBoxSelectedItem, PathOptionsComp}
 import pl.writeonly.son2.vaadin.util.{ItemSymbol, UITrait}
 
-class GsonOptionsComp extends ComplexWithCaption("Gson") {
+class GsonOptionsComp extends ComplexWithCaption("Gson") with HasCheckBoxSelectedItem {
   private val component = GsonOptionsComp.apply
   set(component)
 

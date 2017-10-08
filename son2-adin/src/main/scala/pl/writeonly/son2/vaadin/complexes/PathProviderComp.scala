@@ -2,7 +2,7 @@ package pl.writeonly.son2.vaadin.complexes
 
 import pl.writeonly.son2.vaadin.util.{ItemSymbol, UITrait}
 
-class PathProviderComp extends Complex {
+class PathProviderComp extends Complex  with HasRadioButtonSelectedItem {
   private val component = PathProviderComp.apply
   set(component)
 

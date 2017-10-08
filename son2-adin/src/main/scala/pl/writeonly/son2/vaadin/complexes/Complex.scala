@@ -13,3 +13,11 @@ abstract class Complex extends CustomComponent {
 abstract class ComplexWithCaption(caption:String) extends Complex {
   setCaption(caption)
 }
+
+trait HasRadioButtonSelectedItem {
+  def selectedItem : Symbol
+}
+
+trait HasCheckBoxSelectedItem {
+  def selectedItem : Set[Symbol]
+}

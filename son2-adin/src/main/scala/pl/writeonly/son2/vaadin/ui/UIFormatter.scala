@@ -7,6 +7,7 @@ import pl.writeonly.son2.core.config.{Config, RConfig, WConfig}
 import pl.writeonly.son2.vaadin.complexes._
 import pl.writeonly.son2.vaadin.util._
 import pl.writeonly.son2.json.glue.CreatorConverterJson
+import pl.writeonly.son2.vaadin.complexes.captioneds.{GsonOptionsComp, JackFormatsComp, SmartComp}
 import pl.writeonly.son2.vaadin.complexes.{ComplexRWVertical, _}
 import pl.writeonly.son2.vaadin.util.UITrait
 
