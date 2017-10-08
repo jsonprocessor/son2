@@ -1,7 +1,7 @@
 package pl.writeonly.son2.vaadin.complexes
 
 import com.vaadin.ui.Component
-import pl.writeonly.son2.vaadin.complexes.captioneds.JackFormatsComp
+import pl.writeonly.son2.vaadin.complexes.captioneds.JackComp$
 import pl.writeonly.son2.vaadin.util.{ItemSymbol, UIUtil}
 
 import scala.collection.JavaConverters._
@@ -44,12 +44,12 @@ abstract class ComplexRW extends Complex {
 }
 
 class ComplexRWHorizontal extends ComplexRW {
-  private val component: Component = JackFormatsComp.horizontalLayout(components: _*)
+  private val component: Component = ComplexRW.horizontalLayout(components: _*)
   set(component)
 }
 
 class ComplexRWVertical extends ComplexRW {
-  private val component: Component = JackFormatsComp.verticalLayout(components: _*)
+  private val component: Component = ComplexRW.verticalLayout(components: _*)
   set(component)
 }
 

@@ -3,7 +3,6 @@ package pl.writeonly.son2.vaadin.ui
 import com.vaadin.annotations.{Theme, Title}
 import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui._
-import pl.writeonly.son2.vaadin.util.UITrait
 import pl.writeonly.son2.path.core.ConfigPath
 import pl.writeonly.son2.vaadin.util.UITrait
 

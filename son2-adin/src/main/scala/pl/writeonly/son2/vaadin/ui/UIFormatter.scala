@@ -7,8 +7,9 @@ import pl.writeonly.son2.core.config.{Config, RConfig, WConfig}
 import pl.writeonly.son2.vaadin.complexes._
 import pl.writeonly.son2.vaadin.util._
 import pl.writeonly.son2.json.glue.CreatorConverterJson
-import pl.writeonly.son2.vaadin.complexes.captioneds.{GsonOptionsComp, JackFormatsComp, SmartComp}
+import pl.writeonly.son2.vaadin.complexes.captioneds._
 import pl.writeonly.son2.vaadin.complexes.{ComplexRWVertical, _}
+import pl.writeonly.son2.vaadin.complexes.hasselecteditems.PathProviderComp
 import pl.writeonly.son2.vaadin.util.UITrait
 
 @Title("json formatter")
@@ -20,8 +21,8 @@ class UIFormatter extends UITrait {
     val io = new ComplexIO
     val pathProvider = new PathProviderComp
     val smartComp = new SmartComp
-    val jackFormats = new JackFormatsComp
-    val gsonOptions = new GsonOptionsComp
+    val jackFormats = new JackComp
+    val gsonOptions = new GsonComp
 
     val tabSheet = new TabSheet
     setWidth(tabSheet)
@@ -36,7 +37,7 @@ class UIFormatter extends UITrait {
         val provider = pathProvider.selectedItem
         val config = Config(
           RConfig(provider = provider, format = jackFormats.inputSelectedItem, stream = rw.readStream, path = null),
-          WConfig(provider = provider, format = jackFormats.outputSelectedItem, style = rw.writePretty, gson = gsonOptions.selectedItem)
+          WConfig(provider = provider, format = jackFormats.outputSelectedItem, style = rw.writePretty, gson = gsonOptions.options.selectedItem)
         )
         val set = rw.set
         logger.info("{} {}", config, set)

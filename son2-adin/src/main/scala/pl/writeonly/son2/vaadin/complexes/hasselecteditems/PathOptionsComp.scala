@@ -1,6 +1,7 @@
-package pl.writeonly.son2.vaadin.complexes
+package pl.writeonly.son2.vaadin.complexes.hasselecteditems
 
 import com.jayway.jsonpath.{Option => jOption}
+import pl.writeonly.son2.vaadin.complexes.{Complex, HasCheckBoxSelectedItem}
 import pl.writeonly.son2.vaadin.util.{ItemSymbol, UITrait}
 
 class PathOptionsComp extends Complex with HasCheckBoxSelectedItem {

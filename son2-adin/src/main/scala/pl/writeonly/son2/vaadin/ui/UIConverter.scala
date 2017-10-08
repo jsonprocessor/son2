@@ -7,7 +7,7 @@ import pl.writeonly.son2.core.config.{Config, RConfig, WConfig}
 import pl.writeonly.son2.vaadin.complexes._
 import pl.writeonly.son2.vaadin.util._
 import pl.writeonly.son2.jack.glue.CreatorConverterJack
-import pl.writeonly.son2.vaadin.complexes.captioneds.JackFormatsComp
+import pl.writeonly.son2.vaadin.complexes.captioneds.JackComp
 import pl.writeonly.son2.vaadin.complexes.{ComplexIO, ComplexRWHorizontal}
 import pl.writeonly.son2.vaadin.util.UITrait
 
@@ -18,7 +18,7 @@ class UIConverter extends UITrait {
   override def componentsCenter: List[Component] = {
     val rw = new ComplexRWHorizontal
     val io = new ComplexIO
-    val jackFormats = new JackFormatsComp
+    val jackFormats = new JackComp
 
     val components: Seq[Component] = Seq(jackFormats, rw)
 

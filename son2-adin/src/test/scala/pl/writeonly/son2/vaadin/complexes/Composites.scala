@@ -2,7 +2,8 @@ package pl.writeonly.son2.vaadin.complexes
 
 import com.vaadin.ui.CustomComponent
 import pl.writeonly.son2.spec.GrayVectorSpec
-import pl.writeonly.son2.vaadin.complexes.captioneds.{GsonOptionsComp, JackFormatsComp, PathComp, SmartComp}
+import pl.writeonly.son2.vaadin.complexes.hasselecteditems.{GsonOptionsComp, PathOptionsComp, PathProviderComp, SmartOptionsComp}
+import pl.writeonly.son2.vaadin.complexes.captioneds._
 
 class Composites extends GrayVectorSpec {
 
@@ -10,7 +11,7 @@ class Composites extends GrayVectorSpec {
     classOf[ComplexRWHorizontal],
     classOf[ComplexRWVertical],
     classOf[GsonOptionsComp],
-    classOf[JackFormatsComp],
+    classOf[JackComp],
     classOf[PathComp],
     classOf[PathOptionsComp],
     classOf[PathProviderComp],

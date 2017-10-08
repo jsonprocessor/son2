@@ -1,5 +1,6 @@
-package pl.writeonly.son2.vaadin.complexes
+package pl.writeonly.son2.vaadin.complexes.hasselecteditems
 
+import pl.writeonly.son2.vaadin.complexes.{Complex, HasRadioButtonSelectedItem}
 import pl.writeonly.son2.vaadin.util.{ItemSymbol, UITrait}
 
 class PathProviderComp extends Complex  with HasRadioButtonSelectedItem {
