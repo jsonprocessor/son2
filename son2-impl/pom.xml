@@ -17,6 +17,14 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
+    <modules>
+        <module>son2-jack</module>
+        <module>son2-path</module>
+        <module>son2-patch</module>
+        <module>son2-diff</module>
+        <module>son2-json</module>
+    </modules>
+
     <build>
         <sourceDirectory>src/main/scala</sourceDirectory>
         <testSourceDirectory>src/test/scala</testSourceDirectory>
