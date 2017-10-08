@@ -34,7 +34,6 @@
     <modules>
         <module>son2-spec</module>
         <module>son2-core</module>
-
         <module>son2-impl</module>
         <module>son2-text</module>
         <module>son2-main</module>
@@ -109,6 +108,11 @@
             <dependency>
                 <groupId>pl.writeonly.son2</groupId>
                 <artifactId>son2-core</artifactId>
+                <version>${son2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>pl.writeonly.son2</groupId>
+                <artifactId>son2-impl</artifactId>
                 <version>${son2.version}</version>
             </dependency>
             <dependency>
