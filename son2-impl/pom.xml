@@ -23,6 +23,7 @@
         <module>son2-patch</module>
         <module>son2-diff</module>
         <module>son2-json</module>
+        <module>son2-text</module>
     </modules>
 
     <build>
