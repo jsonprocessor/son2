@@ -5,15 +5,6 @@ import pl.writeonly.son2.vaadin.util.UIUtil
 
 class TopMenu extends UIUtil {
 
-  def linkPanel: Panel = horizontalPanelEx("Top Menu",
-    mainLink,
-    jacksonConverter,
-    jsonComparatorLink,
-    jsonDiffLink,
-    jsonFormatterLink,
-    jsonPatchLink,
-    jsonPathLink)
-
   def mainLink: Link = link("Main Side", "/ui");
 
   def jacksonConverter: Link = link("Jackson Converter", "/ui/converter");
@@ -28,4 +19,17 @@ class TopMenu extends UIUtil {
 
   def jsonPathLink: Link = link("Json Path", "/ui/path");
 
+  def linkPanel: Panel = horizontalPanelEx("Top Menu",
+    mainLink,
+    jacksonConverter,
+    jsonComparatorLink,
+    jsonDiffLink,
+    jsonFormatterLink,
+    jsonPatchLink,
+    jsonPathLink)
+
 }
+
+object TopMenu extends UIUtil
+
+

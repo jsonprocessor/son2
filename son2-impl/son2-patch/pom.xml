@@ -32,6 +32,15 @@
             <artifactId>son2-core</artifactId>
         </dependency>
         <dependency>
+            <groupId>pl.writeonly.son2</groupId>
+            <artifactId>son2-jack</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.fge</groupId>
+            <artifactId>json-patch</artifactId>
+            <version>1.9</version>
+        </dependency>
+        <dependency>
             <groupId>com.flipkart.zjsonpatch</groupId>
             <artifactId>zjsonpatch</artifactId>
             <version>0.3.6</version>
