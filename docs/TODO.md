@@ -50,20 +50,14 @@
 - [ ] Add sed https://github.com/tools4j/unix4j
 
 ## main
-- [ ] Coloring as a ./jq https://stedolan.github.io/jq/
+* Coloring as a ./jq https://stedolan.github.io/jq/
+* Command Line Interface
+  * https://github.com/scopt/scopt
+  * https://github.com/scallop/scallop
+  * https://github.com/backuity/clist
 
 ## drop
-- [ ] Extract Vaadin
-
-## play
-- [ ] https://github.com/henrikerola/play-vaadin-integration
-
-## back
-- [ ] Add cassandra http://getquill.io/#docs
-- [ ] Add couchbase https://www.couchbase.com/products/n1ql
-- [ ] Add cockroachlabs https://www.cockroachlabs.com/
-- [ ] Add persistance by redisson
-- [ ] Add persistance by mongojack
+* dropwizard-swagger https://github.com/smoketurner/dropwizard-swagger
 
 ## scheme
 
