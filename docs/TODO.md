@@ -51,10 +51,12 @@
 
 ## main
 * Coloring as a ./jq https://stedolan.github.io/jq/
-* Command Line Interface
+* Change name to SCLI
+* Scala Command Line Interface
   * https://github.com/scopt/scopt
   * https://github.com/scallop/scallop
   * https://github.com/backuity/clist
+  * https://github.com/bmjames/scala-optparse-applicative
 
 ## drop
 * dropwizard-swagger https://github.com/smoketurner/dropwizard-swagger
