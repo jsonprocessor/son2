@@ -1,4 +1,3 @@
-//sbt.version = 1.0.2
 
 lazy val dropwizardVersion = "1.1.4"
 lazy val jacksonVersion = "2.8.3"
@@ -134,6 +133,7 @@ lazy val main = (project in file("son2-main"))
     )
   )
   .dependsOn(spec, core, text, jack, path, patch, diff, json, impl)
+
 
 
 
