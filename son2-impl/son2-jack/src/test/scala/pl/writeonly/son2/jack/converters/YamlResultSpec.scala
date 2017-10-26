@@ -8,9 +8,9 @@ import pl.writeonly.son2.jack.core.FormatsJack
 import pl.writeonly.son2.jack.glue.CreatorConverterJack
 import pl.writeonly.son2.spec.WhiteResultSpec
 
-class CsvWordSpec extends WhiteResultSpec {
+class YamlResultSpec extends WhiteResultSpec {
 
-  val provider: Converter = CreatorConverterJack(FormatsJack.CSV)
+  val provider: Converter = CreatorConverterJack(FormatsJack.YAML)
   "A Provider" should {
     "produce JsonParseException when convert a" in {
       assertThrows[JsonParseException] {

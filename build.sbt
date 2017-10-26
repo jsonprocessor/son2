@@ -11,12 +11,32 @@ lazy val commonSettings = Seq(
   version := versionSnapshot
 )
 
+lazy val FunTest = config("fun") extend(Test)
+lazy val FeatureTest = config("feature") extend(Test)
+
+lazy val funInConfig = inConfig(FunTest)(Defaults.testTasks)
+lazy val featureInConfig = inConfig(FeatureTest)(Defaults.testTasks)
+
+def whiteFilter(name: String): Boolean = (name endsWith "ResultSpec") || (name endsWith "ThrowsSpec")
+def grayFilter(name: String): Boolean = (name endsWith "ScalarSpec") || (name endsWith "VectorSpec ")
+def blackFilter(name: String): Boolean = (name endsWith "FeatureSpec")
+
+lazy val whiteSetting = testOptions in Test := Seq(Tests.Filter(whiteFilter))
+lazy val graySetting = testOptions in FunTest := Seq(Tests.Filter(grayFilter))
+lazy val blackSetting = testOptions in FeatureTest := Seq(Tests.Filter(blackFilter))
+
+lazy val inConfigs = Seq(funInConfig, featureInConfig)
+lazy val settings = Seq(whiteSetting, graySetting, blackSetting)
+
 lazy val son2 = (project in file("."))
+  .aggregate(spec, core, impl, main, drop)
+  .configs(FunTest, FeatureTest)
   .settings(
     name := "son2",
-    commonSettings
+    commonSettings,
+    funInConfig, featureInConfig,
+    whiteSetting, graySetting, blackSetting
   )
-  .aggregate(spec, core, impl, main, drop)
 
 lazy val spec = (project in file("son2-spec"))
   .settings(
@@ -29,13 +49,18 @@ lazy val spec = (project in file("son2-spec"))
       "org.scalacheck" % "scalacheck_2.11" % "1.13.5",
       "org.pegdown" % "pegdown" % "1.6.0",
       "ch.qos.logback" % "logback-classic" % "1.2.3"
-    )
+    ),
+    assemblyJarName in assembly := "son2-spec.jar"
   )
 
 lazy val core = (project in file("son2-core"))
+  .dependsOn(spec)
+  .configs(FunTest, FeatureTest)
   .settings(
     name := "son2-core",
     commonSettings,
+    funInConfig, featureInConfig,
+    whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
       "org.scala-lang" % "scala-library" % "2.11.11",
       "org.scalactic" % "scalactic_2.11" % "3.0.4",
@@ -43,9 +68,10 @@ lazy val core = (project in file("son2-core"))
       "org.skyscreamer" % "jsonassert" % "1.5.0"
     )
   )
-  .dependsOn(spec)
 
 lazy val text = (project in file("son2-impl/son2-text"))
+  .dependsOn(spec, core)
+  .configs(FunTest, FeatureTest)
   .settings(
     name := "son2-text",
     commonSettings,
@@ -54,12 +80,15 @@ lazy val text = (project in file("son2-impl/son2-text"))
       "org.unbescape" % "unbescape" % "1.1.5.RELEASE"
     )
   )
-  .dependsOn(spec, core)
 
 lazy val jack = (project in file("son2-impl/son2-jack"))
+  .dependsOn(spec, core)
+  .configs(FunTest, FeatureTest)
   .settings(
     name := "son2-jack",
     commonSettings,
+    funInConfig, featureInConfig,
+    whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
       "com.fasterxml.jackson.dataformat" % "jackson-dataformat-yaml" % jacksonVersion,
       "com.fasterxml.jackson.dataformat" % "jackson-dataformat-xml" % jacksonVersion,
@@ -69,78 +98,97 @@ lazy val jack = (project in file("son2-impl/son2-jack"))
       "ninja.leaping.configurate" % "configurate-hocon" % "3.2"
     )
   )
-  .dependsOn(spec, core)
 
 lazy val path = (project in file("son2-impl/son2-path"))
+  .dependsOn(spec, core, jack)
+  .configs(FunTest, FeatureTest)
   .settings(
     name := "son2-path",
     commonSettings,
+    funInConfig, featureInConfig,
+    whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
       "com.jayway.jsonpath" % "json-path" % "2.4.0",
       "net.minidev" % "json-smart" % "2.3",
       "com.google.code.gson" % "gson" % "2.8.1",
       "org.apache.tapestry" % "tapestry-json" % "5.4.3",
       "org.codehaus.jettison" % "jettison" % "1.3.8",
-      "org.json" % "json" % "20170516"
+//      "org.json" % "json" % "20170516"
+      "com.vaadin.external.google" % "android-json" % "0.0.20131108.vaadin1"
     )
   )
-  .dependsOn(spec, core, jack)
 
 
 lazy val patch = (project in file("son2-impl/son2-patch"))
+  .dependsOn(spec, core, jack)
+  .configs(FunTest, FeatureTest)
   .settings(
     name := "son2-patch",
     commonSettings,
+    funInConfig, featureInConfig,
+    whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
       "com.github.fge" % "json-patch" % "1.9"
     )
   )
-  .dependsOn(spec, core, jack)
 
 lazy val diff = (project in file("son2-impl/son2-diff"))
+  .dependsOn(spec, core)
+  .configs(FunTest, FeatureTest)
   .settings(
     name := "son2-diff",
     commonSettings,
     libraryDependencies ++= Seq(
     )
   )
-  .dependsOn(spec, core)
 
 lazy val json = (project in file("son2-impl/son2-json"))
+  .dependsOn(spec, core, jack, path)
+  .configs(FunTest, FeatureTest)
   .settings(
     name := "son2-json",
     commonSettings,
     libraryDependencies ++= Seq(
     )
   )
-  .dependsOn(spec, core, jack, path)
 
 lazy val impl = (project in file("son2-impl"))
+  .aggregate(text, jack, path, patch, diff, json)
+  .dependsOn(spec, core, text, jack, path, patch, diff, json)
+  .configs(FunTest, FeatureTest)
   .settings(
     name := "son2-impl",
     commonSettings,
+    funInConfig, featureInConfig,
+    whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
     )
   )
-  .aggregate(text, jack, path, patch, diff, json)
-  .dependsOn(spec, core, text, jack, path, patch, diff, json)
 
 lazy val main = (project in file("son2-main"))
+  .dependsOn(spec, core, text, jack, path, patch, diff, json, impl)
+  .configs(FunTest, FeatureTest)
   .settings(
     name := "son2-main",
     commonSettings,
+    funInConfig, featureInConfig,
+    whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
-    )
+    ),
+    mainClass in assembly := Some("pl.writeonly.son2.main.Main")
   )
-  .dependsOn(spec, core, text, jack, path, patch, diff, json, impl)
 
 
 
 
 lazy val adin = (project in file("son2-adin"))
+  .dependsOn(spec, core, json)
+  .configs(FunTest, FeatureTest)
   .settings(
     name := "son2-adin",
     commonSettings,
+    funInConfig, featureInConfig,
+    whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
       "com.vaadin" % "vaadin-themes" % vaadinVersion,
       "com.vaadin" % "vaadin-client-compiled" % vaadinVersion,
@@ -148,24 +196,29 @@ lazy val adin = (project in file("son2-adin"))
       "javax.servlet" % "javax.servlet-api" % "4.0.0" % "provided"
     )
   )
-  .dependsOn(spec, core, json)
 
 lazy val view = (project in file("son2-view"))
+  .configs(FunTest, FeatureTest)
   .settings(
     name := "son2-view",
     commonSettings,
+    funInConfig, featureInConfig,
+    whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
     )
   )
 
 lazy val drop = (project in file("son2-drop"))
+  .dependsOn(spec, core, adin)
+  .configs(FunTest, FeatureTest)
   .settings(
     name := "son2-drop",
     commonSettings,
+    funInConfig, featureInConfig,
+    whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
       "io.dropwizard" % "dropwizard-core" % dropwizardVersion,
       "io.dropwizard" % "dropwizard-assets" % dropwizardVersion
     )
   )
-  .dependsOn(spec, core, adin)
 

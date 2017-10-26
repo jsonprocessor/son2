@@ -8,7 +8,7 @@ import pl.writeonly.son2.jack.core.FormatsJack
 import pl.writeonly.son2.jack.glue.CreatorConverterJack
 import pl.writeonly.son2.spec.WhiteResultSpec
 
-class XmlWordSpec extends WhiteResultSpec {
+class XmlResultSpec extends WhiteResultSpec {
 
   val provider: Converter = CreatorConverterJack(FormatsJack.XML)
   "A Provider" should {
