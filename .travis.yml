@@ -5,8 +5,7 @@ dist: trusty
 sudo: false
 script:
   - "mvn test && mvn verify"
-  - sbt clean coverage test fun:test coverageReport &&
-  - sbt coverageAggregate
+  - sbt clean coverage test fun:test coverageReport && sbt coverageAggregate
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
