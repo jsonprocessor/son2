@@ -10,7 +10,7 @@ lazy val commonSettings = Seq(
   scalaVersion := "2.11.8",
   version := versionSnapshot
 )
-
+//lazy val FunJacoco = config("fun") extend(JacocoItPlugin)
 lazy val FunTest = config("fun") extend(Test)
 lazy val FeatureTest = config("feature") extend(Test)
 
@@ -28,14 +28,30 @@ lazy val blackSetting = testOptions in FeatureTest := Seq(Tests.Filter(blackFilt
 lazy val inConfigs = Seq(funInConfig, featureInConfig)
 lazy val settings = Seq(whiteSetting, graySetting, blackSetting)
 
+
 lazy val son2 = (project in file("."))
+//  .enablePlugins(JacocoItPlugin)
   .aggregate(spec, core, impl, main, drop)
   .configs(FunTest, FeatureTest)
   .settings(
     name := "son2",
     commonSettings,
     funInConfig, featureInConfig,
-    whiteSetting, graySetting, blackSetting
+    whiteSetting, graySetting, blackSetting,
+    coverageEnabled := true,
+    coverageMinimum := 60,
+    coverageFailOnMinimum := true
+//    jacocoAggregateReportSettings := JacocoReportSettings()
+//      .withThresholds(
+//        JacocoThresholds(
+//          instruction = 8,
+//          method = 10,
+//          branch = 10,
+//          complexity = 10,
+//          line = 9,
+//          clazz = 10)
+//      )
+
   )
 
 lazy val spec = (project in file("son2-spec"))
@@ -50,7 +66,17 @@ lazy val spec = (project in file("son2-spec"))
       "org.pegdown" % "pegdown" % "1.6.0",
       "ch.qos.logback" % "logback-classic" % "1.2.3"
     ),
-    assemblyJarName in assembly := "son2-spec.jar"
+    assemblyJarName in assembly := "son2-spec.jar"//,
+//    jacocoReportSettings := JacocoReportSettings()
+//      .withThresholds(
+//        JacocoThresholds(
+//          instruction = 0,
+//          method = 0,
+//          branch = 0,
+//          complexity = 0,
+//          line = 0,
+//          clazz = 0)
+//      )
   )
 
 lazy val core = (project in file("son2-core"))

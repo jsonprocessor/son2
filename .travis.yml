@@ -3,7 +3,11 @@ jdk:
   - oraclejdk8
 dist: trusty
 sudo: false
-script: "mvn test && mvn verify"
+script:
+  - "mvn test && mvn verify"
+    sbt clean coverage test fun:test coverageReport &&
+    sbt coverageAggregate
+
 after_success:
   - bash <(curl -s https://codecov.io/bash)
   - python <(curl -s https://raw.githubusercontent.com/TouK/sputnik-ci/master/sputnik-ci.py)
