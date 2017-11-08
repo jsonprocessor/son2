@@ -1,15 +1,15 @@
-package pl.writeonly.son2.jack.glue
+package pl.writeonly.son2.json.glue
 
-import pl.writeonly.son2.jack.core.FormatsJack
+import pl.writeonly.son2.json.core.ProvidersJson
 import pl.writeonly.son2.spec.GrayVectorSpec
 
-class CreatorConverterOrJackVectorSpec  extends GrayVectorSpec {
-  val formats = Table("format", FormatsJack.ALL: _*)
+class CreatorConverterOrJsonVectorSpec  extends GrayVectorSpec {
+  val providers = Table("format", ProvidersJson.ALL: _*)
 
-  val creator = new CreatorConverterOrJack
-  property("Apply CreatorConverterOrJack with format") {
-    forAll(formats) { (format) =>
-      val converter = creator.converterOr(format.name)
+  val creator = new CreatorConverterOrJson
+  property("Apply CreatorConverterOrJson with provider") {
+    forAll(providers) { (provider) =>
+      val converter = creator.converterOr(provider.name)
       converter.isGood should be (true)
     }
   }

@@ -5,17 +5,16 @@ import pl.writeonly.son2.spec.GrayVectorSpec
 
 class CreatorConverterJackVectorSpec extends GrayVectorSpec {
 
-  val providers = Table("format", FormatsJack.ALL: _*)
-
+  val formats = Table("format", FormatsJack.ALL: _*)
 
   val configer = new ChainNotationConfigJack().get
   val chain = new ChainNotationRWTJack
   val reader = chain.r
   val writer = chain.w
   property("PF should isDefinedAt for format") {
-    forAll(providers) { (provider) =>
-      configer.isDefinedAt(provider.name) should be(true)
-      val config = configer.apply(provider.name)
+    forAll(formats) { (format) =>
+      configer.isDefinedAt(format.name) should be(true)
+      val config = configer.apply(format.name)
       reader.isDefinedAt(config.read) should be(true)
       writer.isDefinedAt(config.write) should be(true)
 
@@ -24,8 +23,8 @@ class CreatorConverterJackVectorSpec extends GrayVectorSpec {
     }
   }
   property("Apply creatorConverterJack with format") {
-    forAll(providers) { (provider) =>
-      CreatorConverterJack.apply(provider)
+    forAll(formats) { (format) =>
+      CreatorConverterJack.apply(format)
     }
   }
 
