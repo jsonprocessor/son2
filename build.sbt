@@ -1,3 +1,4 @@
+enablePlugins(com.lucidchart.sbt.scalafmt.ScalafmtPlugin)
 
 lazy val dropwizardVersion = "1.1.4"
 lazy val jacksonVersion = "2.8.3"
