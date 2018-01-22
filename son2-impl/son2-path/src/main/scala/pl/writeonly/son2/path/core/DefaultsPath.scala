@@ -8,25 +8,32 @@ import pl.writeonly.son2.core.config.RConfig
 
 import scala.collection.JavaConverters._
 
-class DefaultsPath(val config: RConfig, json: JsonProvider, mapping: MappingProvider) extends Defaults {
+class DefaultsPath(val config: RConfig,
+                   json: JsonProvider,
+                   mapping: MappingProvider)
+    extends Defaults {
 
-  override def toString() = MoreObjects.toStringHelper(this)
-    .addValue(config)
-    .addValue(json)
-    .addValue(mapping)
-    .toString
+  override def toString() =
+    MoreObjects
+      .toStringHelper(this)
+      .addValue(config)
+      .addValue(json)
+      .addValue(mapping)
+      .toString
 
   override def jsonProvider = json
 
   override def mappingProvider = mapping
 
-  override def options: java.util.Set[com.jayway.jsonpath.Option] = new java.util.HashSet(optionCollection)
+  override def options: java.util.Set[com.jayway.jsonpath.Option] =
+    new java.util.HashSet(optionCollection)
 
-  private def optionCollection = config.options
-    .map(toOption)
-    .asJavaCollection
+  private def optionCollection =
+    config.options
+      .map(toOption)
+      .asJavaCollection
 
-  private def toOption(s: Symbol): com.jayway.jsonpath.Option = com.jayway.jsonpath.Option.valueOf(s.name)
+  private def toOption(s: Symbol): com.jayway.jsonpath.Option =
+    com.jayway.jsonpath.Option.valueOf(s.name)
 
 }
-

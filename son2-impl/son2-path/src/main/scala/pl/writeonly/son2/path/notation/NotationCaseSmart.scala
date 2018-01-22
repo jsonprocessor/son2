@@ -11,26 +11,35 @@ import pl.writeonly.son2.core.notation.NotationWriter
 import pl.writeonly.son2.path.core.{DefaultsPath, ProvidersPath}
 
 case class NotationCaseSmart()
-  extends NotationCasePath(ProvidersPath.SMART,
-    c => new NotationReaderSmart(c),
-    c => new NotationWriterSmart(c))
-
+    extends NotationCasePath(ProvidersPath.SMART,
+                             c => new NotationReaderSmart(c),
+                             c => new NotationWriterSmart(c))
 
 class DefaultsSmart(c: RConfig, parseMode: Int, mapper: JsonReaderI[_])
-  extends DefaultsPath(c, new JsonSmartJsonProvider(parseMode, mapper), new JsonSmartMappingProvider(mapper.base)) with StrictLogging {
+    extends DefaultsPath(c,
+                         new JsonSmartJsonProvider(parseMode, mapper),
+                         new JsonSmartMappingProvider(mapper.base))
+    with StrictLogging {
   //  logger.info(this.toString(), new Exception)
 
-  def this(c: RConfig) = this(c, JSONParser.MODE_PERMISSIVE, JSONValue.defaultReader.DEFAULT_ORDERED)
+  def this(c: RConfig) =
+    this(c,
+         JSONParser.MODE_PERMISSIVE,
+         JSONValue.defaultReader.DEFAULT_ORDERED)
 }
 
-class NotationReaderSmart(c: RConfig) extends NotationReaderPath(new DefaultsSmart(c)) {
+class NotationReaderSmart(c: RConfig)
+    extends NotationReaderPath(new DefaultsSmart(c)) {
 
-  override def isDefinedAt(content: String): Boolean = JSONValue.isValidJson(content)
+  override def isDefinedAt(content: String): Boolean =
+    JSONValue.isValidJson(content)
 }
 
 class NotationWriterSmart(c: WConfig) extends NotationWriter(c) {
 
-  override def writePretty(value: Any): String = JSONValue.toJSONString(value, JSONStyle.MAX_COMPRESS)
+  override def writePretty(value: Any): String =
+    JSONValue.toJSONString(value, JSONStyle.MAX_COMPRESS)
 
-  override def writeRaw(value: Any): String = JSONValue.toJSONString(value, JSONStyle.NO_COMPRESS)
+  override def writeRaw(value: Any): String =
+    JSONValue.toJSONString(value, JSONStyle.NO_COMPRESS)
 }

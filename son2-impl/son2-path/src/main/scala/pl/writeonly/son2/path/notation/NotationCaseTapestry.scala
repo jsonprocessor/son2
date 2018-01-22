@@ -6,10 +6,10 @@ import pl.writeonly.son2.core.config.RConfig
 import pl.writeonly.son2.path.core.{DefaultsPath, ProvidersPath}
 
 case class NotationCaseTapestry()
-  extends NotationCaseProvider(ProvidersPath.TAPESTRY, c => new DefaultsTapesty(c))
-
+    extends NotationCaseProvider(ProvidersPath.TAPESTRY,
+                                 c => new DefaultsTapesty(c))
 
 class DefaultsTapesty(c: RConfig)
-  extends DefaultsPath(c, new TapestryJsonProvider(), new TapestryMappingProvider())
-
-
+    extends DefaultsPath(c,
+                         new TapestryJsonProvider(),
+                         new TapestryMappingProvider())

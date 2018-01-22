@@ -24,10 +24,12 @@ class Piper(params: Params, converter: Converter) {
 
   def source = Streamers.source(converter.config.read.stream, converter)
 
-  def print(print: Boolean) = Streamers.print(print, converter.config.read.stream, converter)
+  def print(print: Boolean) =
+    Streamers.print(print, converter.config.read.stream, converter)
 
   def convertResource(name: String) = convertStream(resourceAsStream(name))
 
-  def resourceAsStream(name: String) = getClass().getClassLoader().getResourceAsStream(name)
+  def resourceAsStream(name: String) =
+    getClass().getClassLoader().getResourceAsStream(name)
 
 }

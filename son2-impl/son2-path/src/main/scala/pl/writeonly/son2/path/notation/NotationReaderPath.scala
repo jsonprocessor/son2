@@ -7,7 +7,8 @@ import pl.writeonly.son2.path.core.DefaultsPath
 
 class NotationReaderPath(val defaults: DefaultsPath) extends NotationReader {
 
-  override def toString() = MoreObjects.toStringHelper(this).addValue(defaults).toString
+  override def toString() =
+    MoreObjects.toStringHelper(this).addValue(defaults).toString
 
   def apply(content: String): Any = defaults.config.path match {
     case null => parse(content)
@@ -15,7 +16,8 @@ class NotationReaderPath(val defaults: DefaultsPath) extends NotationReader {
     case Some(path) => read(content, path)
   }
 
-  def read(content: String, path: String): Any = using.parse(content).read(path)
+  def read(content: String, path: String): Any =
+    using.parse(content).read(path)
 
   def json(content: String): Any = using.parse(content).json()
 
@@ -23,9 +25,10 @@ class NotationReaderPath(val defaults: DefaultsPath) extends NotationReader {
 
   def using: ParseContext = JsonPath.using(configuration)
 
-  def configuration = Configuration.builder
-    .jsonProvider(defaults.jsonProvider)
-    .mappingProvider(defaults.mappingProvider)
-    .options(defaults.options)
-    .build
+  def configuration =
+    Configuration.builder
+      .jsonProvider(defaults.jsonProvider)
+      .mappingProvider(defaults.mappingProvider)
+      .options(defaults.options)
+      .build
 }

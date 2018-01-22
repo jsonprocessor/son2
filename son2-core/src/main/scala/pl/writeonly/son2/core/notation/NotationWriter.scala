@@ -22,5 +22,6 @@ abstract class NotationWriter(val config: WConfig) {
 
   def writeRaw(value: Any): String //= value.toString()
 
-  override def toString() = MoreObjects.toStringHelper(this).addValue(config).toString
+  override def toString() =
+    MoreObjects.toStringHelper(this).addValue(config).toString
 }

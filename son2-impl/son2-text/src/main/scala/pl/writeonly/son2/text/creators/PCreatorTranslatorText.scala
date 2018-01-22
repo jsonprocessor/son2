@@ -9,17 +9,20 @@ import scala.util.control.Exception.catching
 class PCreatorTranslatorText extends PCreatorTranslator {
   private val matcher = new MatcherStringEscape()
 
-  override def isDefinedAt(c: Config): Boolean = catching(classOf[Exception])
-    .opt(apply(c))
-    .isDefined
+  override def isDefinedAt(c: Config): Boolean =
+    catching(classOf[Exception])
+      .opt(apply(c))
+      .isDefined
 
   //  override def isDefinedAt(c: Config): Boolean = isDefinedAt(c.translate)
 
-  override def apply(c: Config): NotationTranslator = new NotationTranslator(c.write, translatorMatch(c.translate))
+  override def apply(c: Config): NotationTranslator =
+    new NotationTranslator(c.write, translatorMatch(c.translate))
 
   def translatorMatch(p: TConfig) = matcher.apply(p)
 
-  def isDefinedAt(c: TConfig): Boolean = c != null && isDefinedAt(c.action) && isDefinedAt(c.format)
+  def isDefinedAt(c: TConfig): Boolean =
+    c != null && isDefinedAt(c.action) && isDefinedAt(c.format)
 
   def isDefinedAt(s: Symbol): Boolean = s != null && s != Symbol("")
 }

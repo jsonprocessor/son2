@@ -6,14 +6,16 @@ import pl.writeonly.son2.core.config.Config
 import pl.writeonly.son2.core.converters.Converter
 import pl.writeonly.son2.core.pcreators.PCreatorConfig
 
-abstract class CreatorConverterOr(parser: PCreatorConfig, rwt: ChainNotationRWT) {
+abstract class CreatorConverterOr(parser: PCreatorConfig,
+                                  rwt: ChainNotationRWT) {
 
   val chainNotationCreator = new ChainNotationCreator(parser, rwt)
 
-  def converterOr(s: String): Converter Or ErrorMessage = configOpt(s)
-    .map(c => chainNotationCreator.provider(c))
-    .map(p => Good(p))
-    .getOrElse(Bad(s))
+  def converterOr(s: String): Converter Or ErrorMessage =
+    configOpt(s)
+      .map(c => chainNotationCreator.provider(c))
+      .map(p => Good(p))
+      .getOrElse(Bad(s))
 
   def configOpt(s: String): Option[Config] = chainNotationCreator.configOpt(s)
 }

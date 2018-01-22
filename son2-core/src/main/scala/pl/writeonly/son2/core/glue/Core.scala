@@ -8,7 +8,8 @@ class Core(params: Params, args: Array[String], creator: CreatorConverterOr) {
   val length = args.length
 
   def apply = option match {
-    case Good(provider) => new Piper(params, provider).right(args.slice(1, length))
+    case Good(provider) =>
+      new Piper(params, provider).right(args.slice(1, length))
     case Bad(format) => bad(params, format)
   }
 
@@ -17,6 +18,7 @@ class Core(params: Params, args: Array[String], creator: CreatorConverterOr) {
     case _ => creator.converterOr(args(0).toLowerCase)
   }
 
-  def bad(params: Params, errorMessage: ErrorMessage): Unit = Preconditions.checkState(false, errorMessage.asInstanceOf[Any])
+  def bad(params: Params, errorMessage: ErrorMessage): Unit =
+    Preconditions.checkState(false, errorMessage.asInstanceOf[Any])
 
 }

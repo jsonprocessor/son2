@@ -14,8 +14,6 @@ trait PartialCreator extends PartialFunction[Config, NotationRWT] {
 
   def t(c: Config): NotationTranslator = null
 
-
   def is(s: Config) = isDefinedAt(s)
-
 
 }

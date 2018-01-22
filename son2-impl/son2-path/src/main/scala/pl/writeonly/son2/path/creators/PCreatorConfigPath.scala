@@ -18,4 +18,3 @@ class PCreatorConfigPathMain extends PCreatorConfig {
     write = WConfig(provider = ProvidersPath.STRICT, style = false)
   )
 }
-

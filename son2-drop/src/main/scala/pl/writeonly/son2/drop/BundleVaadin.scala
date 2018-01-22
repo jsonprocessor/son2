@@ -8,7 +8,8 @@ import org.eclipse.jetty.server.session.SessionHandler
 
 import scala.collection.mutable
 
-class BundleVaadin(servlet: Class[_ <: VaadinServlet], pathSpec: String) extends Bundle {
+class BundleVaadin(servlet: Class[_ <: VaadinServlet], pathSpec: String)
+    extends Bundle {
   val servlets = new mutable.HashMap[String, Class[_ <: VaadinServlet]]()
   servlets.put(pathSpec, servlet)
   val sessionHandler: SessionHandler = new SessionHandler()

@@ -10,9 +10,11 @@ object ConfigJson {
 
   def apply(s: Symbol): Config = ConfigJson.apply(provider = s)
 
-  def apply(provider: Symbol = ProvidersPath.GSON, s: Boolean = true, p: Boolean = true) = new Config(
-    read = RConfig(provider = provider, stream = s, path = null), write = WConfig(provider = provider, style = p)
+  def apply(provider: Symbol = ProvidersPath.GSON,
+            s: Boolean = true,
+            p: Boolean = true) = new Config(
+    read = RConfig(provider = provider, stream = s, path = null),
+    write = WConfig(provider = provider, style = p)
   )
 
 }
-

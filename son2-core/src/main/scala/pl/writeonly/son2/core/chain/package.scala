@@ -1,8 +1,12 @@
 package pl.writeonly.son2.core
 
-
 import pl.writeonly.son2.core.config.{Config, RConfig, WConfig}
-import pl.writeonly.son2.core.notation.{NotationRWT, NotationReader, NotationTranslator, NotationWriter}
+import pl.writeonly.son2.core.notation.{
+  NotationRWT,
+  NotationReader,
+  NotationTranslator,
+  NotationWriter
+}
 
 package object pcreators {
   type PCreatorConfig = PartialFunction[String, Config]
@@ -12,5 +16,3 @@ package object pcreators {
   type PCreatorNotationRWT = PartialFunction[Config, NotationRWT]
 
 }
-
-
