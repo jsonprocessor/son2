@@ -1,5 +1,5 @@
 [![Build Status](https://api.travis-ci.org/writeonly/son2.svg?branch=master)](https://travis-ci.org/writeonly/son2)
-[![Codacy grade](https://img.shields.io/codacy/grade/e27821fb6289410b8f58338c7e0bc686.svg)](https://www.codacy.com/app/writeonly/resentiment/dashboard)
+[![Codacy grade](https://img.shields.io/codacy/grade/e27821fb6289410b8f58338c7e0bc686.svg)](https://www.codacy.com/app/writeonly/son2/dashboard)
 [![Codecov](https://img.shields.io/codecov/c/github/writeonly/son2.svg)](https://codecov.io/gh/writeonly/son2)
 [![GitHub issues](https://img.shields.io/github/issues/writeonly/son2.svg)](https://github.com/writeonly/son2/issues)
 [![License][licenseImg]][licenseLink]
