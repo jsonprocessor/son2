@@ -22,6 +22,17 @@ Stream Object Notation to:
 
 -->
 
+It is a simple application with: 
+* ScalaTest for test
+* ScalaMock for mock
+* ScalaCheck for rroperty-based testing
+* Vaadin for view
+* Dropwizard for Rest
+* Jackson to convert json
+* JsonPath to filtering json
+* json-patch to patch json
+
+
 ## Build
 mvn clean install
 
