@@ -9,7 +9,7 @@ jdk:
 dist: trusty
 sudo: false
 script:
-  - sbt clean coverage test fun:test scalafmt::test test:scalafmt::test fun:scalafmt::test  coverageReport && sbt coverageAggregate
+  - sbt clean scalafmt::test test:scalafmt::test fun:scalafmt::test coverage test fun:test assembly coverageReport && sbt coverageAggregate
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
