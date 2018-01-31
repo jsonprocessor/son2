@@ -201,8 +201,8 @@ lazy val main = (project in file("son2-main"))
     funInConfig, featureInConfig,
     whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
-    ),
-    mainClass in assembly := Some("pl.writeonly.son2.main.Main")
+    )//,
+//    mainClass in assembly := Some("pl.writeonly.son2.main.Main")
   )
 
 
