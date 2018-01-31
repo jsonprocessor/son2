@@ -66,8 +66,8 @@ lazy val spec = (project in file("son2-spec"))
       "org.scalacheck" % "scalacheck_2.11" % "1.13.5",
       "org.pegdown" % "pegdown" % "1.6.0",
       "ch.qos.logback" % "logback-classic" % "1.2.3"
-    ),
-    assemblyJarName in assembly := "son2-spec.jar"//,
+    )//,
+//    assemblyJarName in assembly := "son2-spec.jar"//,
 //    jacocoReportSettings := JacocoReportSettings()
 //      .withThresholds(
 //        JacocoThresholds(
