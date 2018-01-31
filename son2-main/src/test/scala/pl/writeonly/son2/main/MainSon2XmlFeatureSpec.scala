@@ -8,7 +8,8 @@ import pl.writeonly.son2.spec.BlackSpec
 
 class MainSon2XmlFeatureSpec extends BlackSpec {
 
-  val outName = (name: String) => Features.outputPathname(Types.MAIN, name, FormatsJack.XML)
+  val outName = (name: String) =>
+    Features.outputPathname(Types.MAIN, name, FormatsJack.XML)
 
   feature(classOf[MainSon2XmlFeatureSpec].getSimpleName) {
     scenario("Apply with null pathname") {
@@ -44,4 +45,3 @@ class MainSon2XmlFeatureSpec extends BlackSpec {
     }
   }
 }
-

@@ -28,7 +28,8 @@ class ObjectVectorSpec extends GrayVectorSpec {
     "a"
   )
 
-  val provider: Converter = CreatorConverterJack(ConfigJack(o = FormatsJack.OBJECT, p = false))
+  val provider: Converter = CreatorConverterJack(
+    ConfigJack(o = FormatsJack.OBJECT, p = false))
   property("convert son to yaml by provider") {
     forAll(toSuccess) { (in, out) =>
       provider.convert(in) should be(out)

@@ -1,6 +1,11 @@
 package pl.writeonly.son2.core.glue
 
-import pl.writeonly.son2.core.streamers.{StreamerPipeAll, StreamerPipeForeach, StreamerSourceAll, StreamerSourceForeach}
+import pl.writeonly.son2.core.streamers.{
+  StreamerPipeAll,
+  StreamerPipeForeach,
+  StreamerSourceAll,
+  StreamerSourceForeach
+}
 import pl.writeonly.son2.spec.WhiteResultSpec
 
 class StreamersResultSpec extends WhiteResultSpec {

@@ -20,7 +20,7 @@ object JsonComparator {
 
   def apply(mode: JSONCompareMode, expected: String, actual: String): String =
     either(mode, expected, actual) match {
-      case Right(result) => result.toString
+      case Right(result)   => result.toString
       case Left(exception) => exception.getMessage
     }
 

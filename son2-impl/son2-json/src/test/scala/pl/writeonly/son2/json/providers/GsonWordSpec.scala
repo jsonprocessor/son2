@@ -29,7 +29,8 @@ class GsonWordSpec extends WhiteResultSpec {
     }
   }
 
-  val providerRaw: Converter = CreatorConverterJson(ConfigJson(provider = ProvidersPath.GSON, p = false))
+  val providerRaw: Converter = CreatorConverterJson(
+    ConfigJson(provider = ProvidersPath.GSON, p = false))
   "A ProviderRaw" should {
     "have pretty == false" in {
       assertResult(false)(providerRaw.config.write.style)

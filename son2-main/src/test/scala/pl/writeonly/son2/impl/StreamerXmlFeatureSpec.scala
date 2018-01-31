@@ -11,9 +11,11 @@ class StreamerXmlFeatureSpec extends BlackSpec {
 
   info("FileJson2XmlFeature with Json2Xml")
 
-  val given = () => new StreamerPipeForeach(CreatorConverterJack(FormatsJack.XML))
+  val given = () =>
+    new StreamerPipeForeach(CreatorConverterJack(FormatsJack.XML))
 
-  val outName = (name: String) => Features.outputPathname(Types.STREAMER, name, FormatsJack.XML)
+  val outName = (name: String) =>
+    Features.outputPathname(Types.STREAMER, name, FormatsJack.XML)
 
   feature(classOf[StreamerXmlFeatureSpec].getSimpleName) {
     scenario("Apply with null pathname") {
@@ -72,4 +74,3 @@ class StreamerXmlFeatureSpec extends BlackSpec {
     }
   }
 }
-

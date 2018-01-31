@@ -8,7 +8,8 @@ import pl.writeonly.son2.spec.BlackSpec
 
 class MainSon2ObjectFeatureSpec extends BlackSpec {
 
-  val outName = (name: String) => Features.outputPathname(Types.MAIN, name, FormatsJack.OBJECT)
+  val outName = (name: String) =>
+    Features.outputPathname(Types.MAIN, name, FormatsJack.OBJECT)
 
   feature(classOf[MainSon2ObjectFeatureSpec].getSimpleName) {
     scenario("Apply with null pathname") {

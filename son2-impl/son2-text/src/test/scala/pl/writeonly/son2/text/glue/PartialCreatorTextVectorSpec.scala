@@ -17,7 +17,6 @@ class PartialCreatorTextVectorSpec extends GrayVectorSpec {
     ("e_html3", TConfig(Actions.ESCAPE, FormatsText.HTML3)),
     ("e_c", TConfig(Actions.ESCAPE, FormatsText.CSV)),
     ("e_xs", TConfig(Actions.ESCAPE, FormatsText.XSI)),
-
     ("u_s", TConfig(Actions.UNESCAPE, FormatsText.STRING)),
     ("u_e", TConfig(Actions.UNESCAPE, FormatsText.ECMASCRIPT)),
     ("u_o", TConfig(Actions.UNESCAPE, FormatsText.OBJECT)),

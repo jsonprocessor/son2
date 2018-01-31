@@ -1,6 +1,11 @@
 package pl.writeonly.son2.core.streamers
 
-import java.io.{ByteArrayInputStream, ByteArrayOutputStream, PrintWriter, StringWriter}
+import java.io.{
+  ByteArrayInputStream,
+  ByteArrayOutputStream,
+  PrintWriter,
+  StringWriter
+}
 import java.nio.charset.StandardCharsets
 
 import pl.writeonly.son2.core.converters.ConverterFake
@@ -40,7 +45,8 @@ class StreamerSourceForeachResultSpec extends WhiteResultSpec {
     }
     "convertStream empty string" should {
       "return empty string" in {
-        val in = new ByteArrayInputStream(EMPTY_STRING.getBytes(StandardCharsets.UTF_8))
+        val in = new ByteArrayInputStream(
+          EMPTY_STRING.getBytes(StandardCharsets.UTF_8))
         val out = new ByteArrayOutputStream()
         streamer.convertStream(in, out)
         val bytes = out.toByteArray

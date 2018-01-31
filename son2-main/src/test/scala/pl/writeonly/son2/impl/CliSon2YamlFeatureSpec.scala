@@ -9,7 +9,8 @@ class CliSon2YamlFeatureSpec extends BlackSpec {
 
   val SON2ML = Features.SON2 + " y"
 
-  val outName = (name: String) => Features.outputPathname(Types.CLI, name, FormatsJack.YAML)
+  val outName = (name: String) =>
+    Features.outputPathname(Types.CLI, name, FormatsJack.YAML)
 
   feature(classOf[CliSon2YamlFeatureSpec].getSimpleName) {
 

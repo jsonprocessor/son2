@@ -27,7 +27,8 @@ class StrictVectorSpec extends GrayVectorSpec {
     "in",
     "a"
   )
-  val provider: Converter = ChainNotationPairPath(ConfigPath(provider = ProvidersPath.STRICT))
+  val provider: Converter = ChainNotationPairPath(
+    ConfigPath(provider = ProvidersPath.STRICT))
   val liner: Liner = new LinerOpt(provider)
   property("convert son to smart by provider") {
     forAll(toSuccess) { (in, out) =>

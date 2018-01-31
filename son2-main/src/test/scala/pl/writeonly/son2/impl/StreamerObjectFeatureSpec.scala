@@ -11,9 +11,11 @@ class StreamerObjectFeatureSpec extends BlackSpec {
 
   info("FileJson2YamlPipe with Json2YamlJackson")
 
-  val given = () => new StreamerPipeForeach(CreatorConverterJack(FormatsJack.OBJECT))
+  val given = () =>
+    new StreamerPipeForeach(CreatorConverterJack(FormatsJack.OBJECT))
 
-  val outName = (name: String) => Features.outputPathname(Types.STREAMER, name, FormatsJack.OBJECT)
+  val outName = (name: String) =>
+    Features.outputPathname(Types.STREAMER, name, FormatsJack.OBJECT)
 
   feature(classOf[StreamerObjectFeatureSpec].getSimpleName) {
     scenario("Apply with null pathname") {
@@ -72,4 +74,3 @@ class StreamerObjectFeatureSpec extends BlackSpec {
     }
   }
 }
-

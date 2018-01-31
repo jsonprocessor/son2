@@ -12,7 +12,8 @@ class StreamerPipeAllResultSpec extends WhiteResultSpec {
   "A StreamerPipeAll" when {
     "convertStringNative empty string" should {
       "return empty string" in {
-        assertResult(TWO_EMPTY_STRING)(streamer.convertStringNative(EMPTY_STRING))
+        assertResult(TWO_EMPTY_STRING)(
+          streamer.convertStringNative(EMPTY_STRING))
       }
     }
     "convertString empty string" should {

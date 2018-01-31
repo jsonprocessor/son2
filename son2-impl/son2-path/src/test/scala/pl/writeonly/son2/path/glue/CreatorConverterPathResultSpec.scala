@@ -32,10 +32,10 @@ class CreatorConverterPathResultSpec extends WhiteResultSpec {
   }
   "A CreatorConverterPath " when {
     "in config provider is 'tapestry, query is $..*, stream is false and pretty is true" should {
-      val config = Config(
-        RConfig('tapestry, 'object, false, Some("$..*"), Set()),
-        WConfig('tapestry, 'yaml, true, true, Set()),
-        TConfig())
+      val config =
+        Config(RConfig('tapestry, 'object, false, Some("$..*"), Set()),
+               WConfig('tapestry, 'yaml, true, true, Set()),
+               TConfig())
       val converter = CreatorConverterPath(config)
       "return [] for {} by streamer" in {
         val streamer = new Piper(null, converter).print(false)
@@ -68,7 +68,6 @@ class CreatorConverterPathResultSpec extends WhiteResultSpec {
       //        }
       //      }
     }
-
 
     "provider is 'tapestry" should {
       val a = CreatorConverterPath.apply(provider)
@@ -121,7 +120,6 @@ class CreatorConverterPathResultSpec extends WhiteResultSpec {
       val config = Config(
         read = RConfig(provider = provider, path = Option("$..*")),
         write = WConfig(provider = provider)
-
       )
       val a = CreatorConverterPath.apply(config)
       "read.provider is 'tapestry" in {

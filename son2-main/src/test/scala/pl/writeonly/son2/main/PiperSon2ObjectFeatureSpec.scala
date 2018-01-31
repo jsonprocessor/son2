@@ -10,9 +10,12 @@ import pl.writeonly.son2.spec.BlackSpec
 
 class PiperSon2ObjectFeatureSpec extends BlackSpec {
 
-  val given = () => new Piper(Params(System.in, System.out), CreatorConverterJack(FormatsJack.OBJECT))
+  val given = () =>
+    new Piper(Params(System.in, System.out),
+              CreatorConverterJack(FormatsJack.OBJECT))
 
-  val outName = (name: String) => Features.outputPathname(Types.PIPER, name, FormatsJack.OBJECT)
+  val outName = (name: String) =>
+    Features.outputPathname(Types.PIPER, name, FormatsJack.OBJECT)
 
   feature(classOf[PiperSon2ObjectFeatureSpec].getSimpleName) {
     scenario("Apply with null pathname") {
@@ -51,4 +54,3 @@ class PiperSon2ObjectFeatureSpec extends BlackSpec {
     }
   }
 }
-

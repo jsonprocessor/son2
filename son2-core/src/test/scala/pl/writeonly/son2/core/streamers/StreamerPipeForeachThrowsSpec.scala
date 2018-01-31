@@ -10,17 +10,20 @@ class StreamerPipeForeachThrowsSpec extends WhiteThrowsSpec {
 
   it should "produce NullPointerException when convertFile(File, File) is invoked" in {
     assertThrows[NullPointerException] {
-      new StreamerPipeForeach(new ConverterFake()).convertFile(null.asInstanceOf[File], null.asInstanceOf[File])
+      new StreamerPipeForeach(new ConverterFake())
+        .convertFile(null.asInstanceOf[File], null.asInstanceOf[File])
     }
   }
   it should "produce NullPointerException when convertFile(URL, URL) is invoked" in {
     assertThrows[NullPointerException] {
-      new StreamerPipeForeach(new ConverterFake()).convertFile(null.asInstanceOf[URI], null.asInstanceOf[URI])
+      new StreamerPipeForeach(new ConverterFake())
+        .convertFile(null.asInstanceOf[URI], null.asInstanceOf[URI])
     }
   }
   it should "produce NullPointerException when convertFile(String, String) is invoked" in {
     assertThrows[NullPointerException] {
-      new StreamerPipeForeach(new ConverterFake()).convertFile(null.asInstanceOf[String], null.asInstanceOf[String])
+      new StreamerPipeForeach(new ConverterFake())
+        .convertFile(null.asInstanceOf[String], null.asInstanceOf[String])
     }
   }
 

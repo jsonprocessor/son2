@@ -31,7 +31,8 @@ class ObjectResultSpec extends WhiteResultSpec {
     }
   }
 
-  val providerRaw: Converter = CreatorConverterJack(ConfigJack(o = FormatsJack.OBJECT, p = false))
+  val providerRaw: Converter = CreatorConverterJack(
+    ConfigJack(o = FormatsJack.OBJECT, p = false))
   "A ProviderRaw" should {
     "have pretty == false" in {
       assertResult(false)(providerRaw.config.write.style)

@@ -3,7 +3,6 @@ package pl.writeonly.son2.core.streamers
 import pl.writeonly.son2.core.converters.ConverterFake
 import pl.writeonly.son2.spec.WhiteResultSpec
 
-
 class StreamerPipeForeachResultSpec extends WhiteResultSpec {
 
   val EMPTY_STRING = ""

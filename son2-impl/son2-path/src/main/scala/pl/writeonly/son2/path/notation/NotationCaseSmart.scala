@@ -23,9 +23,7 @@ class DefaultsSmart(c: RConfig, parseMode: Int, mapper: JsonReaderI[_])
   //  logger.info(this.toString(), new Exception)
 
   def this(c: RConfig) =
-    this(c,
-         JSONParser.MODE_PERMISSIVE,
-         JSONValue.defaultReader.DEFAULT_ORDERED)
+    this(c, JSONParser.MODE_PERMISSIVE, JSONValue.defaultReader.DEFAULT_ORDERED)
 }
 
 class NotationReaderSmart(c: RConfig)

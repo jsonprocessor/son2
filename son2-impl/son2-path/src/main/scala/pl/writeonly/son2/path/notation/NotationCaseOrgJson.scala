@@ -6,8 +6,7 @@ import pl.writeonly.son2.core.config.RConfig
 import pl.writeonly.son2.path.core.{DefaultsPath, ProvidersPath}
 
 case class NotationCaseOrgJson()
-    extends NotationCaseProvider(ProvidersPath.ORG,
-                                 c => new DefaultsOrgJson(c))
+    extends NotationCaseProvider(ProvidersPath.ORG, c => new DefaultsOrgJson(c))
 
 class DefaultsOrgJson(c: RConfig)
     extends DefaultsPath(c,

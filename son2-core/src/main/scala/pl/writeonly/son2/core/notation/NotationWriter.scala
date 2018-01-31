@@ -8,11 +8,11 @@ abstract class NotationWriter(val config: WConfig) {
 
   def apply(value: Any Or String): String = value match {
     case Good(v) => write(v)
-    case Bad(s) => comment(s)
+    case Bad(s)  => comment(s)
   }
 
   def write(value: Any): String = config.style match {
-    case true => writePretty(value)
+    case true  => writePretty(value)
     case false => writeRaw(value)
   }
 

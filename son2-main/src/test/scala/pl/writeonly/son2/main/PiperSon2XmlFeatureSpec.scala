@@ -10,9 +10,12 @@ import pl.writeonly.son2.spec.BlackSpec
 
 class PiperSon2XmlFeatureSpec extends BlackSpec {
 
-  val given = () => new Piper(Params(System.in, System.out), CreatorConverterJack(FormatsJack.XML))
+  val given = () =>
+    new Piper(Params(System.in, System.out),
+              CreatorConverterJack(FormatsJack.XML))
 
-  val outName = (name: String) => Features.outputPathname(Types.PIPER, name, FormatsJack.XML)
+  val outName = (name: String) =>
+    Features.outputPathname(Types.PIPER, name, FormatsJack.XML)
 
   feature(classOf[PiperSon2XmlFeatureSpec].getSimpleName) {
     scenario("Apply with null pathname") {
@@ -51,4 +54,3 @@ class PiperSon2XmlFeatureSpec extends BlackSpec {
     }
   }
 }
-

@@ -11,6 +11,6 @@ class CreatorConverterOrJack
   override def configOpt(s: String): Option[Config] =
     chainNotationCreator.configOpt(s) match {
       case c: Some[Config] => c
-      case None => new ChainReaderJack().configOpt(s)
+      case None            => new ChainReaderJack().configOpt(s)
     }
 }

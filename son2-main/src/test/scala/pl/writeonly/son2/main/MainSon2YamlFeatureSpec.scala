@@ -10,7 +10,8 @@ class MainSon2YamlFeatureSpec extends BlackSpec {
 
   info(classOf[MainSon2YamlFeatureSpec].getSimpleName)
 
-  val outName = (name: String) => Features.outputPathname(Types.MAIN, name, FormatsJack.YAML)
+  val outName = (name: String) =>
+    Features.outputPathname(Types.MAIN, name, FormatsJack.YAML)
 
   feature(classOf[MainSon2YamlFeatureSpec].getSimpleName) {
     scenario("Apply with null pathname") {
@@ -46,4 +47,3 @@ class MainSon2YamlFeatureSpec extends BlackSpec {
     }
   }
 }
-

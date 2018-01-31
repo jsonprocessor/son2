@@ -9,7 +9,8 @@ class CliSon2XmlFeatureSpec extends BlackSpec {
 
   val SON2ML = Features.SON2 + " x"
 
-  val outName = (name: String) => Features.outputPathname(Types.CLI, name, FormatsJack.XML)
+  val outName = (name: String) =>
+    Features.outputPathname(Types.CLI, name, FormatsJack.XML)
 
   feature(classOf[CliSon2XmlFeatureSpec].getSimpleName) {
 
