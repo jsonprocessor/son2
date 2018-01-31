@@ -40,10 +40,10 @@ sbt clean assembly
 ```
 and next add line
 ```
+alias son2="java -jar son2-main/target/scala-2.11/son2-main-assembly-2.8.3-SNAPSHOT.jar"
 alias son2o="son2 o"
 alias son2y="son2 y"
 alias son2x="son2 x"
-alias son2="java -jar son2-main/target/scala-2.11/son2-main-assembly-2.8.3-SNAPSHOT.jar"
 ```
 to file ~/.bashrc
 
