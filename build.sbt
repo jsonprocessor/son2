@@ -246,6 +246,7 @@ lazy val drop = (project in file("son2-drop"))
     libraryDependencies ++= Seq(
       "io.dropwizard" % "dropwizard-core" % dropwizardVersion,
       "io.dropwizard" % "dropwizard-assets" % dropwizardVersion
-    )
+    ),
+    mainClass in assembly := Some("pl.writeonly.son2.drop.AppSon2")
   )
 

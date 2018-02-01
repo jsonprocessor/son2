@@ -34,18 +34,23 @@ It is a simple application with:
 
 
 ## Build
+```
+sbt clean compile assembly
+```
 
-```
-sbt clean assembly
-```
-and next add line
+### CLI
+Add line to file ~/.bashrc
 ```
 alias son2="java -jar son2-main/target/scala-2.11/son2-main-assembly-2.8.3-SNAPSHOT.jar"
 alias son2o="son2 o"
 alias son2y="son2 y"
 alias son2x="son2 x"
 ```
-to file ~/.bashrc
+
+### WebServer
+ ```
+sbt "project drop" "run server"
+```
 
 ## Usage
 
