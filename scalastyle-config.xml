@@ -77,6 +77,7 @@
   <parameters>
    <parameter name="regex"><![CDATA[println]]></parameter>
    <parameter name="regex"><![CDATA[var]]></parameter>
+   <parameter name="regex"><![CDATA[\(.*\(.*\(.*\).*\).*\)]]></parameter>
   </parameters>
  </check>
  <check level="warning" class="org.scalastyle.scalariform.NumberOfTypesChecker" enabled="true">
