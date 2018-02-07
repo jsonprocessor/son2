@@ -1,9 +1,9 @@
 package pl.writeonly.son2.jack.converters
 
 import pl.writeonly.son2.core.converters.Converter
-import pl.writeonly.son2.core.liners.{ Liner, LinerOpt }
-import pl.writeonly.son2.core.streamers.{ Streamer, StreamerPipeForeach }
-import pl.writeonly.son2.jack.core.{ ConfigJack, FormatsJack }
+import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
+import pl.writeonly.son2.core.streamers.{Streamer, StreamerPipeForeach}
+import pl.writeonly.son2.jack.core.{ConfigJack, FormatsJack}
 import pl.writeonly.son2.jack.glue.CreatorConverterJack
 import pl.writeonly.son2.spec.GrayVectorSpec
 
@@ -20,7 +20,8 @@ class ObjectVectorSpec extends GrayVectorSpec {
     ("{\"a\":0}", "{\"a\":0}"),
     ("{\"a\":0,\"b\":1}", "{\"a\":0,\"b\":1}"),
     ("[{}]", "[{}]"),
-    ("{\"a\":[]}", "{\"a\":[]}"))
+    ("{\"a\":[]}", "{\"a\":[]}")
+  )
 
   val toFailure = Table("in", "a")
 

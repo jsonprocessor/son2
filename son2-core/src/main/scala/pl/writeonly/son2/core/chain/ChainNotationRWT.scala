@@ -1,6 +1,6 @@
 package pl.writeonly.son2.core.chain
 
-import pl.writeonly.son2.core.config.{ Config, RConfig, WConfig }
+import pl.writeonly.son2.core.config.{Config, RConfig, WConfig}
 import pl.writeonly.son2.core.notation.{
   NotationReader,
   NotationTranslator,
@@ -12,10 +12,9 @@ import pl.writeonly.son2.core.pcreators.{
   PCreatorWriter
 }
 
-class ChainNotationRWT(
-  val r: PCreatorReader,
-  val w: PCreatorWriter,
-  val t: PCreatorTranslator)
+class ChainNotationRWT(val r: PCreatorReader,
+                       val w: PCreatorWriter,
+                       val t: PCreatorTranslator)
 
 class PCreatorReaderFake extends PCreatorReader {
   override def isDefinedAt(x: RConfig): Boolean = false
@@ -25,7 +24,7 @@ class PCreatorReaderFake extends PCreatorReader {
 }
 
 class PCreatorReaderSymbol(format: Symbol, creator: RConfig => NotationReader)
-  extends PCreatorReader {
+    extends PCreatorReader {
   override def isDefinedAt(c: RConfig): Boolean =
     format.name.startsWith(c.provider.name)
 
@@ -40,7 +39,7 @@ class PCreatorWriterFake extends PCreatorWriter {
 }
 
 class PCreatorWriterSymbol(format: Symbol, creator: WConfig => NotationWriter)
-  extends PCreatorWriter {
+    extends PCreatorWriter {
   override def isDefinedAt(c: WConfig): Boolean =
     format.name.startsWith(c.provider.name)
 

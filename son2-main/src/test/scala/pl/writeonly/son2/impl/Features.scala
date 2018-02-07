@@ -13,11 +13,10 @@ object Features {
   def outputPathname(feature: String, scenario: String, extension: Symbol) =
     DIR + "/" + "son2" + "." + feature + "." + scenario + "." + extension.name
 
-  def outputPathname(
-    prefix: String,
-    feature: String,
-    scenario: String,
-    extension: Symbol) =
+  def outputPathname(prefix: String,
+                     feature: String,
+                     scenario: String,
+                     extension: Symbol) =
     DIR + "/" + prefix + "." + feature + "." + scenario + "." + extension.name
 
   def inputURI: URI = inputURI(NAME)

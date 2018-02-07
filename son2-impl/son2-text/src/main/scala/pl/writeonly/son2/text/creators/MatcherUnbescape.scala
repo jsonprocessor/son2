@@ -10,7 +10,7 @@ import org.unbescape.properties.PropertiesEscape
 import org.unbescape.uri.UriEscape
 import org.unbescape.xml.XmlEscape
 import pl.writeonly.son2.core.config.TConfig
-import pl.writeonly.son2.text.core.{ Actions, FormatsText }
+import pl.writeonly.son2.text.core.{Actions, FormatsText}
 
 class MatcherUnbescape extends Matcher {
 

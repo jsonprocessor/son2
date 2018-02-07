@@ -1,8 +1,8 @@
 package pl.writeonly.son2.path.providers
 
 import pl.writeonly.son2.core.converters.Converter
-import pl.writeonly.son2.core.liners.{ Liner, LinerOpt }
-import pl.writeonly.son2.core.streamers.{ Streamer, StreamerPipeForeach }
+import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
+import pl.writeonly.son2.core.streamers.{Streamer, StreamerPipeForeach}
 import pl.writeonly.son2.path.chain.ChainNotationPairPath
 import pl.writeonly.son2.path.core.ConfigPath
 import pl.writeonly.son2.spec.GrayVectorSpec
@@ -20,7 +20,8 @@ class PathVectorSpec extends GrayVectorSpec {
     ("{\"a\":0}", "[0]"),
     ("{\"a\":0,\"b\":1}", "[0,1]"),
     ("[{}]", "[{}]"),
-    ("{\"a\":[]}", "[[]]"))
+    ("{\"a\":[]}", "[[]]")
+  )
 
   val toFailure = Table(("in", "out"), ("a", "[]"))
 

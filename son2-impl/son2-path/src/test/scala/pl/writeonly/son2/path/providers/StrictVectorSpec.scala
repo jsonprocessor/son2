@@ -1,10 +1,10 @@
 package pl.writeonly.son2.path.providers
 
 import pl.writeonly.son2.core.converters.Converter
-import pl.writeonly.son2.core.liners.{ Liner, LinerOpt }
-import pl.writeonly.son2.core.streamers.{ Streamer, StreamerPipeForeach }
+import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
+import pl.writeonly.son2.core.streamers.{Streamer, StreamerPipeForeach}
 import pl.writeonly.son2.path.chain.ChainNotationPairPath
-import pl.writeonly.son2.path.core.{ ConfigPath, ProvidersPath }
+import pl.writeonly.son2.path.core.{ConfigPath, ProvidersPath}
 import pl.writeonly.son2.spec.GrayVectorSpec
 
 class StrictVectorSpec extends GrayVectorSpec {
@@ -20,7 +20,8 @@ class StrictVectorSpec extends GrayVectorSpec {
     ("{\"a\":0}", "{\"a\":0}"),
     ("{\"a\":0,\"b\":1}", "{\"a\":0,\"b\":1}"),
     ("[{}]", "[{}]"),
-    ("{\"a\":[]}", "{\"a\":[]}"))
+    ("{\"a\":[]}", "{\"a\":[]}")
+  )
 
   val toFailure = Table("in", "a")
   val provider: Converter = ChainNotationPairPath(

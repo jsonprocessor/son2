@@ -1,7 +1,7 @@
 package pl.writeonly.son2.json.providers
 
-import pl.writeonly.son2.core.converters.{ Converter, Converter2 }
-import pl.writeonly.son2.core.liners.{ Liner, LinerOpt }
+import pl.writeonly.son2.core.converters.{Converter, Converter2}
+import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.json.core.ConfigJson
 import pl.writeonly.son2.json.glue.CreatorConverterJson
 import pl.writeonly.son2.path.core.ProvidersPath

@@ -1,14 +1,13 @@
 package pl.writeonly.son2.drop
 
 import io.dropwizard.Application
-import io.dropwizard.setup.{ Bootstrap, Environment }
+import io.dropwizard.setup.{Bootstrap, Environment}
 import pl.writeonly.son2.vaadin.servlets._
 
 class ApplicationSon2 extends Application[ConfigurationSon2] {
 
-  override def run(
-    configuration: ConfigurationSon2,
-    environment: Environment) = {}
+  override def run(configuration: ConfigurationSon2,
+                   environment: Environment) = {}
 
   override def initialize(bootstrap: Bootstrap[ConfigurationSon2]) = {
     bootstrap.addBundle(new BundleVaadin(classOf[Servlet], "/ui/*"))

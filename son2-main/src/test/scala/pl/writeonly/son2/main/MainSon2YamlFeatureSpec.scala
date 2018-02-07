@@ -2,7 +2,7 @@ package pl.writeonly.son2.main
 
 import java.io.FileNotFoundException
 
-import pl.writeonly.son2.impl.{ Features, Types }
+import pl.writeonly.son2.impl.{Features, Types}
 import pl.writeonly.son2.jack.core.FormatsJack
 import pl.writeonly.son2.spec.BlackSpec
 

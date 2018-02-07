@@ -1,7 +1,7 @@
 package pl.writeonly.son2.core.glue
 
 import com.google.common.base.Preconditions
-import org.scalactic.{ Bad, ErrorMessage, Good, Or }
+import org.scalactic.{Bad, ErrorMessage, Good, Or}
 import pl.writeonly.son2.core.converters.Converter
 
 class Core(params: Params, args: Array[String], creator: CreatorConverterOr) {

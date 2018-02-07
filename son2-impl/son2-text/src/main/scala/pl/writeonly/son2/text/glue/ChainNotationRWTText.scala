@@ -8,7 +8,6 @@ import pl.writeonly.son2.core.chain.{
 import pl.writeonly.son2.text.creators.PCreatorTranslatorText
 
 class ChainNotationRWTText
-  extends ChainNotationRWT(
-    new PCreatorReaderFake(),
-    new PCreatorWriterFake(),
-    new PCreatorTranslatorText())
+    extends ChainNotationRWT(new PCreatorReaderFake(),
+                             new PCreatorWriterFake(),
+                             new PCreatorTranslatorText())

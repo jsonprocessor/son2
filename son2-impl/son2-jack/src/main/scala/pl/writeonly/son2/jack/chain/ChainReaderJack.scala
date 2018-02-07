@@ -7,17 +7,17 @@ import pl.writeonly.son2.jack.core.ConfigJack
 import pl.writeonly.son2.jack.notation._
 
 class ChainReaderJack
-  extends ChainImpl[Any](
-    new NotationReaderObject
-      orElse
-      new NotationReaderXml
-      orElse
-      new NotationReaderYaml
-      orElse
-      new NotationReaderCsv
-      orElse
-      new NotationReaderJavaProps)
-  with HasConfigOpt {
+    extends ChainImpl[Any](
+      new NotationReaderObject
+        orElse
+          new NotationReaderXml
+        orElse
+          new NotationReaderYaml
+        orElse
+          new NotationReaderCsv
+        orElse
+          new NotationReaderJavaProps)
+    with HasConfigOpt {
 
   def configOpt(s: String): Option[Config] =
     get.lift(s).map(a => ChainReaderJack.config(a.asInstanceOf[JsonNode]))
@@ -33,14 +33,12 @@ object ChainReaderJack {
     new Config(read = rConfig(n, c.read), write = wConfig(n, c.write))
 
   def rConfig(n: JsonNode, c: RConfig) =
-    new RConfig(
-      provider = asText(n, ConfigPath.I).getOrElse(c.provider),
-      stream = asBoolean(n, ConfigPath.S).getOrElse(c.stream))
+    new RConfig(provider = asText(n, ConfigPath.I).getOrElse(c.provider),
+                stream = asBoolean(n, ConfigPath.S).getOrElse(c.stream))
 
   def wConfig(n: JsonNode, c: WConfig) =
-    new WConfig(
-      provider = asText(n, ConfigPath.O).getOrElse(c.provider),
-      style = asBoolean(n, ConfigPath.P).getOrElse(c.style))
+    new WConfig(provider = asText(n, ConfigPath.O).getOrElse(c.provider),
+                style = asBoolean(n, ConfigPath.P).getOrElse(c.style))
 
   private def asText(n: JsonNode, s: Symbol) =
     get(n, s).map(_.asText).map(Symbol.apply)

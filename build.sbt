@@ -1,5 +1,8 @@
 enablePlugins(com.lucidchart.sbt.scalafmt.ScalafmtPlugin)
 
+resolvers += "Artima Maven Repository" at "http://repo.artima.com/releases"
+resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
+
 lazy val dropwizardVersion = "1.1.4"
 lazy val jacksonVersion = "2.8.3"
 lazy val vaadinVersion = "8.1.2"

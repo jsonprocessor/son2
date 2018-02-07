@@ -1,8 +1,8 @@
 package pl.writeonly.son2.jack.converters
 
 import pl.writeonly.son2.core.converters.Converter
-import pl.writeonly.son2.core.liners.{ Liner, LinerOpt }
-import pl.writeonly.son2.core.streamers.{ Streamer, StreamerPipeForeach }
+import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
+import pl.writeonly.son2.core.streamers.{Streamer, StreamerPipeForeach}
 import pl.writeonly.son2.jack.core.FormatsJack
 import pl.writeonly.son2.jack.glue.CreatorConverterJack
 import pl.writeonly.son2.spec.GrayVectorSpec
@@ -20,7 +20,8 @@ class JavaPropsVectorSpec extends GrayVectorSpec {
     ("{\"a\":0}", "a=0\n"),
     ("{\"a\":0, \"b\":1}", "a=0\nb=1\n"),
     ("[{}]", ""),
-    ("{\"a\":[]}", ""))
+    ("{\"a\":[]}", "")
+  )
 
   val toFailure = Table("in", "a")
 
