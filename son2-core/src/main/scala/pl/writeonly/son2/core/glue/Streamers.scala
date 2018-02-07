@@ -1,7 +1,7 @@
 package pl.writeonly.son2.core.glue
 
 import pl.writeonly.son2.core.converters.Converter
-import pl.writeonly.son2.core.liners.{LinerEither, LinerOpt}
+import pl.writeonly.son2.core.liners.{ LinerEither, LinerOpt }
 import pl.writeonly.son2.core.streamers._
 
 object Streamers {

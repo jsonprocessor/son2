@@ -1,18 +1,18 @@
 package pl.writeonly.son2.core.notation
 
 import com.google.common.base.MoreObjects
-import org.scalactic.{Bad, Good, Or}
+import org.scalactic.{ Bad, Good, Or }
 import pl.writeonly.son2.core.config.WConfig
 
 abstract class NotationWriter(val config: WConfig) {
 
   def apply(value: Any Or String): String = value match {
     case Good(v) => write(v)
-    case Bad(s)  => comment(s)
+    case Bad(s) => comment(s)
   }
 
   def write(value: Any): String = config.style match {
-    case true  => writePretty(value)
+    case true => writePretty(value)
     case false => writeRaw(value)
   }
 

@@ -1,12 +1,12 @@
 package pl.writeonly.son2.core.chain
 
-import pl.writeonly.son2.core.config.{Config, HasConfigOpt}
-import pl.writeonly.son2.core.converters.{Converter, Converter1, Converter2}
+import pl.writeonly.son2.core.config.{ Config, HasConfigOpt }
+import pl.writeonly.son2.core.converters.{ Converter, Converter1, Converter2 }
 import pl.writeonly.son2.core.notation._
 import pl.writeonly.son2.core.pcreators.PCreatorConfig
 
 class ChainNotationCreator(parser: PCreatorConfig, rwt: ChainNotationRWT)
-    extends HasConfigOpt {
+  extends HasConfigOpt {
 
   def providerOpt(s: String): Option[Converter] = configOpt(s).map(provider)
 
@@ -15,7 +15,9 @@ class ChainNotationCreator(parser: PCreatorConfig, rwt: ChainNotationRWT)
   def provider(c: Config): Converter =
     translator(c)
       .map(t => new Converter1(c, t))
-      .getOrElse(new Converter2(c, input(c), output(c)))
+      .getOrElse(converter2(c))
+
+  def converter2(c: Config): Converter = new Converter2(c, input(c), output(c))
 
   private def translator(c: Config): Option[NotationTranslator] = rwt.t.lift(c)
 

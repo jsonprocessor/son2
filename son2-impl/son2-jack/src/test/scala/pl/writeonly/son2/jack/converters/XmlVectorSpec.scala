@@ -1,8 +1,8 @@
 package pl.writeonly.son2.jack.converters
 
 import pl.writeonly.son2.core.converters.Converter
-import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
-import pl.writeonly.son2.core.streamers.{Streamer, StreamerPipeForeach}
+import pl.writeonly.son2.core.liners.{ Liner, LinerOpt }
+import pl.writeonly.son2.core.streamers.{ Streamer, StreamerPipeForeach }
 import pl.writeonly.son2.jack.core.FormatsJack
 import pl.writeonly.son2.jack.glue.CreatorConverterJack
 import pl.writeonly.son2.spec.GrayVectorSpec
@@ -17,17 +17,11 @@ class XmlVectorSpec extends GrayVectorSpec {
     ("{}", "<ObjectNode/>\n"),
     ("{\"a\":0}", "<ObjectNode>\n  <a>0</a>\n</ObjectNode>\n"),
     ("{\"a\":0, \"b\":1}",
-     "<ObjectNode>\n  <a>0</a>\n  <b>1</b>\n</ObjectNode>\n"),
+      "<ObjectNode>\n  <a>0</a>\n  <b>1</b>\n</ObjectNode>\n"),
     ("[{}]", "<ArrayNode/>\n"),
-    ("{\"a\":[]}", "<ObjectNode/>\n")
-  )
+    ("{\"a\":[]}", "<ObjectNode/>\n"))
 
-  val toFailure = Table(
-    "in",
-    "a",
-    "[]",
-    "[0,1]"
-  )
+  val toFailure = Table("in", "a", "[]", "[0,1]")
 
   val provider: Converter = CreatorConverterJack(FormatsJack.XML)
   property("convert son to xml by provider") {

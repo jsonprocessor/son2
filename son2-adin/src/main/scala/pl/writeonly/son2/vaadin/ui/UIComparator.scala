@@ -1,10 +1,10 @@
 package pl.writeonly.son2.vaadin.ui
 
-import com.vaadin.annotations.{Theme, Title}
+import com.vaadin.annotations.{ Theme, Title }
 import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui._
 import com.vaadin.ui.themes.ValoTheme
-import pl.writeonly.son2.core.util.{CompareConfig, JsonComparator}
+import pl.writeonly.son2.core.util.{ CompareConfig, JsonComparator }
 import pl.writeonly.son2.vaadin.util.ItemSymbol
 
 @Title("json comparator")

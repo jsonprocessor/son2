@@ -1,6 +1,6 @@
 package pl.writeonly.son2.core.glue
 
-import java.io.{FileInputStream, InputStream}
+import java.io.{ FileInputStream, InputStream }
 
 import pl.writeonly.son2.core.converters.Converter
 

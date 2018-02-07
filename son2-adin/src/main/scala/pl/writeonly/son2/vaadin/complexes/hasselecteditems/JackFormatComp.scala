@@ -1,7 +1,7 @@
 package pl.writeonly.son2.vaadin.complexes.hasselecteditems
 
-import pl.writeonly.son2.vaadin.complexes.{Complex, HasRadioButtonSelectedItem}
-import pl.writeonly.son2.vaadin.util.{ItemSymbol, UIUtil}
+import pl.writeonly.son2.vaadin.complexes.{ Complex, HasRadioButtonSelectedItem }
+import pl.writeonly.son2.vaadin.util.{ ItemSymbol, UIUtil }
 
 class JackFormatComp(val caption: String, selected: ItemSymbol) extends Complex with HasRadioButtonSelectedItem {
   protected val component = JackFormatComp.format(caption, selected)
@@ -23,6 +23,5 @@ object JackFormatComp extends UIUtil {
   def jacksonInputFormat = new JackFormatComp("Jackson input formats:", json)
 
   def jacksonOutputFormat = new JackFormatComp("Jackson output formats:", yaml)
-
 
 }

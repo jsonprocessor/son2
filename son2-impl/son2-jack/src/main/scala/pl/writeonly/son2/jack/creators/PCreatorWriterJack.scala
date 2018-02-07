@@ -5,5 +5,6 @@ import pl.writeonly.son2.jack.core.Jack
 import pl.writeonly.son2.jack.notation.NotationWriterJack
 
 class PCreatorWriterJack(jack: Jack)
-    extends PCreatorWriterSymbol(jack.format,
-                                 c => new NotationWriterJack(c, jack))
+  extends PCreatorWriterSymbol(
+    jack.format,
+    c => new NotationWriterJack(c, jack))

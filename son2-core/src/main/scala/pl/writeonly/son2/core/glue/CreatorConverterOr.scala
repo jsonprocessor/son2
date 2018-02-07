@@ -1,13 +1,14 @@
 package pl.writeonly.son2.core.glue
 
-import org.scalactic.{Bad, ErrorMessage, Good, Or}
-import pl.writeonly.son2.core.chain.{ChainNotationCreator, ChainNotationRWT}
+import org.scalactic.{ Bad, ErrorMessage, Good, Or }
+import pl.writeonly.son2.core.chain.{ ChainNotationCreator, ChainNotationRWT }
 import pl.writeonly.son2.core.config.Config
 import pl.writeonly.son2.core.converters.Converter
 import pl.writeonly.son2.core.pcreators.PCreatorConfig
 
-abstract class CreatorConverterOr(parser: PCreatorConfig,
-                                  rwt: ChainNotationRWT) {
+abstract class CreatorConverterOr(
+  parser: PCreatorConfig,
+  rwt: ChainNotationRWT) {
 
   val chainNotationCreator = new ChainNotationCreator(parser, rwt)
 

@@ -6,8 +6,8 @@ import pl.writeonly.son2.core.converters.Converter
 import scala.util.control.Exception._
 
 class LinerEither(converter: Converter)
-    extends Liner(converter)
-    with LazyLogging {
+  extends Liner(converter)
+  with LazyLogging {
 
   def apply(line: String): String = {
     val result: Either[Throwable, String] = catching(classOf[Exception])

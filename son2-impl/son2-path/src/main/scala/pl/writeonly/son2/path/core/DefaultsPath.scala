@@ -8,10 +8,11 @@ import pl.writeonly.son2.core.config.RConfig
 
 import scala.collection.JavaConverters._
 
-class DefaultsPath(val config: RConfig,
-                   json: JsonProvider,
-                   mapping: MappingProvider)
-    extends Defaults {
+class DefaultsPath(
+  val config: RConfig,
+  json: JsonProvider,
+  mapping: MappingProvider)
+  extends Defaults {
 
   override def toString() =
     MoreObjects

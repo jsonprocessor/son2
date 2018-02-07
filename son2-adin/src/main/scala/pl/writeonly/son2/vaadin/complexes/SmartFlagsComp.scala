@@ -15,6 +15,5 @@ object SmartFlagsComp extends UITrait {
     ItemSymbol('FLAG_PROTECT_4WEB, "Protect 4web"),
     ItemSymbol('FLAG_PROTECT_VALUES, "Protect values"),
     ItemSymbol('FLAG_AGRESSIVE, "Aggressive"),
-    ItemSymbol('FLAG_IGNORE_NULL, "Ignore null")
-  )
+    ItemSymbol('FLAG_IGNORE_NULL, "Ignore null"))
 }

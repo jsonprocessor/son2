@@ -1,7 +1,7 @@
 package pl.writeonly.son2.vaadin.complexes
 
 import com.vaadin.ui.Component
-import pl.writeonly.son2.vaadin.util.{ItemSymbol, UIUtil}
+import pl.writeonly.son2.vaadin.util.{ ItemSymbol, UIUtil }
 
 import scala.collection.JavaConverters._
 
@@ -10,13 +10,11 @@ object ComplexRW extends UIUtil {
 
   val readItems = Set[ItemSymbol](
     ItemSymbol('all, "All line"),
-    ItemSymbol('stream, "Line-by-line")
-  )
+    ItemSymbol('stream, "Line-by-line"))
 
   val writeItems = Set[ItemSymbol](
     ItemSymbol('pretty, "Pretty"),
-    ItemSymbol('raw, "Raw")
-  )
+    ItemSymbol('raw, "Raw"))
 
   def readGroupApply = radioButtonGroup("Read:", ComplexRW.readItems)
 

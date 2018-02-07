@@ -20,8 +20,9 @@ abstract class StreamerPipe(liner: Liner) extends Streamer(liner) {
     convertStream(new FileInputStream(in), new FileOutputStream(out))
 
   override def convertStream(in: InputStream, out: OutputStream): Unit = {
-    convertNative(new InputStreamReader(in, Control.UTF_8),
-                  new OutputStreamWriter(out, Control.UTF_8))
+    convertNative(
+      new InputStreamReader(in, Control.UTF_8),
+      new OutputStreamWriter(out, Control.UTF_8))
   }
 
   def convertNative(in: Reader, out: Writer): Unit = {

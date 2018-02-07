@@ -1,6 +1,6 @@
 package pl.writeonly.son2.vaadin.ui
 
-import com.vaadin.annotations.{Theme, Title}
+import com.vaadin.annotations.{ Theme, Title }
 import com.vaadin.ui._
 
 @Title("Main UI")

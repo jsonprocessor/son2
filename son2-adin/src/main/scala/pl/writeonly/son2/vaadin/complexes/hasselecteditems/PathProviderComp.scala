@@ -1,7 +1,7 @@
 package pl.writeonly.son2.vaadin.complexes.hasselecteditems
 
-import pl.writeonly.son2.vaadin.complexes.{Complex, HasRadioButtonSelectedItem}
-import pl.writeonly.son2.vaadin.util.{ItemSymbol, UIUtil}
+import pl.writeonly.son2.vaadin.complexes.{ Complex, HasRadioButtonSelectedItem }
+import pl.writeonly.son2.vaadin.util.{ ItemSymbol, UIUtil }
 
 class PathProviderComp extends Complex with HasRadioButtonSelectedItem {
   private val component = PathProviderComp.apply
@@ -19,8 +19,7 @@ object PathProviderComp extends UIUtil {
     ItemSymbol('org),
     smart,
     ItemSymbol('strict),
-    ItemSymbol('tapestry)
-  )
+    ItemSymbol('tapestry))
 
   private def apply = radioButtonGroup("Providers:", items, smart);
 }

@@ -3,7 +3,7 @@ package pl.writeonly.son2.core.streamers
 import java.io.PrintWriter
 
 import pl.writeonly.son2.core.converters.Converter
-import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
+import pl.writeonly.son2.core.liners.{ Liner, LinerOpt }
 
 import scala.io.Source
 

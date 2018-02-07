@@ -16,17 +16,18 @@ object FormatsText extends Formats {
   val URI = 'url
   val CSS = 'css
 
-  val ALL_TEXT = ALL ++ List(STRING,
-                             JAVA_STR,
-                             ECMASCRIPT,
-                             JAVA_SCRIPT,
-                             XML11,
-                             XML10,
-                             HTML4,
-                             HTML3,
-                             XSI,
-                             URI,
-                             CSS)
+  val ALL_TEXT = ALL ++ List(
+    STRING,
+    JAVA_STR,
+    ECMASCRIPT,
+    JAVA_SCRIPT,
+    XML11,
+    XML10,
+    HTML4,
+    HTML3,
+    XSI,
+    URI,
+    CSS)
 
   val SED = 'sed
 }

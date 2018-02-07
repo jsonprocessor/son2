@@ -1,6 +1,6 @@
 package pl.writeonly.son2.core.streamers
 
-import java.io.{File, InputStream, OutputStream, PrintWriter}
+import java.io.{ File, InputStream, OutputStream, PrintWriter }
 import java.net.URI
 
 import pl.writeonly.son2.core.liners.Liner

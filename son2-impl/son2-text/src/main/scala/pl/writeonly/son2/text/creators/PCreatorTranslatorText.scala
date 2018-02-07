@@ -1,6 +1,6 @@
 package pl.writeonly.son2.text.creators
 
-import pl.writeonly.son2.core.config.{Config, TConfig}
+import pl.writeonly.son2.core.config.{ Config, TConfig }
 import pl.writeonly.son2.core.notation.NotationTranslator
 import pl.writeonly.son2.core.pcreators.PCreatorTranslator
 

@@ -20,13 +20,14 @@ object JsonComparator {
 
   def apply(mode: JSONCompareMode, expected: String, actual: String): String =
     either(mode, expected, actual) match {
-      case Right(result)   => result.toString
+      case Right(result) => result.toString
       case Left(exception) => exception.getMessage
     }
 
-  def either(mode: JSONCompareMode,
-             expected: String,
-             actual: String): Either[Throwable, JSONCompareResult] =
+  def either(
+    mode: JSONCompareMode,
+    expected: String,
+    actual: String): Either[Throwable, JSONCompareResult] =
     catching(classOf[Exception])
       .either(JSONCompare.compareJSON(expected, actual, mode))
 }

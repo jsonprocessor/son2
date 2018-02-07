@@ -1,8 +1,8 @@
 package pl.writeonly.son2.vaadin.complexes.hasselecteditems
 
-import com.jayway.jsonpath.{Option => jOption}
-import pl.writeonly.son2.vaadin.complexes.{Complex, HasCheckBoxSelectedItem}
-import pl.writeonly.son2.vaadin.util.{ItemSymbol, UIUtil}
+import com.jayway.jsonpath.{ Option => jOption }
+import pl.writeonly.son2.vaadin.complexes.{ Complex, HasCheckBoxSelectedItem }
+import pl.writeonly.son2.vaadin.util.{ ItemSymbol, UIUtil }
 
 class PathOptionsComp extends Complex with HasCheckBoxSelectedItem {
   private val component = PathOptionsComp.apply
@@ -17,8 +17,7 @@ object PathOptionsComp extends UIUtil {
     ItemSymbol(toSymbol(jOption.ALWAYS_RETURN_LIST), "Always return list"),
     ItemSymbol(toSymbol(jOption.DEFAULT_PATH_LEAF_TO_NULL), "default path leaf to null"),
     ItemSymbol(toSymbol(jOption.REQUIRE_PROPERTIES), "requite properties"),
-    ItemSymbol(toSymbol(jOption.SUPPRESS_EXCEPTIONS), "suppress exception")
-  )
+    ItemSymbol(toSymbol(jOption.SUPPRESS_EXCEPTIONS), "suppress exception"))
 
   private def toSymbol(option: jOption) = Symbol(option.name())
 

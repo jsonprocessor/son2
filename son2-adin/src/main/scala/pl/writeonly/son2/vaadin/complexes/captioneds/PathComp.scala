@@ -1,7 +1,7 @@
 package pl.writeonly.son2.vaadin.complexes.captioneds
 
 import pl.writeonly.son2.vaadin.complexes.ComplexWithCaption
-import pl.writeonly.son2.vaadin.complexes.hasselecteditems.{PathOptionsComp, PathProviderComp}
+import pl.writeonly.son2.vaadin.complexes.hasselecteditems.{ PathOptionsComp, PathProviderComp }
 import pl.writeonly.son2.vaadin.util.UIUtil
 
 class PathComp extends ComplexWithCaption("Path") {

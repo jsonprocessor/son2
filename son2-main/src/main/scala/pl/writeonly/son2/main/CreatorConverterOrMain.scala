@@ -16,33 +16,31 @@ import pl.writeonly.son2.text.creators.PCreatorConfigText
 import pl.writeonly.son2.text.glue.ChainNotationRWTText
 
 class CreatorConverterOrMain
-    extends CreatorConverterOr(
-      new ChainNotationConfigPathMain().get
+  extends CreatorConverterOr(
+    new ChainNotationConfigPathMain().get
+      orElse
+      new ChainNotationConfigJack().get
+      orElse
+      new PCreatorConfigText,
+    new ChainNotationRWT(
+      new ChainNotationRWTPath().r
         orElse
-          new ChainNotationConfigJack().get
+        new ChainNotationRWTJack().r
         orElse
-          new PCreatorConfigText,
-      new ChainNotationRWT(
-        new ChainNotationRWTPath().r
-          orElse
-            new ChainNotationRWTJack().r
-          orElse
-            new ChainNotationRWTText().r,
-        new ChainNotationRWTPath().w
-          orElse
-            new ChainNotationRWTJack().w
-          orElse
-            new ChainNotationRWTText().w,
-        new ChainNotationRWTPath().t
-          orElse
-            new ChainNotationRWTJack().t
-          orElse
-            new ChainNotationRWTText().t
-      )
-    ) {
+        new ChainNotationRWTText().r,
+      new ChainNotationRWTPath().w
+        orElse
+        new ChainNotationRWTJack().w
+        orElse
+        new ChainNotationRWTText().w,
+      new ChainNotationRWTPath().t
+        orElse
+        new ChainNotationRWTJack().t
+        orElse
+        new ChainNotationRWTText().t)) {
   override def configOpt(s: String): Option[Config] =
     chainNotationCreator.configOpt(s) match {
       case c: Some[Config] => c
-      case None            => new ChainReaderJack().configOpt(s)
+      case None => new ChainReaderJack().configOpt(s)
     }
 }

@@ -3,8 +3,8 @@ package pl.writeonly.son2.vaadin.complexes.hasselecteditems
 import com.typesafe.scalalogging.LazyLogging
 import com.vaadin.ui.Button
 import com.vaadin.ui.Button.ClickEvent
-import pl.writeonly.son2.vaadin.complexes.{Complex, HasCheckBoxSelectedItem}
-import pl.writeonly.son2.vaadin.util.{ItemSymbol, UIUtil}
+import pl.writeonly.son2.vaadin.complexes.{ Complex, HasCheckBoxSelectedItem }
+import pl.writeonly.son2.vaadin.util.{ ItemSymbol, UIUtil }
 
 class SmartOptionsComp extends Complex with HasCheckBoxSelectedItem with LazyLogging {
   private val options = SmartOptionsComp.apply
@@ -43,15 +43,13 @@ object SmartOptionsComp extends UIUtil {
     USE_HI_PRECISION_FLOAT,
     ACCEPT_TAILLING_DATA,
     ACCEPT_TAILLING_SPACE,
-    REJECT_127_CHAR
-  )
+    REJECT_127_CHAR)
   private val items2 = Set(
     ItemSymbol('ACCEPT_SIMPLE_QUOTE),
     ItemSymbol('ACCEPT_NON_QUOTE),
     ItemSymbol('ACCEPT_NAN),
     ItemSymbol('IGNORE_CONTROL_CHAR),
-    ItemSymbol('ACCEPT_LEADING_ZERO)
-  )
+    ItemSymbol('ACCEPT_LEADING_ZERO))
 
   private val items = items1 ++ items2
   private val MODE_JSON_SIMPLE: Set[ItemSymbol] = Set(

@@ -3,7 +3,7 @@ package pl.writeonly.son2.jack.converters
 import com.fasterxml.jackson.core.JsonParseException
 import com.fasterxml.jackson.databind.JsonMappingException
 import pl.writeonly.son2.core.converters.Converter
-import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
+import pl.writeonly.son2.core.liners.{ Liner, LinerOpt }
 import pl.writeonly.son2.jack.core.FormatsJack
 import pl.writeonly.son2.jack.glue.CreatorConverterJack
 import pl.writeonly.son2.spec.WhiteResultSpec

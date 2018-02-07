@@ -2,9 +2,9 @@ package pl.writeonly.son2.jack.converters
 
 import com.fasterxml.jackson.core.JsonParseException
 import com.fasterxml.jackson.databind.JsonMappingException
-import pl.writeonly.son2.core.converters.{Converter, Converter2}
-import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
-import pl.writeonly.son2.jack.core.{ConfigJack, FormatsJack}
+import pl.writeonly.son2.core.converters.{ Converter, Converter2 }
+import pl.writeonly.son2.core.liners.{ Liner, LinerOpt }
+import pl.writeonly.son2.jack.core.{ ConfigJack, FormatsJack }
 import pl.writeonly.son2.jack.glue.CreatorConverterJack
 import pl.writeonly.son2.spec.WhiteResultSpec
 

@@ -2,7 +2,7 @@ package pl.writeonly.son2.text.glue
 
 import pl.writeonly.son2.core.config.TConfig
 import pl.writeonly.son2.spec.GrayVectorSpec
-import pl.writeonly.son2.text.core.{Actions, FormatsText}
+import pl.writeonly.son2.text.core.{ Actions, FormatsText }
 import pl.writeonly.son2.text.creators.PCreatorConfigText
 
 class PartialCreatorTextVectorSpec extends GrayVectorSpec {
@@ -24,8 +24,7 @@ class PartialCreatorTextVectorSpec extends GrayVectorSpec {
     ("u_h", TConfig(Actions.UNESCAPE, FormatsText.HTML4)),
     ("u_html3", TConfig(Actions.UNESCAPE, FormatsText.HTML3)),
     ("u_c", TConfig(Actions.UNESCAPE, FormatsText.CSV)),
-    ("u_xs", TConfig(Actions.UNESCAPE, FormatsText.XSI))
-  )
+    ("u_xs", TConfig(Actions.UNESCAPE, FormatsText.XSI)))
 
   val partialCreator = new PCreatorConfigText()
   property("partialCreator create TranslateConfig") {

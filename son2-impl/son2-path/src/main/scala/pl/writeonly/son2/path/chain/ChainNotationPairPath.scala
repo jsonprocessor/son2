@@ -7,9 +7,11 @@ import pl.writeonly.son2.path.glue.{
 }
 
 class ChainNotationPairPath
-    extends CreatorConverter(new ChainNotationConfigPathMain(),
-                             new ChainNotationRWTPath())
+  extends CreatorConverter(
+    new ChainNotationConfigPathMain(),
+    new ChainNotationRWTPath())
 
 object ChainNotationPairPath
-    extends CreatorConverter(new ChainNotationConfigPathMain(),
-                             new ChainNotationRWTPath())
+  extends CreatorConverter(
+    new ChainNotationConfigPathMain(),
+    new ChainNotationRWTPath())

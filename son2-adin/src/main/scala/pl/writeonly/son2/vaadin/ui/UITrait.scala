@@ -7,7 +7,6 @@ import pl.writeonly.son2.core.converters.Converter
 import pl.writeonly.son2.core.glue.Piper
 import pl.writeonly.son2.vaadin.util.UIUtil
 
-
 trait UITrait extends UI with UIUtil with LazyLogging {
 
   def convert2(converter: Converter, input: TextArea, output: Label, items: Set[String]) = {
