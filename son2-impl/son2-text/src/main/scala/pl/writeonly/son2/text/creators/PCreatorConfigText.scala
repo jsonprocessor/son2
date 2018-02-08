@@ -9,7 +9,7 @@ class PCreatorConfigText extends PCreatorConfig {
   private val matcher = new MatcherStringEscape()
 
   override def isDefinedAt(s: String) =
-    s != null &&
+    Option(s).isDefined &&
       symbolOptionPairOption(s)
         .map(p => p._1.isDefined && p._2.isDefined)
         .getOrElse(false)

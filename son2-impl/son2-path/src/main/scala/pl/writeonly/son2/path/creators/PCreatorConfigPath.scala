@@ -11,7 +11,7 @@ class PCreatorConfigPath(f: Symbol) extends PartialCreatorConfigSymbol(f) {
 
 class PCreatorConfigPathMain extends PCreatorConfig {
 
-  override def isDefinedAt(s: String) = s != null && s.startsWith("$")
+  override def isDefinedAt(s: String) = Option(s).isDefined && s.startsWith("$")
 
   override def apply(s: String) =
     new Config(read = RConfig(provider = ProvidersPath.SMART, path = Option(s)),

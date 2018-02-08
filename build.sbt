@@ -3,9 +3,10 @@ enablePlugins(com.lucidchart.sbt.scalafmt.ScalafmtPlugin)
 resolvers += "Artima Maven Repository" at "http://repo.artima.com/releases"
 resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
 
-lazy val dropwizardVersion = "1.1.4"
-lazy val jacksonVersion = "2.8.3"
-lazy val vaadinVersion = "8.1.2"
+val dropwizardVersion = "1.1.4"
+val jacksonVersion = "2.8.3"
+val vaadinVersion = "8.1.2"
+val scalaLibraryVersion = "2.11.11"
 
 lazy val versionSnapshot = "2.8.3-SNAPSHOT"
 
@@ -155,7 +156,7 @@ lazy val jack = (project in file("son2-impl/son2-jack"))
       "com.fasterxml.jackson.dataformat" % "jackson-dataformat-xml" % jacksonVersion,
       "com.fasterxml.jackson.dataformat" % "jackson-dataformat-properties" % jacksonVersion,
       "com.fasterxml.jackson.dataformat" % "jackson-dataformat-csv" % jacksonVersion,
-      "com.fasterxml.jackson.module" % "jackson-module-scala_2.11" % jacksonVersion,
+      "com.fasterxml.jackson.module" %% "jackson-module-scala" % jacksonVersion,
       "ninja.leaping.configurate" % "configurate-hocon" % "3.2"
     )
   )
@@ -204,8 +205,8 @@ lazy val core = (project in file("son2-core"))
     funInConfig, featureInConfig,
     whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
-      "org.scala-lang" % "scala-library" % "2.11.11",
-      "org.scalactic" % "scalactic_2.11" % "3.0.4",
+      "org.scala-lang" % "scala-library" % scalaLibraryVersion,
+      "org.scalactic" %% "scalactic" % "3.0.4",
       "com.google.guava" % "guava" % "23.0",
       "org.skyscreamer" % "jsonassert" % "1.5.0"
     )
@@ -216,10 +217,10 @@ lazy val spec = (project in file("son2-spec"))
     name := "son2-spec",
     commonSettings,
     libraryDependencies ++= Seq(
-      "org.scala-lang" % "scala-library" % "2.11.11",
-      "com.typesafe.scala-logging" % "scala-logging_2.11" % "3.7.2",
-      "org.scalamock" % "scalamock-scalatest-support_2.11" % "3.6.0",
-      "org.scalacheck" % "scalacheck_2.11" % "1.13.5",
+      "org.scala-lang" % "scala-library" % scalaLibraryVersion,
+      "com.typesafe.scala-logging" %% "scala-logging" % "3.7.2",
+      "org.scalamock" %% "scalamock-scalatest-support" % "3.6.0",
+      "org.scalacheck" %% "scalacheck" % "1.13.5",
       "org.pegdown" % "pegdown" % "1.6.0",
       "ch.qos.logback" % "logback-classic" % "1.2.3"
     )//,

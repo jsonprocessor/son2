@@ -22,7 +22,7 @@ class PCreatorTranslatorText extends PCreatorTranslator {
   def translatorMatch(p: TConfig) = matcher.apply(p)
 
   def isDefinedAt(c: TConfig): Boolean =
-    c != null && isDefinedAt(c.action) && isDefinedAt(c.format)
+    Option(c).isDefined && isDefinedAt(c.action) && isDefinedAt(c.format)
 
-  def isDefinedAt(s: Symbol): Boolean = s != null && s != Symbol("")
+  def isDefinedAt(s: Symbol): Boolean = Option(s).isDefined && s != Symbol("")
 }

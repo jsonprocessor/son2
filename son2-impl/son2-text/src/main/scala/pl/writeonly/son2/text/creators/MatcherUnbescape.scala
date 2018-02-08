@@ -14,7 +14,12 @@ import pl.writeonly.son2.text.core.{Actions, FormatsText}
 
 class MatcherUnbescape extends Matcher {
 
-  override def apply(p: TConfig) = p match {
+  override def apply(p: TConfig): CString = p match {
+    case TConfig(Actions.ESCAPE, _, _)   => escape(p)
+    case TConfig(Actions.UNESCAPE, _, _) => unescape(p)
+  }
+
+  def escape(p: TConfig): CString = p match {
     case TConfig(Actions.ESCAPE, FormatsText.STRING, l) =>
       JavaEscape.escapeJava
     case TConfig(Actions.ESCAPE, FormatsText.ECMASCRIPT, l) =>
@@ -26,6 +31,9 @@ class MatcherUnbescape extends Matcher {
     //    case TranslateConfig(Escapes.ESCAPE, Formats.HTML3) => StringEscapeUtils.ESCAPE_HTML3
     case TConfig(Actions.ESCAPE, FormatsText.CSV, l) => CsvEscape.escapeCsv
     //    case TranslateConfig(Escapes.ESCAPE, Formats.XSI) => StringEscapeUtils.ESCAPE_XSI
+  }
+
+  def unescape(p: TConfig): CString = p match {
     case TConfig(Actions.UNESCAPE, FormatsText.STRING, l) =>
       JavaEscape.unescapeJava
     case TConfig(Actions.UNESCAPE, FormatsText.ECMASCRIPT, l) =>
@@ -47,6 +55,5 @@ class MatcherUnbescape extends Matcher {
     case TConfig(Actions.UNESCAPE, FormatsText.CSS, l) => CssEscape.unescapeCss
     case TConfig(Actions.UNESCAPE, FormatsText.CSS, l) =>
       PropertiesEscape.unescapeProperties
-
   }
 }

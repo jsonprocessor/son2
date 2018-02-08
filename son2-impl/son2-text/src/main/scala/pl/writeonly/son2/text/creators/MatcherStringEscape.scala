@@ -7,10 +7,15 @@ import pl.writeonly.son2.text.core.{Actions, FormatsText}
 
 class MatcherStringEscape extends Matcher {
 
-  override def apply(p: TConfig): (String) => String =
+  override def apply(p: TConfig): CString =
     translatorMatch(p).translate
 
   def translatorMatch(p: TConfig): CharSequenceTranslator = p match {
+    case TConfig(Actions.ESCAPE, _, _)   => translatorEscape(p)
+    case TConfig(Actions.UNESCAPE, _, _) => translatorUnescape(p)
+  }
+
+  def translatorEscape(p: TConfig): CharSequenceTranslator = p match {
     case TConfig(Actions.ESCAPE, FormatsText.STRING, l) =>
       StringEscapeUtils.ESCAPE_JAVA
     case TConfig(Actions.ESCAPE, FormatsText.ECMASCRIPT, l) =>
@@ -31,6 +36,9 @@ class MatcherStringEscape extends Matcher {
       StringEscapeUtils.ESCAPE_CSV
     case TConfig(Actions.ESCAPE, FormatsText.XSI, l) =>
       StringEscapeUtils.ESCAPE_XSI
+  }
+
+  def translatorUnescape(p: TConfig): CharSequenceTranslator = p match {
     case TConfig(Actions.UNESCAPE, FormatsText.STRING, l) =>
       StringEscapeUtils.UNESCAPE_JAVA
     case TConfig(Actions.UNESCAPE, FormatsText.ECMASCRIPT, l) =>

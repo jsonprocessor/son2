@@ -21,7 +21,7 @@ case class TConfig(action: Symbol = Symbol(""),
                    level: Short = 0) {
   def actionAndFormat = name(action) + "_" + name(format)
 
-  private def name(s: Symbol): String = if (s != null) s.name else ""
+  private def name(s: Symbol): String = Option(s).map(_.name).getOrElse("")
 }
 
 abstract class RStyle
