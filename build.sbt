@@ -3,6 +3,11 @@ enablePlugins(com.lucidchart.sbt.scalafmt.ScalafmtPlugin)
 resolvers += "Artima Maven Repository" at "http://repo.artima.com/releases"
 resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
 
+evictionWarningOptions in update := EvictionWarningOptions.default
+  .withWarnTransitiveEvictions(false)
+  .withWarnDirectEvictions(false)
+  .withWarnScalaVersionEviction(false)
+
 val dropwizardVersion = "1.1.4"
 val jacksonVersion = "2.8.3"
 val vaadinVersion = "8.1.2"

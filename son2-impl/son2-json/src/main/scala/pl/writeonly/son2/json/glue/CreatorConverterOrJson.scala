@@ -10,5 +10,6 @@ class CreatorConverterOrJson
     chainNotationCreator.configOpt(s) match {
       case c: Some[Config] => c
       //    case None => new ChainReaderJack().configOpt(s)
+      case _ => throw new IllegalArgumentException
     }
 }

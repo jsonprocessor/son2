@@ -1,7 +1,7 @@
 package pl.writeonly.son2.path.glue
 
 import org.skyscreamer.jsonassert.JSONAssert
-import pl.writeonly.son2.core.config.{Config, RConfig, TConfig, WConfig}
+import pl.writeonly.son2.core.config._
 import pl.writeonly.son2.core.converters.Converter2
 import pl.writeonly.son2.core.glue.Piper
 import pl.writeonly.son2.path.core.ProvidersPath
@@ -33,7 +33,7 @@ class CreatorConverterPathResultSpec extends WhiteResultSpec {
   "A CreatorConverterPath " when {
     "in config provider is 'tapestry, query is $..*, stream is false and pretty is true" should {
       val config =
-        Config(RConfig('tapestry, 'object, false, Some("$..*"), Set()),
+        Config(RConfig('tapestry, 'object, false, RPath(Option("$..*")), Set()),
                WConfig('tapestry, 'yaml, true, true, Set()),
                TConfig())
       val converter = CreatorConverterPath(config)
@@ -83,7 +83,8 @@ class CreatorConverterPathResultSpec extends WhiteResultSpec {
       }
     }
     "in config provider is 'tapestry" should {
-      val config = Config(read = RConfig(provider = provider, path = null),
+      val config = Config(read =
+                            RConfig(provider = provider, path = RPath(null)),
                           write = WConfig(provider = provider))
       val a = CreatorConverterPath.apply(config)
       "read.provider is 'tapestry" in {
@@ -99,7 +100,7 @@ class CreatorConverterPathResultSpec extends WhiteResultSpec {
     }
     "in config provider is 'tapestry ans query is null" should {
       val config =
-        Config(read = RConfig(provider = provider, path = Option[String](null)),
+        Config(read = RConfig(provider = provider, path = RPath(null)),
                write = WConfig(provider = provider))
       val converter = CreatorConverterPath.apply(config)
       "read.provider is 'tapestry" in {
@@ -114,8 +115,8 @@ class CreatorConverterPathResultSpec extends WhiteResultSpec {
       }
     }
     "in config provider is 'tapestry and query is $..*" should {
-      val config = Config(read =
-                            RConfig(provider = provider, path = Option("$..*")),
+      val config = Config(read = RConfig(provider = provider,
+                                         path = RPath(Option("$..*"))),
                           write = WConfig(provider = provider))
       val a = CreatorConverterPath.apply(config)
       "read.provider is 'tapestry" in {
