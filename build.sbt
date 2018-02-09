@@ -66,6 +66,7 @@ lazy val drop = (project in file("son2-drop"))
     funInConfig, featureInConfig,
     whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
+      "org.scala-lang" % "scala-library" % scalaLibraryVersion,
       "io.dropwizard" % "dropwizard-core" % dropwizardVersion,
       "io.dropwizard" % "dropwizard-assets" % dropwizardVersion
     ),
@@ -81,6 +82,7 @@ lazy val adin = (project in file("son2-adin"))
     funInConfig, featureInConfig,
     whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
+      "org.scala-lang" % "scala-library" % scalaLibraryVersion,
       "com.vaadin" % "vaadin-themes" % vaadinVersion,
       "com.vaadin" % "vaadin-client-compiled" % vaadinVersion,
       "com.vaadin" % "vaadin-server" % vaadinVersion,
@@ -97,6 +99,7 @@ lazy val main = (project in file("son2-main"))
     funInConfig, featureInConfig,
     whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
+      "org.scala-lang" % "scala-library" % scalaLibraryVersion
     )//,
     //    mainClass in assembly := Some("pl.writeonly.son2.main.Main")
   )
@@ -111,6 +114,7 @@ lazy val impl = (project in file("son2-impl"))
     funInConfig, featureInConfig,
     whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
+      "org.scala-lang" % "scala-library" % scalaLibraryVersion
     )
   )
 
@@ -121,6 +125,7 @@ lazy val json = (project in file("son2-impl/son2-json"))
     name := "son2-json",
     commonSettings,
     libraryDependencies ++= Seq(
+      "org.scala-lang" % "scala-library" % scalaLibraryVersion
     )
   )
 
@@ -133,6 +138,7 @@ lazy val path = (project in file("son2-impl/son2-path"))
     funInConfig, featureInConfig,
     whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
+      "org.scala-lang" % "scala-library" % scalaLibraryVersion,
       "com.jayway.jsonpath" % "json-path" % "2.4.0",
       "net.minidev" % "json-smart" % "2.3",
       "com.google.code.gson" % "gson" % "2.8.1",
@@ -152,6 +158,7 @@ lazy val jack = (project in file("son2-impl/son2-jack"))
     funInConfig, featureInConfig,
     whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
+      "org.scala-lang" % "scala-library" % scalaLibraryVersion,
       "com.fasterxml.jackson.dataformat" % "jackson-dataformat-yaml" % jacksonVersion,
       "com.fasterxml.jackson.dataformat" % "jackson-dataformat-xml" % jacksonVersion,
       "com.fasterxml.jackson.dataformat" % "jackson-dataformat-properties" % jacksonVersion,
@@ -168,6 +175,7 @@ lazy val text = (project in file("son2-impl/son2-text"))
     name := "son2-text",
     commonSettings,
     libraryDependencies ++= Seq(
+      "org.scala-lang" % "scala-library" % scalaLibraryVersion,
       "org.apache.commons" % "commons-text" % "1.1",
       "org.unbescape" % "unbescape" % "1.1.5.RELEASE"
     )
@@ -182,6 +190,7 @@ lazy val patch = (project in file("son2-impl/son2-patch"))
     funInConfig, featureInConfig,
     whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
+      "org.scala-lang" % "scala-library" % scalaLibraryVersion,
       "com.github.fge" % "json-patch" % "1.9"
     )
   )
@@ -193,6 +202,7 @@ lazy val diff = (project in file("son2-impl/son2-diff"))
     name := "son2-diff",
     commonSettings,
     libraryDependencies ++= Seq(
+      "org.scala-lang" % "scala-library" % scalaLibraryVersion,
     )
   )
 

@@ -1,8 +1,9 @@
 package pl.writeonly.son2.text.creators
 
 import pl.writeonly.son2.core.config.TConfig
+import pl.writeonly.son2.core.core.DString
 
 trait Matcher {
-  type CString = String => String
-  def apply(p: TConfig): CString
+
+  def apply(p: TConfig): DString
 }

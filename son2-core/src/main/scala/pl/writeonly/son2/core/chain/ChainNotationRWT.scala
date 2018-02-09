@@ -1,6 +1,7 @@
 package pl.writeonly.son2.core.chain
 
 import pl.writeonly.son2.core.config.{Config, RConfig, WConfig}
+import pl.writeonly.son2.core.core.{FNotationReader, FNotationWriter}
 import pl.writeonly.son2.core.notation.{
   NotationReader,
   NotationTranslator,
@@ -23,7 +24,7 @@ class PCreatorReaderFake extends PCreatorReader {
     throw new IllegalStateException(c.toString)
 }
 
-class PCreatorReaderSymbol(format: Symbol, creator: RConfig => NotationReader)
+class PCreatorReaderSymbol(format: Symbol, creator: FNotationReader)
     extends PCreatorReader {
   override def isDefinedAt(c: RConfig): Boolean =
     format.name.startsWith(c.provider.name)
@@ -38,7 +39,7 @@ class PCreatorWriterFake extends PCreatorWriter {
     throw new IllegalStateException(c.toString)
 }
 
-class PCreatorWriterSymbol(format: Symbol, creator: WConfig => NotationWriter)
+class PCreatorWriterSymbol(format: Symbol, creator: FNotationWriter)
     extends PCreatorWriter {
   override def isDefinedAt(c: WConfig): Boolean =
     format.name.startsWith(c.provider.name)

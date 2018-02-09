@@ -6,14 +6,18 @@ object Control {
 
   val UTF_8 = "UTF-8"
 
-  def using[A <: { def close(): Unit }, B](resource: A)(f: A => B): B =
+  type FAB[A, B] = A => B
+  type FAAny[A] = A => Any
+  type Closeable = { def close(): Unit }
+
+  def using[A <: Closeable, B](resource: A)(f: FAB[A, B]): B =
     try {
       f(resource)
     } finally {
       resource.close()
     }
 
-  implicit def toConsumerAny[A](f: A => Any): Consumer[A] = new Consumer[A]() {
+  implicit def toConsumerAny[A](f: FAAny[A]): Consumer[A] = new Consumer[A]() {
     override def accept(arg: A): Unit = f(arg)
   }
 }
