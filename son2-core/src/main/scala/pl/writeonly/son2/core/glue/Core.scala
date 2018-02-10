@@ -14,7 +14,7 @@ class Core(params: Params, args: Array[String], creator: CreatorConverterOr) {
   }
 
   def option: Converter Or ErrorMessage = length match {
-    case 0 => Bad(null)
+    case 0 => Bad("")
     case _ => creator.converterOr(args(0).toLowerCase)
   }
 

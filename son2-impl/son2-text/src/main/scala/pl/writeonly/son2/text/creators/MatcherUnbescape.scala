@@ -20,32 +20,32 @@ class MatcherUnbescape extends Matcher {
   }
 
   def escape(p: TConfig): DString = p match {
-    case TConfig(Actions.ESCAPE, FormatsText.STRING, l) =>
+    case TConfig(Actions.ESCAPE, FormatsText.STRING, _) =>
       JavaEscape.escapeJava
-    case TConfig(Actions.ESCAPE, FormatsText.ECMASCRIPT, l) =>
+    case TConfig(Actions.ESCAPE, FormatsText.ECMASCRIPT, _) =>
       JavaScriptEscape.escapeJavaScript
-    case TConfig(Actions.ESCAPE, FormatsText.OBJECT, l) =>
+    case TConfig(Actions.ESCAPE, FormatsText.OBJECT, _) =>
       JsonEscape.escapeJson
-    case TConfig(Actions.ESCAPE, FormatsText.CSV, l) => CsvEscape.escapeCsv
+    case TConfig(Actions.ESCAPE, FormatsText.CSV, _) => CsvEscape.escapeCsv
   }
 
   def unescape(p: TConfig): DString = p match {
-    case TConfig(Actions.UNESCAPE, FormatsText.STRING, l) =>
+    case TConfig(Actions.UNESCAPE, FormatsText.STRING, _) =>
       JavaEscape.unescapeJava
-    case TConfig(Actions.UNESCAPE, FormatsText.ECMASCRIPT, l) =>
+    case TConfig(Actions.UNESCAPE, FormatsText.ECMASCRIPT, _) =>
       JavaScriptEscape.unescapeJavaScript
-    case TConfig(Actions.UNESCAPE, FormatsText.XML, l) => XmlEscape.escapeXml11
-    case TConfig(Actions.UNESCAPE, FormatsText.XML11, l) =>
+    case TConfig(Actions.UNESCAPE, FormatsText.XML, _) => XmlEscape.escapeXml11
+    case TConfig(Actions.UNESCAPE, FormatsText.XML11, _) =>
       XmlEscape.escapeXml11
-    case TConfig(Actions.UNESCAPE, FormatsText.XML10, l) =>
+    case TConfig(Actions.UNESCAPE, FormatsText.XML10, _) =>
       XmlEscape.escapeXml11
-    case TConfig(Actions.UNESCAPE, FormatsText.HTML4, l) =>
+    case TConfig(Actions.UNESCAPE, FormatsText.HTML4, _) =>
       HtmlEscape.unescapeHtml
-    case TConfig(Actions.UNESCAPE, FormatsText.HTML3, l) =>
+    case TConfig(Actions.UNESCAPE, FormatsText.HTML3, _) =>
       HtmlEscape.unescapeHtml
-    case TConfig(Actions.UNESCAPE, FormatsText.CSV, l) => CsvEscape.unescapeCsv
-    case TConfig(Actions.UNESCAPE, FormatsText.URI, l) =>
+    case TConfig(Actions.UNESCAPE, FormatsText.CSV, _) => CsvEscape.unescapeCsv
+    case TConfig(Actions.UNESCAPE, FormatsText.URI, _) =>
       UriEscape.unescapeUriPath
-    case TConfig(Actions.UNESCAPE, FormatsText.CSS, l) => CssEscape.unescapeCss
+    case TConfig(Actions.UNESCAPE, FormatsText.CSS, _) => CssEscape.unescapeCss
   }
 }

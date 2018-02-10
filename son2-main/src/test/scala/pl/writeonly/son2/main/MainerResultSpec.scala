@@ -12,7 +12,7 @@ class MainerResultSpec extends WhiteResultSpec {
   "A Mainer with empty array" when {
     "invoke option" should {
       "return Bad(Null)" in {
-        assertResult(Bad(null))(new Mainer(null, Array()).option)
+        assertResult(Bad(""))(new Mainer(null, Array()).option)
       }
     }
   }
