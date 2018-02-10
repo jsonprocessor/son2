@@ -37,7 +37,7 @@ class UIPath extends UITrait2 {
         val provider = pathComp.provider.selectedItem
         val options = pathComp.options.selectedItem
         val config = Config(
-          RConfig(provider = provider, format = jackComp.inputSelectedItem, stream = rw.readStream, path = RPath(Option(path)), options = options),
+          RConfig(provider = provider, format = jackComp.inputSelectedItem, stream = rw.readStream, path = RPath(path), options = options),
           WConfig(provider = provider, format = jackComp.outputSelectedItem, style = rw.writePretty, gson = gsonComp.options.selectedItem))
 
         val set = rw.set

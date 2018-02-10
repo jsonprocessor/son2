@@ -12,8 +12,8 @@ class NotationReaderPath(val defaults: DefaultsPath) extends NotationReader {
     MoreObjects.toStringHelper(this).addValue(defaults).toString
 
   def apply(content: String): Any = defaults.config.path match {
-    case Parse()    => parse(content)
-    case Json()     => json(content)
+    case Parse      => parse(content)
+    case Json       => json(content)
     case Read(path) => read(content, path)
   }
 

@@ -1,5 +1,6 @@
 package pl.writeonly.son2.path.providers
 
+import pl.writeonly.son2.core.config.RPath
 import pl.writeonly.son2.core.converters.Converter
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.core.streamers.{Streamer, StreamerPipeForeach}
@@ -25,8 +26,7 @@ class PathVectorSpec extends GrayVectorSpec {
 
   val toFailure = Table(("in", "out"), ("a", "[]"))
 
-  val provider: Converter = ChainNotationPairPath(
-    ConfigPath(q = Option("$..*")))
+  val provider: Converter = ChainNotationPairPath(ConfigPath(q = RPath("$..*")))
   property("convert son to smart by provider") {
     forAll(toSuccess) { (in, out) =>
       provider.convert(in) should be(out)

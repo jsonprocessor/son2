@@ -7,7 +7,7 @@ case class Config(read: RConfig = RConfig(),
 case class RConfig(provider: Symbol = Symbol(""),
                    format: Symbol = Symbol(""),
                    stream: Boolean = true,
-                   path: RPath = RPath(Option.empty),
+                   path: RPath = RPath.json,
                    options: Set[Symbol] = Set())
 
 case class WConfig(provider: Symbol = Symbol(""),
@@ -26,22 +26,20 @@ case class TConfig(action: Symbol = Symbol(""),
 
 abstract class RStyle
 
-case class Raw() extends RStyle
+object Raw extends RStyle
 
-case class Pretty() extends RStyle
+object Pretty extends RStyle
 
 abstract class RPath
 
-case class Parse() extends RPath
+object Parse extends RPath
 
-case class Json() extends RPath
+object Json extends RPath
 
 case class Read(path: String) extends RPath
 
 object RPath {
-  def apply(path: Option[String]): RPath = path match {
-    case null       => Parse()
-    case None       => Json()
-    case Some(path) => Read(path)
-  }
+  def parse: RPath = Parse
+  def json: RPath = Json
+  def apply(path: String): RPath = Option(path).map(Read).getOrElse(Json)
 }

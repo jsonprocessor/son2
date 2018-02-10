@@ -14,7 +14,7 @@ object ConfigJson {
             s: Boolean = true,
             p: Boolean = true) =
     new Config(read =
-                 RConfig(provider = provider, stream = s, path = RPath(null)),
+                 RConfig(provider = provider, stream = s, path = RPath.parse),
                write = WConfig(provider = provider, style = p))
 
 }

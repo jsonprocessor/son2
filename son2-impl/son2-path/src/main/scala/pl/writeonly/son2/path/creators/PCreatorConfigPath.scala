@@ -14,7 +14,6 @@ class PCreatorConfigPathMain extends PCreatorConfig {
   override def isDefinedAt(s: String) = Option(s).isDefined && s.startsWith("$")
 
   override def apply(s: String) =
-    new Config(
-      read = RConfig(provider = ProvidersPath.SMART, path = RPath(Option(s))),
-      write = WConfig(provider = ProvidersPath.STRICT, style = false))
+    new Config(read = RConfig(provider = ProvidersPath.SMART, path = RPath(s)),
+               write = WConfig(provider = ProvidersPath.STRICT, style = false))
 }

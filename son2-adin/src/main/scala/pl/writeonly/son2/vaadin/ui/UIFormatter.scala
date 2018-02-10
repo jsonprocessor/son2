@@ -33,7 +33,7 @@ class UIFormatter extends UITrait2 {
       override def buttonClick(clickEvent: ClickEvent): Unit = {
         val provider = pathProvider.selectedItem
         val config = Config(
-          RConfig(provider = provider, format = jackFormats.inputSelectedItem, stream = rw.readStream, path = RPath(null)),
+          RConfig(provider = provider, format = jackFormats.inputSelectedItem, stream = rw.readStream, path = RPath.parse),
           WConfig(provider = provider, format = jackFormats.outputSelectedItem, style = rw.writePretty, gson = gsonOptions.options.selectedItem))
         val set = rw.set
         logger.info("{} {}", config, set)
