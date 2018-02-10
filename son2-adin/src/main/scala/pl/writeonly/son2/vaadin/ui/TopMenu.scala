@@ -1,6 +1,6 @@
 package pl.writeonly.son2.vaadin.ui
 
-import com.vaadin.ui.{ Link, Panel }
+import com.vaadin.ui.{Link, Panel}
 import pl.writeonly.son2.vaadin.util.UIUtil
 
 class TopMenu extends UIUtil {

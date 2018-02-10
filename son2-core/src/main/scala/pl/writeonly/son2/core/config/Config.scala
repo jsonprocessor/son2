@@ -40,6 +40,8 @@ case class Read(path: String) extends RPath
 
 object RPath {
   def parse: RPath = Parse
+
   def json: RPath = Json
+
   def apply(path: String): RPath = Option(path).map(Read).getOrElse(Json)
 }

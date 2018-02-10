@@ -2,7 +2,7 @@ package pl.writeonly.son2.vaadin.util
 
 import com.vaadin.server.ExternalResource
 import com.vaadin.shared.ui.ContentMode
-import com.vaadin.ui.{ RadioButtonGroup, _ }
+import com.vaadin.ui.{RadioButtonGroup, _}
 
 import scala.collection.JavaConverters._
 

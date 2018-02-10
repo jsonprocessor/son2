@@ -1,6 +1,6 @@
 package pl.writeonly.son2.vaadin.ui
 
-import com.vaadin.ui.{ Button, Component, Label, Panel }
+import com.vaadin.ui.{Button, Component, Label, Panel}
 import pl.writeonly.son2.vaadin.util.UIUtil
 
 trait Components extends UIUtil {
