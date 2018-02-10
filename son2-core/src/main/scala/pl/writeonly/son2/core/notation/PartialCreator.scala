@@ -8,11 +8,11 @@ trait PartialCreator extends PartialFunction[Config, NotationRWT] {
 
   def rwt(c: Config) = NotationRWT(r(c), w(c), t(c))
 
-  def r(c: Config): NotationReader = null
+  def r(c: Config): NotationReader
 
-  def w(c: Config): NotationWriter = null
+  def w(c: Config): NotationWriter
 
-  def t(c: Config): NotationTranslator = null
+  def t(c: Config): NotationTranslator
 
   def is(s: Config) = isDefinedAt(s)
 
