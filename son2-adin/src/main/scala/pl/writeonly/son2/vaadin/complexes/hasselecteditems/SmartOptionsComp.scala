@@ -3,8 +3,8 @@ package pl.writeonly.son2.vaadin.complexes.hasselecteditems
 import com.typesafe.scalalogging.LazyLogging
 import com.vaadin.ui.Button
 import com.vaadin.ui.Button.ClickEvent
-import pl.writeonly.son2.vaadin.complexes.{ Complex, HasCheckBoxSelectedItem }
-import pl.writeonly.son2.vaadin.util.{ ItemSymbol, UIUtil }
+import pl.writeonly.son2.vaadin.complexes.{Complex, HasCheckBoxSelectedItem}
+import pl.writeonly.son2.vaadin.util.{ItemSymbol, UIUtil}
 
 class SmartOptionsComp extends Complex with HasCheckBoxSelectedItem with LazyLogging {
   private val options = SmartOptionsComp.apply

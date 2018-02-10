@@ -1,7 +1,7 @@
 package pl.writeonly.son2.vaadin.complexes.hasselecteditems
 
-import pl.writeonly.son2.vaadin.complexes.{ Complex, HasCheckBoxSelectedItem }
-import pl.writeonly.son2.vaadin.util.{ ItemSymbol, UIUtil }
+import pl.writeonly.son2.vaadin.complexes.{Complex, HasCheckBoxSelectedItem}
+import pl.writeonly.son2.vaadin.util.{ItemSymbol, UIUtil}
 
 class GsonOptionsComp extends Complex with HasCheckBoxSelectedItem {
   private val component = GsonOptionsComp.apply
