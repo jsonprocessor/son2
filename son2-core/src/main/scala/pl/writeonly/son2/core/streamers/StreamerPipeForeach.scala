@@ -11,10 +11,9 @@ class StreamerPipeForeach(liner: Liner) extends StreamerPipe(liner) {
 
   def this(provider: Converter) = this(new LinerOpt(provider))
 
-  override def stream2(stream: Stream[String], out: Writer): Unit = {
+  override def stream2(stream: Stream[String], out: Writer): Unit =
     stream.forEach { (line: String) =>
       appendLine(out, line)
     }
-  }
 
 }

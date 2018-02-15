@@ -5,6 +5,7 @@ import java.net.URI
 import java.nio.charset.StandardCharsets
 
 import pl.writeonly.son2.core.liners.Liner
+import pl.writeonly.son2.core.util.Control._
 
 abstract class Streamer(val liner: Liner) {
 
@@ -17,10 +18,8 @@ abstract class Streamer(val liner: Liner) {
   def convertString(native: Boolean, in: String): String =
     if (native) convertStringNative(in) else convertString(in)
 
-  def convertString(in: String): String = {
-    val bytes = convertBytes(Streamer.toBytes(in))
-    Streamer.toString(bytes)
-  }
+  def convertString(in: String): String =
+    Streamer.toBytes(in) |> convertBytes |> Streamer.toString
 
   def convertStringNative(in: String): String
 
@@ -28,15 +27,9 @@ abstract class Streamer(val liner: Liner) {
 
   def convertStream(in: InputStream, out: OutputStream): Unit
 
-  protected def appendLine(out: Writer, line: String): Unit = {
-    val result = liner.apply(line)
-    out.append(result)
-  }
+  protected def appendLine(out: Appendable, line: String): Unit =
+    liner.apply(line) |> out.append
 
-  protected def appendLine(out: StringBuilder, line: String): Unit = {
-    val result = liner.apply(line)
-    out.append(result)
-  }
 }
 
 object Streamer {

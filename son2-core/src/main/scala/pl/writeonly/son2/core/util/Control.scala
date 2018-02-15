@@ -20,4 +20,8 @@ object Control {
   implicit def toConsumerAny[A](f: FAAny[A]): Consumer[A] = new Consumer[A]() {
     override def accept(arg: A): Unit = f(arg)
   }
+
+  implicit class Pipe[A](a: A) {
+    def |>[B](f: A => B) = f(a)
+  }
 }

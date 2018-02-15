@@ -29,15 +29,19 @@ abstract class StreamerSource(liner: Liner) extends Streamer(liner) {
   override def convertFile(in: File, out: File): Unit =
     using(Source.fromFile(in))(s => source2pw(s, out))
 
-  override def convertStream(in: InputStream, out: OutputStream): Unit = {
+  override def convertStream(in: InputStream, out: OutputStream): Unit =
     using(Source.fromInputStream(in, Control.UTF_8)) { source =>
       using(new PrintWriter(out)) { pw =>
         source2pw(source, pw)
       }
     }
+
+  def source2string(source: Source): String = {
+    import java.lang.{StringBuilder => JavaStringBuilder}
+    val sb = new JavaStringBuilder()
+    source2pw(source, sb)
+    sb.toString()
   }
 
-  def source2string(source: Source): String
-
-  def source2pw(source: Source, pw: PrintWriter): Unit
+  def source2pw(source: Source, pw: Appendable): Unit
 }
