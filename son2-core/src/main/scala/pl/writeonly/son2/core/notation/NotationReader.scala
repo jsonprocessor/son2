@@ -7,7 +7,7 @@ trait NotationReader extends PartialFunction[String, Any] {
 
   override def apply(content: String): Any
 
-  override def isDefinedAt(content: String) =
+  override def isDefinedAt(content: String): Boolean =
     catching(classOf[Exception])
       .opt(apply(content))
       .isDefined

@@ -5,7 +5,7 @@ import pl.writeonly.son2.core.liners.{LinerEither, LinerOpt}
 import pl.writeonly.son2.core.streamers._
 
 object Streamers {
-  def print(native: Boolean, s: Boolean, p: Converter) =
+  def print(native: Boolean, s: Boolean, p: Converter): Streamer =
     if (native) source(s, p) else pipe(s, p)
 
   def pipe(s: Boolean, p: Converter): Streamer =

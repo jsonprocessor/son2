@@ -16,12 +16,12 @@ abstract class NotationWriter(val config: WConfig) {
     case false => writeRaw(value)
   }
 
-  def comment(content: String) = content
+  def comment(content: String): String = content
 
   def writePretty(value: Any): String //= value.toString()
 
   def writeRaw(value: Any): String //= value.toString()
 
-  override def toString() =
+  override def toString(): String =
     MoreObjects.toStringHelper(this).addValue(config).toString
 }

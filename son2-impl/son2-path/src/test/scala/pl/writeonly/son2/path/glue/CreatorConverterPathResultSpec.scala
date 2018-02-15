@@ -39,7 +39,7 @@ class CreatorConverterPathResultSpec extends WhiteResultSpec {
       val converter = CreatorConverterPath(config)
       "return [] for {} by streamer" in {
         val streamer = new Piper(null, converter).print(false)
-        val json = streamer.convertString(false, expectedStr)
+        val json = streamer.convertString(native = false, expectedStr)
         JSONAssert.assertEquals("[]", json, true)
       }
       "return [] for {}" in {

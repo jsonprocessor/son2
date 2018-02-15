@@ -14,6 +14,6 @@ trait PartialCreator extends PartialFunction[Config, NotationRWT] {
 
   def t(c: Config): NotationTranslator
 
-  def is(s: Config) = isDefinedAt(s)
+  def is(s: Config): Boolean = isDefinedAt(s)
 
 }

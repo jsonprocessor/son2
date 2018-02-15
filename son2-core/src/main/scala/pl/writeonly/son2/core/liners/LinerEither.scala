@@ -9,17 +9,16 @@ class LinerEither(converter: Converter)
     extends Liner(converter)
     with LazyLogging {
 
-  def apply(line: String): String = {
-    val result: Either[Throwable, String] = catching(classOf[Exception])
-      .either(convert(line))
-    result match {
-      case Right(result) => result
-      case Left(e) => {
-        logger.error("{} {}", converter, line)
-        logger.error("", e)
-        e.getMessage + "\n"
-      }
+  def apply(line: String): String = either(line) match {
+    case Right(result) => result
+    case Left(e) => {
+      logger.error("{} {}", converter, line)
+      logger.error("", e)
+      e.getMessage + "\n"
     }
   }
+
+  def either(line: String): Either[Throwable, String] =
+    catching(classOf[Exception]).either(convert(line))
 
 }
