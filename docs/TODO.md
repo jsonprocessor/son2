@@ -7,10 +7,7 @@
   * text
     * creators
 - [ ] Add mutation tests
-- [ ] Add mvn clean compile jar:jar dependency:copy-dependencies javadoc:javadoc site-deploy
 - [ ] Convert String to CharSequence
-- [ ] Add mvnw
-- [ ] Add sbt
 
 # Functional
 ## core
@@ -40,9 +37,9 @@
 
 ## diff - patch
 - http://jsonpatch.com/
-- https://github.com/gnieh/diffson
-- https://github.com/java-json-tools/json-patch
-- https://github.com/flipkart-incubator/zjsonpatch
+
+## schema
+* http://json-schema.org/implementations.html
 
 ## text - unescaper
 - [ ] add to readme unescape String https://commons.apache.org/proper/commons-text/javadocs/api-release/org/apache/commons/text/StringEscapeUtils.html
@@ -57,10 +54,5 @@
   * https://github.com/scallop/scallop
   * https://github.com/backuity/clist
   * https://github.com/bmjames/scala-optparse-applicative
-
-## drop
-* dropwizard-swagger https://github.com/smoketurner/dropwizard-swagger
-
-## scheme
 
 
