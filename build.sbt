@@ -10,10 +10,10 @@ evictionWarningOptions in update := EvictionWarningOptions.default
   .withWarnDirectEvictions(false)
   .withWarnScalaVersionEviction(false)
 
-val dropwizardVersion = "1.1.4"
-val jacksonVersion = "2.8.3"
-val vaadinVersion = "8.1.2"
-val scalaLibraryVersion = "2.11.11"
+val DropwizardVersion = "1.1.4"
+val JacksonVersion = "2.8.3"
+val VaadinVersion = "8.1.2"
+val ScalaLibraryVersion = "2.11.11"
 
 lazy val versionSnapshot = "2.8.3-SNAPSHOT"
 
@@ -62,9 +62,9 @@ lazy val drop = (project in file("son2-drop"))
     integrationInConfig, end2endInConfig,
     whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
-      "org.scala-lang" % "scala-library" % scalaLibraryVersion,
-      "io.dropwizard" % "dropwizard-core" % dropwizardVersion,
-      "io.dropwizard" % "dropwizard-assets" % dropwizardVersion
+      "org.scala-lang" % "scala-library" % ScalaLibraryVersion,
+      "io.dropwizard" % "dropwizard-core" % DropwizardVersion,
+      "io.dropwizard" % "dropwizard-assets" % DropwizardVersion
     ),
     mainClass in assembly := Some("pl.writeonly.son2.drop.AppSon2")
   )
@@ -78,10 +78,10 @@ lazy val adin = (project in file("son2-adin"))
     integrationInConfig, end2endInConfig,
     whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
-      "org.scala-lang" % "scala-library" % scalaLibraryVersion,
-      "com.vaadin" % "vaadin-themes" % vaadinVersion,
-      "com.vaadin" % "vaadin-client-compiled" % vaadinVersion,
-      "com.vaadin" % "vaadin-server" % vaadinVersion,
+      "org.scala-lang" % "scala-library" % ScalaLibraryVersion,
+      "com.vaadin" % "vaadin-themes" % VaadinVersion,
+      "com.vaadin" % "vaadin-client-compiled" % VaadinVersion,
+      "com.vaadin" % "vaadin-server" % VaadinVersion,
       "javax.servlet" % "javax.servlet-api" % "4.0.0" % "provided"
     )
   )
@@ -95,7 +95,7 @@ lazy val main = (project in file("son2-main"))
     integrationInConfig, end2endInConfig,
     whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
-      "org.scala-lang" % "scala-library" % scalaLibraryVersion
+      "org.scala-lang" % "scala-library" % ScalaLibraryVersion
     )//,
     //    mainClass in assembly := Some("pl.writeonly.son2.main.Main")
   )
@@ -110,7 +110,7 @@ lazy val impl = (project in file("son2-impl"))
     integrationInConfig, end2endInConfig,
     whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
-      "org.scala-lang" % "scala-library" % scalaLibraryVersion
+      "org.scala-lang" % "scala-library" % ScalaLibraryVersion
     )
   )
 
@@ -121,7 +121,7 @@ lazy val json = (project in file("son2-impl/son2-json"))
     name := "son2-json",
     commonSettings,
     libraryDependencies ++= Seq(
-      "org.scala-lang" % "scala-library" % scalaLibraryVersion
+      "org.scala-lang" % "scala-library" % ScalaLibraryVersion
     )
   )
 
@@ -134,7 +134,7 @@ lazy val path = (project in file("son2-impl/son2-path"))
     integrationInConfig, end2endInConfig,
     whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
-      "org.scala-lang" % "scala-library" % scalaLibraryVersion,
+      "org.scala-lang" % "scala-library" % ScalaLibraryVersion,
       "com.jayway.jsonpath" % "json-path" % "2.4.0",
       "net.minidev" % "json-smart" % "2.3",
       "com.google.code.gson" % "gson" % "2.8.1",
@@ -154,12 +154,12 @@ lazy val jack = (project in file("son2-impl/son2-jack"))
     integrationInConfig, end2endInConfig,
     whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
-      "org.scala-lang" % "scala-library" % scalaLibraryVersion,
-      "com.fasterxml.jackson.dataformat" % "jackson-dataformat-yaml" % jacksonVersion,
-      "com.fasterxml.jackson.dataformat" % "jackson-dataformat-xml" % jacksonVersion,
-      "com.fasterxml.jackson.dataformat" % "jackson-dataformat-properties" % jacksonVersion,
-      "com.fasterxml.jackson.dataformat" % "jackson-dataformat-csv" % jacksonVersion,
-      "com.fasterxml.jackson.module" %% "jackson-module-scala" % jacksonVersion,
+      "org.scala-lang" % "scala-library" % ScalaLibraryVersion,
+      "com.fasterxml.jackson.dataformat" % "jackson-dataformat-yaml" % JacksonVersion,
+      "com.fasterxml.jackson.dataformat" % "jackson-dataformat-xml" % JacksonVersion,
+      "com.fasterxml.jackson.dataformat" % "jackson-dataformat-properties" % JacksonVersion,
+      "com.fasterxml.jackson.dataformat" % "jackson-dataformat-csv" % JacksonVersion,
+      "com.fasterxml.jackson.module" %% "jackson-module-scala" % JacksonVersion,
       "ninja.leaping.configurate" % "configurate-hocon" % "3.2"
     )
   )
@@ -171,7 +171,7 @@ lazy val text = (project in file("son2-impl/son2-text"))
     name := "son2-text",
     commonSettings,
     libraryDependencies ++= Seq(
-      "org.scala-lang" % "scala-library" % scalaLibraryVersion,
+      "org.scala-lang" % "scala-library" % ScalaLibraryVersion,
       "org.apache.commons" % "commons-text" % "1.1",
       "org.unbescape" % "unbescape" % "1.1.5.RELEASE"
     )
@@ -186,7 +186,7 @@ lazy val patch = (project in file("son2-impl/son2-patch"))
     integrationInConfig, end2endInConfig,
     whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
-      "org.scala-lang" % "scala-library" % scalaLibraryVersion,
+      "org.scala-lang" % "scala-library" % ScalaLibraryVersion,
       "com.github.fge" % "json-patch" % "1.9"
     )
   )
@@ -198,7 +198,7 @@ lazy val diff = (project in file("son2-impl/son2-diff"))
     name := "son2-diff",
     commonSettings,
     libraryDependencies ++= Seq(
-      "org.scala-lang" % "scala-library" % scalaLibraryVersion,
+      "org.scala-lang" % "scala-library" % ScalaLibraryVersion,
     )
   )
 
@@ -211,7 +211,7 @@ lazy val core = (project in file("son2-core"))
     integrationInConfig, end2endInConfig,
     whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
-      "org.scala-lang" % "scala-library" % scalaLibraryVersion,
+      "org.scala-lang" % "scala-library" % ScalaLibraryVersion,
       "org.scalactic" %% "scalactic" % "3.0.4",
       "com.google.guava" % "guava" % "23.0",
       "org.skyscreamer" % "jsonassert" % "1.5.0"
@@ -223,7 +223,7 @@ lazy val spec = (project in file("son2-spec"))
     name := "son2-spec",
     commonSettings,
     libraryDependencies ++= Seq(
-      "org.scala-lang" % "scala-library" % scalaLibraryVersion,
+      "org.scala-lang" % "scala-library" % ScalaLibraryVersion,
       "com.typesafe.scala-logging" %% "scala-logging" % "3.7.2",
       "org.scalamock" %% "scalamock-scalatest-support" % "3.6.0",
       "org.scalacheck" %% "scalacheck" % "1.13.5",
