@@ -8,14 +8,11 @@ import pl.writeonly.son2.spec.GrayScalarSpec
 
 class MainerScalarSpec extends GrayScalarSpec {
 
-  describe("A Mainer") {
+  it should "when format is 'HELP ME'" in {
     val input = Streamer.toStream("")
     val output = new ByteArrayOutputStream()
     val params = Params(input, output)
 
-    it("when format is 'HELP ME'") {
-      new Mainer(params, Array("HELP ME")).apply
-    }
-
+    new Mainer(params, Array("HELP ME")).apply
   }
 }
