@@ -27,7 +27,7 @@ lazy val FeatureTest = config("feature") extend(Test)
 lazy val funInConfig = inConfig(FunTest)(Defaults.testTasks)
 lazy val featureInConfig = inConfig(FeatureTest)(Defaults.testTasks)
 
-def whiteFilter(name: String): Boolean = (name endsWith "ResultSpec") || (name endsWith "ThrowsSpec")
+def whiteFilter(name: String): Boolean = name endsWith "AssertSpec"
 def grayFilter(name: String): Boolean = (name endsWith "ScalarSpec") || (name endsWith "VectorSpec ")
 def blackFilter(name: String): Boolean = (name endsWith "FeatureSpec")
 

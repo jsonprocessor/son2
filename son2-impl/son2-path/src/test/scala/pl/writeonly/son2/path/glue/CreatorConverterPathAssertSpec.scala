@@ -5,9 +5,9 @@ import pl.writeonly.son2.core.config._
 import pl.writeonly.son2.core.converters.Converter2
 import pl.writeonly.son2.core.glue.Piper
 import pl.writeonly.son2.path.core.ProvidersPath
-import pl.writeonly.son2.spec.WhiteResultSpec
+import pl.writeonly.son2.spec.WhiteAssertSpec
 
-class CreatorConverterPathResultSpec extends WhiteResultSpec {
+class CreatorConverterPathAssertSpec extends WhiteAssertSpec {
 
   val expectedStr = "{}"
   val provider = ProvidersPath.TAPESTRY

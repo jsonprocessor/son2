@@ -5,9 +5,9 @@ import java.io.ByteArrayOutputStream
 import org.scalactic.Bad
 import pl.writeonly.son2.core.glue.Params
 import pl.writeonly.son2.core.streamers.Streamer
-import pl.writeonly.son2.spec.WhiteResultSpec
+import pl.writeonly.son2.spec.WhiteAssertSpec
 
-class MainerResultSpec extends WhiteResultSpec {
+class MainerAssertSpec extends WhiteAssertSpec {
 
   "A Mainer with empty array" when {
     "invoke option" should {

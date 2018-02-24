@@ -6,9 +6,9 @@ import pl.writeonly.son2.core.streamers.{
   StreamerSourceAll,
   StreamerSourceForeach
 }
-import pl.writeonly.son2.spec.WhiteResultSpec
+import pl.writeonly.son2.spec.WhiteAssertSpec
 
-class StreamersResultSpec extends WhiteResultSpec {
+class StreamersAssertSpec extends WhiteAssertSpec {
 
   "A Streamers" when {
     "s is true" should {

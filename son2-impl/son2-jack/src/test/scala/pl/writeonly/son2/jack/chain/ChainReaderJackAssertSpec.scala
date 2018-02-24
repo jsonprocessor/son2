@@ -1,8 +1,8 @@
 package pl.writeonly.son2.jack.chain
 
-import pl.writeonly.son2.spec.WhiteResultSpec
+import pl.writeonly.son2.spec.WhiteAssertSpec
 
-class ChainReaderJackResultSpec extends WhiteResultSpec {
+class ChainReaderJackAssertSpec extends WhiteAssertSpec {
 
   val parser = new ChainReaderJack()
 

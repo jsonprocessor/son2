@@ -5,9 +5,9 @@ import java.io.ByteArrayOutputStream
 import pl.writeonly.son2.core.converters.ConverterFake
 import pl.writeonly.son2.core.glue.{Params, Piper}
 import pl.writeonly.son2.core.streamers.Streamer
-import pl.writeonly.son2.spec.WhiteResultSpec
+import pl.writeonly.son2.spec.WhiteAssertSpec
 
-class PiperResultSpec extends WhiteResultSpec {
+class PiperAssertSpec extends WhiteAssertSpec {
 
   "A Piper" when {
     "convertStream from empty string" should {

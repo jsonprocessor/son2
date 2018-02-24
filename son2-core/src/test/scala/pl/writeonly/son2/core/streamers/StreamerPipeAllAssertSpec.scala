@@ -1,9 +1,9 @@
 package pl.writeonly.son2.core.streamers
 
 import pl.writeonly.son2.core.converters.ConverterFake
-import pl.writeonly.son2.spec.WhiteResultSpec
+import pl.writeonly.son2.spec.WhiteAssertSpec
 
-class StreamerPipeAllResultSpec extends WhiteResultSpec {
+class StreamerPipeAllAssertSpec extends WhiteAssertSpec {
 
   val EMPTY_STRING = ""
   val TWO_EMPTY_STRING = "\n"

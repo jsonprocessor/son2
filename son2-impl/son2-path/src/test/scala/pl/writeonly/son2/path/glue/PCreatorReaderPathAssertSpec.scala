@@ -3,9 +3,9 @@ package pl.writeonly.son2.path.glue
 import pl.writeonly.son2.core.config.RConfig
 import pl.writeonly.son2.path.creators.PCreatorReaderPath
 import pl.writeonly.son2.path.notation._
-import pl.writeonly.son2.spec.WhiteResultSpec
+import pl.writeonly.son2.spec.WhiteAssertSpec
 
-class PCreatorReaderPathResultSpec extends WhiteResultSpec {
+class PCreatorReaderPathAssertSpec extends WhiteAssertSpec {
   //  val pCreator = new PCreatorReaderPath(NotationCaseSmart())
   val pCreator = new PCreatorReaderPath(NotationCaseTapestry())
 

@@ -5,9 +5,9 @@ import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.json.core.ConfigJson
 import pl.writeonly.son2.json.glue.CreatorConverterJson
 import pl.writeonly.son2.path.core.ProvidersPath
-import pl.writeonly.son2.spec.WhiteResultSpec
+import pl.writeonly.son2.spec.WhiteAssertSpec
 
-class GsonWordSpec extends WhiteResultSpec {
+class GsonWordSpec extends WhiteAssertSpec {
 
   val provider: Converter = CreatorConverterJson(ProvidersPath.GSON)
   "A Provider" should {

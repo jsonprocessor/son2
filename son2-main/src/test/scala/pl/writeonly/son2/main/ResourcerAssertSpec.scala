@@ -1,8 +1,8 @@
 package pl.writeonly.son2.main
 
-import pl.writeonly.son2.spec.WhiteResultSpec
+import pl.writeonly.son2.spec.WhiteAssertSpec
 
-class ResourcerResultSpec extends WhiteResultSpec {
+class ResourcerAssertSpec extends WhiteAssertSpec {
   val resourcer: Resourcer = new Resourcer(null)
 
   "A Resourcer" when {

@@ -1,8 +1,8 @@
 package pl.writeonly.son2.jack.notation
 
-import pl.writeonly.son2.spec.WhiteResultSpec
+import pl.writeonly.son2.spec.WhiteAssertSpec
 
-class NotationReaderResultSpec extends WhiteResultSpec {
+class NotationReaderAssertSpec extends WhiteAssertSpec {
 
   "A Predicate" when {
     "param is empty object json" should {

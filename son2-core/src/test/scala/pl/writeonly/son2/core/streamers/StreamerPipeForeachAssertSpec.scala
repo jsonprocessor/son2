@@ -1,9 +1,12 @@
 package pl.writeonly.son2.core.streamers
 
-import pl.writeonly.son2.core.converters.ConverterFake
-import pl.writeonly.son2.spec.WhiteResultSpec
+import java.io.File
+import java.net.URI
 
-class StreamerPipeForeachResultSpec extends WhiteResultSpec {
+import pl.writeonly.son2.core.converters.ConverterFake
+import pl.writeonly.son2.spec.WhiteAssertSpec
+
+class StreamerPipeForeachAssertSpec extends WhiteAssertSpec {
 
   val EMPTY_STRING = ""
   val TWO_EMPTY_STRING = "\n"
@@ -47,4 +50,26 @@ class StreamerPipeForeachResultSpec extends WhiteResultSpec {
     //    }
   }
 
+  "A StreamerPipeForeach" should {
+    "produce NullPointerException when convertFile(File, File) is invoked" in {
+      assertThrows[NullPointerException] {
+        new StreamerPipeForeach(new ConverterFake())
+          .convertFile(null.asInstanceOf[File], null.asInstanceOf[File])
+      }
+    }
+    "produce NullPointerException when convertFile(URL, URL) is invoked" in {
+      assertThrows[NullPointerException] {
+        new StreamerPipeForeach(new ConverterFake())
+          .convertFile(null.asInstanceOf[URI], null.asInstanceOf[URI])
+      }
+
+    }
+    "produce NullPointerException when convertFile(String, String) is invoked" in {
+      assertThrows[NullPointerException] {
+        new StreamerPipeForeach(new ConverterFake())
+          .convertFile(null.asInstanceOf[String], null.asInstanceOf[String])
+      }
+
+    }
+  }
 }

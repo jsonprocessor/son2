@@ -6,9 +6,9 @@ import pl.writeonly.son2.core.converters.Converter
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.jack.core.FormatsJack
 import pl.writeonly.son2.jack.glue.CreatorConverterJack
-import pl.writeonly.son2.spec.WhiteResultSpec
+import pl.writeonly.son2.spec.WhiteAssertSpec
 
-class XmlResultSpec extends WhiteResultSpec {
+class XmlAssertSpec extends WhiteAssertSpec {
 
   val provider: Converter = CreatorConverterJack(FormatsJack.XML)
   "A Provider" should {

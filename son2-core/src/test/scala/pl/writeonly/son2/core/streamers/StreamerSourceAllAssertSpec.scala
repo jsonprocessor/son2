@@ -3,11 +3,11 @@ package pl.writeonly.son2.core.streamers
 import java.io.{PrintWriter, StringWriter}
 
 import pl.writeonly.son2.core.converters.ConverterFake
-import pl.writeonly.son2.spec.WhiteResultSpec
+import pl.writeonly.son2.spec.WhiteAssertSpec
 
 import scala.io.Source
 
-class StreamerSourceAllResultSpec extends WhiteResultSpec {
+class StreamerSourceAllAssertSpec extends WhiteAssertSpec {
 
   val EMPTY_STRING = ""
   val ONE_LINE = "\n"

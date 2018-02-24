@@ -1,9 +1,9 @@
 package pl.writeonly.son2.main
 
 import pl.writeonly.son2.core.glue.Params
-import pl.writeonly.son2.spec.WhiteResultSpec
+import pl.writeonly.son2.spec.WhiteAssertSpec
 
-class ParamsResultSpec extends WhiteResultSpec {
+class ParamsAssertSpec extends WhiteAssertSpec {
   val params = Params(System.in, System.out)
   val other = Params.apply(System.in, System.out)
   "A Params" when {

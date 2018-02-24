@@ -1,9 +1,9 @@
 package pl.writeonly.son2.core
 
 import pl.writeonly.son2.core.util.Control.{FAAny, toConsumerAny}
-import pl.writeonly.son2.spec.WhiteResultSpec
+import pl.writeonly.son2.spec.WhiteAssertSpec
 
-class ControlResultSpec extends WhiteResultSpec {
+class ControlAssertSpec extends WhiteAssertSpec {
 
   "A Control" when {
     "s is true" should {
