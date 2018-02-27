@@ -29,7 +29,6 @@
 - [ ] Add BigDeal format
 
 ## path - processor
-- [ ] Add JsonSurfer https://github.com/jsurfer/JsonSurfer
 - [ ] Add JQL https://github.com/benmfaul/JQL 
 - [ ] Add jfunk https://github.com/mgm-tp/jfunk
 - [ ] Add jolt https://github.com/bazaarvoice/jolt
