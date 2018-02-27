@@ -50,8 +50,6 @@
 * Coloring as a ./jq https://stedolan.github.io/jq/
 * Change name to SCLI
 * Scala Command Line Interface
-  * https://github.com/scopt/scopt
-  * https://github.com/scallop/scallop
   * https://github.com/backuity/clist
   * https://github.com/bmjames/scala-optparse-applicative
 
