@@ -5,7 +5,7 @@ import org.scalactic.{Bad, Good, Or}
 import scala.concurrent.{ExecutionContext, Future}
 import scala.util.{Failure, Success, Try}
 
-object FutureSuccessful {
+object FutureInSideOut {
   def optFuture[A](value: Option[Future[A]])(
       implicit ec: ExecutionContext): Future[Option[A]] = value match {
     case Some(f: Future[A]) => for (a <- f) yield Option(a)
@@ -33,23 +33,23 @@ object FutureSuccessful {
 
   implicit class FutureOpt[A](opt: Option[Future[A]])(
       implicit ec: ExecutionContext) {
-    def optFuture: Future[Option[A]] = FutureSuccessful.optFuture(opt)(ec)
+    def optFuture: Future[Option[A]] = FutureInSideOut.optFuture(opt)(ec)
   }
 
   implicit class FutureEither[A, B](value: Either[A, Future[B]])(
       implicit ec: ExecutionContext) {
     def eitherFuture: Future[Either[A, B]] =
-      FutureSuccessful.eitherFuture(value)(ec)
+      FutureInSideOut.eitherFuture(value)(ec)
   }
 
   implicit class FutureTry[A](value: Try[Future[A]])(
       implicit ec: ExecutionContext) {
-    def tryFuture: Future[Try[A]] = FutureSuccessful.tryFuture(value)(ec)
+    def tryFuture: Future[Try[A]] = FutureInSideOut.tryFuture(value)(ec)
   }
 
   implicit class FutureOr[A, B](value: Future[A] Or B)(
       implicit ec: ExecutionContext) {
-    def orFuture: Future[A Or B] = FutureSuccessful.orFuture(value)(ec)
+    def orFuture: Future[A Or B] = FutureInSideOut.orFuture(value)(ec)
   }
 
 }
