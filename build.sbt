@@ -11,15 +11,15 @@ evictionWarningOptions in update := EvictionWarningOptions.default
   .withWarnScalaVersionEviction(false)
 
 val DropwizardVersion = "1.1.4"
-val JacksonVersion = "2.8.3"
+val JacksonVersion = "2.8.11"
 val VaadinVersion = "8.1.2"
-val ScalaLibraryVersion = "2.11.11"
+val ScalaLibraryVersion = "2.12.4"
 
 lazy val versionSnapshot = "2.8.3-SNAPSHOT"
 
 lazy val commonSettings = Seq(
   organization := "pl.writeonly.son2",
-  scalaVersion := "2.11.8",
+  scalaVersion := ScalaLibraryVersion,
   version := versionSnapshot
 )
 lazy val IntegrationTest = config("it") extend(Test)
