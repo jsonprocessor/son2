@@ -30,7 +30,7 @@ object FutureGetOrFailed {
     case Good(f: Future[A]) => f
     case Bad(f: B)          => Future.failed(toThrowable(f))
   }
-  
+
   private def toThrowable(a: Any): Throwable = a match {
     case f: Throwable => f
     case _            => new IllegalStateException("" + a)
