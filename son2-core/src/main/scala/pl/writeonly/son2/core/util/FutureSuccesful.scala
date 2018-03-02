@@ -9,16 +9,16 @@ object FutureSuccesful {
 
   def opt[A](value: Future[A])(
       implicit ec: ExecutionContext): Future[Option[A]] =
-    value.transformWith({
-      case Success(s) => Future.successful(Option(s))
-      case Failure(_) => Future.successful(None)
+    value.transform({
+      case Success(s) => Success(Option(s))
+      case Failure(_) => Success(None)
     })
 
   def either[A](value: Future[A])(
       implicit ec: ExecutionContext): Future[Either[Throwable, A]] =
-    value.transformWith({
-      case Success(s) => Future.successful(Right(s))
-      case Failure(t) => Future.successful(Left(t))
+    value.transform({
+      case Success(s) => Success(Right(s))
+      case Failure(t) => Success(Left(t))
     })
 
   def tryWith[A](value: Future[A])(
@@ -27,9 +27,9 @@ object FutureSuccesful {
 
   def or[A](value: Future[A])(
       implicit ec: ExecutionContext): Future[A Or Throwable] =
-    value.transformWith({
-      case Success(s) => Future.successful(Good(s))
-      case Failure(t) => Future.successful(Bad(t))
+    value.transform({
+      case Success(s) => Success(Good(s))
+      case Failure(t) => Success(Bad(t))
     })
 
   implicit class FutureSuccessful[A](value: Future[A])(
