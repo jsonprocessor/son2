@@ -41,7 +41,7 @@ lazy val settings = Seq(whiteSetting, graySetting, blackSetting)
 
 lazy val son2 = (project in file("."))
 //  .enablePlugins(JacocoItPlugin)
-  .aggregate(spec, core, impl, main, drop)
+  .aggregate(spec, core, impl, main, clis)
   .configs(IntegrationTest, End2EndTest)
   .settings(
     name := "son2",
@@ -53,36 +53,43 @@ lazy val son2 = (project in file("."))
     coverageFailOnMinimum := true
   )
 
-lazy val drop = (project in file("son2-drop"))
-  .dependsOn(spec, core, adin)
+lazy val clis = (project in file("son2-clis"))
+  .dependsOn(copt, llop)
   .configs(IntegrationTest, End2EndTest)
   .settings(
-    name := "son2-drop",
+    name := "son2-clis",
     commonSettings,
     integrationInConfig, end2endInConfig,
     whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
-      "org.scala-lang" % "scala-library" % ScalaLibraryVersion,
-      "io.dropwizard" % "dropwizard-core" % DropwizardVersion,
-      "io.dropwizard" % "dropwizard-assets" % DropwizardVersion
-    ),
-    mainClass in assembly := Some("pl.writeonly.son2.drop.AppSon2")
+    )
   )
 
-lazy val adin = (project in file("son2-adin"))
-  .dependsOn(spec, core, json)
+lazy val copt = (project in file("son2-clis/son2-copt"))
+  .dependsOn(spec, main)
   .configs(IntegrationTest, End2EndTest)
   .settings(
-    name := "son2-adin",
+    name := "son2-copt",
     commonSettings,
     integrationInConfig, end2endInConfig,
     whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
+      "com.github.scopt" %% "scopt" % "3.7.0",
       "org.scala-lang" % "scala-library" % ScalaLibraryVersion,
-      "com.vaadin" % "vaadin-themes" % VaadinVersion,
-      "com.vaadin" % "vaadin-client-compiled" % VaadinVersion,
-      "com.vaadin" % "vaadin-server" % VaadinVersion,
-      "javax.servlet" % "javax.servlet-api" % "4.0.0" % "provided"
+    )
+  )
+
+lazy val llop = (project in file("son2-clis/son2-llop"))
+  .dependsOn(main)
+  .configs(IntegrationTest, End2EndTest)
+  .settings(
+    name := "son2-llop",
+    commonSettings,
+    integrationInConfig, end2endInConfig,
+    whiteSetting, graySetting, blackSetting,
+    libraryDependencies ++= Seq(
+      "org.rogach" %% "scallop" % "3.1.1",
+      "org.scala-lang" % "scala-library" % ScalaLibraryVersion,
     )
   )
 
