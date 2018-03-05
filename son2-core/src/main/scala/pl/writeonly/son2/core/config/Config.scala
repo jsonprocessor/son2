@@ -24,13 +24,13 @@ case class TConfig(action: Symbol = Symbol(""),
   private def name(s: Symbol): String = Option(s).map(_.name).getOrElse("")
 }
 
-abstract class RStyle
+sealed trait RStyle
 
 object Raw extends RStyle
 
 object Pretty extends RStyle
 
-abstract class RPath
+sealed trait RPath
 
 object Parse extends RPath
 
