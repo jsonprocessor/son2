@@ -25,9 +25,9 @@ case class TConfig(action: Symbol = Symbol(""),
 }
 
 sealed case class RStyle(it: Boolean) extends PartialFunction[Boolean, RStyle] {
-  override def isDefinedAt(x: Boolean) = x == it
+  override def isDefinedAt(x: Boolean): Boolean = x == it
 
-  override def apply(v1: Boolean) = this
+  override def apply(v1: Boolean): RStyle = this
 
   override def toString(): String = s"RStyle($it)"
 }
@@ -41,9 +41,9 @@ object RStyle {
 }
 
 sealed case class WStyle(it: Boolean) extends PartialFunction[Boolean, WStyle] {
-  override def isDefinedAt(x: Boolean) = x == it
+  override def isDefinedAt(x: Boolean): Boolean = x == it
 
-  override def apply(v1: Boolean) = this
+  override def apply(v1: Boolean): WStyle = this
 
   override def toString(): String = s"WStyle($it)"
 }
@@ -58,9 +58,9 @@ object WStyle {
 
 sealed trait RPath
 
-object Parse extends RPath
+case object Parse extends RPath
 
-object Json extends RPath
+case object Json extends RPath
 
 case class Read(path: String) extends RPath
 

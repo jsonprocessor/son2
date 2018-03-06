@@ -8,9 +8,9 @@ import pl.writeonly.son2.core.streamers.Streamer
 class Piper(params: Params, converter: Converter) {
 
   def right(args: Array[String]): Unit = args.length match {
-    case 0 => convertStream();
-    case 1 => convertFile(args(0));
-    case _ => convertFile(args(0), args(1));
+    case 0 => convertStream()
+    case 1 => convertFile(args(0))
+    case _ => convertFile(args(0), args(1))
   }
 
   def convertStream(): Unit = pipe.convertStream(params.in, params.out)
@@ -19,7 +19,10 @@ class Piper(params: Params, converter: Converter) {
 
   def convertFile(in: String, out: String): Unit = pipe.convertFile(in, out)
 
-  def convertFile(in: String): Unit = convertStream(new FileInputStream(in))
+  def convertFile(in: String): Unit = in match {
+    case "." => println(converter.config)
+    case _   => convertStream(new FileInputStream(in))
+  }
 
   def convertStream(in: InputStream): Unit =
     source.convertStream(in, params.out)
