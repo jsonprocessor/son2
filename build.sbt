@@ -1,5 +1,3 @@
-import sbt.IntegrationTest
-
 enablePlugins(com.lucidchart.sbt.scalafmt.ScalafmtPlugin)
 
 resolvers += "Artima Maven Repository" at "http://repo.artima.com/releases"
@@ -10,12 +8,17 @@ evictionWarningOptions in update := EvictionWarningOptions.default
   .withWarnDirectEvictions(false)
   .withWarnScalaVersionEviction(false)
 
-val DropwizardVersion = "1.1.4"
+scalacOptions ++= Seq(
+  "-unchecked",
+  "-deprecation",
+  "-feature",
+  "-Ywarn-unused-import"
+)
+
 val JacksonVersion = "2.8.11"
-val VaadinVersion = "8.1.2"
 val ScalaLibraryVersion = "2.12.4"
 
-lazy val versionSnapshot = "2.8.3-SNAPSHOT"
+lazy val versionSnapshot = s"$JacksonVersion-SNAPSHOT"
 
 lazy val commonSettings = Seq(
   organization := "pl.writeonly.son2",
