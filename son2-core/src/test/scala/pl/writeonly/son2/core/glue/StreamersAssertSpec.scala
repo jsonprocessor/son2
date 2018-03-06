@@ -1,5 +1,6 @@
 package pl.writeonly.son2.core.glue
 
+import pl.writeonly.son2.core.config.{RAll, RStream}
 import pl.writeonly.son2.core.streamers.{
   StreamerPipeAll,
   StreamerPipeForeach,
@@ -12,7 +13,7 @@ class StreamersAssertSpec extends WhiteAssertSpec {
 
   "A Streamers" when {
     "s is true" should {
-      val s = true
+      val s = RStream
       "pipe return stream.isInstanceOf[StreamerPipeForeach]" in {
         val stream = Streamers.pipe(s, null)
         assert(stream.isInstanceOf[StreamerPipeForeach])
@@ -23,7 +24,7 @@ class StreamersAssertSpec extends WhiteAssertSpec {
       }
     }
     "s is false" should {
-      val s = false
+      val s = RAll
       "pipe return stream.isInstanceOf[StreamerPipeAll]" in {
         val stream = Streamers.pipe(s, null)
         assert(stream.isInstanceOf[StreamerPipeAll])

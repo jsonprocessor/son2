@@ -2,6 +2,7 @@ package pl.writeonly.son2.jack.converters
 
 import com.fasterxml.jackson.core.JsonParseException
 import com.fasterxml.jackson.databind.JsonMappingException
+import pl.writeonly.son2.core.config.WPretty
 import pl.writeonly.son2.core.converters.{Converter, Converter2}
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.jack.core.{ConfigJack, FormatsJack}
@@ -32,10 +33,10 @@ class ObjectAssertSpec extends WhiteAssertSpec {
   }
 
   val providerRaw: Converter = CreatorConverterJack(
-    ConfigJack(o = FormatsJack.OBJECT, p = false))
+    ConfigJack(FormatsJack.OBJECT))
   "A ProviderRaw" should {
-    "have pretty == false" in {
-      assertResult(false)(providerRaw.config.write.style)
+    "have pretty == true" in {
+      assertResult(WPretty)(providerRaw.config.write.style)
     }
     "be  Provider2" in {
       assertResult(true)(providerRaw.isInstanceOf[Converter2])

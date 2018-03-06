@@ -2,7 +2,7 @@ package pl.writeonly.son2.core.notation
 
 import com.google.common.base.MoreObjects
 import org.scalactic.{Bad, Good, Or}
-import pl.writeonly.son2.core.config.WConfig
+import pl.writeonly.son2.core.config.{WConfig, WPretty, WRaw}
 
 abstract class NotationWriter(val config: WConfig) {
 
@@ -12,8 +12,8 @@ abstract class NotationWriter(val config: WConfig) {
   }
 
   def write(value: Any): String = config.style match {
-    case true  => writePretty(value)
-    case false => writeRaw(value)
+    case WPretty => writePretty(value)
+    case WRaw    => writeRaw(value)
   }
 
   def comment(content: String): String = content

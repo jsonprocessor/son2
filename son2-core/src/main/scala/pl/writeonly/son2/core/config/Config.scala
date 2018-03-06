@@ -6,13 +6,13 @@ case class Config(read: RConfig = RConfig(),
 
 case class RConfig(provider: Symbol = Symbol(""),
                    format: Symbol = Symbol(""),
-                   stream: Boolean = true,
+                   stream: RStyle = RStream,
                    path: RPath = RPath.json,
                    options: Set[Symbol] = Set())
 
 case class WConfig(provider: Symbol = Symbol(""),
                    format: Symbol = Symbol(""),
-                   style: Boolean = false,
+                   style: WStyle = WPretty,
                    addEndLine: Boolean = true,
                    gson: Set[Symbol] = Set())
 
@@ -24,11 +24,37 @@ case class TConfig(action: Symbol = Symbol(""),
   private def name(s: Symbol): String = Option(s).map(_.name).getOrElse("")
 }
 
-sealed trait RStyle
+sealed case class RStyle(it: Boolean) extends PartialFunction[Boolean, RStyle] {
+  override def isDefinedAt(x: Boolean) = x == it
 
-object Raw extends RStyle
+  override def apply(v1: Boolean) = this
 
-object Pretty extends RStyle
+  override def toString(): String = s"RStyle($it)"
+}
+
+object RStream extends RStyle(true)
+
+object RAll extends RStyle(false)
+
+object RStyle {
+  def apply: Boolean => RStyle = RStream orElse RAll
+}
+
+sealed case class WStyle(it: Boolean) extends PartialFunction[Boolean, WStyle] {
+  override def isDefinedAt(x: Boolean) = x == it
+
+  override def apply(v1: Boolean) = this
+
+  override def toString(): String = s"WStyle($it)"
+}
+
+object WRaw extends WStyle(false)
+
+object WPretty extends WStyle(true)
+
+object WStyle {
+  def apply: Boolean => WStyle = WRaw orElse WPretty
+}
 
 sealed trait RPath
 
