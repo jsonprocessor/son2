@@ -41,17 +41,12 @@ sbt clean compile assembly
 ### CLI
 Add line to file ~/.bashrc
 ```
-alias son2="java -jar son2-main/target/scala-2.11/son2-main-assembly-2.8.3-SNAPSHOT.jar"
+alias son2="java -jar son2-main/target/scala-2.12/son2-main-assembly-2.8.3-SNAPSHOT.jar"
 alias son2o="son2 o"
 alias son2y="son2 y"
 alias son2x="son2 x"
+alias son2p="son2 p"
 ```
-
-### WebServer
- ```
-sbt "project drop" "run server"
-```
-
 ## Usage
 
 [usage](https://github.com/writeonly/son2/tree/master/son2-main/src/main/resources/README.md)
