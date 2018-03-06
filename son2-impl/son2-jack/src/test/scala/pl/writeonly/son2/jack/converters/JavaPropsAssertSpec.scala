@@ -8,7 +8,7 @@ import pl.writeonly.son2.jack.core.FormatsJack
 import pl.writeonly.son2.jack.glue.CreatorConverterJack
 import pl.writeonly.son2.spec.WhiteAssertSpec
 
-class JavaPropsWordSpec extends WhiteAssertSpec {
+class JavaPropsAssertSpec extends WhiteAssertSpec {
 
   val provider: Converter = CreatorConverterJack(FormatsJack.JAVA_PROPS)
   "A Provider" should {

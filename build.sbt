@@ -12,7 +12,8 @@ scalacOptions ++= Seq(
   "-unchecked",
   "-deprecation",
   "-feature",
-  "-Ywarn-unused-import"
+  "-Ywarn-unused-import",
+  "-Xfatal-warnings",
 )
 
 val JacksonVersion = "2.8.11"
