@@ -4,24 +4,42 @@ case class Config(read: RConfig = RConfig(),
                   write: WConfig = WConfig(),
                   translate: TConfig = TConfig())
 
-case class RConfig(provider: Symbol = Symbol(""),
-                   format: Symbol = Symbol(""),
+case class RConfig(provider: Provider = Provider(""),
+                   format: Format = Format(""),
                    stream: RStyle = RStream,
                    path: RPath = RPath.json,
                    options: Set[Symbol] = Set())
 
-case class WConfig(provider: Symbol = Symbol(""),
-                   format: Symbol = Symbol(""),
+case class WConfig(provider: Provider = Provider(""),
+                   format: Format = Format(""),
                    style: WStyle = WPretty,
                    addEndLine: Boolean = true,
                    gson: Set[Symbol] = Set())
 
 case class TConfig(action: Symbol = Symbol(""),
-                   format: Symbol = Symbol(""),
+                   format: Format = Format(""),
                    level: Short = 0) {
-  def actionAndFormat = name(action) + "_" + name(format)
+  def actionAndFormat = name(action) + "_" + name(format.s)
 
   private def name(s: Symbol): String = Option(s).map(_.name).getOrElse("")
+}
+
+case class Provider(s: Symbol) {
+  def startsWith(other: Provider): Boolean = name.startsWith(other.name)
+  def name: String = s.name
+}
+
+case object Provider {
+  def apply(name: String): Provider = Provider(Symbol(name))
+}
+
+case class Format(s: Symbol) {
+  def startsWith(other: Format): Boolean = name.startsWith(other.name)
+  def name: String = s.name
+}
+
+case object Format {
+  def apply(name: String): Format = Format(Symbol(name))
 }
 
 sealed case class RStyle(it: Boolean) extends PartialFunction[Boolean, RStyle] {

@@ -5,8 +5,9 @@ import com.fasterxml.jackson.dataformat.csv.CsvMapper
 import com.fasterxml.jackson.dataformat.javaprop.JavaPropsMapper
 import com.fasterxml.jackson.dataformat.xml.XmlMapper
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper
+import pl.writeonly.son2.core.config.Format
 
-abstract class Jack(val format: Symbol,
+abstract class Jack(val format: Format,
                     val mapper: ObjectMapper,
                     val s1: String,
                     val s2: String)

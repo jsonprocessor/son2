@@ -33,9 +33,14 @@ class CreatorConverterPathAssertSpec extends WhiteAssertSpec {
   "A CreatorConverterPath " when {
     "in config provider is 'tapestry, query is $..*, stream is false and pretty is true" should {
       val config =
-        Config(RConfig('tapestry, 'object, RAll, RPath("$..*"), Set()),
-               WConfig('tapestry, 'yaml, WPretty, true, Set()),
-               TConfig())
+        Config(
+          RConfig(Provider('tapestry),
+                  Format('object),
+                  RAll,
+                  RPath("$..*"),
+                  Set()),
+          WConfig(Provider('tapestry), Format('yaml), WPretty, true, Set()),
+          TConfig())
       val converter = CreatorConverterPath(config)
       "return [] for {} by streamer" in {
         val streamer = new Piper(null, converter).print(false)

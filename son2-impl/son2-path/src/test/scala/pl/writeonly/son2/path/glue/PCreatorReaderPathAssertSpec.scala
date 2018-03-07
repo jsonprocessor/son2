@@ -1,6 +1,7 @@
 package pl.writeonly.son2.path.glue
 
 import pl.writeonly.son2.core.config.RConfig
+import pl.writeonly.son2.path.core.ProvidersPath
 import pl.writeonly.son2.path.creators.PCreatorReaderPath
 import pl.writeonly.son2.path.notation._
 import pl.writeonly.son2.spec.WhiteAssertSpec
@@ -10,7 +11,7 @@ class PCreatorReaderPathAssertSpec extends WhiteAssertSpec {
   val pCreator = new PCreatorReaderPath(NotationCaseTapestry())
 
   "A pCreator" when {
-    val config = RConfig(provider = 'tapestry)
+    val config = RConfig(provider = ProvidersPath.TAPESTRY)
     "is isDefinedAt with 'tapestry in config" should {
       "return true" in {
         assertResult(true) {

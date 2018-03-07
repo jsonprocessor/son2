@@ -7,7 +7,7 @@ import pl.writeonly.son2.path.notation.NotationCasePath
 
 class PCreatorReaderPath(jack: NotationCasePath) extends PCreatorReader {
   override def isDefinedAt(c: RConfig): Boolean =
-    jack.format.name.startsWith(c.provider.name)
+    jack.format.startsWith(c.provider)
 
   override def apply(c: RConfig): NotationReader = jack.reader(c)
 }
