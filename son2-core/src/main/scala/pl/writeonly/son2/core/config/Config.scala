@@ -19,7 +19,7 @@ case class WConfig(provider: Provider = Provider(""),
 case class TConfig(action: Symbol = Symbol(""),
                    format: Format = Format(""),
                    level: Short = 0) {
-  def actionAndFormat = name(action) + "_" + name(format.s)
+  def actionAndFormat: String = name(action) + "_" + name(format.s)
 
   private def name(s: Symbol): String = Option(s).map(_.name).getOrElse("")
 }

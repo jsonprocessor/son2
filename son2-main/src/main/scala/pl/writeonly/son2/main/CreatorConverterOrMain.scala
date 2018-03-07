@@ -16,30 +16,30 @@ import pl.writeonly.son2.text.creators.PCreatorConfigText
 import pl.writeonly.son2.text.glue.ChainNotationRWTText
 
 class CreatorConverterOrMain
-    extends CreatorConverterOr(
+  extends CreatorConverterOr(
+    new ChainNotationConfigJack().get
+      orElse
       new ChainNotationConfigPathMain().get
+      orElse
+      new PCreatorConfigText,
+    new ChainNotationRWT(
+      new ChainNotationRWTJack().r
         orElse
-          new ChainNotationConfigJack().get
-        orElse
-          new PCreatorConfigText,
-      new ChainNotationRWT(
         new ChainNotationRWTPath().r
-          orElse
-            new ChainNotationRWTJack().r
-          orElse
-            new ChainNotationRWTText().r,
+        orElse
+        new ChainNotationRWTText().r,
+      new ChainNotationRWTJack().w
+        orElse
         new ChainNotationRWTPath().w
-          orElse
-            new ChainNotationRWTJack().w
-          orElse
-            new ChainNotationRWTText().w,
+        orElse
+        new ChainNotationRWTText().w,
+      new ChainNotationRWTJack().t
+        orElse
         new ChainNotationRWTPath().t
-          orElse
-            new ChainNotationRWTJack().t
-          orElse
-            new ChainNotationRWTText().t
-      )
-    ) {
+        orElse
+        new ChainNotationRWTText().t
+    )
+  ) {
   override def configOpt(s: String): Option[Config] =
     chainNotationCreator.configOpt(s).orElse(new ChainReaderJack().configOpt(s))
 
