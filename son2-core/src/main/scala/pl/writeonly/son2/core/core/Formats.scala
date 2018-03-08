@@ -2,7 +2,7 @@ package pl.writeonly.son2.core.core
 
 import pl.writeonly.son2.core.config.Format
 
-class Formats {
+trait Formats {
   val OBJECT = Format('object)
   val CSV = Format('csv)
   val XML = Format('xml)
@@ -12,3 +12,5 @@ class Formats {
   val ALL = List(OBJECT, XML, CSV, PROPERTIES, JAVA_PROPS)
 
 }
+
+object Formats extends Formats

@@ -224,6 +224,7 @@ lazy val core = (project in file("son2-core"))
     libraryDependencies ++= Seq(
       "org.scala-lang" % "scala-library" % ScalaLibraryVersion,
       "org.scalactic" %% "scalactic" % "3.0.4",
+      "com.typesafe" % "config" % "1.3.2",
       "com.google.guava" % "guava" % "23.0",
       "org.skyscreamer" % "jsonassert" % "1.5.0"
     )

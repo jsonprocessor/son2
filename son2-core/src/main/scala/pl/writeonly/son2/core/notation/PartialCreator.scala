@@ -1,19 +1,19 @@
 package pl.writeonly.son2.core.notation
 
-import pl.writeonly.son2.core.config.Config
+import pl.writeonly.son2.core.config.RWTConfig
 
-trait PartialCreator extends PartialFunction[Config, NotationRWT] {
+trait PartialCreator extends PartialFunction[RWTConfig, NotationRWT] {
 
-  override def apply(s: Config) = rwt(s)
+  override def apply(s: RWTConfig) = rwt(s)
 
-  def rwt(c: Config) = NotationRWT(r(c), w(c), t(c))
+  def rwt(c: RWTConfig) = NotationRWT(r(c), w(c), t(c))
 
-  def r(c: Config): NotationReader
+  def r(c: RWTConfig): NotationReader
 
-  def w(c: Config): NotationWriter
+  def w(c: RWTConfig): NotationWriter
 
-  def t(c: Config): NotationTranslator
+  def t(c: RWTConfig): NotationTranslator
 
-  def is(s: Config): Boolean = isDefinedAt(s)
+  def is(s: RWTConfig): Boolean = isDefinedAt(s)
 
 }

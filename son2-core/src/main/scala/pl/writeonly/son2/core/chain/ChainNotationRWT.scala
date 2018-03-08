@@ -1,6 +1,6 @@
 package pl.writeonly.son2.core.chain
 
-import pl.writeonly.son2.core.config.{Config, Format, RConfig, WConfig}
+import pl.writeonly.son2.core.config.{RWTConfig, Format, RConfig, WConfig}
 import pl.writeonly.son2.core.core.{FNotationReader, FNotationWriter}
 import pl.writeonly.son2.core.notation.{
   NotationReader,
@@ -48,8 +48,8 @@ class PCreatorWriterSymbol(format: Format, creator: FNotationWriter)
 }
 
 class PCreatorTranslatorFake extends PCreatorTranslator {
-  override def isDefinedAt(x: Config): Boolean = false
+  override def isDefinedAt(x: RWTConfig): Boolean = false
 
-  override def apply(c: Config): NotationTranslator =
+  override def apply(c: RWTConfig): NotationTranslator =
     throw new IllegalStateException(c.toString)
 }

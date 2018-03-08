@@ -1,6 +1,6 @@
 package pl.writeonly.son2.text.creators
 
-import pl.writeonly.son2.core.config.{Config, Format, TConfig}
+import pl.writeonly.son2.core.config.{RWTConfig, Format, TConfig}
 import pl.writeonly.son2.core.pcreators.PCreatorConfig
 import pl.writeonly.son2.text.core.{Actions, FormatsText}
 
@@ -28,7 +28,7 @@ class PCreatorConfigText extends PCreatorConfig {
   private def find2(s: String, l: List[Format]) =
     l.find(it => it.s.name.toLowerCase.startsWith(s))
 
-  override def apply(s: String) = Config(translate = translateConfig(s))
+  override def apply(s: String) = RWTConfig(translate = translateConfig(s))
 
   def translateConfig(s: String): TConfig =
     symbolOptionPairOption(s)

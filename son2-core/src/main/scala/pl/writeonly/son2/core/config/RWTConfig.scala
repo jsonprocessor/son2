@@ -1,8 +1,8 @@
 package pl.writeonly.son2.core.config
 
-case class Config(read: RConfig = RConfig(),
-                  write: WConfig = WConfig(),
-                  translate: TConfig = TConfig())
+case class RWTConfig(read: RConfig = RConfig(),
+                     write: WConfig = WConfig(),
+                     translate: TConfig = TConfig())
 
 case class RConfig(provider: Provider = Provider(""),
                    format: Format = Format(""),
@@ -14,7 +14,8 @@ case class WConfig(provider: Provider = Provider(""),
                    format: Format = Format(""),
                    style: WStyle = WPretty,
                    addEndLine: Boolean = true,
-                   gson: Set[Symbol] = Set())
+                   nullOptions: Boolean = true,
+                   options: Set[Symbol] = Set())
 
 case class TConfig(action: Symbol = Symbol(""),
                    format: Format = Format(""),
@@ -55,7 +56,8 @@ object RStream extends RStyle(true)
 object RAll extends RStyle(false)
 
 object RStyle {
-  def apply: Boolean => RStyle = RStream orElse RAll
+  type T = Boolean => RStyle
+  def apply: T = RStream orElse RAll
 }
 
 sealed case class WStyle(it: Boolean) extends PartialFunction[Boolean, WStyle] {
@@ -71,7 +73,8 @@ object WRaw extends WStyle(false)
 object WPretty extends WStyle(true)
 
 object WStyle {
-  def apply: Boolean => WStyle = WRaw orElse WPretty
+  type T = Boolean => WStyle
+  def apply: T = WRaw orElse WPretty
 }
 
 sealed trait RPath

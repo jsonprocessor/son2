@@ -2,7 +2,7 @@ package pl.writeonly.son2.core.glue
 
 import org.scalactic.{Bad, ErrorMessage, Good, Or}
 import pl.writeonly.son2.core.chain.{ChainNotationCreator, ChainNotationRWT}
-import pl.writeonly.son2.core.config.Config
+import pl.writeonly.son2.core.config.RWTConfig
 import pl.writeonly.son2.core.converters.Converter
 import pl.writeonly.son2.core.pcreators.PCreatorConfig
 
@@ -17,5 +17,6 @@ abstract class CreatorConverterOr(parser: PCreatorConfig,
       .map(p => Good(p))
       .getOrElse(Bad(s))
 
-  def configOpt(s: String): Option[Config] = chainNotationCreator.configOpt(s)
+  def configOpt(s: String): Option[RWTConfig] =
+    chainNotationCreator.configOpt(s)
 }

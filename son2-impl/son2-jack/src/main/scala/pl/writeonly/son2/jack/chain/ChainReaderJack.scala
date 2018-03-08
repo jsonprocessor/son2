@@ -19,7 +19,7 @@ class ChainReaderJack
           new NotationReaderJavaProps)
     with HasConfigOpt {
 
-  def configOpt(s: String): Option[Config] =
+  def configOpt(s: String): Option[RWTConfig] =
     get.lift(s).map(a => ChainReaderJack.config(a.asInstanceOf[JsonNode]))
 
   def parse(s: String): JsonNode = get.lift(s).get.asInstanceOf[JsonNode]
@@ -27,10 +27,10 @@ class ChainReaderJack
 }
 
 object ChainReaderJack {
-  def config(n: JsonNode): Config = config(n, ConfigJack.apply())
+  def config(n: JsonNode): RWTConfig = config(n, ConfigJack.apply())
 
-  def config(n: JsonNode, c: Config): Config =
-    Config(read = rConfig(n, c.read), write = wConfig(n, c.write))
+  def config(n: JsonNode, c: RWTConfig): RWTConfig =
+    RWTConfig(read = rConfig(n, c.read), write = wConfig(n, c.write))
 
   def rConfig(n: JsonNode, c: RConfig) =
     RConfig(provider =

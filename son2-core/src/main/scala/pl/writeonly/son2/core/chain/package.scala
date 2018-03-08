@@ -1,6 +1,6 @@
 package pl.writeonly.son2.core
 
-import pl.writeonly.son2.core.config.{Config, RConfig, WConfig}
+import pl.writeonly.son2.core.config.{RWTConfig, RConfig, WConfig}
 import pl.writeonly.son2.core.notation.{
   NotationRWT,
   NotationReader,
@@ -9,10 +9,10 @@ import pl.writeonly.son2.core.notation.{
 }
 
 package object pcreators {
-  type PCreatorConfig = PartialFunction[String, Config]
+  type PCreatorConfig = PartialFunction[String, RWTConfig]
   type PCreatorReader = PartialFunction[RConfig, NotationReader]
   type PCreatorWriter = PartialFunction[WConfig, NotationWriter]
-  type PCreatorTranslator = PartialFunction[Config, NotationTranslator]
-  type PCreatorNotationRWT = PartialFunction[Config, NotationRWT]
+  type PCreatorTranslator = PartialFunction[RWTConfig, NotationTranslator]
+  type PCreatorNotationRWT = PartialFunction[RWTConfig, NotationRWT]
 
 }

@@ -2,7 +2,7 @@ package pl.writeonly.son2.jack.core
 
 import pl.writeonly.son2.spec.WhiteAssertSpec
 
-class ConfigAssertSpec extends WhiteAssertSpec {
+class RWTConfigAssertSpec extends WhiteAssertSpec {
   val config = ConfigJack(FormatsJack.YAML)
   val other = ConfigJack.apply(FormatsJack.YAML)
   "A Config" when {

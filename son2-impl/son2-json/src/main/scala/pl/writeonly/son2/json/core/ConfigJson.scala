@@ -4,17 +4,18 @@ import pl.writeonly.son2.core.config._
 import pl.writeonly.son2.path.core.ProvidersPath
 
 object ConfigJson {
-  def apply(s: String): Config =
+  def apply(s: String): RWTConfig =
     ConfigJson.apply(provider = Provider(Symbol(s)))
 
-  def apply(): Config = ConfigJson.apply(ProvidersPath.GSON)
+  def apply(): RWTConfig = ConfigJson.apply(ProvidersPath.GSON)
 
-  def apply(s: Provider): Config = ConfigJson.apply(provider = s)
+  def apply(s: Provider): RWTConfig = ConfigJson.apply(provider = s)
 
   def apply(provider: Provider = ProvidersPath.GSON,
             s: RStyle = RStream,
             p: WStyle = WPretty) =
-    Config(read = RConfig(provider = provider, stream = s, path = RPath.parse),
-           write = WConfig(provider = provider, style = p))
+    RWTConfig(read =
+                RConfig(provider = provider, stream = s, path = RPath.parse),
+              write = WConfig(provider = provider, style = p))
 
 }
