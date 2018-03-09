@@ -1,0 +1,12 @@
+[submodule "subs/scalaaddons"]
+	path = son2-subs/scalaaddons
+	url = https://github.com/writeonly/scalaaddons.git
+[submodule "subs/jackson-dataformat-hocon"]
+	path = son2-subs/jackson-dataformat-hocon
+	url = https://github.com/writeonly/jackson-dataformat-hocon.git
+[submodule "subs/jackson-dataformat-rison"]
+	path = son2-subs/jackson-dataformat-rison
+	url = https://github.com/writeonly/jackson-dataformat-rison.git
+[submodule "subs/rison"]
+	path = son2-subs/rison
+	url = https://github.com/writeonly/rison.git
