@@ -18,6 +18,7 @@ scalacOptions ++= Seq(
 
 val JacksonVersion = "2.8.11"
 val ScalaLibraryVersion = "2.12.4"
+val ScalaticVersion = "3.0.4"
 
 lazy val versionSnapshot = s"$JacksonVersion-SNAPSHOT"
 
@@ -214,7 +215,7 @@ lazy val diff = (project in file("son2-impl/son2-diff"))
   )
 
 lazy val core = (project in file("son2-core"))
-  .dependsOn(spec)
+  .dependsOn(spec, addons)
   .configs(IntegrationTest, End2EndTest)
   .settings(
     name := "son2-core",
@@ -223,7 +224,7 @@ lazy val core = (project in file("son2-core"))
     whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
       "org.scala-lang" % "scala-library" % ScalaLibraryVersion,
-      "org.scalactic" %% "scalactic" % "3.0.4",
+      "org.scalactic" %% "scalactic" % ScalaticVersion,
       "com.typesafe" % "config" % "1.3.2",
       "com.google.guava" % "guava" % "23.0",
       "org.skyscreamer" % "jsonassert" % "1.5.0"
@@ -233,6 +234,48 @@ lazy val core = (project in file("son2-core"))
 lazy val spec = (project in file("son2-spec"))
   .settings(
     name := "son2-spec",
+    commonSettings,
+    libraryDependencies ++= Seq(
+      "org.scala-lang" % "scala-library" % ScalaLibraryVersion,
+      "com.typesafe.scala-logging" %% "scala-logging" % "3.7.2",
+      "org.scalamock" %% "scalamock-scalatest-support" % "3.6.0",
+      "org.scalacheck" %% "scalacheck" % "1.13.5",
+      "org.pegdown" % "pegdown" % "1.6.0",
+      "ch.qos.logback" % "logback-classic" % "1.2.3"
+    )
+  )
+
+lazy val addons = (project in file("son2-subs/scalaaddons"))
+  //  .enablePlugins(JacocoItPlugin)
+  .aggregate(utils, specs)
+  .configs(IntegrationTest, End2EndTest)
+  .settings(
+    name := "addons",
+    commonSettings,
+    integrationInConfig, end2endInConfig,
+    whiteSetting, graySetting, blackSetting,
+    coverageEnabled := true,
+    coverageMinimum := 60,
+    coverageFailOnMinimum := true
+  )
+
+lazy val utils = (project in file("son2-subs/scalaaddons/scalaaddon-utils"))
+  .dependsOn(specs)
+  .configs(IntegrationTest, End2EndTest)
+  .settings(
+    name := "addon-util",
+    commonSettings,
+    integrationInConfig, end2endInConfig,
+    whiteSetting, graySetting, blackSetting,
+    libraryDependencies ++= Seq(
+      "org.scala-lang" % "scala-library" % ScalaLibraryVersion,
+      "org.scalactic" %% "scalactic" % ScalaticVersion
+    )
+  )
+
+lazy val specs = (project in file("son2-subs/scalaaddons/scalaaddon-specs"))
+  .settings(
+    name := "addon-spec",
     commonSettings,
     libraryDependencies ++= Seq(
       "org.scala-lang" % "scala-library" % ScalaLibraryVersion,
