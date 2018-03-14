@@ -10,3 +10,6 @@
 [submodule "subs/rison"]
 	path = son2-subs/rison
 	url = https://github.com/writeonly/rison.git
+[submodule "son2-adds"]
+	path = son2-adds
+	url = https://github.com/writeonly/scalaaddons.git

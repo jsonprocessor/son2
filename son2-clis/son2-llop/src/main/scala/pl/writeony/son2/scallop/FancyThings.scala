@@ -2,7 +2,7 @@ package pl.writeony.son2.scallop
 
 import org.rogach.scallop._
 
-class FancyThings {
+object FancyThings {
   object Conf extends ScallopConf(
     List("-Ekey1=value1", "key2=value2", "key3=value3",
       "first", "1","2","3","second","4","5","6")) {

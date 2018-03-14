@@ -245,7 +245,7 @@ lazy val spec = (project in file("son2-spec"))
     )
   )
 
-lazy val addons = (project in file("son2-subs/scalaaddons"))
+lazy val addons = (project in file("son2-adds"))
   //  .enablePlugins(JacocoItPlugin)
   .aggregate(utils, specs)
   .configs(IntegrationTest, End2EndTest)
@@ -259,7 +259,7 @@ lazy val addons = (project in file("son2-subs/scalaaddons"))
     coverageFailOnMinimum := true
   )
 
-lazy val utils = (project in file("son2-subs/scalaaddons/scalaaddon-utils"))
+lazy val utils = (project in file("son2-adds/scalaaddon-utils"))
   .dependsOn(specs)
   .configs(IntegrationTest, End2EndTest)
   .settings(
@@ -273,7 +273,7 @@ lazy val utils = (project in file("son2-subs/scalaaddons/scalaaddon-utils"))
     )
   )
 
-lazy val specs = (project in file("son2-subs/scalaaddons/scalaaddon-specs"))
+lazy val specs = (project in file("son2-adds/scalaaddon-specs"))
   .settings(
     name := "addon-spec",
     commonSettings,
