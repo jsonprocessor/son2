@@ -215,7 +215,7 @@ lazy val diff = (project in file("son2-impl/son2-diff"))
   )
 
 lazy val core = (project in file("son2-core"))
-  .dependsOn(spec, addons)
+  .dependsOn(spec, scalaaddons)
   .configs(IntegrationTest, End2EndTest)
   .settings(
     name := "son2-core",
@@ -245,7 +245,7 @@ lazy val spec = (project in file("son2-spec"))
     )
   )
 
-lazy val addons = (project in file("son2-adds"))
+lazy val scalaaddons = (project in file("son2-adds"))
   //  .enablePlugins(JacocoItPlugin)
   .aggregate(utils, specs)
   .configs(IntegrationTest, End2EndTest)
