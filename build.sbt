@@ -46,7 +46,7 @@ lazy val settings = Seq(whiteSetting, graySetting, blackSetting)
 
 lazy val son2 = (project in file("."))
 //  .enablePlugins(JacocoItPlugin)
-  .aggregate(spec, core, impl, main, clis)
+  .aggregate(specs, core, impl, main, clis)
   .configs(IntegrationTest, End2EndTest)
   .settings(
     name := "son2",
@@ -71,7 +71,7 @@ lazy val clis = (project in file("son2-clis"))
   )
 
 lazy val copt = (project in file("son2-clis/son2-copt"))
-  .dependsOn(spec, main)
+  .dependsOn(specs, main)
   .configs(IntegrationTest, End2EndTest)
   .settings(
     name := "son2-copt",
@@ -99,7 +99,7 @@ lazy val llop = (project in file("son2-clis/son2-llop"))
   )
 
 lazy val main = (project in file("son2-main"))
-  .dependsOn(spec, core, text, jack, path, patch, diff, json, impl)
+  .dependsOn(specs, core, text, jack, path, patch, diff, json, impl)
   .configs(IntegrationTest, End2EndTest)
   .settings(
     name := "son2-main",
@@ -114,7 +114,7 @@ lazy val main = (project in file("son2-main"))
 
 lazy val impl = (project in file("son2-impl"))
   .aggregate(text, jack, path, patch, diff, json)
-  .dependsOn(spec, core, text, jack, path, patch, diff, json)
+  .dependsOn(specs, core, text, jack, path, patch, diff, json)
   .configs(IntegrationTest, End2EndTest)
   .settings(
     name := "son2-impl",
@@ -127,7 +127,7 @@ lazy val impl = (project in file("son2-impl"))
   )
 
 lazy val json = (project in file("son2-impl/son2-json"))
-  .dependsOn(spec, core, jack, path)
+  .dependsOn(specs, core, jack, path)
   .configs(IntegrationTest, End2EndTest)
   .settings(
     name := "son2-json",
@@ -138,7 +138,7 @@ lazy val json = (project in file("son2-impl/son2-json"))
   )
 
 lazy val path = (project in file("son2-impl/son2-path"))
-  .dependsOn(spec, core, jack)
+  .dependsOn(specs, core, jack)
   .configs(IntegrationTest, End2EndTest)
   .settings(
     name := "son2-path",
@@ -158,7 +158,7 @@ lazy val path = (project in file("son2-impl/son2-path"))
   )
 
 lazy val jack = (project in file("son2-impl/son2-jack"))
-  .dependsOn(spec, core)
+  .dependsOn(specs, core)
   .configs(IntegrationTest, End2EndTest)
   .settings(
     name := "son2-jack",
@@ -177,7 +177,7 @@ lazy val jack = (project in file("son2-impl/son2-jack"))
   )
 
 lazy val text = (project in file("son2-impl/son2-text"))
-  .dependsOn(spec, core)
+  .dependsOn(specs, core)
   .configs(IntegrationTest, End2EndTest)
   .settings(
     name := "son2-text",
@@ -190,7 +190,7 @@ lazy val text = (project in file("son2-impl/son2-text"))
   )
 
 lazy val patch = (project in file("son2-impl/son2-patch"))
-  .dependsOn(spec, core, jack)
+  .dependsOn(specs, core, jack)
   .configs(IntegrationTest, End2EndTest)
   .settings(
     name := "son2-patch",
@@ -204,7 +204,7 @@ lazy val patch = (project in file("son2-impl/son2-patch"))
   )
 
 lazy val diff = (project in file("son2-impl/son2-diff"))
-  .dependsOn(spec, core)
+  .dependsOn(specs, core)
   .configs(IntegrationTest, End2EndTest)
   .settings(
     name := "son2-diff",
@@ -215,7 +215,7 @@ lazy val diff = (project in file("son2-impl/son2-diff"))
   )
 
 lazy val core = (project in file("son2-core"))
-  .dependsOn(spec, scalaaddons)
+  .dependsOn(specs, scalaaddons, utils)
   .configs(IntegrationTest, End2EndTest)
   .settings(
     name := "son2-core",
@@ -228,20 +228,6 @@ lazy val core = (project in file("son2-core"))
       "com.typesafe" % "config" % "1.3.2",
       "com.google.guava" % "guava" % "23.0",
       "org.skyscreamer" % "jsonassert" % "1.5.0"
-    )
-  )
-
-lazy val spec = (project in file("son2-spec"))
-  .settings(
-    name := "son2-spec",
-    commonSettings,
-    libraryDependencies ++= Seq(
-      "org.scala-lang" % "scala-library" % ScalaLibraryVersion,
-      "com.typesafe.scala-logging" %% "scala-logging" % "3.7.2",
-      "org.scalamock" %% "scalamock-scalatest-support" % "3.6.0",
-      "org.scalacheck" %% "scalacheck" % "1.13.5",
-      "org.pegdown" % "pegdown" % "1.6.0",
-      "ch.qos.logback" % "logback-classic" % "1.2.3"
     )
   )
 
