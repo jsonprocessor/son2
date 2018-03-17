@@ -1,7 +1,7 @@
 package pl.writeonly.son2.core
 
-import pl.writeonly.son2.core.util.Control.{FAAny, toConsumerAny}
-import pl.writeonly.son2.spec.WhiteAssertSpec
+import pl.writeonly.sons.specs.WhiteAssertSpec
+import pl.writeonly.sons.utils.ops.Control.{FAAny, toConsumerAny}
 
 class ControlAssertSpec extends WhiteAssertSpec {
 

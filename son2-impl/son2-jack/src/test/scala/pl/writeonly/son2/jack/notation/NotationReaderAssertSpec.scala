@@ -1,6 +1,6 @@
 package pl.writeonly.son2.jack.notation
 
-import pl.writeonly.son2.spec.WhiteAssertSpec
+import pl.writeonly.sons.specs.WhiteAssertSpec
 
 class NotationReaderAssertSpec extends WhiteAssertSpec {
 

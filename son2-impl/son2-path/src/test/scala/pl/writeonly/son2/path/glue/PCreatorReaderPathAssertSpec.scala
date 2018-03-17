@@ -4,7 +4,7 @@ import pl.writeonly.son2.core.config.RConfig
 import pl.writeonly.son2.path.core.ProvidersPath
 import pl.writeonly.son2.path.creators.PCreatorReaderPath
 import pl.writeonly.son2.path.notation._
-import pl.writeonly.son2.spec.WhiteAssertSpec
+import pl.writeonly.sons.specs.WhiteAssertSpec
 
 class PCreatorReaderPathAssertSpec extends WhiteAssertSpec {
   //  val pCreator = new PCreatorReaderPath(NotationCaseSmart())

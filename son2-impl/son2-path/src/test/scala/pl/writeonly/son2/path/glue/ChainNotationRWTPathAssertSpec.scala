@@ -3,7 +3,7 @@ package pl.writeonly.son2.path.glue
 import pl.writeonly.son2.core.config.RConfig
 import pl.writeonly.son2.path.core.ProvidersPath
 import pl.writeonly.son2.path.notation.{DefaultsTapesty, NotationReaderPath}
-import pl.writeonly.son2.spec.WhiteAssertSpec
+import pl.writeonly.sons.specs.WhiteAssertSpec
 
 class ChainNotationRWTPathAssertSpec extends WhiteAssertSpec {
 

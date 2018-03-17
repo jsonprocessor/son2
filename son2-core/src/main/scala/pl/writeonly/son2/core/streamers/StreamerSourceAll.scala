@@ -2,8 +2,7 @@ package pl.writeonly.son2.core.streamers
 
 import pl.writeonly.son2.core.converters.Converter
 import pl.writeonly.son2.core.liners.{Liner, LinerEither}
-
-import pl.writeonly.son2.core.util.Control._
+import pl.writeonly.sons.utils.ops.Pipe._
 
 import scala.io.Source
 

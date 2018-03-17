@@ -6,7 +6,7 @@ import pl.writeonly.son2.core.converters.Converter2
 import pl.writeonly.son2.core.core.Formats
 import pl.writeonly.son2.core.glue.Piper
 import pl.writeonly.son2.path.core.ProvidersPath
-import pl.writeonly.son2.spec.WhiteAssertSpec
+import pl.writeonly.sons.specs.WhiteAssertSpec
 
 class CreatorConverterPathAssertSpec extends WhiteAssertSpec {
 

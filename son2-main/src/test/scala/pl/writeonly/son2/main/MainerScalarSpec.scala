@@ -4,7 +4,7 @@ import java.io.ByteArrayOutputStream
 
 import pl.writeonly.son2.core.glue.Params
 import pl.writeonly.son2.core.streamers.Streamer
-import pl.writeonly.son2.spec.GrayScalarSpec
+import pl.writeonly.sons.specs.GrayScalarSpec
 
 class MainerScalarSpec extends GrayScalarSpec {
 

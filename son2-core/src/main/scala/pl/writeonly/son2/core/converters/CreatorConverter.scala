@@ -1,7 +1,7 @@
 package pl.writeonly.son2.core.converters
 
 import pl.writeonly.son2.core.chain._
-import pl.writeonly.son2.core.config.{RWTConfig, Format, Provider}
+import pl.writeonly.son2.core.config.{Format, Provider, RWTConfig}
 
 class CreatorConverter(creator: ChainNotationConfig, rwt: ChainNotationRWT) {
   def apply(s: Provider): Converter =

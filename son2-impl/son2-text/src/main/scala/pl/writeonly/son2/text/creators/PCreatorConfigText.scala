@@ -1,17 +1,18 @@
 package pl.writeonly.son2.text.creators
 
-import pl.writeonly.son2.core.config.{RWTConfig, Format, TConfig}
+import pl.writeonly.son2.core.config.{Format, RWTConfig, TConfig}
 import pl.writeonly.son2.core.pcreators.PCreatorConfig
 import pl.writeonly.son2.text.core.{Actions, FormatsText}
+import pl.writeonly.sons.utils.ops.Pipe._
 
 class PCreatorConfigText extends PCreatorConfig {
 
   private val matcher = new MatcherStringEscape()
 
-  override def isDefinedAt(s: String) =
-    Option(s).isDefined &&
+  override def isDefinedAt(s: String): Boolean =
+    s &&
       symbolOptionPairOption(s)
-        .map(p => p._1.isDefined && p._2.isDefined)
+        .map(p => p._1 && p._2)
         .getOrElse(false)
 
   private def symbolOptionPairOption(

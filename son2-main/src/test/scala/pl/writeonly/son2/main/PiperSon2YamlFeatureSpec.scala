@@ -6,7 +6,7 @@ import pl.writeonly.son2.core.glue.{Params, Piper}
 import pl.writeonly.son2.impl.{Features, Types}
 import pl.writeonly.son2.jack.core.FormatsJack
 import pl.writeonly.son2.jack.glue.CreatorConverterJack
-import pl.writeonly.son2.spec.BlackSpec
+import pl.writeonly.sons.specs.BlackSpec
 
 class PiperSon2YamlFeatureSpec extends BlackSpec {
 

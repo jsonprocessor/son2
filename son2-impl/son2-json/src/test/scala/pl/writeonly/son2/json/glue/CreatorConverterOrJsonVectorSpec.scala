@@ -1,7 +1,7 @@
 package pl.writeonly.son2.json.glue
 
 import pl.writeonly.son2.json.core.ProvidersJson
-import pl.writeonly.son2.spec.GrayVectorSpec
+import pl.writeonly.sons.specs.GrayVectorSpec
 
 class CreatorConverterOrJsonVectorSpec extends GrayVectorSpec {
   val providers = Table("format", ProvidersJson.ALL: _*)

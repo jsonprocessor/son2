@@ -5,7 +5,7 @@ import java.net.URI
 import java.nio.charset.StandardCharsets
 
 import pl.writeonly.son2.core.converters.ConverterFake
-import pl.writeonly.son2.spec.WhiteAssertSpec
+import pl.writeonly.sons.specs.WhiteAssertSpec
 
 import scala.io.Source
 

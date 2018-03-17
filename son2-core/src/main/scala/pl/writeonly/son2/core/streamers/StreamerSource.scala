@@ -4,8 +4,8 @@ import java.io.{File, InputStream, OutputStream, PrintWriter}
 import java.net.URI
 
 import pl.writeonly.son2.core.liners.Liner
-import pl.writeonly.son2.core.util.Control
-import pl.writeonly.son2.core.util.Control.using
+import pl.writeonly.sons.utils.ops.Control
+import pl.writeonly.sons.utils.ops.Control.using
 
 import scala.io.Source
 

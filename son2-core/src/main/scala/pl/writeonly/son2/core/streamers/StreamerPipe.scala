@@ -5,8 +5,8 @@ import java.net.URI
 import java.util.stream.Stream
 
 import pl.writeonly.son2.core.liners.Liner
-import pl.writeonly.son2.core.util.Control
-import pl.writeonly.son2.core.util.Control.using
+import pl.writeonly.sons.utils.ops.Control
+import pl.writeonly.sons.utils.ops.Control.using
 
 abstract class StreamerPipe(liner: Liner) extends Streamer(liner) {
 

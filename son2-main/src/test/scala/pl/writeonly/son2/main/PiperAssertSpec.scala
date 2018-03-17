@@ -5,7 +5,7 @@ import java.io.ByteArrayOutputStream
 import pl.writeonly.son2.core.converters.ConverterFake
 import pl.writeonly.son2.core.glue.{Params, Piper}
 import pl.writeonly.son2.core.streamers.Streamer
-import pl.writeonly.son2.spec.WhiteAssertSpec
+import pl.writeonly.sons.specs.WhiteAssertSpec
 
 class PiperAssertSpec extends WhiteAssertSpec {
 

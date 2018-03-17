@@ -3,7 +3,7 @@ package pl.writeonly.son2.core.streamers
 import java.io.{PrintWriter, StringWriter}
 
 import pl.writeonly.son2.core.converters.ConverterFake
-import pl.writeonly.son2.spec.WhiteAssertSpec
+import pl.writeonly.sons.specs.WhiteAssertSpec
 
 import scala.io.Source
 

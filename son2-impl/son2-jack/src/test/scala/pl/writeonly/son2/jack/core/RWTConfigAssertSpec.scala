@@ -1,6 +1,6 @@
 package pl.writeonly.son2.jack.core
 
-import pl.writeonly.son2.spec.WhiteAssertSpec
+import pl.writeonly.sons.specs.WhiteAssertSpec
 
 class RWTConfigAssertSpec extends WhiteAssertSpec {
   val config = ConfigJack(FormatsJack.YAML)

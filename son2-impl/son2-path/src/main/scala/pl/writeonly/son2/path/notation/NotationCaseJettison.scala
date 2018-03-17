@@ -2,9 +2,9 @@ package pl.writeonly.son2.path.notation
 
 import java.util.Objects
 
-import com.jayway.jsonpath.{Configuration, TypeRef}
 import com.jayway.jsonpath.spi.json.JettisonProvider
 import com.jayway.jsonpath.spi.mapper.MappingProvider
+import com.jayway.jsonpath.{Configuration, TypeRef}
 import pl.writeonly.son2.core.config.RConfig
 import pl.writeonly.son2.path.core.{DefaultsPath, ProvidersPath}
 

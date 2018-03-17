@@ -4,6 +4,7 @@ import pl.writeonly.son2.core.config._
 import pl.writeonly.son2.core.notation.PartialCreatorConfigSymbol
 import pl.writeonly.son2.core.pcreators.PCreatorConfig
 import pl.writeonly.son2.path.core.{ConfigPath, ProvidersPath}
+import pl.writeonly.sons.utils.ops.Pipe._
 
 class PCreatorConfigPath(f: Provider) extends PartialCreatorConfigSymbol(f.s) {
   override def apply(s: String): RWTConfig =
@@ -12,7 +13,7 @@ class PCreatorConfigPath(f: Provider) extends PartialCreatorConfigSymbol(f.s) {
 
 class PCreatorConfigPathMain extends PCreatorConfig {
 
-  override def isDefinedAt(s: String) = Option(s).isDefined && s.startsWith("$")
+  override def isDefinedAt(s: String): Boolean = s && s.startsWith("$")
 
   override def apply(s: String) =
     RWTConfig(read = RConfig(provider = ProvidersPath.SMART, path = RPath(s)),

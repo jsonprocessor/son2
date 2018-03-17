@@ -5,7 +5,6 @@ import java.util.stream.Stream
 
 import pl.writeonly.son2.core.converters.Converter
 import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
-import pl.writeonly.son2.core.util.Control.toConsumerAny
 
 class StreamerPipeForeach(liner: Liner) extends StreamerPipe(liner) {
 

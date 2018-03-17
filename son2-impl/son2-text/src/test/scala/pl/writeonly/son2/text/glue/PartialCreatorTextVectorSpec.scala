@@ -1,9 +1,9 @@
 package pl.writeonly.son2.text.glue
 
 import pl.writeonly.son2.core.config.TConfig
-import pl.writeonly.son2.spec.GrayVectorSpec
 import pl.writeonly.son2.text.core.{Actions, FormatsText}
 import pl.writeonly.son2.text.creators.PCreatorConfigText
+import pl.writeonly.sons.specs.GrayVectorSpec
 
 class PartialCreatorTextVectorSpec extends GrayVectorSpec {
 

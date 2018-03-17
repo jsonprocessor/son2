@@ -1,6 +1,6 @@
 package pl.writeonly.son2.core
 
-import pl.writeonly.son2.core.config.{RWTConfig, RConfig, WConfig}
+import pl.writeonly.son2.core.config.{RConfig, RWTConfig, WConfig}
 import pl.writeonly.son2.core.notation.{
   NotationRWT,
   NotationReader,

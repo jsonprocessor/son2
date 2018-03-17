@@ -1,6 +1,6 @@
 package pl.writeonly.son2.text.glue
 
-import pl.writeonly.son2.spec.GrayScalarSpec
+import pl.writeonly.sons.specs.GrayScalarSpec
 
 class CreatorConverterOrTextScalarSpec extends GrayScalarSpec {
   val creator = new CreatorConverterOrText

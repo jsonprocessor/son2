@@ -1,12 +1,8 @@
 package pl.writeony.son2.scallop
 
-import pl.writeonly.son2.spec.WhiteAssertSpec
+import pl.writeonly.sons.specs.WhiteAssertSpec
 
 class FancyThingsSpec extends WhiteAssertSpec {
-
-
-
-  import pl.writeony.son2.scallop.FancyThings._
 
   "A Conf" should {
     "xxx" in {

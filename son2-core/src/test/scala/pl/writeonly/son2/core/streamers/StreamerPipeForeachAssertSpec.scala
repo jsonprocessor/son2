@@ -4,7 +4,7 @@ import java.io.File
 import java.net.URI
 
 import pl.writeonly.son2.core.converters.ConverterFake
-import pl.writeonly.son2.spec.WhiteAssertSpec
+import pl.writeonly.sons.specs.WhiteAssertSpec
 
 class StreamerPipeForeachAssertSpec extends WhiteAssertSpec {
 

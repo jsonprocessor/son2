@@ -1,6 +1,6 @@
 package pl.writeonly.son2.core.chain
 
-import pl.writeonly.son2.core.config.{RWTConfig, Format, RConfig, WConfig}
+import pl.writeonly.son2.core.config.{Format, RConfig, RWTConfig, WConfig}
 import pl.writeonly.son2.core.core.{FNotationReader, FNotationWriter}
 import pl.writeonly.son2.core.notation.{
   NotationReader,

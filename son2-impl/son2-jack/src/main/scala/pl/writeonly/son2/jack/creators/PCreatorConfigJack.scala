@@ -1,6 +1,6 @@
 package pl.writeonly.son2.jack.creators
 
-import pl.writeonly.son2.core.config.{RWTConfig, Format}
+import pl.writeonly.son2.core.config.{Format, RWTConfig}
 import pl.writeonly.son2.core.notation.PartialCreatorConfigSymbol
 import pl.writeonly.son2.jack.core.ConfigJack
 

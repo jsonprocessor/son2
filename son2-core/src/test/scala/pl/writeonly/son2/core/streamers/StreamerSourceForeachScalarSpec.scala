@@ -4,7 +4,7 @@ import java.io.FileNotFoundException
 import java.net.URI
 
 import pl.writeonly.son2.core.converters.ConverterFake
-import pl.writeonly.son2.spec.GrayScalarSpec
+import pl.writeonly.sons.specs.GrayScalarSpec
 
 class StreamerSourceForeachScalarSpec extends GrayScalarSpec {
 

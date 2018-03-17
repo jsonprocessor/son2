@@ -1,6 +1,6 @@
 package pl.writeonly.son2.core.chain
 
-import pl.writeonly.son2.core.config.{RWTConfig, HasConfigOpt}
+import pl.writeonly.son2.core.config.{HasConfigOpt, RWTConfig}
 import pl.writeonly.son2.core.converters.{Converter, Converter1, Converter2}
 import pl.writeonly.son2.core.notation._
 import pl.writeonly.son2.core.pcreators.PCreatorConfig
