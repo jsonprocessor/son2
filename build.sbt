@@ -107,7 +107,7 @@ lazy val llop = (project in file("son2-clis/son2-llop"))
     )
   )
 
-lazy val main = (project in file("son2-main"))
+lazy val main = (project in file("son2-clis/son2-main"))
   .dependsOn(specs, core, text, jack, path, patch, diff, json, impl)
   .configs(IntegrationTest, End2EndTest)
   .settings(
