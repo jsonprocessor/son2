@@ -37,20 +37,6 @@ testOptions in Test ++= Seq(
   Tests.Argument(TestFrameworks.ScalaTest, "-h", "target/test-reports")
 )
 
-logBuffered in IntegrationTest := false
-testOptions in IntegrationTest ++= Seq(
-  Tests.Argument(TestFrameworks.ScalaTest, "-o"),
-  Tests.Argument(TestFrameworks.ScalaTest, "-u", "target/test-reports-it"),
-  Tests.Argument(TestFrameworks.ScalaTest, "-h", "target/test-reports-it")
-)
-
-logBuffered in End2EndTest := false
-testOptions in End2EndTest ++= Seq(
-  Tests.Argument(TestFrameworks.ScalaTest, "-o"),
-  Tests.Argument(TestFrameworks.ScalaTest, "-u", "target/test-reports-et"),
-  Tests.Argument(TestFrameworks.ScalaTest, "-h", "target/test-reports-et")
-)
-
 lazy val integrationInConfig = inConfig(IntegrationTest)(Defaults.testTasks)
 lazy val end2endInConfig = inConfig(End2EndTest)(Defaults.testTasks)
 
