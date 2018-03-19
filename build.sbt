@@ -17,18 +17,22 @@ scalacOptions ++= Seq(
 )
 
 val JacksonVersion = "2.8.11"
+val JacksonAnnotationVersion = JacksonVersion
 val ScalaLibraryVersion = "2.12.4"
 val ScalaticVersion = "3.0.4"
+val ConfigVersion = "1.2.1"
+val JunitVersion = "4.10"
+val TestngVersion = "6.9.13.6"
 
-lazy val versionSnapshot = s"$JacksonVersion-SNAPSHOT"
+val VersionSnapshot = s"$JacksonVersion-SNAPSHOT"
 
-lazy val commonSettings = Seq(
+val commonSettings = Seq(
   organization := "pl.writeonly.son2",
   scalaVersion := ScalaLibraryVersion,
-  version := versionSnapshot
+  version := VersionSnapshot
 )
-lazy val IntegrationTest = config("it") extend(Test)
-lazy val End2EndTest = config("et") extend(Test)
+val IntegrationTest = config("it") extend(Test)
+val End2EndTest = config("et") extend(Test)
 
 logBuffered in Test := false
 testOptions in Test ++= Seq(
@@ -55,7 +59,7 @@ lazy val settings = Seq(whiteSetting, graySetting, blackSetting)
 
 lazy val son2 = (project in file("."))
 //  .enablePlugins(JacocoItPlugin)
-  .aggregate(specs, core, impl, main, clis)
+  .aggregate(specs, core, impl, subs, clis)
   .configs(IntegrationTest, End2EndTest)
   .settings(
     name := "son2",
@@ -68,7 +72,7 @@ lazy val son2 = (project in file("."))
   )
 
 lazy val clis = (project in file("son2-clis"))
-  .dependsOn(copt, llop)
+  .dependsOn(copt, llop, subs)
   .configs(IntegrationTest, End2EndTest)
   .settings(
     name := "son2-clis",
@@ -223,6 +227,7 @@ lazy val diff = (project in file("son2-impl/son2-diff"))
     )
   )
 
+
 lazy val core = (project in file("son2-core"))
   .dependsOn(specs, scalaaddons, utils)
   .configs(IntegrationTest, End2EndTest)
@@ -239,6 +244,67 @@ lazy val core = (project in file("son2-core"))
       "org.skyscreamer" % "jsonassert" % "1.5.0"
     )
   )
+
+lazy val subs = (project in file("son2-subs"))
+  .aggregate(jackHocon,jackRison)
+  .configs(IntegrationTest, End2EndTest)
+  .settings(
+    name := "addons",
+    commonSettings,
+    integrationInConfig, end2endInConfig,
+    whiteSetting, graySetting, blackSetting,
+    coverageEnabled := true,
+    coverageMinimum := 60,
+    coverageFailOnMinimum := true
+  )
+
+lazy val jackHocon = (project in file("son2-subs/jackson-dataformat-hocon"))
+  .dependsOn()
+  .configs(IntegrationTest, End2EndTest)
+  .settings(
+    name := "jack-hocon",
+    commonSettings,
+    integrationInConfig, end2endInConfig,
+    whiteSetting, graySetting, blackSetting,
+    libraryDependencies ++= Seq(
+      "com.fasterxml.jackson.core" % "jackson-core" % JacksonVersion,
+      "com.fasterxml.jackson.core" % "jackson-databind" % JacksonVersion,
+      "com.fasterxml.jackson.core" % "jackson-annotations" % JacksonVersion,
+      "com.typesafe" % "config" % ConfigVersion,
+      "junit" % "junit" % JunitVersion % Test,
+    )
+  )
+
+lazy val jackRison = (project in file("son2-subs/jackson-dataformat-rison"))
+  .dependsOn()
+  .configs(IntegrationTest, End2EndTest)
+  .settings(
+    name := "jack-rison",
+    commonSettings,
+    integrationInConfig, end2endInConfig,
+    whiteSetting, graySetting, blackSetting,
+    libraryDependencies ++= Seq(
+      "com.fasterxml.jackson.core" % "jackson-core" % JacksonVersion,
+      "com.fasterxml.jackson.core" % "jackson-databind" % JacksonVersion,
+      "org.testng" % "testng" % TestngVersion % Test,
+    )
+  )
+
+
+//lazy val rison = (project in file("son2-subs/rison"))
+//  .dependsOn()
+//  .configs(IntegrationTest, End2EndTest)
+//  .settings(
+//    name := "rison",
+//    commonSettings,
+//    integrationInConfig, end2endInConfig,
+//    whiteSetting, graySetting, blackSetting,
+//    libraryDependencies ++= Seq(
+//      "com.fasterxml.jackson.core" % "jackson-core" % JacksonVersion,
+//      "com.fasterxml.jackson.core" % "jackson-databind" % JacksonVersion,
+//      "org.testng" % "testng" % TestngVersion % Test,
+//    )
+//  )
 
 lazy val scalaaddons = (project in file("son2-adds"))
   //  .enablePlugins(JacocoItPlugin)
