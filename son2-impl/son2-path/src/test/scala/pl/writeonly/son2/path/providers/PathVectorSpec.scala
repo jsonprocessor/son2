@@ -1,9 +1,9 @@
 package pl.writeonly.son2.path.providers
 
-import pl.writeonly.son2.core.config.RPath
-import pl.writeonly.son2.core.converters.Converter
-import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
-import pl.writeonly.son2.core.streamers.{Streamer, StreamerPipeForeach}
+import pl.writeonly.son2.apis.config.RPath
+import pl.writeonly.son2.apis.converters.Converter
+import pl.writeonly.son2.funs.liners.{Liner, LinerOpt}
+import pl.writeonly.son2.funs.streamers.{Streamer, StreamerPipeForeach}
 import pl.writeonly.son2.path.chain.ChainNotationPairPath
 import pl.writeonly.son2.path.core.ConfigPath
 import pl.writeonly.sons.specs.GrayVectorSpec

@@ -1,7 +1,7 @@
 package pl.writeonly.son2.text.creators
 
-import pl.writeonly.son2.core.config.TConfig
-import pl.writeonly.son2.core.core.DString
+import pl.writeonly.son2.apis.config.TConfig
+import pl.writeonly.son2.apis.core.core.DString
 
 trait Matcher {
 

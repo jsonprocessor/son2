@@ -1,8 +1,8 @@
 package pl.writeonly.son2.path.creators
 
-import pl.writeonly.son2.core.config._
-import pl.writeonly.son2.core.notation.PartialCreatorConfigSymbol
-import pl.writeonly.son2.core.pcreators.PCreatorConfig
+import pl.writeonly.son2.apis.config._
+import pl.writeonly.son2.apis.notation.PartialCreatorConfigSymbol
+import pl.writeonly.son2.apis.pcreators.PCreatorConfig
 import pl.writeonly.son2.path.core.{ConfigPath, ProvidersPath}
 import pl.writeonly.sons.utils.ops.Pipe._
 

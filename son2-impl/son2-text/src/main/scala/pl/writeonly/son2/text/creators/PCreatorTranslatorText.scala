@@ -1,11 +1,11 @@
 package pl.writeonly.son2.text.creators
 
-import pl.writeonly.son2.core.config.{RWTConfig, TConfig}
-import pl.writeonly.son2.core.notation.NotationTranslator
-import pl.writeonly.son2.core.pcreators.PCreatorTranslator
+import pl.writeonly.son2.apis.config.{RWTConfig, TConfig}
+import pl.writeonly.son2.apis.notation.NotationTranslator
+import pl.writeonly.son2.apis.pcreators.PCreatorTranslator
+import pl.writeonly.sons.utils.ops.Pipe._
 
 import scala.util.control.Exception.catching
-import pl.writeonly.sons.utils.ops.Pipe._
 
 class PCreatorTranslatorText extends PCreatorTranslator {
   private val matcher = new MatcherStringEscape()

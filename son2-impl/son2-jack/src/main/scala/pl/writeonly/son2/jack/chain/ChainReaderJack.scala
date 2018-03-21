@@ -1,8 +1,8 @@
 package pl.writeonly.son2.jack.chain
 
 import com.fasterxml.jackson.databind.JsonNode
-import pl.writeonly.son2.core.chain.ChainImpl
-import pl.writeonly.son2.core.config._
+import pl.writeonly.son2.apis.chain.ChainImpl
+import pl.writeonly.son2.apis.config._
 import pl.writeonly.son2.jack.core.ConfigJack
 import pl.writeonly.son2.jack.notation._
 

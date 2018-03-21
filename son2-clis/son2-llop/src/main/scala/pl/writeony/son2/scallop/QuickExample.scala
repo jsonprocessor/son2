@@ -3,6 +3,7 @@ package pl.writeony.son2.scallop
 import org.rogach.scallop._
 
 class QuickExample {
+
   class Conf(arguments: Seq[String]) extends ScallopConf(arguments) {
     val apples = opt[Int](required = true)
     val bananas = opt[Int]()
@@ -12,8 +13,9 @@ class QuickExample {
 
   object Main {
     def main(args: Array[String]) {
-      val conf = new Conf(args)  // Note: This line also works for "object Main extends App"
+      val conf = new Conf(args) // Note: This line also works for "object Main extends App"
       println("apples are: " + conf.apples())
     }
   }
+
 }

@@ -4,7 +4,7 @@ import java.io.File
 import java.net.URI
 import java.nio.file.Paths
 
-import pl.writeonly.son2.core.config.Format
+import pl.writeonly.son2.apis.config.Format
 
 object Features {
   val NAME = "writeonly.son"
@@ -23,9 +23,9 @@ object Features {
 
   def inputURI: URI = inputURI(NAME)
 
-  def inputFile = new File(inputURI(NAME))
-
   def inputURI(name: String): URI = getClass.getResource("/" + name).toURI
+
+  def inputFile = new File(inputURI(NAME))
 
   def inputPathname: String = inputPathname(NAME)
 

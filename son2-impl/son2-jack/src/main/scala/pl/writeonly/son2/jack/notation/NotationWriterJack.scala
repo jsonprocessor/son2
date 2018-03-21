@@ -1,7 +1,7 @@
 package pl.writeonly.son2.jack.notation
 
-import pl.writeonly.son2.core.config.WConfig
-import pl.writeonly.son2.core.notation.NotationWriter
+import pl.writeonly.son2.apis.config.WConfig
+import pl.writeonly.son2.apis.notation.NotationWriter
 import pl.writeonly.son2.jack.core.Jack
 
 class NotationWriterJack(c: WConfig, jack: Jack) extends NotationWriter(c) {

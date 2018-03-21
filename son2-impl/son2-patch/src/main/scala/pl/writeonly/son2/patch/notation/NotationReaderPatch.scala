@@ -1,7 +1,7 @@
 package pl.writeonly.son2.patch.notation
 
 import com.github.fge.jsonpatch.JsonPatch
-import pl.writeonly.son2.core.notation.NotationReader
+import pl.writeonly.son2.apis.notation.NotationReader
 import pl.writeonly.son2.jack.notation.NotationReaderObject
 
 class NotationReaderPatch(patch: String) extends NotationReader {

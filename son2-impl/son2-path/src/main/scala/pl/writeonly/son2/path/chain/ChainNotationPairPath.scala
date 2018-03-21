@@ -1,6 +1,6 @@
 package pl.writeonly.son2.path.chain
 
-import pl.writeonly.son2.core.converters.CreatorConverter
+import pl.writeonly.son2.apis.converters.CreatorConverter
 import pl.writeonly.son2.path.glue.{
   ChainNotationConfigPathMain,
   ChainNotationRWTPath

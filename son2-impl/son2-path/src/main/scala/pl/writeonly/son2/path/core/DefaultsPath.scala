@@ -4,7 +4,7 @@ import com.google.common.base.MoreObjects
 import com.jayway.jsonpath.Configuration.Defaults
 import com.jayway.jsonpath.spi.json._
 import com.jayway.jsonpath.spi.mapper._
-import pl.writeonly.son2.core.config.RConfig
+import pl.writeonly.son2.apis.config.RConfig
 
 import scala.collection.JavaConverters._
 

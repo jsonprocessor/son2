@@ -3,8 +3,6 @@ package pl.writeonly.son2.main
 import java.io.ByteArrayOutputStream
 
 import org.scalactic.Bad
-import pl.writeonly.son2.core.glue.Params
-import pl.writeonly.son2.core.streamers.Streamer
 import pl.writeonly.sons.specs.WhiteAssertSpec
 
 class MainerAssertSpec extends WhiteAssertSpec {

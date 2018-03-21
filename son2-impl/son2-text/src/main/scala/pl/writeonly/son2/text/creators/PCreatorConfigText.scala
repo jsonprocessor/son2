@@ -1,7 +1,7 @@
 package pl.writeonly.son2.text.creators
 
-import pl.writeonly.son2.core.config.{Format, RWTConfig, TConfig}
-import pl.writeonly.son2.core.pcreators.PCreatorConfig
+import pl.writeonly.son2.apis.config.{Format, RWTConfig, TConfig}
+import pl.writeonly.son2.apis.pcreators.PCreatorConfig
 import pl.writeonly.son2.text.core.{Actions, FormatsText}
 import pl.writeonly.sons.utils.ops.Pipe._
 

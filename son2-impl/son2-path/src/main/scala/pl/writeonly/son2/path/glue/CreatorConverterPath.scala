@@ -1,6 +1,6 @@
 package pl.writeonly.son2.path.glue
 
-import pl.writeonly.son2.core.converters.CreatorConverter
+import pl.writeonly.son2.apis.converters.CreatorConverter
 
 class CreatorConverterPath
     extends CreatorConverter(new ChainNotationConfigPath(),

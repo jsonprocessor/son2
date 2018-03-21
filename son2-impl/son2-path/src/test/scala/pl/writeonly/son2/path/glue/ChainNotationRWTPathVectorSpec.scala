@@ -1,6 +1,6 @@
 package pl.writeonly.son2.path.glue
 
-import pl.writeonly.son2.core.config.RConfig
+import pl.writeonly.son2.apis.config.RConfig
 import pl.writeonly.son2.path.core.ProvidersPath
 import pl.writeonly.sons.specs.GrayVectorSpec
 

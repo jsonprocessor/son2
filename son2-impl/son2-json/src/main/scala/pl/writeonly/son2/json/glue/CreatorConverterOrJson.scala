@@ -1,7 +1,7 @@
 package pl.writeonly.son2.json.glue
 
-import pl.writeonly.son2.core.config.RWTConfig
-import pl.writeonly.son2.core.glue.CreatorConverterOr
+import pl.writeonly.son2.apis.config.RWTConfig
+import pl.writeonly.son2.funs.glue.CreatorConverterOr
 
 class CreatorConverterOrJson
     extends CreatorConverterOr(new ChainNotationConfigJson().get,

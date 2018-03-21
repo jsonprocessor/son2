@@ -6,7 +6,7 @@ import com.jayway.jsonpath.spi.json.{
   JacksonJsonProvider
 }
 import com.jayway.jsonpath.spi.mapper.JacksonMappingProvider
-import pl.writeonly.son2.core.config.RConfig
+import pl.writeonly.son2.apis.config.RConfig
 import pl.writeonly.son2.jack.core.JackObject
 import pl.writeonly.son2.jack.notation.NotationWriterJack
 import pl.writeonly.son2.path.core.{DefaultsPath, ProvidersPath}

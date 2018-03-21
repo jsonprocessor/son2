@@ -1,8 +1,8 @@
 package pl.writeonly.son2.path.creators
 
-import pl.writeonly.son2.core.config.RConfig
-import pl.writeonly.son2.core.notation.NotationReader
-import pl.writeonly.son2.core.pcreators.PCreatorReader
+import pl.writeonly.son2.apis.config.RConfig
+import pl.writeonly.son2.apis.notation.NotationReader
+import pl.writeonly.son2.apis.pcreators.PCreatorReader
 import pl.writeonly.son2.path.notation.NotationCasePath
 
 class PCreatorReaderPath(jack: NotationCasePath) extends PCreatorReader {

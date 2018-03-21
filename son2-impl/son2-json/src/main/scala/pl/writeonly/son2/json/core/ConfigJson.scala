@@ -1,6 +1,6 @@
 package pl.writeonly.son2.json.core
 
-import pl.writeonly.son2.core.config._
+import pl.writeonly.son2.apis.config._
 import pl.writeonly.son2.path.core.ProvidersPath
 
 object ConfigJson {

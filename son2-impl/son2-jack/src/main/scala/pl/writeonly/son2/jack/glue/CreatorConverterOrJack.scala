@@ -1,7 +1,7 @@
 package pl.writeonly.son2.jack.glue
 
-import pl.writeonly.son2.core.config.RWTConfig
-import pl.writeonly.son2.core.glue.CreatorConverterOr
+import pl.writeonly.son2.apis.config.RWTConfig
+import pl.writeonly.son2.funs.glue.CreatorConverterOr
 import pl.writeonly.son2.jack.chain.ChainReaderJack
 
 class CreatorConverterOrJack

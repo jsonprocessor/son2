@@ -5,7 +5,7 @@ import java.util.Objects
 import com.jayway.jsonpath.spi.json.JettisonProvider
 import com.jayway.jsonpath.spi.mapper.MappingProvider
 import com.jayway.jsonpath.{Configuration, TypeRef}
-import pl.writeonly.son2.core.config.RConfig
+import pl.writeonly.son2.apis.config.RConfig
 import pl.writeonly.son2.path.core.{DefaultsPath, ProvidersPath}
 
 case class NotationCaseJettison()
@@ -20,10 +20,10 @@ class JettisonMappingProvider extends MappingProvider {
                       targetType: Class[T],
                       configuration: Configuration) = illegalState(source)
 
+  def illegalState(source: Any) =
+    throw new IllegalStateException(Objects.toString(source))
+
   override def map[T](source: Any,
                       targetType: TypeRef[T],
                       configuration: Configuration) = illegalState(source)
-
-  def illegalState(source: Any) =
-    throw new IllegalStateException(Objects.toString(source))
 }

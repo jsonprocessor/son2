@@ -1,6 +1,6 @@
 package pl.writeonly.son2.jack.glue
 
-import pl.writeonly.son2.core.chain.ChainNotationConfig
+import pl.writeonly.son2.apis.chain.ChainNotationConfig
 import pl.writeonly.son2.jack.core.FormatsJack
 import pl.writeonly.son2.jack.creators.PCreatorConfigJack
 

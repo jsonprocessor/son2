@@ -2,8 +2,8 @@ package pl.writeonly.son2.path.notation
 
 import net.minidev.json.parser.JSONParser
 import net.minidev.json.{JSONStyle, JSONValue}
-import pl.writeonly.son2.core.config.{RConfig, WConfig}
-import pl.writeonly.son2.core.notation.NotationWriter
+import pl.writeonly.son2.apis.config.{RConfig, WConfig}
+import pl.writeonly.son2.apis.notation.NotationWriter
 import pl.writeonly.son2.path.core.ProvidersPath
 
 case class NotationCaseStrict()

@@ -1,6 +1,6 @@
 package pl.writeonly.son2.text.glue
 
-import pl.writeonly.son2.core.chain.{
+import pl.writeonly.son2.apis.chain.{
   ChainNotationRWT,
   PCreatorReaderFake,
   PCreatorWriterFake

@@ -1,6 +1,6 @@
 package pl.writeonly.son2.path.core
 
-import pl.writeonly.son2.core.config.Provider
+import pl.writeonly.son2.apis.config.Provider
 
 object ProvidersPath {
   val GSON = Provider('gson)

@@ -1,7 +1,7 @@
 package pl.writeonly.son2.text.core
 
-import pl.writeonly.son2.core.config.Format
-import pl.writeonly.son2.core.core.Formats
+import pl.writeonly.son2.apis.config.Format
+import pl.writeonly.son2.apis.core.Formats
 
 object FormatsText extends Formats {
   val STRING = Format('string)

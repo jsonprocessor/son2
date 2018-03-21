@@ -1,7 +1,7 @@
 package pl.writeonly.son2.main
 
-import pl.writeonly.son2.core.converters.ConverterFake
-import pl.writeonly.son2.core.glue.{Params, Piper}
+import pl.writeonly.son2.apis.converters.ConverterFake
+import pl.writeonly.son2.funs.glue.{Params, Piper}
 
 class Resourcer(params: Params) {
 

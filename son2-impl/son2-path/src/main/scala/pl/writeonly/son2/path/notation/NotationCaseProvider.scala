@@ -1,8 +1,8 @@
 package pl.writeonly.son2.path.notation
 
 import com.jayway.jsonpath.spi.json.JsonProvider
-import pl.writeonly.son2.core.config.{Provider, RConfig, WConfig}
-import pl.writeonly.son2.core.notation.{NotationReader, NotationWriter}
+import pl.writeonly.son2.apis.config.{Provider, RConfig, WConfig}
+import pl.writeonly.son2.apis.notation.{NotationReader, NotationWriter}
 import pl.writeonly.son2.path.core.FDefaultsPath
 
 abstract class NotationCaseProvider(format: Provider, defaults: FDefaultsPath)

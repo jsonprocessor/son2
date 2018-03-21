@@ -1,6 +1,6 @@
 package pl.writeonly.son2.jack.glue
 
-import pl.writeonly.son2.core.chain.{ChainNotationRWT, PCreatorTranslatorFake}
+import pl.writeonly.son2.apis.chain.{ChainNotationRWT, PCreatorTranslatorFake}
 import pl.writeonly.son2.jack.core._
 import pl.writeonly.son2.jack.creators.{PCreatorReaderJack, PCreatorWriterJack}
 

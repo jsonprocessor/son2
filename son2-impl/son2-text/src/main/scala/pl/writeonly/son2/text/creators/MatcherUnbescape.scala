@@ -8,8 +8,8 @@ import org.unbescape.javascript.JavaScriptEscape
 import org.unbescape.json.JsonEscape
 import org.unbescape.uri.UriEscape
 import org.unbescape.xml.XmlEscape
-import pl.writeonly.son2.core.config.TConfig
-import pl.writeonly.son2.core.core.DString
+import pl.writeonly.son2.apis.config.TConfig
+import pl.writeonly.son2.apis.core.core.DString
 import pl.writeonly.son2.text.core.{Actions, FormatsText}
 
 class MatcherUnbescape extends Matcher {

@@ -1,6 +1,5 @@
 package pl.writeonly.son2.main
 
-import pl.writeonly.son2.core.glue.Params
 import pl.writeonly.sons.specs.WhiteAssertSpec
 
 class ParamsAssertSpec extends WhiteAssertSpec {

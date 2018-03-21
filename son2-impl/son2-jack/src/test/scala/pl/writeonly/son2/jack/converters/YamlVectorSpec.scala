@@ -1,8 +1,8 @@
 package pl.writeonly.son2.jack.converters
 
-import pl.writeonly.son2.core.converters.Converter
-import pl.writeonly.son2.core.liners.{Liner, LinerOpt}
-import pl.writeonly.son2.core.streamers.{Streamer, StreamerPipeForeach}
+import pl.writeonly.son2.apis.converters.Converter
+import pl.writeonly.son2.funs.liners.{Liner, LinerOpt}
+import pl.writeonly.son2.funs.streamers.{Streamer, StreamerPipeForeach}
 import pl.writeonly.son2.jack.core.FormatsJack
 import pl.writeonly.son2.jack.glue.CreatorConverterJack
 import pl.writeonly.sons.specs.GrayVectorSpec

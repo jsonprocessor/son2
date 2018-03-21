@@ -111,6 +111,36 @@ lazy val llop = (project in file("son2-clis/son2-llop"))
     )
   )
 
+lazy val rison = (project in file("son2-clis/son2-rison"))
+  .dependsOn(main, jackRison)
+  .configs(IntegrationTest, End2EndTest)
+  .settings(
+    name := "son2-rison",
+    commonSettings,
+    integrationInConfig, end2endInConfig,
+    whiteSetting, graySetting, blackSetting,
+    libraryDependencies ++= Seq(
+      "org.scala-lang" % "scala-library" % ScalaLibraryVersion
+
+    )//,
+    //    mainClass in assembly := Some("pl.writeonly.son2.main.Main")
+  )
+
+lazy val hocon = (project in file("son2-clis/son2-hocon"))
+  .dependsOn(main, jackHocon)
+  .configs(IntegrationTest, End2EndTest)
+  .settings(
+    name := "son2-hocon",
+    commonSettings,
+    integrationInConfig, end2endInConfig,
+    whiteSetting, graySetting, blackSetting,
+    libraryDependencies ++= Seq(
+      "org.scala-lang" % "scala-library" % ScalaLibraryVersion
+
+    )//,
+    //    mainClass in assembly := Some("pl.writeonly.son2.main.Main")
+  )
+
 lazy val main = (project in file("son2-clis/son2-main"))
   .dependsOn(specs, core, text, jack, path, patch, diff, json, impl)
   .configs(IntegrationTest, End2EndTest)
@@ -229,7 +259,8 @@ lazy val diff = (project in file("son2-impl/son2-diff"))
 
 
 lazy val core = (project in file("son2-core"))
-  .dependsOn(specs, scalaaddons, utils)
+  .aggregate(apis, funs)
+  .dependsOn(specs, scalaaddons, utils, apis, funs)
   .configs(IntegrationTest, End2EndTest)
   .settings(
     name := "son2-core",
@@ -242,6 +273,38 @@ lazy val core = (project in file("son2-core"))
       "com.typesafe" % "config" % "1.3.2",
       "com.google.guava" % "guava" % "23.0",
       "org.skyscreamer" % "jsonassert" % "1.5.0"
+    )
+  )
+
+lazy val funs = (project in file("son2-core/son2-funs"))
+  .dependsOn(specs, scalaaddons, utils, apis)
+  .configs(IntegrationTest, End2EndTest)
+  .settings(
+    name := "son2-funs",
+    commonSettings,
+    integrationInConfig, end2endInConfig,
+    whiteSetting, graySetting, blackSetting,
+    libraryDependencies ++= Seq(
+      "org.scala-lang" % "scala-library" % ScalaLibraryVersion,
+      "org.scalactic" %% "scalactic" % ScalaticVersion,
+      "com.google.guava" % "guava" % "23.0",
+      "org.skyscreamer" % "jsonassert" % "1.5.0"
+    )
+  )
+
+lazy val apis = (project in file("son2-core/son2-apis"))
+  .dependsOn(specs, scalaaddons, utils)
+  .configs(IntegrationTest, End2EndTest)
+  .settings(
+    name := "son2-apis",
+    commonSettings,
+    integrationInConfig, end2endInConfig,
+    whiteSetting, graySetting, blackSetting,
+    libraryDependencies ++= Seq(
+      "org.scala-lang" % "scala-library" % ScalaLibraryVersion,
+      "org.scalactic" %% "scalactic" % ScalaticVersion,
+      "com.typesafe" % "config" % "1.3.2",
+      "com.google.guava" % "guava" % "23.0"
     )
   )
 

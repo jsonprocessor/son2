@@ -1,10 +1,10 @@
 package pl.writeonly.son2.path.glue
 
 import org.skyscreamer.jsonassert.JSONAssert
-import pl.writeonly.son2.core.config._
-import pl.writeonly.son2.core.converters.Converter2
-import pl.writeonly.son2.core.core.Formats
-import pl.writeonly.son2.core.glue.Piper
+import pl.writeonly.son2.apis.config._
+import pl.writeonly.son2.apis.converters.Converter2
+import pl.writeonly.son2.apis.core.Formats
+import pl.writeonly.son2.funs.glue.Piper
 import pl.writeonly.son2.path.core.ProvidersPath
 import pl.writeonly.sons.specs.WhiteAssertSpec
 

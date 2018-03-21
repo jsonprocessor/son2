@@ -2,8 +2,8 @@ package pl.writeonly.son2.text.creators
 
 import org.apache.commons.text.StringEscapeUtils
 import org.apache.commons.text.translate.CharSequenceTranslator
-import pl.writeonly.son2.core.config.TConfig
-import pl.writeonly.son2.core.core.DString
+import pl.writeonly.son2.apis.config.TConfig
+import pl.writeonly.son2.apis.core.core.DString
 import pl.writeonly.son2.text.core.{Actions, FormatsText}
 
 class MatcherStringEscape extends Matcher {
