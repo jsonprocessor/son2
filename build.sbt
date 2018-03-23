@@ -59,7 +59,8 @@ lazy val settings = Seq(whiteSetting, graySetting, blackSetting)
 
 lazy val son2 = (project in file("."))
 //  .enablePlugins(JacocoItPlugin)
-  .aggregate(specs, core, impl, subs, clis)
+  .aggregate(clis, impl, core, subs, scalaaddons)
+  .dependsOn(specs, core, impl, subs, clis)
   .configs(IntegrationTest, End2EndTest)
   .settings(
     name := "son2",
@@ -67,11 +68,12 @@ lazy val son2 = (project in file("."))
     integrationInConfig, end2endInConfig,
     whiteSetting, graySetting, blackSetting,
     coverageEnabled := true,
-    coverageMinimum := 60,
+    coverageMinimum := 55,
     coverageFailOnMinimum := true
   )
 
 lazy val clis = (project in file("son2-clis"))
+  .aggregate(copt, llop, rison, hocon, main)
   .dependsOn(copt, llop, subs)
   .configs(IntegrationTest, End2EndTest)
   .settings(
@@ -149,6 +151,7 @@ lazy val main = (project in file("son2-clis/son2-main"))
     commonSettings,
     integrationInConfig, end2endInConfig,
     whiteSetting, graySetting, blackSetting,
+    coverageMinimum := 55,
     libraryDependencies ++= Seq(
       "org.scala-lang" % "scala-library" % ScalaLibraryVersion
     )//,

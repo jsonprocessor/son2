@@ -2,6 +2,8 @@ package pl.writeonly.son2.main
 
 import java.io.ByteArrayOutputStream
 
+import pl.writeonly.son2.funs.glue.Params
+import pl.writeonly.son2.funs.streamers.Streamer
 import pl.writeonly.sons.specs.GrayScalarSpec
 
 class MainerScalarSpec extends GrayScalarSpec {

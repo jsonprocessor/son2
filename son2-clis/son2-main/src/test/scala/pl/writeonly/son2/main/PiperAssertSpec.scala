@@ -3,6 +3,8 @@ package pl.writeonly.son2.main
 import java.io.ByteArrayOutputStream
 
 import pl.writeonly.son2.apis.converters.ConverterFake
+import pl.writeonly.son2.funs.glue.{Params, Piper}
+import pl.writeonly.son2.funs.streamers.Streamer
 import pl.writeonly.sons.specs.WhiteAssertSpec
 
 class PiperAssertSpec extends WhiteAssertSpec {

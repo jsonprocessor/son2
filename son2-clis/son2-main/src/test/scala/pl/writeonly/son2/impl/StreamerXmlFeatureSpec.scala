@@ -2,6 +2,7 @@ package pl.writeonly.son2.impl
 
 import java.io.FileNotFoundException
 
+import pl.writeonly.son2.funs.streamers.StreamerPipeForeach
 import pl.writeonly.son2.jack.core.FormatsJack
 import pl.writeonly.son2.jack.glue.CreatorConverterJack
 import pl.writeonly.sons.specs.BlackSpec
