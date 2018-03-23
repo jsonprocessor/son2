@@ -25,9 +25,7 @@ Stream Object Notation to:
 It is a simple application with: 
 * ScalaTest for test
 * ScalaMock for mock
-* ScalaCheck for rroperty-based testing
-* Vaadin for view
-* Dropwizard for Rest
+* ScalaCheck for property-based testing
 * Jackson to convert json
 * JsonPath to filtering json
 * json-patch to patch json
@@ -35,13 +33,18 @@ It is a simple application with:
 
 ## Build
 ```
+cd ~
+git clone https://github.com/writeonly/son2.git
+cd son2
+git submodule update --init --recursive
+sbt clean scalafmt::test test:scalafmt::test it:scalafmt::test jacoco it:jacoco coverage test it:test assembly coverageReport && sbt coverageAggregate && sbt stats scalastyle
 sbt clean compile assembly
 ```
 
 ### CLI
 Add line to file ~/.bashrc
 ```
-alias son2="java -jar son2-main/target/scala-2.12/son2-main-assembly-2.8.11-SNAPSHOT.jar
+alias son2="java -jar ~/son2/son2-clis/son2-main/target/scala-2.12/son2-main-assembly-2.8.11-SNAPSHOT.jar"
 alias son2o="son2 o"
 alias son2y="son2 y"
 alias son2x="son2 x"
