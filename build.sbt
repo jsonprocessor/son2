@@ -122,6 +122,7 @@ lazy val rison = (project in file("son2-clis/son2-rison"))
     integrationInConfig, end2endInConfig,
     whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
+      "com.fasterxml.jackson.module" %% "jackson-module-scala" % JacksonVersion,
       "org.scala-lang" % "scala-library" % ScalaLibraryVersion
 
     )//,
@@ -137,8 +138,8 @@ lazy val hocon = (project in file("son2-clis/son2-hocon"))
     integrationInConfig, end2endInConfig,
     whiteSetting, graySetting, blackSetting,
     libraryDependencies ++= Seq(
+      "com.fasterxml.jackson.module" %% "jackson-module-scala" % JacksonVersion,
       "org.scala-lang" % "scala-library" % ScalaLibraryVersion
-
     )//,
     //    mainClass in assembly := Some("pl.writeonly.son2.main.Main")
   )
