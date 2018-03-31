@@ -10,7 +10,7 @@ import com.github.hronom.jackson.dataformat.rison.{
 }
 import pl.writeonly.son2.apis.config.RWTConfig
 
-object ConfigOpt {
+object ConfigOptRison {
 
   def configOpt(s: String) = Option(config(s))
 
