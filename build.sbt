@@ -276,7 +276,7 @@ lazy val core = (project in file("son2-core"))
       "org.scalactic" %% "scalactic" % ScalaticVersion,
       "com.typesafe" % "config" % "1.3.2",
       "com.google.guava" % "guava" % "23.0",
-      "org.skyscreamer" % "jsonassert" % "1.5.0"
+      "org.skyscreamer" % "jsonassert" % "1.5.0",
     )
   )
 
@@ -307,6 +307,7 @@ lazy val apis = (project in file("son2-core/son2-apis"))
     libraryDependencies ++= Seq(
       "org.scala-lang" % "scala-library" % ScalaLibraryVersion,
       "org.scalactic" %% "scalactic" % ScalaticVersion,
+      "com.fasterxml.jackson.core" % "jackson-annotations" % JacksonVersion,
       "com.typesafe" % "config" % "1.3.2",
       "com.google.guava" % "guava" % "23.0"
     )

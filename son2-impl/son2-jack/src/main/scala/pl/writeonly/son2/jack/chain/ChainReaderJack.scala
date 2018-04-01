@@ -36,13 +36,13 @@ object ChainReaderJack {
     RConfig(provider =
               asText(n, ConfigPath.I).map(Provider.apply).getOrElse(c.provider),
             stream =
-              asBoolean(n, ConfigPath.S).map(RStyle.apply).getOrElse(c.stream))
+              asBoolean(n, ConfigPath.S).map(RStyle.get).getOrElse(c.stream))
 
   def wConfig(n: JsonNode, c: WConfig) =
     WConfig(provider =
               asText(n, ConfigPath.O).map(Provider.apply).getOrElse(c.provider),
             style =
-              asBoolean(n, ConfigPath.P).map(WStyle.apply).getOrElse(c.style))
+              asBoolean(n, ConfigPath.P).map(WStyle.get).getOrElse(c.style))
 
   private def asText(n: JsonNode, s: Symbol) =
     get(n, s).map(_.asText).map(Symbol.apply)

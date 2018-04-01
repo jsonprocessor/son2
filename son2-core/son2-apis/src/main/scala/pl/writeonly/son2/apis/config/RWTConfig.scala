@@ -1,8 +1,11 @@
 package pl.writeonly.son2.apis.config
 
+import com.fasterxml.jackson.annotation.JsonCreator
+
 case class RWTConfig(read: RConfig = RConfig(),
                      write: WConfig = WConfig(),
-                     translate: TConfig = TConfig())
+                     translate: TConfig = TConfig(),
+                     provider: Provider = Provider(""))
 
 case class RConfig(provider: Provider = Provider(""),
                    format: Format = Format(""),
@@ -26,12 +29,15 @@ case class TConfig(action: Symbol = Symbol(""),
 }
 
 case class Provider(s: Symbol) {
+  def this(name: String) = this(Symbol(name))
+
   def startsWith(other: Provider): Boolean = name.startsWith(other.name)
 
   def name: String = s.name
 }
 
 case object Provider {
+  @JsonCreator
   def apply(name: String): Provider = Provider(Symbol(name))
 }
 
@@ -42,6 +48,7 @@ case class Format(s: Symbol) {
 }
 
 case object Format {
+  @JsonCreator
   def apply(name: String): Format = Format(Symbol(name))
 }
 
@@ -57,10 +64,13 @@ object RStream extends RStyle(true)
 
 object RAll extends RStyle(false)
 
-object RStyle {
+case object RStyle {
   type T = Boolean => RStyle
 
-  def apply: T = RStream orElse RAll
+  def get: T = RStream orElse RAll
+
+  @JsonCreator
+  def create(it: Boolean): RStyle = get.apply(it)
 }
 
 sealed case class WStyle(it: Boolean) extends PartialFunction[Boolean, WStyle] {
@@ -75,10 +85,13 @@ object WRaw extends WStyle(false)
 
 object WPretty extends WStyle(true)
 
-object WStyle {
+case object WStyle {
   type T = Boolean => WStyle
 
-  def apply: T = WRaw orElse WPretty
+  def get: T = WRaw orElse WPretty
+
+  @JsonCreator
+  def create(b: Boolean): WStyle = get.apply(b)
 }
 
 sealed trait RPath

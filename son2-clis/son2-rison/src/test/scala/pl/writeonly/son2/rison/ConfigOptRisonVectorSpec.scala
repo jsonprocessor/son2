@@ -6,7 +6,7 @@ import pl.writeonly.sons.specs.GrayVectorSpec
 class ConfigOptRisonVectorSpec extends GrayVectorSpec {
   val table = Table(
     ("in", "out"),
-    ("", RWTConfig(null, null, null))
+    ("", RWTConfig(null, null, null, null))
   )
 
   val convert = ConfigOptRison
