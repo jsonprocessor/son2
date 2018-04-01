@@ -33,7 +33,8 @@ class ObjectAssertSpec extends WhiteAssertSpec {
   }
 
   val providerRaw: Converter = CreatorConverterJack(
-    ConfigJack(FormatsJack.OBJECT))
+    ConfigJack(FormatsJack.OBJECT)
+  )
   "A ProviderRaw" should {
     "have pretty == true" in {
       assertResult(WPretty)(providerRaw.config.write.style)

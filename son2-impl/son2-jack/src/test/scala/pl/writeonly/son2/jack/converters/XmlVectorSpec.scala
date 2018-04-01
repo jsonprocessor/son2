@@ -16,8 +16,10 @@ class XmlVectorSpec extends GrayVectorSpec {
     ("[0]", "\n<ArrayNode>0</ArrayNode>"),
     ("{}", "<ObjectNode/>\n"),
     ("{\"a\":0}", "<ObjectNode>\n  <a>0</a>\n</ObjectNode>\n"),
-    ("{\"a\":0, \"b\":1}",
-     "<ObjectNode>\n  <a>0</a>\n  <b>1</b>\n</ObjectNode>\n"),
+    (
+      "{\"a\":0, \"b\":1}",
+      "<ObjectNode>\n  <a>0</a>\n  <b>1</b>\n</ObjectNode>\n"
+    ),
     ("[{}]", "<ArrayNode/>\n"),
     ("{\"a\":[]}", "<ObjectNode/>\n")
   )

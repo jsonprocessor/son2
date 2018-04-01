@@ -9,6 +9,8 @@ case class NotationCaseOrgJson()
     extends NotationCaseProvider(ProvidersPath.ORG, c => new DefaultsOrgJson(c))
 
 class DefaultsOrgJson(c: RConfig)
-    extends DefaultsPath(c,
-                         new JsonOrgJsonProvider(),
-                         new JsonOrgMappingProvider())
+    extends DefaultsPath(
+      c,
+      new JsonOrgJsonProvider(),
+      new JsonOrgMappingProvider()
+    )

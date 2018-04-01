@@ -7,18 +7,22 @@ import pl.writeonly.sons.specs.GrayVectorSpec
 class ConfigOptHoconVectorSpec extends GrayVectorSpec {
   val table = Table(
     ("in", "out"),
-    ("",
-     RWTConfig(
-       RConfig(Provider('jackson), Format('json), RStyle(true), null, Set()),
-       WConfig(Provider('jackson),
-               Format('json),
-               WStyle(true),
-               true,
-               true,
-               Set()),
-       TConfig(null, null, 0),
-       Provider('jackson)
-     ))
+    (
+      "",
+      RWTConfig(
+        RConfig(Provider('jackson), Format('json), RStyle(true), null, Set()),
+        WConfig(
+          Provider('jackson),
+          Format('json),
+          WStyle(true),
+          true,
+          true,
+          Set()
+        ),
+        TConfig(null, null, 0),
+        Provider('jackson)
+      )
+    )
   )
 
   val convert = new ConfigOptHocon

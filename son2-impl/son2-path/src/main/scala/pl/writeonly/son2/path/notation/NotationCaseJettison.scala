@@ -9,8 +9,10 @@ import pl.writeonly.son2.apis.config.RConfig
 import pl.writeonly.son2.path.core.{DefaultsPath, ProvidersPath}
 
 case class NotationCaseJettison()
-    extends NotationCaseProvider(ProvidersPath.JETTISON,
-                                 c => new DefaultsJettison(c))
+    extends NotationCaseProvider(
+      ProvidersPath.JETTISON,
+      c => new DefaultsJettison(c)
+    )
 
 class DefaultsJettison(c: RConfig)
     extends DefaultsPath(c, new JettisonProvider, new JettisonMappingProvider)

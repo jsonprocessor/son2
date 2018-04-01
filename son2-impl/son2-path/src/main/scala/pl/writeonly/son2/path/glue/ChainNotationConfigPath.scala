@@ -23,10 +23,12 @@ class ChainNotationConfigPath
         orElse
           new PCreatorConfigPath(ProvidersPath.STRICT)
         orElse
-          new PCreatorConfigPath(ProvidersPath.TAPESTRY))
+          new PCreatorConfigPath(ProvidersPath.TAPESTRY)
+    )
 
 class ChainNotationConfigPathMain
     extends ChainNotationConfig(
       new PCreatorConfigPathMain
         orElse
-          new ChainNotationConfigPath().get)
+          new ChainNotationConfigPath().get
+    )

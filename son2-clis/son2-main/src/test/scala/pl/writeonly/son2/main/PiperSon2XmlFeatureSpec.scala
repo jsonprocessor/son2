@@ -11,8 +11,10 @@ import pl.writeonly.sons.specs.BlackSpec
 class PiperSon2XmlFeatureSpec extends BlackSpec {
 
   val given = () =>
-    new Piper(Params(System.in, System.out),
-              CreatorConverterJack(FormatsJack.XML))
+    new Piper(
+      Params(System.in, System.out),
+      CreatorConverterJack(FormatsJack.XML)
+  )
 
   val outName = (name: String) =>
     Features.outputPathname(Types.PIPER, name, FormatsJack.XML)

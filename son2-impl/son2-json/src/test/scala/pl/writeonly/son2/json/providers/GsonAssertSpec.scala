@@ -31,7 +31,8 @@ class GsonAssertSpec extends WhiteAssertSpec {
   }
 
   val providerRaw: Converter = CreatorConverterJson(
-    ConfigJson(provider = ProvidersPath.GSON))
+    ConfigJson(provider = ProvidersPath.GSON)
+  )
   "A ProviderRaw" should {
     "have pretty == false" in {
       assertResult(WPretty)(providerRaw.config.write.style)

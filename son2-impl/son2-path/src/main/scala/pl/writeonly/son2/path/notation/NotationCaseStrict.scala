@@ -7,15 +7,20 @@ import pl.writeonly.son2.apis.notation.NotationWriter
 import pl.writeonly.son2.path.core.ProvidersPath
 
 case class NotationCaseStrict()
-    extends NotationCasePath(ProvidersPath.STRICT,
-                             c => new NotationReaderStrict(c),
-                             c => new NotationWriterStrict(c))
+    extends NotationCasePath(
+      ProvidersPath.STRICT,
+      c => new NotationReaderStrict(c),
+      c => new NotationWriterStrict(c)
+    )
 
 class NotationReaderStrict(c: RConfig)
     extends NotationReaderPath(
-      new DefaultsSmart(c,
-                        JSONParser.MODE_RFC4627,
-                        JSONValue.defaultReader.DEFAULT)) {
+      new DefaultsSmart(
+        c,
+        JSONParser.MODE_RFC4627,
+        JSONValue.defaultReader.DEFAULT
+      )
+    ) {
   override def isDefinedAt(content: String): Boolean =
     JSONValue.isValidJsonStrict(content)
 }

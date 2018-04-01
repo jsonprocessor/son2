@@ -9,7 +9,8 @@ abstract class NotationCaseProvider(format: Provider, defaults: FDefaultsPath)
     extends NotationCasePath(
       format,
       c => new NotationReaderPath(defaults(c)),
-      c => new NotationWriterProvider(defaults(RConfig()).jsonProvider(), c))
+      c => new NotationWriterProvider(defaults(RConfig()).jsonProvider(), c)
+    )
 
 class NotationReaderProvider(provider: JsonProvider) extends NotationReader {
   override def apply(content: String): Any = provider.parse(content)

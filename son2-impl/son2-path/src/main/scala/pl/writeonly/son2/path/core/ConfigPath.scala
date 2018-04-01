@@ -7,6 +7,8 @@ object ConfigPath {
             q: RPath = RPath.json,
             s: RStyle = RStream,
             p: WStyle = WRaw) =
-    RWTConfig(read = RConfig(provider = provider, stream = s, path = q),
-              write = WConfig(provider = provider, style = p))
+    RWTConfig(
+      read = RConfig(provider = provider, stream = s, path = q),
+      write = WConfig(provider = provider, style = p)
+    )
 }

@@ -16,8 +16,10 @@ class CreatorConverterOrTextVectorSpec extends GrayVectorSpec {
     ("e_c", TConfig(action = Actions.ESCAPE, format = FormatsText.CSV)),
     ("e_xs", TConfig(action = Actions.ESCAPE, format = FormatsText.XSI)),
     ("u_s", TConfig(action = Actions.UNESCAPE, format = FormatsText.STRING)),
-    ("u_e",
-     TConfig(action = Actions.UNESCAPE, format = FormatsText.ECMASCRIPT)),
+    (
+      "u_e",
+      TConfig(action = Actions.UNESCAPE, format = FormatsText.ECMASCRIPT)
+    ),
     ("u_o", TConfig(action = Actions.UNESCAPE, format = FormatsText.OBJECT)),
     ("u_x", TConfig(action = Actions.UNESCAPE, format = FormatsText.XML)),
     ("u_h", TConfig(action = Actions.UNESCAPE, format = FormatsText.HTML4)),

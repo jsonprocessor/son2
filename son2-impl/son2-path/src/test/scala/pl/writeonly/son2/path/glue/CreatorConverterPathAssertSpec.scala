@@ -34,9 +34,11 @@ class CreatorConverterPathAssertSpec extends WhiteAssertSpec {
   "A CreatorConverterPath " when {
     "in config provider is 'tapestry, query is $..*, stream is false and pretty is true" should {
       val config =
-        RWTConfig(RConfig(provider, Formats.OBJECT, RAll, RPath("$..*"), Set()),
-                  WConfig(provider, Formats.OBJECT, WPretty, true, true, Set()),
-                  TConfig())
+        RWTConfig(
+          RConfig(provider, Formats.OBJECT, RAll, RPath("$..*"), Set()),
+          WConfig(provider, Formats.OBJECT, WPretty, true, true, Set()),
+          TConfig()
+        )
       val converter = CreatorConverterPath(config)
       "return [] for {} by streamer" in {
         val streamer = new Piper(null, converter).print(false)
@@ -85,8 +87,10 @@ class CreatorConverterPathAssertSpec extends WhiteAssertSpec {
     }
     "in config provider is 'tapestry" should {
       val config =
-        RWTConfig(read = RConfig(provider = provider, path = RPath.parse),
-                  write = WConfig(provider = provider))
+        RWTConfig(
+          read = RConfig(provider = provider, path = RPath.parse),
+          write = WConfig(provider = provider)
+        )
       val a = CreatorConverterPath.apply(config)
       "read.provider is 'tapestry" in {
         assertResult(provider) {
@@ -101,8 +105,10 @@ class CreatorConverterPathAssertSpec extends WhiteAssertSpec {
     }
     "in config provider is 'tapestry ans query is null" should {
       val config =
-        RWTConfig(read = RConfig(provider = provider, path = RPath.parse),
-                  write = WConfig(provider = provider))
+        RWTConfig(
+          read = RConfig(provider = provider, path = RPath.parse),
+          write = WConfig(provider = provider)
+        )
       val converter = CreatorConverterPath.apply(config)
       "read.provider is 'tapestry" in {
         assertResult(provider) {
@@ -117,8 +123,10 @@ class CreatorConverterPathAssertSpec extends WhiteAssertSpec {
     }
     "in config provider is 'tapestry and query is $..*" should {
       val config =
-        RWTConfig(read = RConfig(provider = provider, path = RPath("$..*")),
-                  write = WConfig(provider = provider))
+        RWTConfig(
+          read = RConfig(provider = provider, path = RPath("$..*")),
+          write = WConfig(provider = provider)
+        )
       val a = CreatorConverterPath.apply(config)
       "read.provider is 'tapestry" in {
         assertResult(provider) {

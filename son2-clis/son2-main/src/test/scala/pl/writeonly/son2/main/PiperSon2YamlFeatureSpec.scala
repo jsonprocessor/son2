@@ -11,8 +11,10 @@ import pl.writeonly.sons.specs.BlackSpec
 class PiperSon2YamlFeatureSpec extends BlackSpec {
 
   val given = () =>
-    new Piper(Params(System.in, System.out),
-              CreatorConverterJack(FormatsJack.YAML))
+    new Piper(
+      Params(System.in, System.out),
+      CreatorConverterJack(FormatsJack.YAML)
+  )
 
   val outName = (name: String) =>
     Features.outputPathname(Types.PIPER, name, FormatsJack.YAML)

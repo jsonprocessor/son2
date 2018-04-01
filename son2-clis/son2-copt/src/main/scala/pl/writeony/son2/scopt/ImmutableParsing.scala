@@ -21,9 +21,11 @@ class ImmutableParsing {
         .action({
           case ((k, v), c) => c.copy(libName = k, maxCount = v)
         })
-        .validate(x =>
-          if (x._2 > 0) success
-          else failure("Value <max> must be >0"))
+        .validate(
+          x =>
+            if (x._2 > 0) success
+            else failure("Value <max> must be >0")
+        )
         .keyValueName("<libname>", "<max>")
         .text("maximum count for <libname>")
 
@@ -74,7 +76,8 @@ class ImmutableParsing {
           checkConfig(
             c =>
               if (c.keepalive && c.xyz) failure("xyz cannot keep alive")
-              else success)
+              else success
+          )
         )
     }
 

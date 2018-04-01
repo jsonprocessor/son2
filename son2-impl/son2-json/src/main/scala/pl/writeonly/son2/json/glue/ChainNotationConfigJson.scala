@@ -20,4 +20,5 @@ class ChainNotationConfigJson
         orElse
           new PCreatorConfigJson(ProvidersPath.STRICT)
         orElse
-          new PCreatorConfigJson(ProvidersPath.TAPESTRY))
+          new PCreatorConfigJson(ProvidersPath.TAPESTRY)
+    )

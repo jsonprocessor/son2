@@ -14,8 +14,9 @@ object ConfigJson {
   def apply(provider: Provider = ProvidersPath.GSON,
             s: RStyle = RStream,
             p: WStyle = WPretty) =
-    RWTConfig(read =
-                RConfig(provider = provider, stream = s, path = RPath.parse),
-              write = WConfig(provider = provider, style = p))
+    RWTConfig(
+      read = RConfig(provider = provider, stream = s, path = RPath.parse),
+      write = WConfig(provider = provider, style = p)
+    )
 
 }

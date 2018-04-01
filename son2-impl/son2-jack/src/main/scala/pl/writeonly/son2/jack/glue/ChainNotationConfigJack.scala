@@ -16,4 +16,5 @@ class ChainNotationConfigJack
         orElse
           new PCreatorConfigJack(FormatsJack.PROPERTIES)
         orElse
-          new PCreatorConfigJack(FormatsJack.JAVA_PROPS))
+          new PCreatorConfigJack(FormatsJack.JAVA_PROPS)
+    )

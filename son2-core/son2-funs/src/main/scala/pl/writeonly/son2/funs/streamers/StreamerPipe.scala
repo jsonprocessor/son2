@@ -32,8 +32,10 @@ abstract class StreamerPipe(liner: Liner) extends Streamer(liner) {
   }
 
   override def convertStream(in: InputStream, out: OutputStream): Unit =
-    convertNative(new InputStreamReader(in, AutoCloseableOps.UTF_8),
-                  new OutputStreamWriter(out, AutoCloseableOps.UTF_8))
+    convertNative(
+      new InputStreamReader(in, AutoCloseableOps.UTF_8),
+      new OutputStreamWriter(out, AutoCloseableOps.UTF_8)
+    )
 
   def convertNative(in: Reader, out: Writer): Unit =
     using(new BufferedWriter(out)) { bw =>

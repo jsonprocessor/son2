@@ -42,7 +42,8 @@ class StreamerSourceForeachAssertSpec extends WhiteAssertSpec {
     "convertStream empty string" should {
       "return empty string" in {
         val in = new ByteArrayInputStream(
-          EMPTY_STRING.getBytes(StandardCharsets.UTF_8))
+          EMPTY_STRING.getBytes(StandardCharsets.UTF_8)
+        )
         val out = new ByteArrayOutputStream()
         streamer.convertStream(in, out)
         val bytes = out.toByteArray

@@ -16,7 +16,8 @@ class ChainReaderJack
         orElse
           new NotationReaderCsv
         orElse
-          new NotationReaderJavaProps)
+          new NotationReaderJavaProps
+    )
     with HasConfigOpt {
 
   def configOpt(s: String): Option[RWTConfig] =
@@ -33,16 +34,18 @@ object ChainReaderJack {
     RWTConfig(read = rConfig(n, c.read), write = wConfig(n, c.write))
 
   def rConfig(n: JsonNode, c: RConfig) =
-    RConfig(provider =
-              asText(n, ConfigPath.I).map(Provider.apply).getOrElse(c.provider),
-            stream =
-              asBoolean(n, ConfigPath.S).map(RStyle.get).getOrElse(c.stream))
+    RConfig(
+      provider =
+        asText(n, ConfigPath.I).map(Provider.apply).getOrElse(c.provider),
+      stream = asBoolean(n, ConfigPath.S).map(RStyle.get).getOrElse(c.stream)
+    )
 
   def wConfig(n: JsonNode, c: WConfig) =
-    WConfig(provider =
-              asText(n, ConfigPath.O).map(Provider.apply).getOrElse(c.provider),
-            style =
-              asBoolean(n, ConfigPath.P).map(WStyle.get).getOrElse(c.style))
+    WConfig(
+      provider =
+        asText(n, ConfigPath.O).map(Provider.apply).getOrElse(c.provider),
+      style = asBoolean(n, ConfigPath.P).map(WStyle.get).getOrElse(c.style)
+    )
 
   private def asText(n: JsonNode, s: Symbol) =
     get(n, s).map(_.asText).map(Symbol.apply)

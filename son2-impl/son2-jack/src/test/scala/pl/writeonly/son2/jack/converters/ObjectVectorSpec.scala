@@ -26,7 +26,8 @@ class ObjectVectorSpec extends GrayVectorSpec {
   val toFailure = Table("in", "a")
 
   val provider: Converter = CreatorConverterJack(
-    ConfigJack(o = FormatsJack.OBJECT))
+    ConfigJack(o = FormatsJack.OBJECT)
+  )
   property("convert son to json by provider") {
     forAll(toSuccess) { (in, out) =>
       provider.convert(in) should be(out)

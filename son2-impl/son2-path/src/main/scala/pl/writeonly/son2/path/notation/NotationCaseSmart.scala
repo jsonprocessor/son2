@@ -11,14 +11,18 @@ import pl.writeonly.son2.apis.notation.NotationWriter
 import pl.writeonly.son2.path.core.{DefaultsPath, ProvidersPath}
 
 case class NotationCaseSmart()
-    extends NotationCasePath(ProvidersPath.SMART,
-                             c => new NotationReaderSmart(c),
-                             c => new NotationWriterSmart(c))
+    extends NotationCasePath(
+      ProvidersPath.SMART,
+      c => new NotationReaderSmart(c),
+      c => new NotationWriterSmart(c)
+    )
 
 class DefaultsSmart(c: RConfig, parseMode: Int, mapper: JsonReaderI[_])
-    extends DefaultsPath(c,
-                         new JsonSmartJsonProvider(parseMode, mapper),
-                         new JsonSmartMappingProvider(mapper.base))
+    extends DefaultsPath(
+      c,
+      new JsonSmartJsonProvider(parseMode, mapper),
+      new JsonSmartMappingProvider(mapper.base)
+    )
     with StrictLogging {
   //  logger.info(this.toString(), new Exception)
 

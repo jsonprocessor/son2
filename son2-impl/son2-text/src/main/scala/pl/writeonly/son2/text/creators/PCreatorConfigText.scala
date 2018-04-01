@@ -16,12 +16,17 @@ class PCreatorConfigText extends PCreatorConfig {
         .getOrElse(false)
 
   private def symbolOptionPairOption(
-      s: String): Option[(Option[Symbol], Option[Format])] =
+    s: String
+  ): Option[(Option[Symbol], Option[Format])] =
     "^(\\w+)_(\\w+)$".r
       .findFirstMatchIn(s)
-      .map(p =>
-        Pair(find1(p.group(1), Actions.ALL),
-             find2(p.group(2), FormatsText.ALL_TEXT)))
+      .map(
+        p =>
+          Pair(
+            find1(p.group(1), Actions.ALL),
+            find2(p.group(2), FormatsText.ALL_TEXT)
+        )
+      )
 
   private def find1(s: String, l: List[Symbol]) =
     l.find(it => it.name.toLowerCase.startsWith(s))
