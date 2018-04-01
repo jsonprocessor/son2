@@ -1,10 +1,10 @@
-package pl.writeonly.son2.rison
+package pl.writeonly.son2.hocon
 
 import pl.writeonly.son2.apis.config.RWTConfig
 import pl.writeonly.son2.funs.glue.CreatorConverterOr
 
-class CreatorConverterOrMain extends CreatorConverterOr(null, null) {
+class CreatorConverterOrHocon extends CreatorConverterOr(null, null) {
   override def configOpt(s: String): Option[RWTConfig] =
-    ConfigOptRison.configOpt(s)
+    new ConfigOptHocon().configOpt(s)
 
 }

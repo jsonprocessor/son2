@@ -4,32 +4,28 @@ import com.fasterxml.jackson.core.JsonFactory
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.scala.DefaultScalaModule
 import com.jasonclawson.jackson.dataformat.hocon.HoconFactory
-import com.typesafe.config.ConfigFactory
+import com.typesafe.config.{Config, ConfigFactory}
 import com.typesafe.scalalogging.StrictLogging
 import pl.writeonly.son2.apis.config.RWTConfig
+import pl.writeonly.sons.utils.ops.Pipe._
 
-object ConfigOptHocon extends StrictLogging {
+class ConfigOptHocon extends StrictLogging {
   def configOpt(s: String) = Option(config(s))
 
   def config(s: String): RWTConfig = {
-    val config1 = ConfigFactory.load()
-    logger.info(s"config1 $config1")
-    val config2 = config1.getConfig("son2")
-    logger.info(s"config2 $config2")
-    val config3 = ConfigFactory.parseString(s)
-    logger.info(s"config3 $config3")
-
-    val config = config3.withFallback(config2).root.render()
-    logger.info(s"config $config")
-    factory()
-      .readValue(config.toString, classOf[RWTConfig])
-
+    val config = ConfigFactory.parseString(s)
+    val configValue = config.withFallback(son2).root.render()
+    hocon
+      .readValue(configValue.toString, classOf[RWTConfig])
   }
+
+  def son2(config: Config): Config = config.getConfig("son2")
+
+  def son2: Config = son2(ConfigFactory.load())
 
   def factory(jsonFactory: JsonFactory): ObjectMapper =
     new ObjectMapper(jsonFactory).registerModule(DefaultScalaModule)
 
-  def factory(): ObjectMapper =
-    factory(new HoconFactory)
+  def hocon: ObjectMapper = new HoconFactory |> factory
 
 }

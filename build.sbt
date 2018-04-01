@@ -114,7 +114,7 @@ lazy val llop = (project in file("son2-clis/son2-llop"))
   )
 
 lazy val rison = (project in file("son2-clis/son2-rison"))
-  .dependsOn(main, jackRison)
+  .dependsOn(hocon, jackRison)
   .configs(IntegrationTest, End2EndTest)
   .settings(
     name := "son2-rison",

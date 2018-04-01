@@ -19,13 +19,9 @@ class ConfigOptHoconVectorSpec extends GrayVectorSpec {
        TConfig(null, null, 0),
        Provider('jackson)
      ))
-//       RWTConfig(RConfig(null, null, null, null, Set()),
-//               WConfig(null, null, null, false, false, Set()),
-//               TConfig(null, null, 0),
-//               Provider("jackson")))
   )
 
-  val convert = ConfigOptHocon
+  val convert = new ConfigOptHocon
   property("creatorOr create symbolPair") {
     forAll(table) { (in, out) =>
       convert config in shouldBe out

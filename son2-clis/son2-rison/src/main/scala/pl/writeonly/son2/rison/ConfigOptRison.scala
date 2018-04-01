@@ -1,8 +1,6 @@
 package pl.writeonly.son2.rison
 
-import com.fasterxml.jackson.core.JsonFactory
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.module.scala.DefaultScalaModule
 import com.github.hronom.jackson.dataformat.rison.{
   RisonFactory,
   RisonGenerator,
@@ -10,21 +8,19 @@ import com.github.hronom.jackson.dataformat.rison.{
 }
 import pl.writeonly.son2.apis.config.RWTConfig
 
-object ConfigOptRison {
+import pl.writeonly.sons.utils.ops.Pipe._
+import pl.writeonly.son2.hocon.ConfigOptHocon
 
-  def configOpt(s: String) = Option(config(s))
+class ConfigOptRison extends ConfigOptHocon {
 
-  def config(s: String): RWTConfig =
-    factory
-      .readValue(s, classOf[RWTConfig])
+  override def config(s: String): RWTConfig = s |> rison2json |> super.config
 
-  def factory(jsonFactory: JsonFactory): ObjectMapper =
-    new ObjectMapper(jsonFactory).registerModule(DefaultScalaModule)
+  def rison2json(s: String): String =
+    s |> rison.readTree |> new ObjectMapper().writeValueAsString
 
-  def factory(): ObjectMapper =
-    factory(
-      new RisonFactory()
-        .enable(RisonGenerator.Feature.O_RISON)
-        .enable(RisonParser.Feature.O_RISON))
+  def rison: ObjectMapper =
+    new RisonFactory()
+      .enable(RisonGenerator.Feature.O_RISON)
+      .enable(RisonParser.Feature.O_RISON) |> factory
 
 }
