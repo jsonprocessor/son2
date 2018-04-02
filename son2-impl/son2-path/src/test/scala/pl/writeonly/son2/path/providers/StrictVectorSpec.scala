@@ -30,7 +30,7 @@ class StrictVectorSpec extends GrayVectorSpec {
   val liner: Liner = new LinerOpt(provider)
   property("convert son to smart by provider") {
     forAll(toSuccess) { (in, out) =>
-      provider.convert(in) should be(out)
+      provider convert in shouldBe out
     }
   }
   val streamer: Streamer = new StreamerPipeForeach(liner)

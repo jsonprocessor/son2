@@ -13,10 +13,10 @@ class CreatorConverterJsonVectorSpec extends GrayVectorSpec {
   val writer = chain.w
   property("PF should isDefinedAt for format") {
     forAll(formats) { (format) =>
-      pf.isDefinedAt(format.name) should be(true)
+      pf.isDefinedAt(format.name) shouldBe true
       val config = pf.apply(format.name)
-      reader.isDefinedAt(config.read) should be(true)
-      writer.isDefinedAt(config.write) should be(true)
+      reader.isDefinedAt(config.read) shouldBe true
+      writer.isDefinedAt(config.write) shouldBe true
 
       reader.apply(config.read)
       writer.apply(config.write)

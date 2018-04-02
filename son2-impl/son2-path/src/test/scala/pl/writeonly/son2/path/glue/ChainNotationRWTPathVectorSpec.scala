@@ -1,22 +1,28 @@
 package pl.writeonly.son2.path.glue
 
+import org.scalatest.Outcome
 import pl.writeonly.son2.apis.config.RConfig
 import pl.writeonly.son2.path.core.ProvidersPath
-import pl.writeonly.sons.specs.GrayVectorSpec
+import pl.writeonly.sons.specs.fixture.GrayVectorSpec
+import pl.writeonly.sons.utils.ops.Pipe
 
-class ChainNotationRWTPathVectorSpec extends GrayVectorSpec {
+class ChainNotationRWTPathVectorSpec extends GrayVectorSpec with Pipe {
+
+  override type FixtureParam = ChainNotationRWTPath
+
+  override protected def withFixture(test: OneArgTest): Outcome =
+    new ChainNotationRWTPath |> test
 
   val providers = Table("format", ProvidersPath.ALL: _*)
 
-  val chain = new ChainNotationRWTPath()
-
-  property("ChainNotationRWTPath.r") {
+  property("ChainNotationRWTPath.r") { chain =>
     forAll(providers) { (provider) =>
       val config = RConfig(provider = provider)
       val creatorReader = chain.r
-      creatorReader.isDefinedAt(config) should be(true)
+      creatorReader.isDefinedAt(config) shouldBe true
       val reader = creatorReader.apply(config)
       reader.getClass
     }
   }
+
 }

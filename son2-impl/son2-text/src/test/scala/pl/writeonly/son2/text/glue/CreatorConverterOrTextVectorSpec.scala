@@ -1,10 +1,20 @@
 package pl.writeonly.son2.text.glue
 
+import org.scalatest.Outcome
 import pl.writeonly.son2.apis.config.TConfig
 import pl.writeonly.son2.text.core.{Actions, FormatsText}
-import pl.writeonly.sons.specs.GrayVectorSpec
+import pl.writeonly.sons.specs.fixture.GrayVectorSpec
+import pl.writeonly.sons.utils.ops.Pipe
 
-class CreatorConverterOrTextVectorSpec extends GrayVectorSpec {
+//import pl.writeonly.sons.utils.ops.Pipe._
+
+class CreatorConverterOrTextVectorSpec extends GrayVectorSpec with Pipe {
+
+  override type FixtureParam = CreatorConverterOrText
+
+  override protected def withFixture(test: OneArgTest): Outcome =
+    new CreatorConverterOrText |> test
+
   val toSuccess = Table(
     ("in", "out"),
     ("e_s", TConfig(action = Actions.ESCAPE, format = FormatsText.STRING)),
@@ -28,10 +38,10 @@ class CreatorConverterOrTextVectorSpec extends GrayVectorSpec {
     ("u_xs", TConfig(action = Actions.UNESCAPE, format = FormatsText.XSI))
   )
 
-  val creator = new CreatorConverterOrText
-  property("creatorOr create symbolPair") {
+  property("creatorOr create symbolPair") { creator =>
     forAll(toSuccess) { (in, out) =>
       creator converterOr in should be an 'isGood
     }
   }
+
 }

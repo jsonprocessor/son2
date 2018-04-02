@@ -1,11 +1,19 @@
 package pl.writeonly.son2.text.glue
 
+import org.scalatest.Outcome
 import pl.writeonly.son2.apis.config.TConfig
 import pl.writeonly.son2.text.core.{Actions, FormatsText}
 import pl.writeonly.son2.text.creators.PCreatorConfigText
-import pl.writeonly.sons.specs.GrayVectorSpec
+import pl.writeonly.sons.specs.fixture.GrayVectorSpec
+
+import pl.writeonly.sons.utils.ops.Pipe._
 
 class PartialCreatorTextVectorSpec extends GrayVectorSpec {
+
+  override type FixtureParam = PCreatorConfigText
+
+  override protected def withFixture(test: OneArgTest): Outcome =
+    new PCreatorConfigText |> test
 
   val toSuccess = Table(
     ("in", "out"),
@@ -27,11 +35,10 @@ class PartialCreatorTextVectorSpec extends GrayVectorSpec {
     ("u_xs", TConfig(Actions.UNESCAPE, FormatsText.XSI))
   )
 
-  val partialCreator = new PCreatorConfigText()
-  property("partialCreator create TranslateConfig") {
+  property("partialCreator create TranslateConfig") { partialCreator =>
     forAll(toSuccess) { (in, out) =>
-      partialCreator isDefinedAt in should be(true)
-      partialCreator translateConfig in should be(out)
+      partialCreator isDefinedAt in shouldBe true
+      partialCreator translateConfig in shouldBe out
     }
   }
 

@@ -28,7 +28,7 @@ class YamlVectorSpec extends GrayVectorSpec {
   val provider: Converter = CreatorConverterJack(FormatsJack.YAML)
   property("convert son to yaml by provider") {
     forAll(toSuccess) { (in, out) =>
-      provider.convert(in) should be(out)
+      provider convert in shouldBe out
     }
   }
 

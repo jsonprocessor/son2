@@ -1,14 +1,18 @@
 package pl.writeonly.son2.jack.chain
 
-import pl.writeonly.sons.specs.WhiteAssertSpec
+import pl.writeonly.sons.specs.fixture.WhiteAssertSpec
+import pl.writeonly.sons.utils.ops.Pipe
 
-class ChainReaderJackAssertSpec extends WhiteAssertSpec {
+class ChainReaderJackAssertSpec extends WhiteAssertSpec with Pipe {
 
-  val parser = new ChainReaderJack()
+  override type FixtureParam = ChainReaderJack
+
+  override protected def withFixture(test: OneArgTest) =
+    new ChainReaderJack |> test
 
   "A parser" when {
     "param is empty object json" should {
-      "return empty object" in {
+      "return empty object" in { parser =>
         val node = parser.parse("{}")
         assertResult(true, "is not object")(node.isObject)
         assertResult(0, "object is not empty")(node.size)
@@ -17,7 +21,7 @@ class ChainReaderJackAssertSpec extends WhiteAssertSpec {
       }
     }
     "param is empty array json" should {
-      "return empty array" in {
+      "return empty array" in { parser =>
         val node = parser.parse("[]")
         assertResult(true, "is not array")(node.isArray)
         assertResult(0, "array is not empty")(node.size)
@@ -26,14 +30,14 @@ class ChainReaderJackAssertSpec extends WhiteAssertSpec {
       }
     }
     "param is empty object yaml" should {
-      "return empty object" in {
+      "return empty object" in { parser =>
         val node = parser.parse("--- {}")
         assert(node.isObject, "is not object " + node)
         assert(node.size == 0, "object is not empty")
       }
     }
     "param is empty object xml" should {
-      "return empty object" in {
+      "return empty object" in { parser =>
         val node = parser.parse("<root></root>")
         assert(node.isObject, "is not object")
         assert(node.size == 0, "object is not empty")
@@ -43,7 +47,7 @@ class ChainReaderJackAssertSpec extends WhiteAssertSpec {
       }
     }
     "param is empty object csv" should {
-      "return empty object" in {
+      "return empty object" in { parser =>
         val node = parser.parse("a,b,c")
         assert(!node.isObject, "is object")
         assert(!node.isArray, "is array")
@@ -53,7 +57,7 @@ class ChainReaderJackAssertSpec extends WhiteAssertSpec {
       }
     }
     "param is empty object javaprops" should {
-      "return empty object" in {
+      "return empty object" in { parser =>
         val node = parser.parse("object.property=value")
         assert(!node.isObject, "is object")
         assert(!node.isArray, "is array")

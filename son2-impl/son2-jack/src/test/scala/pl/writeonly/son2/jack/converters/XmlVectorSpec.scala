@@ -29,7 +29,7 @@ class XmlVectorSpec extends GrayVectorSpec {
   val provider: Converter = CreatorConverterJack(FormatsJack.XML)
   property("convert son to xml by provider") {
     forAll(toSuccess) { (in, out) =>
-      provider.convert(in) should be(out)
+      provider convert in shouldBe out
     }
   }
 

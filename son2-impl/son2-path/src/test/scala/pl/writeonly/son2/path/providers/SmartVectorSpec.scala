@@ -30,7 +30,7 @@ class SmartVectorSpec extends GrayVectorSpec {
   )
   property("convert son to smart by provider") {
     forAll(toSuccess) { (in, out) =>
-      provider.convert(in) should be(out)
+      provider convert in shouldBe out
     }
   }
 

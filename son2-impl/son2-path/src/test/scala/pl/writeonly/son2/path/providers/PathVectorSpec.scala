@@ -29,7 +29,7 @@ class PathVectorSpec extends GrayVectorSpec {
   val provider: Converter = ChainNotationPairPath(ConfigPath(q = RPath("$..*")))
   property("convert son to smart by provider") {
     forAll(toSuccess) { (in, out) =>
-      provider.convert(in) should be(out)
+      provider convert in shouldBe out
     }
   }
 

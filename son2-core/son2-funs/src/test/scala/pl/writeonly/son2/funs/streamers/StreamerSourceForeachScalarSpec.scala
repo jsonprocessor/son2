@@ -3,19 +3,24 @@ package pl.writeonly.son2.funs.streamers
 import java.io.FileNotFoundException
 import java.net.URI
 
+import org.scalatest.Outcome
 import pl.writeonly.son2.apis.converters.ConverterFake
-import pl.writeonly.son2.funs.streamers.StreamerSource
-import pl.writeonly.sons.specs.GrayScalarSpec
+import pl.writeonly.sons.specs.fixture.GrayScalarSpec
+import pl.writeonly.sons.utils.ops.Pipe
 
-class StreamerSourceForeachScalarSpec extends GrayScalarSpec {
+class StreamerSourceForeachScalarSpec extends GrayScalarSpec with Pipe {
 
-  val streamer: StreamerSource = new StreamerSourceForeach(new ConverterFake)
-  it should "when convertFile file with empty name" in {
+  override type FixtureParam = StreamerSource
+
+  override protected def withFixture(test: OneArgTest): Outcome =
+    new StreamerSourceForeach(new ConverterFake) |> test
+
+  it should "when convertFile file with empty name" in { streamer =>
     assertThrows[FileNotFoundException] {
       streamer.convertFile("", "")
     }
   }
-  it should "when convertFile file with empty URI" in {
+  it should "when convertFile file with empty URI" in { streamer =>
     assertThrows[IllegalArgumentException] {
       streamer.convertFile(new URI(""), new URI(""))
     }
