@@ -27,7 +27,7 @@ class PCreatorReaderFake extends PCreatorReader {
 class PCreatorReaderSymbol(format: Format, creator: FNotationReader)
     extends PCreatorReader {
   override def isDefinedAt(c: RConfig): Boolean =
-    format.name.startsWith(c.provider.name)
+    format.name.startsWith(c.format.name)
 
   override def apply(c: RConfig): NotationReader = creator(c)
 }
@@ -42,7 +42,7 @@ class PCreatorWriterFake extends PCreatorWriter {
 class PCreatorWriterSymbol(format: Format, creator: FNotationWriter)
     extends PCreatorWriter {
   override def isDefinedAt(c: WConfig): Boolean =
-    format.name.startsWith(c.provider.name)
+    format.name.startsWith(c.format.name)
 
   override def apply(c: WConfig): NotationWriter = creator(c)
 }

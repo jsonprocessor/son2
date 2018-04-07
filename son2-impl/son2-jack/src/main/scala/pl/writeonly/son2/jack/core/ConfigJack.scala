@@ -10,8 +10,8 @@ object ConfigJack {
             o: Format,
             p: WStyle = WPretty) =
     RWTConfig(
-      read = RConfig(provider = Provider(i.s), format = i, stream = s),
-      write = WConfig(provider = Provider(o.s), format = o, style = p)
+      read = RConfig(provider = Provider('jackson), format = i, stream = s),
+      write = WConfig(provider = Provider('jackson), format = o, style = p)
     )
 
   def apply(): RWTConfig = ConfigJack.apply(FormatsJack.YAML)
