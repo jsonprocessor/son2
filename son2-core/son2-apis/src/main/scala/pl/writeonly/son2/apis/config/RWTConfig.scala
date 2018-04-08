@@ -10,7 +10,7 @@ case class RWTConfig(read: RConfig = RConfig(),
 case class RConfig(provider: Provider = Provider(""),
                    format: Format = Format(""),
                    stream: RStyle = RStream,
-                   path: RPath = RPath.json,
+                   path: RPath = null,
                    options: Set[Symbol] = Set())
 
 case class WConfig(provider: Provider = Provider(""),
