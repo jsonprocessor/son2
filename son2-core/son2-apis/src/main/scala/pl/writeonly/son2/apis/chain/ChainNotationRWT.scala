@@ -2,15 +2,15 @@ package pl.writeonly.son2.apis.chain
 
 import pl.writeonly.son2.apis.config.{Format, RConfig, RWTConfig, WConfig}
 import pl.writeonly.son2.apis.core.core.{FNotationReader, FNotationWriter}
+import pl.writeonly.son2.apis.notation.{
+  NotationReaderLike,
+  NotationTranslator,
+  NotationWriter
+}
 import pl.writeonly.son2.apis.pcreators.{
   PCreatorReader,
   PCreatorTranslator,
   PCreatorWriter
-}
-import pl.writeonly.son2.apis.notation.{
-  NotationReader,
-  NotationTranslator,
-  NotationWriter
 }
 
 class ChainNotationRWT(val r: PCreatorReader,
@@ -20,16 +20,16 @@ class ChainNotationRWT(val r: PCreatorReader,
 class PCreatorReaderFake extends PCreatorReader {
   override def isDefinedAt(x: RConfig): Boolean = false
 
-  override def apply(c: RConfig): NotationReader =
+  override def apply(c: RConfig): NotationReaderLike =
     throw new IllegalStateException(c.toString)
 }
 
 class PCreatorReaderSymbol(format: Format, creator: FNotationReader)
     extends PCreatorReader {
   override def isDefinedAt(c: RConfig): Boolean =
-    format.name.startsWith(c.format.name)
+    format.startsWith(c.format)
 
-  override def apply(c: RConfig): NotationReader = creator(c)
+  override def apply(c: RConfig): NotationReaderLike = creator(c)
 }
 
 class PCreatorWriterFake extends PCreatorWriter {
@@ -42,7 +42,7 @@ class PCreatorWriterFake extends PCreatorWriter {
 class PCreatorWriterSymbol(format: Format, creator: FNotationWriter)
     extends PCreatorWriter {
   override def isDefinedAt(c: WConfig): Boolean =
-    format.name.startsWith(c.format.name)
+    format.startsWith(c.format)
 
   override def apply(c: WConfig): NotationWriter = creator(c)
 }

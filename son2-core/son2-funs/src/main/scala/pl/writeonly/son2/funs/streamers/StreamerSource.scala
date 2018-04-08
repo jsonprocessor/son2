@@ -21,7 +21,7 @@ abstract class StreamerSource(liner: Liner) extends Streamer(liner) {
     import java.lang.{StringBuilder => JavaStringBuilder}
     val sb = new JavaStringBuilder()
     source2pw(source, sb)
-    sb.toString()
+    sb.toString
   }
 
   override def convertFile(in: String, out: String): Unit =

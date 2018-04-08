@@ -6,7 +6,7 @@ trait PartialCreatorRWT extends PartialFunction[RWTConfig, NotationRWT] {
 
   override def apply(c: RWTConfig) = NotationRWT(r(c), w(c), t(c))
 
-  def r(c: RWTConfig): NotationReader
+  def r(c: RWTConfig): NotationReaderLike
 
   def w(c: RWTConfig): NotationWriter
 

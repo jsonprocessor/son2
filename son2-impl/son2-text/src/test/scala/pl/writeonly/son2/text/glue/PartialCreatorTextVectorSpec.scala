@@ -5,7 +5,6 @@ import pl.writeonly.son2.apis.config.TConfig
 import pl.writeonly.son2.text.core.{Actions, FormatsText}
 import pl.writeonly.son2.text.creators.PCreatorConfigText
 import pl.writeonly.sons.specs.fixture.GrayVectorSpec
-
 import pl.writeonly.sons.utils.ops.Pipe._
 
 class PartialCreatorTextVectorSpec extends GrayVectorSpec {

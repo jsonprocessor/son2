@@ -1,16 +1,16 @@
 package pl.writeonly.son2.path.core
 
-import pl.writeonly.son2.apis.config.Provider
+import pl.writeonly.son2.apis.config.ProviderType
+import pl.writeonly.son2.jack.core.ProvidersJack
 
-object ProvidersPath {
-  val GSON = Provider('gson)
-  val JACKSON = Provider('jackson)
-  val JACKSON_TYPED = Provider('jackson_typed)
-  val JETTISON = Provider('jettison)
-  val ORG = Provider('org)
-  val SMART = Provider('smart)
-  val STRICT = Provider('strict)
-  val TAPESTRY = Provider('tapestry)
+object ProvidersPath extends ProvidersJack {
+  val GSON = ProviderType('gson)
+  val JACKSON_TYPED = ProviderType('jackson_typed)
+  val JETTISON = ProviderType('jettison)
+  val ORG = ProviderType('org)
+  val SMART = ProviderType('smart)
+  val STRICT = ProviderType('strict)
+  val TAPESTRY = ProviderType('tapestry)
 
   val PATH = '$
 

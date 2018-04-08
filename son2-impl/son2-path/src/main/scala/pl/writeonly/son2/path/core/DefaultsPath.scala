@@ -1,6 +1,5 @@
 package pl.writeonly.son2.path.core
 
-import com.google.common.base.MoreObjects
 import com.jayway.jsonpath.Configuration.Defaults
 import com.jayway.jsonpath.spi.json._
 import com.jayway.jsonpath.spi.mapper._
@@ -9,21 +8,12 @@ import pl.writeonly.son2.apis.config.RConfig
 import scala.collection.JavaConverters._
 
 class DefaultsPath(val config: RConfig,
-                   json: JsonProvider,
-                   mapping: MappingProvider)
+                   override val jsonProvider: JsonProvider,
+                   override val mappingProvider: MappingProvider)
     extends Defaults {
 
-  override def toString() =
-    MoreObjects
-      .toStringHelper(this)
-      .addValue(config)
-      .addValue(json)
-      .addValue(mapping)
-      .toString
-
-  override def jsonProvider = json
-
-  override def mappingProvider = mapping
+  override def toString: String =
+    (this, config, jsonProvider, mappingProvider).toString
 
   override def options: java.util.Set[com.jayway.jsonpath.Option] =
     new java.util.HashSet(optionCollection)

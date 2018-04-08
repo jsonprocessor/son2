@@ -12,7 +12,6 @@ class CreatorConverterPathAssertSpec extends WhiteAssertSpec {
 
   val expectedStr = "{}"
   val provider = ProvidersPath.TAPESTRY
-  val providerName = provider.name
   val configer = new ChainNotationConfigPath().get
   val chain = new ChainNotationRWTPath
   val reader = chain.r
@@ -21,12 +20,12 @@ class CreatorConverterPathAssertSpec extends WhiteAssertSpec {
     "providerName is 'tapestry" should {
       "return true" in {
         assertResult(true) {
-          configer.isDefinedAt(providerName)
+          configer.isDefinedAt(provider.name)
         }
       }
       "return 'tapestry" in {
         assertResult(provider) {
-          configer.apply(providerName).read.provider
+          configer.apply(provider.name).read.provider
         }
       }
     }

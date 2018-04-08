@@ -5,7 +5,6 @@ import java.net.URI
 
 import org.scalatest.Outcome
 import pl.writeonly.son2.apis.converters.ConverterFake
-import pl.writeonly.son2.funs.streamers.Streamer
 import pl.writeonly.sons.specs.fixture.WhiteAssertSpec
 import pl.writeonly.sons.utils.ops.Pipe
 

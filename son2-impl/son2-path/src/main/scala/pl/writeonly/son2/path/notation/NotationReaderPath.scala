@@ -1,15 +1,14 @@
 package pl.writeonly.son2.path.notation
 
-import com.google.common.base.MoreObjects
 import com.jayway.jsonpath.{Configuration, JsonPath, ParseContext}
-import pl.writeonly.son2.apis.config.{Json, Parse, Read}
+import pl.writeonly.son2.apis.config.{Json, MetaLike, Parse, Read}
 import pl.writeonly.son2.apis.notation.NotationReader
 import pl.writeonly.son2.path.core.DefaultsPath
 
-class NotationReaderPath(val defaults: DefaultsPath) extends NotationReader {
+class NotationReaderPath(meta: MetaLike, val defaults: DefaultsPath)
+    extends NotationReader(meta) {
 
-  override def toString() =
-    MoreObjects.toStringHelper(this).addValue(defaults).toString
+  override def toString: String = (this, defaults).toString
 
   def apply(content: String): Any = defaults.config.path match {
     case Parse      => parse(content)
@@ -22,11 +21,11 @@ class NotationReaderPath(val defaults: DefaultsPath) extends NotationReader {
 
   def json(content: String): Any = using.parse(content).json()
 
-  def parse(content: String): Any = defaults.jsonProvider().parse(content)
+  def parse(content: String): Any = defaults.jsonProvider.parse(content)
 
   def using: ParseContext = JsonPath.using(configuration)
 
-  def configuration =
+  def configuration: Configuration =
     Configuration.builder
       .jsonProvider(defaults.jsonProvider)
       .mappingProvider(defaults.mappingProvider)

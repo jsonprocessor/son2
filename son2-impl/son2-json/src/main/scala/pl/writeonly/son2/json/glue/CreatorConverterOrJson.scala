@@ -9,8 +9,5 @@ class CreatorConverterOrJson
       new ChainNotationRWTJson()
     ) {
   override def configOpt(s: String): Option[RWTConfig] =
-    chainNotationCreator.configOpt(s) match {
-      case c: Some[RWTConfig] => c
-      case _                  => throw new IllegalArgumentException
-    }
+    chainNotationCreator.configOpt(s)
 }

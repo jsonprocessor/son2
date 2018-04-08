@@ -5,12 +5,14 @@ import java.util.Objects
 import com.jayway.jsonpath.spi.json.JettisonProvider
 import com.jayway.jsonpath.spi.mapper.MappingProvider
 import com.jayway.jsonpath.{Configuration, TypeRef}
-import pl.writeonly.son2.apis.config.RConfig
+import pl.writeonly.son2.apis.config.{Meta, RConfig}
+import pl.writeonly.son2.apis.core.Formats
 import pl.writeonly.son2.path.core.{DefaultsPath, ProvidersPath}
 
 case class NotationCaseJettison()
     extends NotationCaseProvider(
       ProvidersPath.JETTISON,
+      Meta(ProvidersPath.JETTISON, Formats.OBJECT),
       c => new DefaultsJettison(c)
     )
 

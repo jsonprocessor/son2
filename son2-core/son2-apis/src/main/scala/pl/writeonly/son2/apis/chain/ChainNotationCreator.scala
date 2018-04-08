@@ -20,7 +20,7 @@ class ChainNotationCreator(parser: PCreatorConfig, rwt: ChainNotationRWT)
   def converter2(c: RWTConfig): Converter =
     new Converter2(c, input(c), output(c))
 
-  private def input(c: RWTConfig): NotationReader =
+  private def input(c: RWTConfig): NotationReaderLike =
     rwt.r
       .lift(c.read)
       .getOrElse(throw new IllegalStateException(c.read.toString))

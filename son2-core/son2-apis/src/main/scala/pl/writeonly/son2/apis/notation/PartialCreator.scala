@@ -8,7 +8,7 @@ trait PartialCreator extends PartialFunction[RWTConfig, NotationRWT] {
 
   def rwt(c: RWTConfig) = NotationRWT(r(c), w(c), t(c))
 
-  def r(c: RWTConfig): NotationReader
+  def r(c: RWTConfig): NotationReaderLike
 
   def w(c: RWTConfig): NotationWriter
 

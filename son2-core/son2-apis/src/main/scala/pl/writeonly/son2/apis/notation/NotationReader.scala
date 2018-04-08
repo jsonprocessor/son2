@@ -1,8 +1,12 @@
 package pl.writeonly.son2.apis.notation
 
+import pl.writeonly.son2.apis.config.MetaLike
+
 import scala.util.control.Exception.catching
 
-trait NotationReader extends PartialFunction[String, Any] {
+trait NotationReaderLike
+    extends NotationMetaLike
+    with PartialFunction[String, Any] {
   //  override def toString() = MoreObjects.toStringHelper(this).toString
 
   override def apply(content: String): Any
@@ -12,3 +16,7 @@ trait NotationReader extends PartialFunction[String, Any] {
       .opt(apply(content))
       .isDefined
 }
+
+abstract class NotationReader(meta: MetaLike)
+    extends NotationMeta(meta)
+    with NotationReaderLike

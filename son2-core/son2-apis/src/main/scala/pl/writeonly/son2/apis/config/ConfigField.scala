@@ -1,6 +1,6 @@
 package pl.writeonly.son2.apis.config
 
-object ConfigPath {
+object ConfigField {
   val I = 'i
   val O = 'o
   val P = 'p

@@ -6,9 +6,10 @@ import pl.writeonly.son2.apis.pcreators.PCreatorConfig
 import pl.writeonly.son2.path.core.{ConfigPath, ProvidersPath}
 import pl.writeonly.sons.utils.ops.Pipe._
 
-class PCreatorConfigPath(f: Provider) extends PartialCreatorConfigSymbol(f.s) {
+class PCreatorConfigPath(f: ProviderType)
+    extends PartialCreatorConfigSymbol(f.s) {
   override def apply(s: String): RWTConfig =
-    ConfigPath(provider = Provider(Symbol(s)))
+    ConfigPath(provider = ProviderType(Symbol(s)))
 }
 
 class PCreatorConfigPathMain extends PCreatorConfig {

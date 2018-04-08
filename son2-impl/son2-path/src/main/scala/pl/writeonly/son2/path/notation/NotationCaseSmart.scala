@@ -6,7 +6,8 @@ import com.typesafe.scalalogging.StrictLogging
 import net.minidev.json.parser.JSONParser
 import net.minidev.json.writer.JsonReaderI
 import net.minidev.json.{JSONStyle, JSONValue}
-import pl.writeonly.son2.apis.config.{RConfig, WConfig}
+import pl.writeonly.son2.apis.config.{Meta, RConfig, WConfig}
+import pl.writeonly.son2.apis.core.Formats
 import pl.writeonly.son2.apis.notation.NotationWriter
 import pl.writeonly.son2.path.core.{DefaultsPath, ProvidersPath}
 
@@ -24,20 +25,24 @@ class DefaultsSmart(c: RConfig, parseMode: Int, mapper: JsonReaderI[_])
       new JsonSmartMappingProvider(mapper.base)
     )
     with StrictLogging {
-  //  logger.info(this.toString(), new Exception)
+  //  logger.info(this.toString, new Exception)
 
   def this(c: RConfig) =
     this(c, JSONParser.MODE_PERMISSIVE, JSONValue.defaultReader.DEFAULT_ORDERED)
 }
 
 class NotationReaderSmart(c: RConfig)
-    extends NotationReaderPath(new DefaultsSmart(c)) {
+    extends NotationReaderPath(
+      Meta(ProvidersPath.SMART, Formats.OBJECT),
+      new DefaultsSmart(c)
+    ) {
 
   override def isDefinedAt(content: String): Boolean =
     JSONValue.isValidJson(content)
 }
 
-class NotationWriterSmart(c: WConfig) extends NotationWriter(c) {
+class NotationWriterSmart(c: WConfig)
+    extends NotationWriter(Meta(ProvidersPath.SMART, Formats.OBJECT), c) {
 
   override def writePretty(value: Any): String =
     JSONValue.toJSONString(value, JSONStyle.MAX_COMPRESS)

@@ -1,10 +1,10 @@
 package pl.writeonly.son2.apis.notation
 
-import com.google.common.base.MoreObjects
 import org.scalactic.{Bad, Good, Or}
-import pl.writeonly.son2.apis.config.{WConfig, WPretty, WRaw}
+import pl.writeonly.son2.apis.config._
 
-abstract class NotationWriter(val config: WConfig) {
+abstract class NotationWriter(meta: MetaLike, val config: WConfig)
+    extends NotationMeta(meta) {
 
   def apply(value: Any Or String): String = value match {
     case Good(v) => write(v)
@@ -18,10 +18,9 @@ abstract class NotationWriter(val config: WConfig) {
 
   def comment(content: String): String = content
 
-  def writePretty(value: Any): String //= value.toString()
+  def writePretty(value: Any): String //= value.toString
 
-  def writeRaw(value: Any): String //= value.toString()
+  def writeRaw(value: Any): String //= value.toString
 
-  override def toString(): String =
-    MoreObjects.toStringHelper(this).addValue(config).toString
+  override def toString: String = (this, config).toString
 }

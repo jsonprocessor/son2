@@ -1,7 +1,10 @@
 package pl.writeonly.son2.rison
 
 import pl.writeonly.son2.apis.config._
-import pl.writeonly.son2.jack.core.{ConfigJack, FormatsJack}
+import pl.writeonly.son2.apis.core.Formats
+import pl.writeonly.son2.jack.core.{ConfigJack, FormatsJack, ProvidersJack}
+import pl.writeonly.son2.json.core.ConfigJson
+import pl.writeonly.son2.path.core.ConfigPath
 import pl.writeonly.sons.specs.fixture.GrayVectorSpec
 import pl.writeonly.sons.utils.ops.Pipe
 
@@ -17,20 +20,34 @@ class ConfigOptRisonVectorSpec extends GrayVectorSpec with Pipe {
     (
       "",
       RWTConfig(
-        RConfig(Provider('jackson), Format('object), RStyle(true), null, Set()),
+        RConfig(
+          ProvidersJack.JACKSON,
+          Formats.OBJECT,
+          RStyle(true),
+          null,
+          Set()
+        ),
         WConfig(
-          Provider('jackson),
-          Format('object),
+          ProvidersJack.JACKSON,
+          Formats.OBJECT,
           WStyle(true),
           true,
           true,
           Set()
         ),
         TConfig(null, Format(""), 0),
-        Provider('jackson)
+        ProvidersJack.JACKSON
       )
     ),
-    ("", ConfigJack(FormatsJack.OBJECT))
+    ("", ConfigJack(FormatsJack.OBJECT)),
+    (
+      "read:(provider:smart,format:''),write:(provider:smart,format:'',style:false)",
+      ConfigPath(q = null)
+    ),
+    (
+      "read:(provider:gson),write:(provider:gson),provider:gson",
+      ConfigJson(q = null)
+    )
   )
 
   property("creatorOr create symbolPair") { convert =>

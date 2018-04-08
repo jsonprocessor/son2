@@ -1,10 +1,12 @@
 package pl.writeonly.son2.patch.notation
 
 import com.github.fge.jsonpatch.JsonPatch
-import pl.writeonly.son2.apis.notation.NotationReader
+import pl.writeonly.son2.apis.config.Meta
+import pl.writeonly.son2.apis.notation.{NotationReader, NotationReaderLike}
 import pl.writeonly.son2.jack.notation.NotationReaderObject
 
-class NotationReaderPatch(patch: String) extends NotationReader {
+class NotationReaderPatch(patch: String)
+    extends NotationReader(Meta(null, null)) {
 
   def apply(content: String): Any = {
     val patchReader = new NotationReaderObject

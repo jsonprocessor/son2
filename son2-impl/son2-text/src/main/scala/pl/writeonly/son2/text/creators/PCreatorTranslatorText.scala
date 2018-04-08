@@ -1,6 +1,6 @@
 package pl.writeonly.son2.text.creators
 
-import pl.writeonly.son2.apis.config.{RWTConfig, TConfig}
+import pl.writeonly.son2.apis.config._
 import pl.writeonly.son2.apis.notation.NotationTranslator
 import pl.writeonly.son2.apis.pcreators.PCreatorTranslator
 import pl.writeonly.sons.utils.ops.Pipe._
@@ -18,7 +18,11 @@ class PCreatorTranslatorText extends PCreatorTranslator {
   //  override def isDefinedAt(c: Config): Boolean = isDefinedAt(c.translate)
 
   override def apply(c: RWTConfig): NotationTranslator =
-    new NotationTranslator(c.write, translatorMatch(c.translate))
+    new NotationTranslator(
+      Meta(ProviderType(""), Format("")),
+      c.write,
+      translatorMatch(c.translate)
+    )
 
   def translatorMatch(p: TConfig) = matcher.apply(p)
 

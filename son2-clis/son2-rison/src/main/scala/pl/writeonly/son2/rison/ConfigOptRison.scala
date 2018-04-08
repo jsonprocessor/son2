@@ -7,9 +7,8 @@ import com.github.hronom.jackson.dataformat.rison.{
   RisonParser
 }
 import pl.writeonly.son2.apis.config.RWTConfig
-
-import pl.writeonly.sons.utils.ops.Pipe._
 import pl.writeonly.son2.hocon.ConfigOptHocon
+import pl.writeonly.sons.utils.ops.Pipe._
 
 class ConfigOptRison extends ConfigOptHocon {
 
