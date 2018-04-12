@@ -11,39 +11,39 @@ import pl.writeonly.sons.specs.WhiteAssertSpec
 
 class ObjectAssertSpec extends WhiteAssertSpec {
 
-  val provider: Converter = CreatorConverterJack(FormatsJack.OBJECT)
+  val converter: Converter = CreatorConverterJack(FormatsJack.OBJECT).get
   "A Provider" should {
     "produce JsonParseException when convert a" in {
       assertThrows[JsonParseException] {
-        provider.convert("a")
+        converter.convert("a")
       }
     }
     "produce JsonMappingException when convert empty string" in {
       assertThrows[JsonMappingException] {
-        provider.convert("")
+        converter.convert("")
       }
     }
   }
 
-  val liner: Liner = new LinerOpt(provider)
+  val liner: Liner = new LinerOpt(converter)
   "A Liner" should {
     "return empty comment" in {
-      assertResult(provider.comment("") + "\n")(liner.apply(""))
+      assertResult(converter.comment("") + "\n")(liner.apply(""))
     }
   }
 
-  val providerRaw: Converter = CreatorConverterJack(
+  val converterRaw: Converter = CreatorConverterJack(
     ConfigJack(FormatsJack.OBJECT)
-  )
+  ).get
   "A ProviderRaw" should {
     "have pretty == true" in {
-      assertResult(WPretty)(providerRaw.config.write.style)
+      assertResult(WPretty)(converterRaw.config.write.style)
     }
     "be  Provider2" in {
-      assertResult(true)(providerRaw.isInstanceOf[Converter2])
+      assertResult(true)(converterRaw.isInstanceOf[Converter2])
     }
   }
-  val provider2Raw = providerRaw.asInstanceOf[Converter2]
+  val provider2Raw = converterRaw.asInstanceOf[Converter2]
   "A Provider2Raw" should {
     //    "have pretty == false" in {
     //      assertResult(false)(provider2Raw.out.config.style)

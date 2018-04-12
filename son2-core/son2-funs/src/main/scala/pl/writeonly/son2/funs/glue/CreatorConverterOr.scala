@@ -14,7 +14,6 @@ abstract class CreatorConverterOr(parser: PCreatorConfig,
   def converterOr(s: String): Converter Or ErrorMessage =
     configOpt(s)
       .map(c => chainNotationCreator.provider(c))
-      .map(p => Good(p))
       .getOrElse(Bad(s))
 
   def configOpt(s: String): Option[RWTConfig] =

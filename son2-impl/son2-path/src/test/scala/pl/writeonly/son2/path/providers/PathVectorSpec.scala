@@ -26,14 +26,16 @@ class PathVectorSpec extends GrayVectorSpec {
 
   val toFailure = Table(("in", "out"), ("a", "[]"))
 
-  val provider: Converter = ChainNotationPairPath(ConfigPath(q = RPath("$..*")))
+  val converter: Converter = ChainNotationPairPath(
+    ConfigPath(q = RPath("$..*"))
+  ).get
   property("convert son to smart by provider") {
     forAll(toSuccess) { (in, out) =>
-      provider convert in shouldBe out
+      converter convert in shouldBe out
     }
   }
 
-  val liner: Liner = new LinerOpt(provider)
+  val liner: Liner = new LinerOpt(converter)
   property("convert son to smart by liner") {
     forAll(toSuccess) { (in, out) =>
       liner.apply(in) should be(out + "\n")

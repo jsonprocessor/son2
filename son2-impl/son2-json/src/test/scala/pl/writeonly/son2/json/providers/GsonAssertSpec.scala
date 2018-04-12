@@ -10,7 +10,7 @@ import pl.writeonly.sons.specs.WhiteAssertSpec
 
 class GsonAssertSpec extends WhiteAssertSpec {
 
-  val provider: Converter = CreatorConverterJson(ProvidersPath.GSON)
+  val provider: Converter = CreatorConverterJson(ProvidersPath.GSON).get
   "A Provider" should {
     "produce JsonParseException when convert a" in {
       assertResult("\"a\"")(provider.convert("a"))
@@ -32,7 +32,7 @@ class GsonAssertSpec extends WhiteAssertSpec {
 
   val providerRaw: Converter = CreatorConverterJson(
     ConfigJson(provider = ProvidersPath.GSON)
-  )
+  ).get
   "A ProviderRaw" should {
     "have pretty == false" in {
       assertResult(WPretty)(providerRaw.config.write.style)

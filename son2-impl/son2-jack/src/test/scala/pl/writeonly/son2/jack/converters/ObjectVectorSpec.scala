@@ -25,16 +25,16 @@ class ObjectVectorSpec extends GrayVectorSpec {
 
   val toFailure = Table("in", "a")
 
-  val provider: Converter = CreatorConverterJack(
+  val converter: Converter = CreatorConverterJack(
     ConfigJack(o = FormatsJack.OBJECT)
-  )
+  ).get
   property("convert son to json by provider") {
     forAll(toSuccess) { (in, out) =>
-      provider convert in shouldBe out
+      converter convert in shouldBe out
     }
   }
 
-  val liner: Liner = new LinerOpt(provider)
+  val liner: Liner = new LinerOpt(converter)
   property("convert son to json by liner") {
     forAll(toSuccess) { (in, out) =>
       liner.apply(in) should be(out + "\n")
@@ -42,7 +42,7 @@ class ObjectVectorSpec extends GrayVectorSpec {
   }
   property("fail convert son to json by liner") {
     forAll(toFailure) { in =>
-      liner.apply(in) should be(provider.comment(in) + "\n")
+      liner.apply(in) should be(converter.comment(in) + "\n")
     }
   }
 
@@ -54,7 +54,7 @@ class ObjectVectorSpec extends GrayVectorSpec {
   }
   property("fail convert son to json by streamer") {
     forAll(toFailure) { in =>
-      streamer.convertString(in) should be(provider.comment(in) + "\n")
+      streamer.convertString(in) should be(converter.comment(in) + "\n")
     }
   }
 
@@ -65,7 +65,7 @@ class ObjectVectorSpec extends GrayVectorSpec {
   }
   property("fail convert son to json by native streamer") {
     forAll(toFailure) { in =>
-      streamer.convertStringNative(in) should be(provider.comment(in) + "\n")
+      streamer.convertStringNative(in) should be(converter.comment(in) + "\n")
     }
   }
 }

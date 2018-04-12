@@ -12,7 +12,7 @@ class StreamerYamlFeatureSpec extends BlackSpec {
   info("StreamerPipe with ProviderYaml")
 
   val given = () =>
-    new StreamerPipeForeach(CreatorConverterJack(FormatsJack.YAML))
+    new StreamerPipeForeach(CreatorConverterJack(FormatsJack.YAML).get)
 
   val outName = (name: String) =>
     Features.outputPathname(Types.STREAMER, name, FormatsJack.YAML)

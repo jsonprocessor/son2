@@ -10,34 +10,34 @@ import pl.writeonly.sons.specs.WhiteAssertSpec
 
 class XmlAssertSpec extends WhiteAssertSpec {
 
-  val provider: Converter = CreatorConverterJack(FormatsJack.XML)
+  val converter: Converter = CreatorConverterJack(FormatsJack.XML).get
   "A Provider" should {
     "produce JsonParseException when convert a" in {
       assertThrows[JsonParseException] {
-        provider.convert("a")
+        converter.convert("a")
       }
     }
     "produce JsonMappingException when convert empty string" in {
       assertThrows[JsonMappingException] {
-        provider.convert("")
+        converter.convert("")
       }
     }
     "produce JsonMappingException when convert []" in {
       assertThrows[JsonMappingException] {
-        provider.convert("[]")
+        converter.convert("[]")
       }
     }
     "produce JsonMappingException when convert [0,1]" in {
       assertThrows[JsonMappingException] {
-        provider.convert("[0,1]")
+        converter.convert("[0,1]")
       }
     }
   }
 
-  val liner: Liner = new LinerOpt(provider)
+  val liner: Liner = new LinerOpt(converter)
   "A Liner" should {
     "return empty comment" in {
-      assertResult(provider.comment("") + "\n")(liner.apply(""))
+      assertResult(converter.comment("") + "\n")(liner.apply(""))
     }
   }
 }

@@ -27,7 +27,7 @@ class SmartVectorSpec extends GrayVectorSpec {
 
   val provider: Converter = ChainNotationPairPath(
     ConfigPath(provider = ProvidersPath.SMART)
-  )
+  ).get
   property("convert son to smart by provider") {
     forAll(toSuccess) { (in, out) =>
       provider convert in shouldBe out

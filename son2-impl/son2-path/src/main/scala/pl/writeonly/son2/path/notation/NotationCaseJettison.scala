@@ -1,7 +1,5 @@
 package pl.writeonly.son2.path.notation
 
-import java.util.Objects
-
 import com.jayway.jsonpath.spi.json.JettisonProvider
 import com.jayway.jsonpath.spi.mapper.MappingProvider
 import com.jayway.jsonpath.{Configuration, TypeRef}
@@ -25,7 +23,7 @@ class JettisonMappingProvider extends MappingProvider {
                       configuration: Configuration) = illegalState(source)
 
   def illegalState(source: Any) =
-    throw new IllegalStateException(Objects.toString(source))
+    throw new IllegalStateException(s"$source")
 
   override def map[T](source: Any,
                       targetType: TypeRef[T],

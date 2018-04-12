@@ -13,7 +13,7 @@ class PiperSon2ObjectFeatureSpec extends BlackSpec {
   val given = () =>
     new Piper(
       Params(System.in, System.out),
-      CreatorConverterJack(FormatsJack.OBJECT)
+      CreatorConverterJack(FormatsJack.OBJECT).get
   )
 
   val outName = (name: String) =>

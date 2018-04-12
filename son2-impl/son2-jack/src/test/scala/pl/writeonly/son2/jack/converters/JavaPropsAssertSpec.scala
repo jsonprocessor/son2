@@ -10,24 +10,24 @@ import pl.writeonly.sons.specs.WhiteAssertSpec
 
 class JavaPropsAssertSpec extends WhiteAssertSpec {
 
-  val provider: Converter = CreatorConverterJack(FormatsJack.JAVA_PROPS)
+  val converter: Converter = CreatorConverterJack(FormatsJack.JAVA_PROPS).get
   "A Provider" should {
     "produce JsonParseException when convert a" in {
       assertThrows[JsonParseException] {
-        provider.convert("a")
+        converter.convert("a")
       }
     }
     "produce JsonMappingException when convert empty string" in {
       assertThrows[JsonMappingException] {
-        provider.convert("")
+        converter.convert("")
       }
     }
   }
 
-  val liner: Liner = new LinerOpt(provider)
+  val liner: Liner = new LinerOpt(converter)
   "A Liner" should {
     "return empty comment" in {
-      assertResult(provider.comment("") + "\n")(liner.apply(""))
+      assertResult(converter.comment("") + "\n")(liner.apply(""))
     }
   }
 }

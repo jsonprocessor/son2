@@ -13,7 +13,7 @@ class PiperSon2YamlFeatureSpec extends BlackSpec {
   val given = () =>
     new Piper(
       Params(System.in, System.out),
-      CreatorConverterJack(FormatsJack.YAML)
+      CreatorConverterJack(FormatsJack.YAML).get
   )
 
   val outName = (name: String) =>

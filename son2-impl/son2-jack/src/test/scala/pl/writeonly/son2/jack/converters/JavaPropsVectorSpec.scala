@@ -25,14 +25,14 @@ class JavaPropsVectorSpec extends GrayVectorSpec {
 
   val toFailure = Table("in", "a")
 
-  val provider: Converter = CreatorConverterJack(FormatsJack.JAVA_PROPS)
+  val converter: Converter = CreatorConverterJack(FormatsJack.JAVA_PROPS).get
   property("convert son to yaml by provider") {
     forAll(toSuccess) { (in, out) =>
-      provider convert in shouldBe out
+      converter convert in shouldBe out
     }
   }
 
-  val liner: Liner = new LinerOpt(provider)
+  val liner: Liner = new LinerOpt(converter)
   property("convert son to yaml by liner") {
     forAll(toSuccess) { (in, out) =>
       liner.apply(in) should be(out + "\n")
@@ -40,7 +40,7 @@ class JavaPropsVectorSpec extends GrayVectorSpec {
   }
   property("fail convert son to yaml by liner") {
     forAll(toFailure) { in =>
-      liner.apply(in) should be(provider.comment(in) + "\n")
+      liner.apply(in) should be(converter.comment(in) + "\n")
     }
   }
 
@@ -52,7 +52,7 @@ class JavaPropsVectorSpec extends GrayVectorSpec {
   }
   property("fail convert son to yaml by streamer") {
     forAll(toFailure) { in =>
-      streamer.convertString(in) should be(provider.comment(in) + "\n")
+      streamer.convertString(in) should be(converter.comment(in) + "\n")
     }
   }
 
@@ -63,7 +63,7 @@ class JavaPropsVectorSpec extends GrayVectorSpec {
   }
   property("fail convert son to yaml by native streamer") {
     forAll(toFailure) { in =>
-      streamer.convertStringNative(in) should be(provider.comment(in) + "\n")
+      streamer.convertStringNative(in) should be(converter.comment(in) + "\n")
     }
   }
 }

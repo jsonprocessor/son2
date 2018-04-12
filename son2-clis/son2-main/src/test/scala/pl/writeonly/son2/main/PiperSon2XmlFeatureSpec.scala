@@ -13,7 +13,7 @@ class PiperSon2XmlFeatureSpec extends BlackSpec {
   val given = () =>
     new Piper(
       Params(System.in, System.out),
-      CreatorConverterJack(FormatsJack.XML)
+      CreatorConverterJack(FormatsJack.XML).get
   )
 
   val outName = (name: String) =>

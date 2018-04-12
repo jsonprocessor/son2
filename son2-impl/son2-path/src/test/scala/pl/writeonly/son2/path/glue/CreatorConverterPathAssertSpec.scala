@@ -38,7 +38,7 @@ class CreatorConverterPathAssertSpec extends WhiteAssertSpec {
           WConfig(provider, Formats.OBJECT, WPretty, true, true, Set()),
           TConfig()
         )
-      val converter = CreatorConverterPath(config)
+      val converter = CreatorConverterPath(config).get
       "return [] for {} by streamer" in {
         val streamer = new Piper(null, converter).print(false)
         val json = streamer.convertString(native = false, expectedStr)
@@ -55,6 +55,7 @@ class CreatorConverterPathAssertSpec extends WhiteAssertSpec {
       }
       "return 'tapestry from config write provider" in {
         assertResult(provider) {
+
           converter.config.write.provider
         }
       }
@@ -72,7 +73,7 @@ class CreatorConverterPathAssertSpec extends WhiteAssertSpec {
     }
 
     "provider is 'tapestry" should {
-      val a = CreatorConverterPath.apply(provider)
+      val a = CreatorConverterPath.apply(provider).get
       "read.provider is 'tapestry" in {
         assertResult(provider) {
           a.config.read.provider
@@ -90,7 +91,7 @@ class CreatorConverterPathAssertSpec extends WhiteAssertSpec {
           read = RConfig(provider = provider, path = RPath.parse),
           write = WConfig(provider = provider)
         )
-      val a = CreatorConverterPath.apply(config)
+      val a = CreatorConverterPath.apply(config).get
       "read.provider is 'tapestry" in {
         assertResult(provider) {
           a.config.read.provider
@@ -108,7 +109,7 @@ class CreatorConverterPathAssertSpec extends WhiteAssertSpec {
           read = RConfig(provider = provider, path = RPath.parse),
           write = WConfig(provider = provider)
         )
-      val converter = CreatorConverterPath.apply(config)
+      val converter = CreatorConverterPath.apply(config).get
       "read.provider is 'tapestry" in {
         assertResult(provider) {
           converter.config.read.provider
@@ -126,7 +127,7 @@ class CreatorConverterPathAssertSpec extends WhiteAssertSpec {
           read = RConfig(provider = provider, path = RPath("$..*")),
           write = WConfig(provider = provider)
         )
-      val a = CreatorConverterPath.apply(config)
+      val a = CreatorConverterPath.apply(config).get
       "read.provider is 'tapestry" in {
         assertResult(provider) {
           a.config.read.provider
