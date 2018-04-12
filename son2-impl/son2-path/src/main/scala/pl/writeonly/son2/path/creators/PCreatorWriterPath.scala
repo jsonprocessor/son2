@@ -7,7 +7,7 @@ import pl.writeonly.son2.path.notation.NotationCasePath
 
 class PCreatorWriterPath(path: NotationCasePath) extends PCreatorWriter {
   override def isDefinedAt(c: WConfig): Boolean =
-    path.provider.startsWith(c.provider)
+    path.meta.providerType.startsWith(c.provider)
 
   override def apply(c: WConfig): NotationWriter = path.writer(c)
 }

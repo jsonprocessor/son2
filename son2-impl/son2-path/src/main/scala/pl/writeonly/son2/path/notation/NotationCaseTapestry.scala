@@ -2,14 +2,13 @@ package pl.writeonly.son2.path.notation
 
 import com.jayway.jsonpath.spi.json.TapestryJsonProvider
 import com.jayway.jsonpath.spi.mapper.TapestryMappingProvider
-import pl.writeonly.son2.apis.config.{Meta, RConfig}
+import pl.writeonly.son2.apis.config.{MetaImpl, RConfig}
 import pl.writeonly.son2.apis.core.Formats
 import pl.writeonly.son2.path.core.{DefaultsPath, ProvidersPath}
 
 case class NotationCaseTapestry()
     extends NotationCaseProvider(
-      ProvidersPath.TAPESTRY,
-      Meta(ProvidersPath.TAPESTRY, Formats.OBJECT),
+      MetaImpl(ProvidersPath.TAPESTRY, Formats.OBJECT),
       c => new DefaultsTapesty(c)
     )
 

@@ -3,7 +3,7 @@ package pl.writeonly.son2.apis.notation
 import org.scalactic.{Bad, Good, Or}
 import pl.writeonly.son2.apis.config._
 
-abstract class NotationWriter(meta: MetaLike, val config: WConfig)
+abstract class NotationWriter(meta: Meta, val config: WConfig)
     extends NotationMeta(meta) {
 
   def apply(value: Any Or String): String = value match {

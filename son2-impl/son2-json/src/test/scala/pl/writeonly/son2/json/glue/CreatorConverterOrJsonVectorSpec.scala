@@ -11,13 +11,13 @@ class CreatorConverterOrJsonVectorSpec extends GrayVectorSpec with Pipe {
   override protected def withFixture(test: OneArgTest): Outcome =
     new CreatorConverterOrJson |> test
 
-  val providers = Table("format", ProvidersJson.ALL: _*)
+  val providers = Table("providers", ProvidersJson.ALL: _*)
 
   property("Apply CreatorConverterOrJson with provider") { creator =>
     forAll(providers) { (provider) =>
       val converter = creator.converterOr(provider.name)
       converter.isGood shouldBe true
+      //converter.get.metas._1 shouldBe MetaImpl(provider, Formats.OBJECT)
     }
   }
-
 }

@@ -6,29 +6,33 @@ import com.jayway.jsonpath.spi.json.{
   JacksonJsonProvider
 }
 import com.jayway.jsonpath.spi.mapper.JacksonMappingProvider
-import pl.writeonly.son2.apis.config.{Meta, RConfig}
+import pl.writeonly.son2.apis.config.{MetaImpl, RConfig}
 import pl.writeonly.son2.apis.core.Formats
-import pl.writeonly.son2.jack.core.JackObject
+import pl.writeonly.son2.jack.core.MetaJackObject
 import pl.writeonly.son2.jack.notation.NotationWriterJack
 import pl.writeonly.son2.path.core.{DefaultsPath, ProvidersPath}
 
 case class NotationCaseJackson()
     extends NotationCasePath(
-      ProvidersPath.JACKSON,
+      MetaJackObject(),
       c => new NotationReaderJackson(c),
-      c => new NotationWriterJack(c, JackObject())
+      c => new NotationWriterJack(c, MetaJackObject())
     )
 
 case class NotationCaseJacksonType()
     extends NotationCasePath(
-      ProvidersPath.JACKSON_TYPED,
+      NotationCaseJacksonType.meta,
       c => new NotationReaderJackson(c),
-      c => new NotationWriterJack(c, JackObject())
+      c => new NotationWriterJack(c, MetaJackObject())
     )
+
+object NotationCaseJacksonType {
+  val meta = MetaImpl(ProvidersPath.JACKSON_TYPED, Formats.OBJECT)
+}
 
 class NotationReaderJackson(c: RConfig)
     extends NotationReaderPath(
-      Meta(ProvidersPath.JACKSON, Formats.OBJECT),
+      MetaImpl(ProvidersPath.JACKSON, Formats.OBJECT),
       new DefaultsJackson(c)
     )
 

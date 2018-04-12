@@ -1,6 +1,6 @@
 package pl.writeonly.son2.apis.notation
 
-import pl.writeonly.son2.apis.config.MetaLike
+import pl.writeonly.son2.apis.config.Meta
 
 import scala.util.control.Exception.catching
 
@@ -17,6 +17,6 @@ trait NotationReaderLike
       .isDefined
 }
 
-abstract class NotationReader(meta: MetaLike)
+abstract class NotationReader(meta: Meta)
     extends NotationMeta(meta)
     with NotationReaderLike

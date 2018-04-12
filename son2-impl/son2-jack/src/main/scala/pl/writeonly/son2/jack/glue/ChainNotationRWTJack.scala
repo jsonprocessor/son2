@@ -6,27 +6,27 @@ import pl.writeonly.son2.jack.creators.{PCreatorReaderJack, PCreatorWriterJack}
 
 class ChainNotationRWTJack
     extends ChainNotationRWT(
-      (new PCreatorReaderJack(JackObject())
+      (new PCreatorReaderJack(MetaJackObject())
         orElse
-          new PCreatorReaderJack(JackXml())
+          new PCreatorReaderJack(MetaJackXml())
         orElse
-          new PCreatorReaderJack(JackYaml())
+          new PCreatorReaderJack(MetaJackYaml())
         orElse
-          new PCreatorReaderJack(JackCsv())
+          new PCreatorReaderJack(MetaJackCsv())
         orElse
-          new PCreatorReaderJack(JackProperties())
+          new PCreatorReaderJack(MetaJackProperties())
         orElse
-          new PCreatorReaderJack(JackJavaProps())),
-      (new PCreatorWriterJack(JackObject())
+          new PCreatorReaderJack(MetaJackJavaProps())),
+      (new PCreatorWriterJack(MetaJackObject())
         orElse
-          new PCreatorWriterJack(JackXml())
+          new PCreatorWriterJack(MetaJackXml())
         orElse
-          new PCreatorWriterJack(JackYaml())
+          new PCreatorWriterJack(MetaJackYaml())
         orElse
-          new PCreatorWriterJack(JackCsv())
+          new PCreatorWriterJack(MetaJackCsv())
         orElse
-          new PCreatorWriterJack(JackProperties())
+          new PCreatorWriterJack(MetaJackProperties())
         orElse
-          new PCreatorWriterJack(JackJavaProps())),
+          new PCreatorWriterJack(MetaJackJavaProps())),
       new PCreatorTranslatorFake()
     )

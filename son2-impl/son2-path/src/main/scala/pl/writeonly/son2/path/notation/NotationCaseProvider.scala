@@ -5,21 +5,19 @@ import pl.writeonly.son2.apis.config._
 import pl.writeonly.son2.apis.notation.{NotationReader, NotationWriter}
 import pl.writeonly.son2.path.core.FDefaultsPath
 
-abstract class NotationCaseProvider(format: ProviderType,
-                                    meta: MetaLike,
-                                    defaults: FDefaultsPath)
+abstract class NotationCaseProvider(meta: Meta, defaults: FDefaultsPath)
     extends NotationCasePath(
-      format,
+      meta,
       c => new NotationReaderPath(meta, defaults(c)),
       c => new NotationWriterProvider(meta, defaults(RConfig()).jsonProvider, c)
     )
 
-class NotationReaderProvider(meta: MetaLike, provider: JsonProvider)
+class NotationReaderProvider(meta: Meta, provider: JsonProvider)
     extends NotationReader(meta) {
   override def apply(content: String): Any = provider.parse(content)
 }
 
-class NotationWriterProvider(meta: MetaLike, provider: JsonProvider, c: WConfig)
+class NotationWriterProvider(meta: Meta, provider: JsonProvider, c: WConfig)
     extends NotationWriter(meta, c) {
 
   override def writePretty(value: Any): String = provider.toJson(value)

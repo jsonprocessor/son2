@@ -5,7 +5,7 @@ import pl.writeonly.son2.jack.core.FormatsJack
 import pl.writeonly.sons.specs.fixture.GrayVectorSpec
 import pl.writeonly.sons.utils.ops.Pipe
 
-class CreatorConverterOrJackVectorSpec extends GrayVectorSpec with Pipe {
+class CreatorConverterOrMetaJackVectorSpec extends GrayVectorSpec with Pipe {
   override type FixtureParam = CreatorConverterOrJack
 
   override protected def withFixture(test: OneArgTest): Outcome =

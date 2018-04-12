@@ -1,11 +1,11 @@
 package pl.writeonly.son2.path.notation
 
 import com.jayway.jsonpath.{Configuration, JsonPath, ParseContext}
-import pl.writeonly.son2.apis.config.{Json, MetaLike, Parse, Read}
+import pl.writeonly.son2.apis.config.{Json, Meta, Parse, Read}
 import pl.writeonly.son2.apis.notation.NotationReader
 import pl.writeonly.son2.path.core.DefaultsPath
 
-class NotationReaderPath(meta: MetaLike, val defaults: DefaultsPath)
+class NotationReaderPath(meta: Meta, val defaults: DefaultsPath)
     extends NotationReader(meta) {
 
   override def toString: String = (this, defaults).toString

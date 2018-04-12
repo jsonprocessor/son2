@@ -1,9 +1,9 @@
 package pl.writeonly.son2.apis.notation
 
-import pl.writeonly.son2.apis.config.{Meta, MetaLike, WConfig}
+import pl.writeonly.son2.apis.config.{MetaImpl, Meta, WConfig}
 import pl.writeonly.son2.apis.core.core.DString
 
-class NotationTranslator(meta: MetaLike, c: WConfig, t: DString)
+class NotationTranslator(meta: Meta, c: WConfig, t: DString)
     extends NotationWriter(meta, c)
     with NotationReaderLike {
   override def writePretty(value: Any): String = value.asInstanceOf[String]

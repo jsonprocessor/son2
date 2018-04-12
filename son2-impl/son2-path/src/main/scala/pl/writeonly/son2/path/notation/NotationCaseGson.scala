@@ -3,23 +3,24 @@ package pl.writeonly.son2.path.notation
 import com.google.gson.{Gson, GsonBuilder}
 import com.jayway.jsonpath.spi.json.GsonJsonProvider
 import com.jayway.jsonpath.spi.mapper.GsonMappingProvider
-import pl.writeonly.son2.apis.config.{Meta, RConfig, WConfig}
+import pl.writeonly.son2.apis.config.{MetaImpl, RConfig, WConfig}
 import pl.writeonly.son2.apis.core.Formats
 import pl.writeonly.son2.apis.notation.NotationWriter
 import pl.writeonly.son2.path.core.{DefaultsPath, ProvidersPath}
 
 case class NotationCaseGson()
     extends NotationCasePath(
-      ProvidersPath.GSON,
+      NotationCaseGson.meta,
       c => new NotationReaderGson(c),
       c => new NotationWriterGson(c)
     )
 
+object NotationCaseGson {
+  val meta = MetaImpl(ProvidersPath.GSON, Formats.OBJECT)
+}
+
 class NotationReaderGson(c: RConfig)
-    extends NotationReaderPath(
-      Meta(ProvidersPath.GSON, Formats.OBJECT),
-      new DefaultsGson(c)
-    )
+    extends NotationReaderPath(NotationCaseGson.meta, new DefaultsGson(c))
 
 class DefaultsGson(c: RConfig, gson: Gson)
     extends DefaultsPath(
@@ -31,7 +32,7 @@ class DefaultsGson(c: RConfig, gson: Gson)
 }
 
 class NotationWriterGson(c: WConfig)
-    extends NotationWriter(Meta(ProvidersPath.GSON, Formats.OBJECT), c) {
+    extends NotationWriter(NotationCaseGson.meta, c) {
 
   override def writePretty(value: Any): String =
     write(

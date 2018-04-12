@@ -6,14 +6,14 @@ import com.typesafe.scalalogging.StrictLogging
 import net.minidev.json.parser.JSONParser
 import net.minidev.json.writer.JsonReaderI
 import net.minidev.json.{JSONStyle, JSONValue}
-import pl.writeonly.son2.apis.config.{Meta, RConfig, WConfig}
+import pl.writeonly.son2.apis.config.{MetaImpl, RConfig, WConfig}
 import pl.writeonly.son2.apis.core.Formats
 import pl.writeonly.son2.apis.notation.NotationWriter
 import pl.writeonly.son2.path.core.{DefaultsPath, ProvidersPath}
 
 case class NotationCaseSmart()
     extends NotationCasePath(
-      ProvidersPath.SMART,
+      MetaImpl(ProvidersPath.SMART, Formats.OBJECT),
       c => new NotationReaderSmart(c),
       c => new NotationWriterSmart(c)
     )
@@ -33,7 +33,7 @@ class DefaultsSmart(c: RConfig, parseMode: Int, mapper: JsonReaderI[_])
 
 class NotationReaderSmart(c: RConfig)
     extends NotationReaderPath(
-      Meta(ProvidersPath.SMART, Formats.OBJECT),
+      MetaImpl(ProvidersPath.SMART, Formats.OBJECT),
       new DefaultsSmart(c)
     ) {
 
@@ -42,7 +42,7 @@ class NotationReaderSmart(c: RConfig)
 }
 
 class NotationWriterSmart(c: WConfig)
-    extends NotationWriter(Meta(ProvidersPath.SMART, Formats.OBJECT), c) {
+    extends NotationWriter(MetaImpl(ProvidersPath.SMART, Formats.OBJECT), c) {
 
   override def writePretty(value: Any): String =
     JSONValue.toJSONString(value, JSONStyle.MAX_COMPRESS)

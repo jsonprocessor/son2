@@ -14,4 +14,5 @@ class Converter2(config: RWTConfig,
 
   override def toString: String = (this, config, in, out).toString
 
+  override def metas = (in.meta, out.meta)
 }

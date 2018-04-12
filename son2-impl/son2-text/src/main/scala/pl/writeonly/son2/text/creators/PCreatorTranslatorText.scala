@@ -19,7 +19,7 @@ class PCreatorTranslatorText extends PCreatorTranslator {
 
   override def apply(c: RWTConfig): NotationTranslator =
     new NotationTranslator(
-      Meta(ProviderType(""), Format("")),
+      MetaImpl(ProviderType(""), Format("")),
       c.write,
       translatorMatch(c.translate)
     )
