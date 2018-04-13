@@ -6,35 +6,32 @@ import com.jayway.jsonpath.spi.json.{
   JacksonJsonProvider
 }
 import com.jayway.jsonpath.spi.mapper.JacksonMappingProvider
-import pl.writeonly.son2.apis.config.{MetaImpl, RConfig}
+import pl.writeonly.son2.apis.config.{Meta, MetaImpl, RConfig}
 import pl.writeonly.son2.apis.core.Formats
-import pl.writeonly.son2.jack.core.MetaJackObject
+import pl.writeonly.son2.jack.core.{Jack, JackImpl, JackObject}
 import pl.writeonly.son2.jack.notation.NotationWriterJack
 import pl.writeonly.son2.path.core.{DefaultsPath, ProvidersPath}
 
-case class NotationCaseJackson()
-    extends NotationCasePath(
-      MetaJackObject(),
-      c => new NotationReaderJackson(c),
-      c => new NotationWriterJack(c, MetaJackObject())
-    )
+case class NotationCaseJackson() extends NotationCaseJacksonLike(JackObject())
 
 case class NotationCaseJacksonType()
-    extends NotationCasePath(
-      NotationCaseJacksonType.meta,
-      c => new NotationReaderJackson(c),
-      c => new NotationWriterJack(c, MetaJackObject())
+    extends NotationCaseJacksonLike(
+      JackImpl(NotationCaseJacksonType.meta, new ObjectMapper, "", "")
     )
 
 object NotationCaseJacksonType {
   val meta = MetaImpl(ProvidersPath.JACKSON_TYPED, Formats.OBJECT)
 }
 
-class NotationReaderJackson(c: RConfig)
-    extends NotationReaderPath(
-      MetaImpl(ProvidersPath.JACKSON, Formats.OBJECT),
-      new DefaultsJackson(c)
+abstract class NotationCaseJacksonLike(jack: Jack)
+    extends NotationCasePath(
+      jack.meta,
+      c => new NotationReaderJackson(jack.meta, c),
+      c => new NotationWriterJack(jack, c)
     )
+
+class NotationReaderJackson(meta: Meta, c: RConfig)
+    extends NotationReaderPath(meta, new DefaultsJackson(c))
 
 class DefaultsJackson(c: RConfig, objectMapper: ObjectMapper)
     extends DefaultsPath(

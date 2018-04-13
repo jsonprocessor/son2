@@ -68,7 +68,7 @@ lazy val son2 = (project in file("."))
     integrationInConfig, end2endInConfig,
     whiteSetting, graySetting, blackSetting,
     coverageEnabled := true,
-    coverageMinimum := 55,
+    coverageMinimum := 60,
     coverageFailOnMinimum := true
   )
 
@@ -152,7 +152,7 @@ lazy val main = (project in file("son2-clis/son2-main"))
     commonSettings,
     integrationInConfig, end2endInConfig,
     whiteSetting, graySetting, blackSetting,
-    coverageMinimum := 55,
+    coverageMinimum := 60,
     libraryDependencies ++= Seq(
       "org.scala-lang" % "scala-library" % ScalaLibraryVersion
     )//,

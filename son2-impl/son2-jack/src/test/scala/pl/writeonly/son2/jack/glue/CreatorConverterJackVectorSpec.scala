@@ -1,9 +1,9 @@
 package pl.writeonly.son2.jack.glue
 
-import pl.writeonly.son2.jack.core.FormatsJack
+import pl.writeonly.son2.jack.core.{FormatsJack, Jack}
 import pl.writeonly.sons.specs.GrayVectorSpec
 
-class CreatorConverterMetaJackVectorSpec extends GrayVectorSpec {
+class CreatorConverterJackVectorSpec extends GrayVectorSpec {
 
   val formats = Table("format", FormatsJack.ALL: _*)
 
@@ -24,8 +24,12 @@ class CreatorConverterMetaJackVectorSpec extends GrayVectorSpec {
   }
   property("Apply creatorConverterJack with format") {
     forAll(formats) { (format) =>
-      CreatorConverterJack.apply(format)
+      val converter = CreatorConverterJack.apply(format)
+      withClue(s"$format ${converter}") {
+        converter.isGood shouldBe true
+        converter.get.metas._1 shouldBe Jack.meta(FormatsJack.OBJECT)
+        converter.get.metas._2 shouldBe Jack.meta(format)
+      }
     }
   }
-
 }

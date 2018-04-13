@@ -1,7 +1,5 @@
 package pl.writeonly.son2.apis.config
 
-import com.fasterxml.jackson.annotation.JsonCreator
-
 case class RWTConfig(read: RConfig = RConfig(),
                      write: WConfig = WConfig(),
                      translate: TConfig = TConfig(),

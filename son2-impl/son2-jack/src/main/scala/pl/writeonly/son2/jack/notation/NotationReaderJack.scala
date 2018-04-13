@@ -1,19 +1,19 @@
 package pl.writeonly.son2.jack.notation
 
 import com.fasterxml.jackson.databind.JsonNode
-import pl.writeonly.son2.apis.notation.NotationReaderLike
+import pl.writeonly.son2.apis.notation.NotationReader
 import pl.writeonly.son2.jack.core._
 
-class NotationReaderJack(val meta: MetaJack) extends NotationReaderLike {
-  def apply(content: String): JsonNode = meta.mapper.readTree(content)
+class NotationReaderJack(val jack: Jack) extends NotationReader(jack.meta) {
+  override def apply(content: String): JsonNode = jack.mapper.readTree(content)
 }
 
-class NotationReaderObject extends NotationReaderJack(MetaJackObject())
+case class NotationReaderObject() extends NotationReaderJack(JackObject())
 
-class NotationReaderXml extends NotationReaderJack(MetaJackXml())
+case class NotationReaderXml() extends NotationReaderJack(JackXml())
 
-class NotationReaderYaml extends NotationReaderJack(MetaJackYaml())
+case class NotationReaderYaml() extends NotationReaderJack(JackYaml())
 
-class NotationReaderCsv extends NotationReaderJack(MetaJackCsv())
+case class NotationReaderCsv() extends NotationReaderJack(JackCsv())
 
-class NotationReaderJavaProps extends NotationReaderJack(MetaJackJavaProps())
+case class NotationReaderJavaProps() extends NotationReaderJack(JackJavaProps())

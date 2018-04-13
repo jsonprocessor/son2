@@ -11,16 +11,13 @@ import pl.writeonly.son2.path.core.{DefaultsPath, ProvidersPath}
 case class NotationCaseGson()
     extends NotationCasePath(
       NotationCaseGson.meta,
-      c => new NotationReaderGson(c),
+      c => new NotationReaderPath(NotationCaseGson.meta, new DefaultsGson(c)),
       c => new NotationWriterGson(c)
     )
 
 object NotationCaseGson {
   val meta = MetaImpl(ProvidersPath.GSON, Formats.OBJECT)
 }
-
-class NotationReaderGson(c: RConfig)
-    extends NotationReaderPath(NotationCaseGson.meta, new DefaultsGson(c))
 
 class DefaultsGson(c: RConfig, gson: Gson)
     extends DefaultsPath(

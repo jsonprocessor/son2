@@ -1,16 +1,16 @@
-package pl.writeonly.son2.json.glue
+package pl.writeonly.son2.path.glue
 
 import pl.writeonly.son2.apis.config.MetaImpl
 import pl.writeonly.son2.jack.core.FormatsJack
-import pl.writeonly.son2.json.core.ProvidersJson
+import pl.writeonly.son2.path.core.ProvidersPath
 import pl.writeonly.sons.specs.GrayVectorSpec
 
-class CreatorConverterJsonVectorSpec extends GrayVectorSpec {
+class CreatorConverterPathVectorSpec extends GrayVectorSpec {
 
-  val providers = Table("format", ProvidersJson.ALL: _*)
+  val providers = Table("format", ProvidersPath.ALL: _*)
 
-  val pf = new ChainNotationConfigJson().get
-  val chain = new ChainNotationRWTJson
+  val pf = new ChainNotationConfigPath().get
+  val chain = new ChainNotationRWTPath
   val reader = chain.r
   val writer = chain.w
   property("PF should isDefinedAt for provider") {
@@ -26,7 +26,7 @@ class CreatorConverterJsonVectorSpec extends GrayVectorSpec {
   }
   property("Apply creatorConverterPath with format") {
     forAll(providers) { (provider) =>
-      val converter = CreatorConverterJson.apply(provider)
+      val converter = CreatorConverterPath.apply(provider)
       withClue(s"$provider ${converter}") {
         converter.isGood shouldBe true
         converter.get.metas._1 shouldBe MetaImpl(provider, FormatsJack.OBJECT)

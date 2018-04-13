@@ -3,6 +3,7 @@ package pl.writeonly.son2.apis.chain
 import pl.writeonly.son2.apis.config.{Format, RConfig, RWTConfig, WConfig}
 import pl.writeonly.son2.apis.core.core.{FNotationReader, FNotationWriter}
 import pl.writeonly.son2.apis.notation.{
+  NotationReader,
   NotationReaderLike,
   NotationTranslator,
   NotationWriter
@@ -20,7 +21,7 @@ class ChainNotationRWT(val r: PCreatorReader,
 class PCreatorReaderFake extends PCreatorReader {
   override def isDefinedAt(x: RConfig): Boolean = false
 
-  override def apply(c: RConfig): NotationReaderLike =
+  override def apply(c: RConfig): NotationReader =
     throw new IllegalStateException(c.toString)
 }
 
@@ -29,7 +30,7 @@ class PCreatorReaderSymbol(format: Format, creator: FNotationReader)
   override def isDefinedAt(c: RConfig): Boolean =
     format.startsWith(c.format)
 
-  override def apply(c: RConfig): NotationReaderLike = creator(c)
+  override def apply(c: RConfig): NotationReader = creator(c)
 }
 
 class PCreatorWriterFake extends PCreatorWriter {

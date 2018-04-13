@@ -26,7 +26,7 @@ class ChainNotationCreator(parser: PCreatorConfig, rwt: ChainNotationRWT)
       o <- output(c)
     } yield new Converter2(c, i, o)
 
-  private def input(c: RWTConfig): NotationReaderLike Or String =
+  private def input(c: RWTConfig): NotationReader Or String =
     rwt.r
       .lift(c.read)
       .map(Good(_))
