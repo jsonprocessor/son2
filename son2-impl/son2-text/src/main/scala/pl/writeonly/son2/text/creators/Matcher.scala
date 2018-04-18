@@ -5,5 +5,13 @@ import pl.writeonly.son2.apis.core.core.DString
 
 trait Matcher {
 
-  def apply(p: TConfig): DString
+  type PF = PartialFunction[TConfig, Transformer]
+
+  type Transformer
+
+  def apply(p: TConfig): DString = extract(pf(p))
+
+  def extract(d: Transformer): DString
+
+  def pf: PF
 }

@@ -1,6 +1,7 @@
 package pl.writeonly.son2.funs.glue
 
-import pl.writeonly.son2.apis.config.{RAll, RStream, RStyle}
+import pl.writeonly.son2.apis.config.RStyle
+import pl.writeonly.son2.apis.config.RStyle.{RAll, RStream}
 import pl.writeonly.son2.apis.converters.Converter
 import pl.writeonly.son2.funs.liners.{LinerOpt, LinerWithTry}
 import pl.writeonly.son2.funs.streamers._

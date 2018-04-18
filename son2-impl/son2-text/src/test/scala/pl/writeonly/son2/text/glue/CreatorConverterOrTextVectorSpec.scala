@@ -1,7 +1,7 @@
 package pl.writeonly.son2.text.glue
 
 import org.scalatest.Outcome
-import pl.writeonly.son2.apis.config.{Format, MetaImpl, ProviderType, TConfig}
+import pl.writeonly.son2.apis.config.{Format, Meta, ProviderType, TConfig}
 import pl.writeonly.son2.text.core.{Actions, FormatsText}
 import pl.writeonly.sons.specs.fixture.GrayVectorSpec
 import pl.writeonly.sons.utils.ops.Pipe
@@ -46,11 +46,11 @@ class CreatorConverterOrTextVectorSpec extends GrayVectorSpec with Pipe {
 
       withClue(s"$in $out ${converter}") {
         converter.isGood shouldBe true
-        converter.get.metas._1 shouldBe MetaImpl(
+        converter.get.metas._1 shouldBe Meta(
           ProviderType(out.action.s),
           out.format
         )
-        converter.get.metas._2 shouldBe MetaImpl(
+        converter.get.metas._2 shouldBe Meta(
           ProviderType(out.action.s),
           out.format
         )

@@ -1,10 +1,11 @@
 package pl.writeonly.son2.json.core
 
+import pl.writeonly.son2.apis.config.RPath.RPath
+import pl.writeonly.son2.apis.config.RStyle.RStream
+import pl.writeonly.son2.apis.config.WStyle.WPretty
 import pl.writeonly.son2.apis.config._
-import pl.writeonly.son2.apis.core.ConfigCore
+import pl.writeonly.son2.apis.core.{ConfigCore, Formats}
 import pl.writeonly.son2.path.core.ProvidersPath
-
-import pl.writeonly.son2.apis.core.Formats
 
 object ConfigJson extends ConfigCore {
   def apply(s: String): RWTConfig =

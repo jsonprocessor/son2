@@ -1,5 +1,7 @@
 package pl.writeonly.son2.jack.core
 
+import pl.writeonly.son2.apis.config.RStyle.RStream
+import pl.writeonly.son2.apis.config.WStyle.WPretty
 import pl.writeonly.son2.apis.config._
 import pl.writeonly.son2.apis.core.ConfigCore
 

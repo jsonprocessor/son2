@@ -1,5 +1,8 @@
 package pl.writeonly.son2.path.core
 
+import pl.writeonly.son2.apis.config.RPath.RPath
+import pl.writeonly.son2.apis.config.RStyle.RStream
+import pl.writeonly.son2.apis.config.WStyle.WRaw
 import pl.writeonly.son2.apis.config._
 import pl.writeonly.son2.apis.core.ConfigCore
 

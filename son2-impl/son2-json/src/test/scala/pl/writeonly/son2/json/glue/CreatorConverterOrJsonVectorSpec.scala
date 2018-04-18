@@ -1,7 +1,7 @@
 package pl.writeonly.son2.json.glue
 
 import org.scalatest.Outcome
-import pl.writeonly.son2.apis.config.MetaImpl
+import pl.writeonly.son2.apis.config.Meta
 import pl.writeonly.son2.jack.core.{FormatsJack, Jack}
 import pl.writeonly.son2.json.core.ProvidersJson
 import pl.writeonly.sons.specs.fixture.GrayVectorSpec
@@ -20,8 +20,8 @@ class CreatorConverterOrJsonVectorSpec extends GrayVectorSpec with Pipe {
       val converter = creator.converterOr(provider.name)
       withClue(s"$provider ${converter}") {
         converter.isGood shouldBe true
-        converter.get.metas._1 shouldBe MetaImpl(provider, FormatsJack.OBJECT)
-        converter.get.metas._2 shouldBe MetaImpl(provider, FormatsJack.OBJECT)
+        converter.get.metas._1 shouldBe Meta(provider, FormatsJack.OBJECT)
+        converter.get.metas._2 shouldBe Meta(provider, FormatsJack.OBJECT)
       }
     }
   }

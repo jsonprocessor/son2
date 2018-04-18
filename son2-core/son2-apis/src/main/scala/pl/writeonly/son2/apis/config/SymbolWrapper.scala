@@ -10,7 +10,7 @@ abstract class SymbolWrapper[T <: SymbolWrapper[T]](val s: Symbol) {
   def name: String = s.name
 }
 
-case class ProviderType(override val s: Symbol)
+final case class ProviderType(override val s: Symbol)
     extends SymbolWrapper[ProviderType](s)
 
 case object ProviderType {
@@ -19,14 +19,14 @@ case object ProviderType {
     name |> Symbol.apply |> ProviderType.apply
 }
 
-case class Format(override val s: Symbol) extends SymbolWrapper[Format](s)
+final case class Format(override val s: Symbol) extends SymbolWrapper[Format](s)
 
 case object Format {
   @JsonCreator
   def apply(name: String): Format = name |> Symbol.apply |> Format.apply
 }
 
-case class Action(override val s: Symbol) extends SymbolWrapper[Action](s)
+final case class Action(override val s: Symbol) extends SymbolWrapper[Action](s)
 
 case object Action {
   @JsonCreator

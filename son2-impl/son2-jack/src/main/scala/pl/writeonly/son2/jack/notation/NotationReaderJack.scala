@@ -8,12 +8,13 @@ class NotationReaderJack(val jack: Jack) extends NotationReader(jack.meta) {
   override def apply(content: String): JsonNode = jack.mapper.readTree(content)
 }
 
-case class NotationReaderObject() extends NotationReaderJack(JackObject())
+final case class NotationReaderObject() extends NotationReaderJack(JackObject())
 
-case class NotationReaderXml() extends NotationReaderJack(JackXml())
+final case class NotationReaderXml() extends NotationReaderJack(JackXml())
 
-case class NotationReaderYaml() extends NotationReaderJack(JackYaml())
+final case class NotationReaderYaml() extends NotationReaderJack(JackYaml())
 
-case class NotationReaderCsv() extends NotationReaderJack(JackCsv())
+final case class NotationReaderCsv() extends NotationReaderJack(JackCsv())
 
-case class NotationReaderJavaProps() extends NotationReaderJack(JackJavaProps())
+final case class NotationReaderJavaProps()
+    extends NotationReaderJack(JackJavaProps())

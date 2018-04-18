@@ -1,6 +1,8 @@
 package pl.writeonly.son2.path.glue
 
 import org.skyscreamer.jsonassert.JSONAssert
+import pl.writeonly.son2.apis.config.RStyle.RAll
+import pl.writeonly.son2.apis.config.WStyle.WPretty
 import pl.writeonly.son2.apis.config._
 import pl.writeonly.son2.apis.converters.Converter2
 import pl.writeonly.son2.apis.core.Formats

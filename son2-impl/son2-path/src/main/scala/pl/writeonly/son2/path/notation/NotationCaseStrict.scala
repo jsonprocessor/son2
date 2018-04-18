@@ -2,21 +2,21 @@ package pl.writeonly.son2.path.notation
 
 import net.minidev.json.parser.JSONParser
 import net.minidev.json.{JSONStyle, JSONValue}
-import pl.writeonly.son2.apis.config.{MetaImpl, RConfig, WConfig}
+import pl.writeonly.son2.apis.config.{Meta, RConfig, WConfig}
 import pl.writeonly.son2.apis.core.Formats
-import pl.writeonly.son2.apis.notation.NotationWriter
+import pl.writeonly.son2.apis.notation.{NotationWriter, Value}
 import pl.writeonly.son2.path.core.ProvidersPath
 
-case class NotationCaseStrict()
+final case class NotationCaseStrict()
     extends NotationCasePath(
-      MetaImpl(ProvidersPath.STRICT, Formats.OBJECT),
+      Meta(ProvidersPath.STRICT, Formats.OBJECT),
       c => new NotationReaderStrict(c),
       c => new NotationWriterStrict(c)
     )
 
 class NotationReaderStrict(c: RConfig)
     extends NotationReaderPath(
-      MetaImpl(ProvidersPath.STRICT, Formats.OBJECT),
+      Meta(ProvidersPath.STRICT, Formats.OBJECT),
       new DefaultsSmart(
         c,
         JSONParser.MODE_RFC4627,
@@ -28,11 +28,11 @@ class NotationReaderStrict(c: RConfig)
 }
 
 class NotationWriterStrict(c: WConfig)
-    extends NotationWriter(MetaImpl(ProvidersPath.STRICT, Formats.OBJECT), c) {
+    extends NotationWriter(Meta(ProvidersPath.STRICT, Formats.OBJECT), c) {
 
-  override def writePretty(value: Any): String =
+  override def writePretty(value: Value): String =
     JSONValue.toJSONString(value, JSONStyle.MAX_COMPRESS)
 
-  override def writeRaw(value: Any): String =
+  override def writeRaw(value: Value): String =
     JSONValue.toJSONString(value, JSONStyle.NO_COMPRESS)
 }

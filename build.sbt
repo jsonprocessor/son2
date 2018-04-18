@@ -16,6 +16,9 @@ scalacOptions ++= Seq(
   "-Xfatal-warnings",
 )
 
+scalastyleFailOnWarning := true
+scalastyleFailOnError := true
+
 val JacksonVersion = "2.8.11"
 val JacksonAnnotationVersion = JacksonVersion
 val ScalaLibraryVersion = "2.12.4"

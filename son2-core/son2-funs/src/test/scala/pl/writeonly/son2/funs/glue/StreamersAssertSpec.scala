@@ -1,6 +1,6 @@
 package pl.writeonly.son2.funs.glue
 
-import pl.writeonly.son2.apis.config.{RAll, RStream}
+import pl.writeonly.son2.apis.config.RStyle.{RAll, RStream}
 import pl.writeonly.son2.funs.streamers.{
   StreamerPipeAll,
   StreamerPipeForeach,

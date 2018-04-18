@@ -1,5 +1,6 @@
 package pl.writeonly.son2.path.creators
 
+import pl.writeonly.son2.apis.config.WStyle.WRaw
 import pl.writeonly.son2.apis.config._
 import pl.writeonly.son2.apis.notation.PartialCreatorConfigSymbol
 import pl.writeonly.son2.apis.pcreators.PCreatorConfig

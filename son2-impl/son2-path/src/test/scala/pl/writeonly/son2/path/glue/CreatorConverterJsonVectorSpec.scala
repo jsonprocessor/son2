@@ -1,6 +1,6 @@
 package pl.writeonly.son2.path.glue
 
-import pl.writeonly.son2.apis.config.MetaImpl
+import pl.writeonly.son2.apis.config.Meta
 import pl.writeonly.son2.jack.core.FormatsJack
 import pl.writeonly.son2.path.core.ProvidersPath
 import pl.writeonly.sons.specs.GrayVectorSpec
@@ -29,8 +29,8 @@ class CreatorConverterPathVectorSpec extends GrayVectorSpec {
       val converter = CreatorConverterPath.apply(provider)
       withClue(s"$provider ${converter}") {
         converter.isGood shouldBe true
-        converter.get.metas._1 shouldBe MetaImpl(provider, FormatsJack.OBJECT)
-        converter.get.metas._2 shouldBe MetaImpl(provider, FormatsJack.OBJECT)
+        converter.get.metas._1 shouldBe Meta(provider, FormatsJack.OBJECT)
+        converter.get.metas._2 shouldBe Meta(provider, FormatsJack.OBJECT)
       }
 
     }

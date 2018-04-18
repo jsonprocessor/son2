@@ -14,38 +14,61 @@ import pl.writeonly.son2.text.core.{Actions, FormatsText}
 
 class MatcherUnbescape extends Matcher {
 
-  override def apply(p: TConfig): DString = p match {
-    case TConfig(Actions.ESCAPE, _, _)   => escape(p)
-    case TConfig(Actions.UNESCAPE, _, _) => unescape(p)
-  }
+  type Transformer = DString
 
-  def escape(p: TConfig): DString = p match {
-    case TConfig(Actions.ESCAPE, FormatsText.STRING, _) =>
-      JavaEscape.escapeJava
-    case TConfig(Actions.ESCAPE, FormatsText.ECMASCRIPT, _) =>
-      JavaScriptEscape.escapeJavaScript
-    case TConfig(Actions.ESCAPE, FormatsText.OBJECT, _) =>
-      JsonEscape.escapeJson
-    case TConfig(Actions.ESCAPE, FormatsText.CSV, _) => CsvEscape.escapeCsv
-  }
+  override def extract(d: DString): DString = d
 
-  def unescape(p: TConfig): DString = p match {
-    case TConfig(Actions.UNESCAPE, FormatsText.STRING, _) =>
-      JavaEscape.unescapeJava
-    case TConfig(Actions.UNESCAPE, FormatsText.ECMASCRIPT, _) =>
-      JavaScriptEscape.unescapeJavaScript
-    case TConfig(Actions.UNESCAPE, FormatsText.XML, _) => XmlEscape.escapeXml11
+  @volatile lazy val pf
+    : PF = xml orElse html orElse json orElse csv orElse java orElse ecmaScript orElse uri orElse css
+
+  val xml: PF = {
+    case TConfig(Actions.UNESCAPE, FormatsText.XML, _) =>
+      (s: String) =>
+        XmlEscape.escapeXml11(s)
     case TConfig(Actions.UNESCAPE, FormatsText.XML11, _) =>
       XmlEscape.escapeXml11
     case TConfig(Actions.UNESCAPE, FormatsText.XML10, _) =>
       XmlEscape.escapeXml11
+  }
+
+  val html: PF = {
     case TConfig(Actions.UNESCAPE, FormatsText.HTML4, _) =>
       HtmlEscape.unescapeHtml
     case TConfig(Actions.UNESCAPE, FormatsText.HTML3, _) =>
       HtmlEscape.unescapeHtml
+  }
+
+  val csv: PF = {
+    case TConfig(Actions.ESCAPE, FormatsText.CSV, _)   => CsvEscape.escapeCsv
     case TConfig(Actions.UNESCAPE, FormatsText.CSV, _) => CsvEscape.unescapeCsv
+  }
+
+  val json: PF = {
+    case TConfig(Actions.ESCAPE, FormatsText.OBJECT, _) =>
+      JsonEscape.escapeJson
+  }
+
+  val java: PF = {
+    case TConfig(Actions.ESCAPE, FormatsText.STRING, _) =>
+      JavaEscape.escapeJava
+    case TConfig(Actions.UNESCAPE, FormatsText.STRING, _) =>
+      JavaEscape.unescapeJava
+  }
+
+  val ecmaScript: PF = {
+    case TConfig(Actions.ESCAPE, FormatsText.ECMASCRIPT, _) =>
+      JavaScriptEscape.escapeJavaScript
+    case TConfig(Actions.UNESCAPE, FormatsText.ECMASCRIPT, _) =>
+      JavaScriptEscape.unescapeJavaScript
+  }
+
+  val uri: PF = {
     case TConfig(Actions.UNESCAPE, FormatsText.URI, _) =>
       UriEscape.unescapeUriPath
+  }
+
+  val css: PF = {
     case TConfig(Actions.UNESCAPE, FormatsText.CSS, _) => CssEscape.unescapeCss
   }
+
 }

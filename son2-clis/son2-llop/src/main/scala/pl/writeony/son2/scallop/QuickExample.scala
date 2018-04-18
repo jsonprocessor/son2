@@ -12,7 +12,7 @@ class QuickExample {
   }
 
   object Main {
-    def main(args: Array[String]) {
+    def main(args: Array[String]): Unit = {
       val conf = new Conf(args) // Note: This line also works for "object Main extends App"
       println("apples are: " + conf.apples())
     }

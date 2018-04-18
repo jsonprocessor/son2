@@ -2,7 +2,8 @@ package pl.writeonly.son2.apis.config
 
 import com.fasterxml.jackson.annotation.JsonCreator
 
-sealed case class RStyle(it: Boolean) extends PartialFunction[Boolean, RStyle] {
+sealed abstract class RStyle(it: Boolean)
+    extends PartialFunction[Boolean, RStyle] {
   override def isDefinedAt(x: Boolean): Boolean = x == it
 
   override def apply(v1: Boolean): RStyle = this
@@ -10,15 +11,17 @@ sealed case class RStyle(it: Boolean) extends PartialFunction[Boolean, RStyle] {
   override def toString: String = s"RStyle($it)"
 }
 
-object RStream extends RStyle(true)
-
-object RAll extends RStyle(false)
-
 case object RStyle {
   type T = Boolean => RStyle
 
   def get: T = RStream orElse RAll
 
+  def apply(it: Boolean): RStyle = get.apply(it)
+
   @JsonCreator
-  def create(it: Boolean): RStyle = get.apply(it)
+  def create(it: Boolean): RStyle = apply(it)
+
+  case object RStream extends RStyle(true)
+
+  case object RAll extends RStyle(false)
 }

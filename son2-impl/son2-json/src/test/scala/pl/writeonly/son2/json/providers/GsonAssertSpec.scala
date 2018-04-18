@@ -1,6 +1,6 @@
 package pl.writeonly.son2.json.providers
 
-import pl.writeonly.son2.apis.config.WPretty
+import pl.writeonly.son2.apis.config.WStyle.WPretty
 import pl.writeonly.son2.apis.converters.{Converter, Converter2}
 import pl.writeonly.son2.funs.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.json.core.ConfigJson

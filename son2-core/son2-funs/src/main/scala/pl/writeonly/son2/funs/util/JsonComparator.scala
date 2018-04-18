@@ -32,4 +32,4 @@ object JsonComparator {
       .either(JSONCompare.compareJSON(expected, actual, mode))
 }
 
-case class CompareConfig(extensible: Boolean, strictOrder: Boolean)
+final case class CompareConfig(extensible: Boolean, strictOrder: Boolean)
