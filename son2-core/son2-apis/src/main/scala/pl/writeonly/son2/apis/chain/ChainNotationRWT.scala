@@ -4,7 +4,6 @@ import pl.writeonly.son2.apis.config.{Format, RConfig, RWTConfig, WConfig}
 import pl.writeonly.son2.apis.core.core.{FNotationReader, FNotationWriter}
 import pl.writeonly.son2.apis.notation.{
   NotationReader,
-  NotationReaderLike,
   NotationTranslator,
   NotationWriter
 }

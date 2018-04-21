@@ -1,7 +1,6 @@
 package pl.writeonly.son2.apis.config
 
 import com.fasterxml.jackson.annotation.JsonCreator
-
 import pl.writeonly.sons.utils.ops.Pipe._
 
 abstract class SymbolWrapper[T <: SymbolWrapper[T]](val s: Symbol) {

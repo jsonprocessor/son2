@@ -1,6 +1,6 @@
 package pl.writeonly.son2.funs.glue
 
-import org.scalactic.{Bad, ErrorMessage, Good, Or}
+import org.scalactic.{Bad, ErrorMessage, Or}
 import pl.writeonly.son2.apis.chain.{ChainNotationCreator, ChainNotationRWT}
 import pl.writeonly.son2.apis.config.RWTConfig
 import pl.writeonly.son2.apis.converters.Converter

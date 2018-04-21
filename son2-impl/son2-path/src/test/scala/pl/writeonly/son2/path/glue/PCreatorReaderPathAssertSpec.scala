@@ -1,14 +1,15 @@
 package pl.writeonly.son2.path.glue
 
 import pl.writeonly.son2.apis.config.RConfig
-import pl.writeonly.son2.path.core.ProvidersPath
+import pl.writeonly.son2.path.core.{DefaultsPath, ProvidersPath}
 import pl.writeonly.son2.path.creators.PCreatorReaderPath
 import pl.writeonly.son2.path.notation._
+import pl.writeonly.son2.path.notations.CreatorNotationTapestry
 import pl.writeonly.sons.specs.WhiteAssertSpec
 
 class PCreatorReaderPathAssertSpec extends WhiteAssertSpec {
   //  val pCreator = new PCreatorReaderPath(NotationCaseSmart())
-  val pCreator = new PCreatorReaderPath(NotationCaseTapestry())
+  val pCreator = new PCreatorReaderPath(CreatorNotationTapestry())
 
   "A pCreator" when {
     val config = RConfig(provider = ProvidersPath.TAPESTRY)
@@ -28,7 +29,7 @@ class PCreatorReaderPathAssertSpec extends WhiteAssertSpec {
         }
       }
       "defaults has class DefaultsTapesty" in {
-        assertResult(classOf[DefaultsTapesty]) {
+        assertResult(classOf[DefaultsPath]) {
           val reader = pCreator.apply(config)
           val readerPath = reader.asInstanceOf[NotationReaderPath]
           val defaults = readerPath.defaults

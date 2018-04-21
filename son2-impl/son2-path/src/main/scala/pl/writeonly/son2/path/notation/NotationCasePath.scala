@@ -4,6 +4,6 @@ import pl.writeonly.son2.apis.config.Meta
 import pl.writeonly.son2.apis.core.core.FNotationWriter
 import pl.writeonly.son2.path.core.FNotationReaderPath
 
-abstract class NotationCasePath(val meta: Meta,
-                                val reader: FNotationReaderPath,
-                                val writer: FNotationWriter)
+class NotationCasePath(val meta: Meta,
+                       val reader: FNotationReaderPath,
+                       val writer: FNotationWriter)

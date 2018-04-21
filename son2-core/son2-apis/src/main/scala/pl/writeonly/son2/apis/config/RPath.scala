@@ -1,7 +1,6 @@
 package pl.writeonly.son2.apis.config
 
 import com.fasterxml.jackson.annotation.JsonCreator
-
 import pl.writeonly.sons.utils.ops.Pipe._
 
 object RPath {
@@ -22,4 +21,5 @@ object RPath {
   case object Json extends RPath
 
   final case class Read(path: String) extends RPath
+
 }

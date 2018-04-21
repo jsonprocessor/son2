@@ -2,7 +2,7 @@ package pl.writeonly.son2.json.glue
 
 import org.scalatest.Outcome
 import pl.writeonly.son2.apis.config.Meta
-import pl.writeonly.son2.jack.core.{FormatsJack, Jack}
+import pl.writeonly.son2.jack.core.FormatsJack
 import pl.writeonly.son2.json.core.ProvidersJson
 import pl.writeonly.sons.specs.fixture.GrayVectorSpec
 import pl.writeonly.sons.utils.ops.Pipe

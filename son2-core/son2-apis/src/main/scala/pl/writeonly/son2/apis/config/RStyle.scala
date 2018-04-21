@@ -24,4 +24,5 @@ case object RStyle {
   case object RStream extends RStyle(true)
 
   case object RAll extends RStyle(false)
+
 }

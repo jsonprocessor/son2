@@ -24,4 +24,5 @@ case object WStyle {
   case object WRaw extends WStyle(false)
 
   case object WPretty extends WStyle(true)
+
 }

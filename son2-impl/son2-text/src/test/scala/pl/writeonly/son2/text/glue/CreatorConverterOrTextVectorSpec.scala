@@ -1,7 +1,7 @@
 package pl.writeonly.son2.text.glue
 
 import org.scalatest.Outcome
-import pl.writeonly.son2.apis.config.{Format, Meta, ProviderType, TConfig}
+import pl.writeonly.son2.apis.config.{Meta, ProviderType, TConfig}
 import pl.writeonly.son2.text.core.{Actions, FormatsText}
 import pl.writeonly.sons.specs.fixture.GrayVectorSpec
 import pl.writeonly.sons.utils.ops.Pipe

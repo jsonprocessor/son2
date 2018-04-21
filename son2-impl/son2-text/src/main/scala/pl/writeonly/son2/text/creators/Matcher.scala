@@ -2,6 +2,7 @@ package pl.writeonly.son2.text.creators
 
 import pl.writeonly.son2.apis.config.TConfig
 import pl.writeonly.son2.apis.core.core.DString
+import pl.writeonly.sons.utils.ops.Pipe._
 
 trait Matcher {
 
@@ -9,9 +10,9 @@ trait Matcher {
 
   type Transformer
 
-  def apply(p: TConfig): DString = extract(pf(p))
-
-  def extract(d: Transformer): DString
+  def apply(c: TConfig): DString = c |> pf |> extract
 
   def pf: PF
+
+  def extract(d: Transformer): DString
 }

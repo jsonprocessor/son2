@@ -2,39 +2,39 @@ package pl.writeonly.son2.path.glue
 
 import pl.writeonly.son2.apis.chain.{ChainNotationRWT, PCreatorTranslatorFake}
 import pl.writeonly.son2.path.creators._
-import pl.writeonly.son2.path.notation._
+import pl.writeonly.son2.path.notations._
 
 class ChainNotationRWTPath
     extends ChainNotationRWT(
-      (new PCreatorReaderPath(NotationCaseGson())
+      new PCreatorReaderPath(CreatorNotationGson())
         orElse
-          new PCreatorReaderPath(NotationCaseJackson())
+          new PCreatorReaderPath(CreatorNotationJackson())
         orElse
-          new PCreatorReaderPath(NotationCaseJacksonType())
+          new PCreatorReaderPath(CreatorNotationJacksonTyped())
         orElse
-          new PCreatorReaderPath(NotationCaseJettison())
+          new PCreatorReaderPath(CreatorNotationJettison())
         orElse
-          new PCreatorReaderPath(NotationCaseOrgJson())
+          new PCreatorReaderPath(CreatorNotationOrgJson())
         orElse
-          new PCreatorReaderPath(NotationCaseSmart())
+          new PCreatorReaderPath(CreatorNotationSmart())
         orElse
-          new PCreatorReaderPath(NotationCaseStrict())
+          new PCreatorReaderPath(CreatorNotationStrict())
         orElse
-          new PCreatorReaderPath(NotationCaseTapestry())),
-      (new PCreatorWriterPath(NotationCaseGson())
+          new PCreatorReaderPath(CreatorNotationTapestry()),
+      new PCreatorWriterPath(CreatorNotationGson())
         orElse
-          new PCreatorWriterPath(NotationCaseJackson())
+          new PCreatorWriterPath(CreatorNotationJackson())
         orElse
-          new PCreatorWriterPath(NotationCaseJacksonType())
+          new PCreatorWriterPath(CreatorNotationJacksonTyped())
         orElse
-          new PCreatorWriterPath(NotationCaseJettison())
+          new PCreatorWriterPath(CreatorNotationJettison())
         orElse
-          new PCreatorWriterPath(NotationCaseOrgJson())
+          new PCreatorWriterPath(CreatorNotationOrgJson())
         orElse
-          new PCreatorWriterPath(NotationCaseSmart())
+          new PCreatorWriterPath(CreatorNotationSmart())
         orElse
-          new PCreatorWriterPath(NotationCaseStrict())
+          new PCreatorWriterPath(CreatorNotationStrict())
         orElse
-          new PCreatorWriterPath(NotationCaseTapestry())),
+          new PCreatorWriterPath(CreatorNotationTapestry()),
       new PCreatorTranslatorFake()
     )

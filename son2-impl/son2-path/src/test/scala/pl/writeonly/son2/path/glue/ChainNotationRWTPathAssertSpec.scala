@@ -1,8 +1,8 @@
 package pl.writeonly.son2.path.glue
 
 import pl.writeonly.son2.apis.config.RConfig
-import pl.writeonly.son2.path.core.ProvidersPath
-import pl.writeonly.son2.path.notation.{DefaultsTapesty, NotationReaderPath}
+import pl.writeonly.son2.path.core.{DefaultsPath, ProvidersPath}
+import pl.writeonly.son2.path.notation.NotationReaderPath
 import pl.writeonly.sons.specs.WhiteAssertSpec
 
 class ChainNotationRWTPathAssertSpec extends WhiteAssertSpec {
@@ -20,7 +20,7 @@ class ChainNotationRWTPathAssertSpec extends WhiteAssertSpec {
         }
       }
       "defaults has class NotationReaderPath" in {
-        assertResult(classOf[DefaultsTapesty]) {
+        assertResult(classOf[DefaultsPath]) {
           val reader = creatorReader.apply(config)
           val readerPath = reader.asInstanceOf[NotationReaderPath]
           val defaults = readerPath.defaults
