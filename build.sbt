@@ -8,6 +8,8 @@ evictionWarningOptions in update := EvictionWarningOptions.default
   .withWarnDirectEvictions(false)
   .withWarnScalaVersionEviction(false)
 
+scapegoatVersion in ThisBuild := "1.3.4"
+
 scalacOptions ++= Seq(
   "-unchecked",
   "-deprecation",
