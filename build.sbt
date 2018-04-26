@@ -9,6 +9,8 @@ evictionWarningOptions in update := EvictionWarningOptions.default
   .withWarnScalaVersionEviction(false)
 
 scapegoatVersion in ThisBuild := "1.3.4"
+wartremoverErrors ++= Warts.unsafe
+//wartremoverErrors ++= Warts.all
 
 scalacOptions ++= Seq(
   "-unchecked",
