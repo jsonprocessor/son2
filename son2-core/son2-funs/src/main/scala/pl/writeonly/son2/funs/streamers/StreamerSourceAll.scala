@@ -2,7 +2,7 @@ package pl.writeonly.son2.funs.streamers
 
 import pl.writeonly.son2.apis.converters.Converter
 import pl.writeonly.son2.funs.liners.{Liner, LinerWithTry}
-import pl.writeonly.sons.utils.ops.Pipe._
+import pl.writeonly.addons.pipe.Pipe._
 
 import scala.io.Source
 

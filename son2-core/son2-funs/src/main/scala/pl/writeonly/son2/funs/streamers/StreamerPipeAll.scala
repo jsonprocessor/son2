@@ -5,7 +5,7 @@ import java.util.stream.{Collectors, Stream}
 
 import pl.writeonly.son2.apis.converters.Converter
 import pl.writeonly.son2.funs.liners.{Liner, LinerWithTry}
-import pl.writeonly.sons.utils.ops.Pipe._
+import pl.writeonly.addons.pipe.Pipe._
 
 class StreamerPipeAll(liner: Liner) extends StreamerPipe(liner) {
 

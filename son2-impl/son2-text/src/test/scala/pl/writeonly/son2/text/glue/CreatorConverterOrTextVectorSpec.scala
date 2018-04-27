@@ -4,9 +4,9 @@ import org.scalatest.Outcome
 import pl.writeonly.son2.apis.config.{Meta, ProviderType, TConfig}
 import pl.writeonly.son2.text.core.{Actions, FormatsText}
 import pl.writeonly.sons.specs.fixture.GrayVectorSpec
-import pl.writeonly.sons.utils.ops.Pipe
+import pl.writeonly.addons.pipe.Pipe
 
-//import pl.writeonly.sons.utils.ops.Pipe._
+//import pl.writeonly.addons.pipe.Pipe._
 
 class CreatorConverterOrTextVectorSpec extends GrayVectorSpec with Pipe {
 

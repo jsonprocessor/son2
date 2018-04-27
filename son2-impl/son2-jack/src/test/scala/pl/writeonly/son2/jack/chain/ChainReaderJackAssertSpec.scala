@@ -1,7 +1,7 @@
 package pl.writeonly.son2.jack.chain
 
 import pl.writeonly.sons.specs.fixture.WhiteAssertSpec
-import pl.writeonly.sons.utils.ops.Pipe
+import pl.writeonly.addons.pipe.Pipe
 
 class ChainReaderJackAssertSpec extends WhiteAssertSpec with Pipe {
 

@@ -3,7 +3,7 @@ package pl.writeonly.son2.text.creators
 import pl.writeonly.son2.apis.config.{Action, Format, RWTConfig, TConfig}
 import pl.writeonly.son2.apis.pcreators.PCreatorConfig
 import pl.writeonly.son2.text.core.{Actions, FormatsText}
-import pl.writeonly.sons.utils.ops.Pipe._
+import pl.writeonly.addons.pipe.Pipe._
 
 class PCreatorConfigText extends PCreatorConfig {
 

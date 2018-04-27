@@ -287,7 +287,7 @@ lazy val core = (project in file("son2-core"))
   )
 
 lazy val funs = (project in file("son2-core/son2-funs"))
-  .dependsOn(specs, scalaaddons, utils, apis)
+  .dependsOn(specs, scalaaddons, utils, apis, ops)
   .configs(IntegrationTest, End2EndTest)
   .settings(
     name := "son2-funs",
@@ -302,7 +302,7 @@ lazy val funs = (project in file("son2-core/son2-funs"))
   )
 
 lazy val apis = (project in file("son2-core/son2-apis"))
-  .dependsOn(specs, scalaaddons, utils)
+  .dependsOn(specs, scalaaddons, utils, pipe)
   .configs(IntegrationTest, End2EndTest)
   .settings(
     name := "son2-apis",
@@ -390,6 +390,32 @@ lazy val scalaaddons = (project in file("son2-adds"))
     coverageEnabled := true,
     coverageMinimum := 60,
     coverageFailOnMinimum := true
+  )
+
+lazy val ops = (project in file("son2-adds/scala-ops"))
+  .dependsOn(specs)
+  .configs(IntegrationTest, End2EndTest)
+  .settings(
+    name := "scala-ops",
+    commonSettings,
+    integrationInConfig, end2endInConfig,
+    whiteSetting, graySetting, blackSetting,
+    libraryDependencies ++= Seq(
+      "org.scala-lang" % "scala-library" % ScalaLibraryVersion,
+    )
+  )
+
+lazy val pipe = (project in file("son2-adds/scala-pipe"))
+  .dependsOn(specs)
+  .configs(IntegrationTest, End2EndTest)
+  .settings(
+    name := "scala-pipe",
+    commonSettings,
+    integrationInConfig, end2endInConfig,
+    whiteSetting, graySetting, blackSetting,
+    libraryDependencies ++= Seq(
+      "org.scala-lang" % "scala-library" % ScalaLibraryVersion,
+    )
   )
 
 lazy val utils = (project in file("son2-adds/scalaaddon-utils"))

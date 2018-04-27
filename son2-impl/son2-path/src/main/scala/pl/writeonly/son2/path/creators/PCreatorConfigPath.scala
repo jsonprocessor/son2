@@ -5,7 +5,7 @@ import pl.writeonly.son2.apis.config._
 import pl.writeonly.son2.apis.notation.PartialCreatorConfigSymbol
 import pl.writeonly.son2.apis.pcreators.PCreatorConfig
 import pl.writeonly.son2.path.core.{ConfigPath, ProvidersPath}
-import pl.writeonly.sons.utils.ops.Pipe._
+import pl.writeonly.addons.pipe.Pipe._
 
 class PCreatorConfigPath(f: ProviderType)
     extends PartialCreatorConfigSymbol(f.s) {

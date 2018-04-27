@@ -1,7 +1,7 @@
 package pl.writeonly.son2.text.glue
 
 import pl.writeonly.sons.specs.fixture.GrayScalarSpec
-import pl.writeonly.sons.utils.ops.Pipe
+import pl.writeonly.addons.pipe.Pipe
 
 class CreatorConverterOrTextScalarSpec extends GrayScalarSpec with Pipe {
 

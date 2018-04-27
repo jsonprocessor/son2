@@ -4,8 +4,8 @@ import java.io.{File, InputStream, OutputStream, PrintWriter}
 import java.net.URI
 
 import pl.writeonly.son2.funs.liners.Liner
-import pl.writeonly.sons.utils.ops.AutoCloseableOps
-import pl.writeonly.sons.utils.ops.AutoCloseableOps.using
+import pl.writeonly.addons.ops.AutoCloseableOps
+import pl.writeonly.addons.ops.AutoCloseableOps.using
 
 import scala.io.Source
 

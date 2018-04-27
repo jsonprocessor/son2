@@ -1,7 +1,7 @@
 package pl.writeonly.son2.apis.config
 
 import com.fasterxml.jackson.annotation.JsonCreator
-import pl.writeonly.sons.utils.ops.Pipe._
+import pl.writeonly.addons.pipe.Pipe._
 
 abstract class SymbolWrapper[T <: SymbolWrapper[T]](val s: Symbol) {
   def startsWith(other: T): Boolean = name.startsWith(other.name)

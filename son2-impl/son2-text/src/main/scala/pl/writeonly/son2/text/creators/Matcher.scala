@@ -2,7 +2,7 @@ package pl.writeonly.son2.text.creators
 
 import pl.writeonly.son2.apis.config.TConfig
 import pl.writeonly.son2.apis.core.core.DString
-import pl.writeonly.sons.utils.ops.Pipe._
+import pl.writeonly.addons.pipe.Pipe._
 
 trait Matcher {
 

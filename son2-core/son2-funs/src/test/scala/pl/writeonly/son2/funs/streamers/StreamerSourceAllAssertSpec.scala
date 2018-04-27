@@ -5,7 +5,7 @@ import java.io.{PrintWriter, StringWriter}
 import org.scalatest.Outcome
 import pl.writeonly.son2.apis.converters.ConverterFake
 import pl.writeonly.sons.specs.fixture.WhiteAssertSpec
-import pl.writeonly.sons.utils.ops.Pipe
+import pl.writeonly.addons.pipe.Pipe
 
 import scala.io.Source
 

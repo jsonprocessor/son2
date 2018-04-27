@@ -7,7 +7,7 @@ import pl.writeonly.son2.jack.core.ConfigJack
 import pl.writeonly.son2.json.core.ConfigJson
 import pl.writeonly.son2.path.core.{ConfigPath, ProvidersPath}
 import pl.writeonly.sons.specs.fixture.GrayVectorSpec
-import pl.writeonly.sons.utils.ops.Pipe
+import pl.writeonly.addons.pipe.Pipe
 
 class ConfigOptHoconVectorSpec extends GrayVectorSpec with Pipe {
 
