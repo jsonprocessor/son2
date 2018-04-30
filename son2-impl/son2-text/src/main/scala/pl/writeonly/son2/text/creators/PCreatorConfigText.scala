@@ -27,17 +27,25 @@ class PCreatorConfigText extends PCreatorConfig {
         )
       )
 
-  private def find1(s: String, l: List[Action]) =
+  private def find1(s: String, l: List[Action]): Option[Action] =
     l.find(it => it.name.toLowerCase.startsWith(s))
 
-  private def find2(s: String, l: List[Format]) =
+  private def find2(s: String, l: List[Format]): Option[Format] =
     l.find(it => it.name.toLowerCase.startsWith(s))
 
   override def apply(s: String) = RWTConfig(translate = translateConfig(s))
 
   def translateConfig(s: String): TConfig =
     symbolOptionPairOption(s)
-      .map(p => TConfig(p._1.get, p._2.get))
-      .get
+      .flatMap(
+        p =>
+          for {
+            p1 <- p._1
+            p2 <- p._2
+          } yield TConfig(p1, p2)
+      ) match {
+      case Some(c) => c
+      case None    => throw new IllegalArgumentException(s)
+    }
 
 }

@@ -10,7 +10,6 @@ evictionWarningOptions in update := EvictionWarningOptions.default
 
 scapegoatVersion in ThisBuild := "1.3.4"
 wartremoverErrors ++= Warts.unsafe
-//wartremoverErrors ++= Warts.all
 
 scalacOptions ++= Seq(
   "-unchecked",
@@ -51,7 +50,7 @@ testOptions in Test ++= Seq(
 lazy val integrationInConfig = inConfig(IntegrationTest)(Defaults.testTasks)
 lazy val end2endInConfig = inConfig(End2EndTest)(Defaults.testTasks)
 
-def whiteFilter(name: String): Boolean = name endsWith "AssertSpec"
+def whiteFilter(name: String): Boolean = (name endsWith "AssertSpec") || (name endsWith "FutureSpec")
 def grayFilter(name: String): Boolean = (name endsWith "ScalarSpec") || (name endsWith "VectorSpec")
 def blackFilter(name: String): Boolean = (name endsWith "FunSpec") || (name endsWith "FeatureSpec")
 

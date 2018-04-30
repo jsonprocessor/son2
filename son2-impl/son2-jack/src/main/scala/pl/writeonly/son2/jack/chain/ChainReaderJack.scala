@@ -23,7 +23,10 @@ class ChainReaderJack
   def configOpt(s: String): Option[RWTConfig] =
     get.lift(s).map(a => ChainReaderJack.config(a.asInstanceOf[JsonNode]))
 
-  def parse(s: String): JsonNode = get.lift(s).get.asInstanceOf[JsonNode]
+  def parse(s: String): JsonNode = get.lift(s) match {
+    case Some(n) => n.asInstanceOf[JsonNode]
+    case None    => throw new IllegalArgumentException(s)
+  }
 
 }
 
@@ -47,7 +50,7 @@ object ChainReaderJack {
       style = asBoolean(n, ConfigField.P).map(WStyle.get).getOrElse(c.style)
     )
 
-  private def asText(n: JsonNode, s: Symbol) =
+  private def asText(n: JsonNode, s: Symbol): Option[Symbol] =
     get(n, s).map(_.asText).map(Symbol.apply)
 
   private def asBoolean(n: JsonNode, s: Symbol): Option[Boolean] =
