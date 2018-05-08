@@ -15,8 +15,10 @@ scalacOptions ++= Seq(
   "-unchecked",
   "-deprecation",
   "-feature",
+  "-Ypartial-unification",
   "-Ywarn-unused-import",
   "-Xfatal-warnings",
+  "-Xlint",
 )
 
 scalastyleFailOnWarning := true
@@ -69,7 +71,7 @@ lazy val son2 = (project in file("."))
   .dependsOn(specs, core, impl, subs, clis)
   .configs(IntegrationTest, End2EndTest)
   .settings(
-    name := "son2",
+    name := "scalaons",
     commonSettings,
     integrationInConfig, end2endInConfig,
     whiteSetting, graySetting, blackSetting,
@@ -267,10 +269,9 @@ lazy val diff = (project in file("son2-impl/son2-diff"))
     )
   )
 
-
 lazy val core = (project in file("son2-core"))
   .aggregate(apis, funs)
-  .dependsOn(specs, scalaaddons, utils, apis, funs)
+  .dependsOn(specs, scalaaddons, apis, funs)
   .configs(IntegrationTest, End2EndTest)
   .settings(
     name := "son2-core",
@@ -286,7 +287,7 @@ lazy val core = (project in file("son2-core"))
   )
 
 lazy val funs = (project in file("son2-core/son2-funs"))
-  .dependsOn(specs, scalaaddons, utils, apis, ops)
+  .dependsOn(specs, scalaaddons, apis, ops)
   .configs(IntegrationTest, End2EndTest)
   .settings(
     name := "son2-funs",
@@ -301,7 +302,7 @@ lazy val funs = (project in file("son2-core/son2-funs"))
   )
 
 lazy val apis = (project in file("son2-core/son2-apis"))
-  .dependsOn(specs, scalaaddons, utils, pipe)
+  .dependsOn(specs, scalaaddons, pipe)
   .configs(IntegrationTest, End2EndTest)
   .settings(
     name := "son2-apis",
@@ -379,7 +380,7 @@ lazy val jackRison = (project in file("son2-subs/jackson-dataformat-rison"))
 
 lazy val scalaaddons = (project in file("son2-adds"))
   //  .enablePlugins(JacocoItPlugin)
-  .aggregate(utils, specs)
+  .aggregate(specs)
   .configs(IntegrationTest, End2EndTest)
   .settings(
     name := "addons",
@@ -417,23 +418,9 @@ lazy val pipe = (project in file("son2-adds/scala-pipe"))
     )
   )
 
-lazy val utils = (project in file("son2-adds/scalaaddon-utils"))
-  .dependsOn(specs)
-  .configs(IntegrationTest, End2EndTest)
+lazy val specs = (project in file("son2-adds/scala-specs"))
   .settings(
-    name := "addon-util",
-    commonSettings,
-    integrationInConfig, end2endInConfig,
-    whiteSetting, graySetting, blackSetting,
-    libraryDependencies ++= Seq(
-      "org.scala-lang" % "scala-library" % ScalaLibraryVersion,
-      "org.scalactic" %% "scalactic" % ScalaticVersion
-    )
-  )
-
-lazy val specs = (project in file("son2-adds/scalaaddon-specs"))
-  .settings(
-    name := "addon-spec",
+    name := "scala-spec",
     commonSettings,
     libraryDependencies ++= Seq(
       "org.scala-lang" % "scala-library" % ScalaLibraryVersion,
