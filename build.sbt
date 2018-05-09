@@ -64,8 +64,7 @@ lazy val inConfigs = Seq(integrationInConfig, end2endInConfig)
 lazy val settings = Seq(whiteSetting, graySetting, blackSetting)
 
 
-
-lazy val son2 = (project in file("."))
+lazy val scallions = (project in file("."))
 //  .enablePlugins(JacocoItPlugin)
   .aggregate(clis, impl, core, subs, scalaaddons)
   .dependsOn(specs, core, impl, subs, clis)
