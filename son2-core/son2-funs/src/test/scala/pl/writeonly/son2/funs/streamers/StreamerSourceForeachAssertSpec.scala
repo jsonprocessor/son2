@@ -6,8 +6,8 @@ import java.nio.charset.StandardCharsets
 
 import org.scalatest.Outcome
 import pl.writeonly.son2.apis.converters.ConverterFake
-import pl.writeonly.sons.specs.fixture.WhiteAssertSpec
-import pl.writeonly.addons.pipe.Pipe
+import pl.writeonly.scalaops.specs.fixture.WhiteAssertSpec
+import pl.writeonly.scalaops.pipe.Pipe
 
 import scala.io.Source
 

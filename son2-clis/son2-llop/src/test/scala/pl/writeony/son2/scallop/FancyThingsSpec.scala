@@ -1,6 +1,6 @@
 package pl.writeony.son2.scallop
 
-import pl.writeonly.sons.specs.WhiteAssertSpec
+import pl.writeonly.scalaops.specs.WhiteAssertSpec
 
 class FancyThingsSpec extends WhiteAssertSpec {
 

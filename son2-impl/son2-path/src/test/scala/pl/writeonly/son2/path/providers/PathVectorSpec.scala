@@ -6,7 +6,7 @@ import pl.writeonly.son2.funs.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.funs.streamers.{Streamer, StreamerPipeForeach}
 import pl.writeonly.son2.path.chain.ChainNotationPairPath
 import pl.writeonly.son2.path.core.ConfigPath
-import pl.writeonly.sons.specs.GrayVectorSpec
+import pl.writeonly.scalaops.specs.GrayVectorSpec
 
 class PathVectorSpec extends GrayVectorSpec {
 

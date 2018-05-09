@@ -2,8 +2,8 @@ package pl.writeonly.son2.jack.glue
 
 import org.scalatest.Outcome
 import pl.writeonly.son2.jack.core.{FormatsJack, Jack}
-import pl.writeonly.sons.specs.fixture.GrayVectorSpec
-import pl.writeonly.addons.pipe.Pipe
+import pl.writeonly.scalaops.specs.fixture.GrayVectorSpec
+import pl.writeonly.scalaops.pipe.Pipe
 
 class CreatorConverterOrJackVectorSpec extends GrayVectorSpec with Pipe {
   override type FixtureParam = CreatorConverterOrJack

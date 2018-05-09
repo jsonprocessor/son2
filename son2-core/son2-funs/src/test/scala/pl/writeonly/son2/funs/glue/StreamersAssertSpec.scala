@@ -7,7 +7,7 @@ import pl.writeonly.son2.funs.streamers.{
   StreamerSourceAll,
   StreamerSourceForeach
 }
-import pl.writeonly.sons.specs.WhiteAssertSpec
+import pl.writeonly.scalaops.specs.WhiteAssertSpec
 
 class StreamersAssertSpec extends WhiteAssertSpec {
 

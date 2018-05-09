@@ -6,7 +6,7 @@ import pl.writeonly.son2.funs.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.json.core.ConfigJson
 import pl.writeonly.son2.json.glue.CreatorConverterJson
 import pl.writeonly.son2.path.core.ProvidersPath
-import pl.writeonly.sons.specs.WhiteAssertSpec
+import pl.writeonly.scalaops.specs.WhiteAssertSpec
 
 class GsonAssertSpec extends WhiteAssertSpec {
 

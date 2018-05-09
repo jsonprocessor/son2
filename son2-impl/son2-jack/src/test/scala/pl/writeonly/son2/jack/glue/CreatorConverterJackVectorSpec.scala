@@ -1,7 +1,7 @@
 package pl.writeonly.son2.jack.glue
 
 import pl.writeonly.son2.jack.core.{FormatsJack, Jack}
-import pl.writeonly.sons.specs.GrayVectorSpec
+import pl.writeonly.scalaops.specs.GrayVectorSpec
 
 class CreatorConverterJackVectorSpec extends GrayVectorSpec {
 

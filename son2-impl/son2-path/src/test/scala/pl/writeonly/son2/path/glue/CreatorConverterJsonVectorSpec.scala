@@ -3,7 +3,7 @@ package pl.writeonly.son2.path.glue
 import pl.writeonly.son2.apis.config.Meta
 import pl.writeonly.son2.jack.core.FormatsJack
 import pl.writeonly.son2.path.core.ProvidersPath
-import pl.writeonly.sons.specs.GrayVectorSpec
+import pl.writeonly.scalaops.specs.GrayVectorSpec
 
 class CreatorConverterPathVectorSpec extends GrayVectorSpec {
 

@@ -6,7 +6,7 @@ import pl.writeonly.son2.apis.converters.Converter
 import pl.writeonly.son2.funs.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.jack.core.FormatsJack
 import pl.writeonly.son2.jack.glue.CreatorConverterJack
-import pl.writeonly.sons.specs.WhiteAssertSpec
+import pl.writeonly.scalaops.specs.WhiteAssertSpec
 
 class CsvAssertSpec extends WhiteAssertSpec {
 

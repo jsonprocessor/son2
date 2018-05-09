@@ -4,8 +4,8 @@ import org.scalatest.Outcome
 import pl.writeonly.son2.apis.config.TConfig
 import pl.writeonly.son2.text.core.{Actions, FormatsText}
 import pl.writeonly.son2.text.creators.PCreatorConfigText
-import pl.writeonly.sons.specs.fixture.GrayVectorSpec
-import pl.writeonly.addons.pipe.Pipe._
+import pl.writeonly.scalaops.specs.fixture.GrayVectorSpec
+import pl.writeonly.scalaops.pipe.Pipe._
 
 class PartialCreatorTextVectorSpec extends GrayVectorSpec {
 

@@ -66,7 +66,7 @@ lazy val settings = Seq(whiteSetting, graySetting, blackSetting)
 
 lazy val scallions = (project in file("."))
 //  .enablePlugins(JacocoItPlugin)
-  .aggregate(clis, impl, core, subs, scalaaddons)
+  .aggregate(clis, impl, core, subs, scallops)
   .dependsOn(specs, core, impl, subs, clis)
   .configs(IntegrationTest, End2EndTest)
   .settings(
@@ -270,7 +270,7 @@ lazy val diff = (project in file("son2-impl/son2-diff"))
 
 lazy val core = (project in file("son2-core"))
   .aggregate(apis, funs)
-  .dependsOn(specs, scalaaddons, apis, funs)
+  .dependsOn(specs, scallops, apis, funs)
   .configs(IntegrationTest, End2EndTest)
   .settings(
     name := "son2-core",
@@ -286,7 +286,7 @@ lazy val core = (project in file("son2-core"))
   )
 
 lazy val funs = (project in file("son2-core/son2-funs"))
-  .dependsOn(specs, scalaaddons, apis, ops)
+  .dependsOn(specs, scallops, apis, ops)
   .configs(IntegrationTest, End2EndTest)
   .settings(
     name := "son2-funs",
@@ -301,7 +301,7 @@ lazy val funs = (project in file("son2-core/son2-funs"))
   )
 
 lazy val apis = (project in file("son2-core/son2-apis"))
-  .dependsOn(specs, scalaaddons, pipe)
+  .dependsOn(specs, scallops, pipe)
   .configs(IntegrationTest, End2EndTest)
   .settings(
     name := "son2-apis",
@@ -377,7 +377,7 @@ lazy val jackRison = (project in file("son2-subs/jackson-dataformat-rison"))
 //    )
 //  )
 
-lazy val scalaaddons = (project in file("son2-adds"))
+lazy val scallops = (project in file("scallions-adds"))
   //  .enablePlugins(JacocoItPlugin)
   .aggregate(specs)
   .configs(IntegrationTest, End2EndTest)
@@ -391,7 +391,7 @@ lazy val scalaaddons = (project in file("son2-adds"))
     coverageFailOnMinimum := true
   )
 
-lazy val ops = (project in file("son2-adds/scala-ops"))
+lazy val ops = (project in file("scallions-adds/scala-ops"))
   .dependsOn(specs)
   .configs(IntegrationTest, End2EndTest)
   .settings(
@@ -404,7 +404,7 @@ lazy val ops = (project in file("son2-adds/scala-ops"))
     )
   )
 
-lazy val pipe = (project in file("son2-adds/scala-pipe"))
+lazy val pipe = (project in file("scallions-adds/scala-pipe"))
   .dependsOn(specs)
   .configs(IntegrationTest, End2EndTest)
   .settings(
@@ -417,7 +417,7 @@ lazy val pipe = (project in file("son2-adds/scala-pipe"))
     )
   )
 
-lazy val specs = (project in file("son2-adds/scala-specs"))
+lazy val specs = (project in file("scallions-adds/scala-specs"))
   .settings(
     name := "scala-spec",
     commonSettings,

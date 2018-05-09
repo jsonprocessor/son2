@@ -3,8 +3,8 @@ package pl.writeonly.son2.main
 import org.scalatest.Outcome
 import pl.writeonly.son2.jack.core.FormatsJack
 import pl.writeonly.son2.json.core.ProvidersJson
-import pl.writeonly.sons.specs.fixture.GrayVectorSpec
-import pl.writeonly.addons.pipe.Pipe
+import pl.writeonly.scalaops.specs.fixture.GrayVectorSpec
+import pl.writeonly.scalaops.pipe.Pipe
 
 class CreatorConverterOrMainVectorSpec extends GrayVectorSpec with Pipe {
   override type FixtureParam = CreatorConverterOrMain

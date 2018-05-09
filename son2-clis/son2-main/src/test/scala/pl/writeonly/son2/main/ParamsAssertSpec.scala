@@ -1,7 +1,7 @@
 package pl.writeonly.son2.main
 
 import pl.writeonly.son2.funs.glue.Params
-import pl.writeonly.sons.specs.WhiteAssertSpec
+import pl.writeonly.scalaops.specs.WhiteAssertSpec
 
 class ParamsAssertSpec extends WhiteAssertSpec {
   val params = Params(System.in, System.out)

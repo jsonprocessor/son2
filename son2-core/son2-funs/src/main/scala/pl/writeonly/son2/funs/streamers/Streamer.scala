@@ -5,7 +5,7 @@ import java.net.URI
 import java.nio.charset.StandardCharsets
 
 import pl.writeonly.son2.funs.liners.Liner
-import pl.writeonly.addons.pipe.Pipe._
+import pl.writeonly.scalaops.pipe.Pipe._
 
 abstract class Streamer(val liner: Liner) {
 

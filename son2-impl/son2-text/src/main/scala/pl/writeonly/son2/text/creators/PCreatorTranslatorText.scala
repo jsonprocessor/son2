@@ -3,7 +3,7 @@ package pl.writeonly.son2.text.creators
 import pl.writeonly.son2.apis.config._
 import pl.writeonly.son2.apis.notation.NotationTranslator
 import pl.writeonly.son2.apis.pcreators.PCreatorTranslator
-import pl.writeonly.addons.pipe.Pipe._
+import pl.writeonly.scalaops.pipe.Pipe._
 
 import scala.util.control.Exception.catching
 

@@ -5,8 +5,8 @@ import java.net.URI
 import java.util.stream.Stream
 
 import pl.writeonly.son2.funs.liners.Liner
-import pl.writeonly.addons.ops.AutoCloseableOps
-import pl.writeonly.addons.ops.AutoCloseableOps.using
+import pl.writeonly.scalaops.ops.AutoCloseableOps
+import pl.writeonly.scalaops.ops.AutoCloseableOps.using
 
 abstract class StreamerPipe(liner: Liner) extends Streamer(liner) {
 

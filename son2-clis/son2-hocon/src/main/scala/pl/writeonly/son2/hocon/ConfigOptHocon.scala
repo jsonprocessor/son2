@@ -7,7 +7,7 @@ import com.jasonclawson.jackson.dataformat.hocon.HoconFactory
 import com.typesafe.config.{Config, ConfigFactory}
 import com.typesafe.scalalogging.StrictLogging
 import pl.writeonly.son2.apis.config.RWTConfig
-import pl.writeonly.addons.pipe.Pipe._
+import pl.writeonly.scalaops.pipe.Pipe._
 
 class ConfigOptHocon extends StrictLogging {
   def configOpt(s: String) = Option(config(s))

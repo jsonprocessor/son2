@@ -3,8 +3,8 @@ package pl.writeonly.son2.path.glue
 import org.scalatest.Outcome
 import pl.writeonly.son2.apis.config.RConfig
 import pl.writeonly.son2.path.core.ProvidersPath
-import pl.writeonly.sons.specs.fixture.GrayVectorSpec
-import pl.writeonly.addons.pipe.Pipe
+import pl.writeonly.scalaops.specs.fixture.GrayVectorSpec
+import pl.writeonly.scalaops.pipe.Pipe
 
 class ChainNotationRWTPathVectorSpec extends GrayVectorSpec with Pipe {
 

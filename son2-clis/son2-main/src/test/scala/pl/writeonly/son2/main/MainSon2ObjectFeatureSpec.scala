@@ -4,7 +4,7 @@ import java.io.FileNotFoundException
 
 import pl.writeonly.son2.impl.{Features, Types}
 import pl.writeonly.son2.jack.core.FormatsJack
-import pl.writeonly.sons.specs.BlackSpec
+import pl.writeonly.scalaops.specs.BlackSpec
 
 class MainSon2ObjectFeatureSpec extends BlackSpec {
 

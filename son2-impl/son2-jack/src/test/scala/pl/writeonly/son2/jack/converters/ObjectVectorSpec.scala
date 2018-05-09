@@ -5,7 +5,7 @@ import pl.writeonly.son2.funs.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.funs.streamers.{Streamer, StreamerPipeForeach}
 import pl.writeonly.son2.jack.core.{ConfigJack, FormatsJack}
 import pl.writeonly.son2.jack.glue.CreatorConverterJack
-import pl.writeonly.sons.specs.GrayVectorSpec
+import pl.writeonly.scalaops.specs.GrayVectorSpec
 
 class ObjectVectorSpec extends GrayVectorSpec {
 

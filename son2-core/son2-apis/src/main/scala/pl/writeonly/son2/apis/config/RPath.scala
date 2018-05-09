@@ -1,7 +1,7 @@
 package pl.writeonly.son2.apis.config
 
 import com.fasterxml.jackson.annotation.JsonCreator
-import pl.writeonly.addons.pipe.Pipe._
+import pl.writeonly.scalaops.pipe.Pipe._
 
 object RPath {
   def parse: RPath = Parse

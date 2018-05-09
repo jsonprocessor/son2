@@ -7,7 +7,7 @@ import pl.writeonly.son2.apis.converters.{Converter, Converter2}
 import pl.writeonly.son2.funs.liners.{Liner, LinerOpt}
 import pl.writeonly.son2.jack.core.{ConfigJack, FormatsJack}
 import pl.writeonly.son2.jack.glue.CreatorConverterJack
-import pl.writeonly.sons.specs.WhiteAssertSpec
+import pl.writeonly.scalaops.specs.WhiteAssertSpec
 
 class ObjectAssertSpec extends WhiteAssertSpec {
 

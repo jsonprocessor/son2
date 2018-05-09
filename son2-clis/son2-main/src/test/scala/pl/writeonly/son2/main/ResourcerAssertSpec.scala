@@ -1,6 +1,6 @@
 package pl.writeonly.son2.main
 
-import pl.writeonly.sons.specs.WhiteAssertSpec
+import pl.writeonly.scalaops.specs.WhiteAssertSpec
 
 class ResourcerAssertSpec extends WhiteAssertSpec {
   val resourcer: Resourcer = new Resourcer(null)

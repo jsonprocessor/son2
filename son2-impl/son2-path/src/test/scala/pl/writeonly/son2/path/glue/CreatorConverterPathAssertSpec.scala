@@ -8,7 +8,7 @@ import pl.writeonly.son2.apis.converters.Converter2
 import pl.writeonly.son2.apis.core.Formats
 import pl.writeonly.son2.funs.glue.Piper
 import pl.writeonly.son2.path.core.ProvidersPath
-import pl.writeonly.sons.specs.WhiteAssertSpec
+import pl.writeonly.scalaops.specs.WhiteAssertSpec
 
 class CreatorConverterPathAssertSpec extends WhiteAssertSpec {
 
