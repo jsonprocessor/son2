@@ -1,10 +1,10 @@
-package pl.writeonly.son2.impl
+package pl.writeonly.scallions.impl
 
 import java.io.File
 import java.net.URI
 import java.nio.file.Paths
 
-import pl.writeonly.son2.apis.config.Format
+import pl.writeonly.scallions.apis.config.Format
 
 object Features {
   val NAME = "writeonly.son"
