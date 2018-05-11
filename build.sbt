@@ -35,12 +35,12 @@ val TestngVersion = "6.9.13.6"
 val VersionSnapshot = s"$JacksonVersion-SNAPSHOT"
 
 val commonSettings = Seq(
-  organization := "pl.writeonly.son2",
+  organization := "pl.writeonly.scallions",
   scalaVersion := ScalaLibraryVersion,
   version := VersionSnapshot
 )
-val IntegrationTest = config("it") extend(Test)
-val End2EndTest = config("et") extend(Test)
+val IntegrationTest = config("it") extend Test
+val End2EndTest = config("et") extend Test
 
 logBuffered in Test := false
 testOptions in Test ++= Seq(
@@ -79,12 +79,12 @@ lazy val scallions = (project in file("."))
     coverageFailOnMinimum := true
   )
 
-lazy val clis = (project in file("son2-clis"))
+lazy val clis = (project in file("scallions-clis"))
   .aggregate(copt, llop, rison, hocon, main)
   .dependsOn(copt, llop, subs)
   .configs(IntegrationTest, End2EndTest)
   .settings(
-    name := "son2-clis",
+    name := "scallions-clis",
     commonSettings,
     integrationInConfig, end2endInConfig,
     whiteSetting, graySetting, blackSetting,
@@ -92,11 +92,11 @@ lazy val clis = (project in file("son2-clis"))
     )
   )
 
-lazy val copt = (project in file("son2-clis/son2-copt"))
+lazy val copt = (project in file("scallions-clis/scallions-copt"))
   .dependsOn(specs, main)
   .configs(IntegrationTest, End2EndTest)
   .settings(
-    name := "son2-copt",
+    name := "scallions-copt",
     commonSettings,
     integrationInConfig, end2endInConfig,
     whiteSetting, graySetting, blackSetting,
@@ -106,11 +106,11 @@ lazy val copt = (project in file("son2-clis/son2-copt"))
     )
   )
 
-lazy val llop = (project in file("son2-clis/son2-llop"))
+lazy val llop = (project in file("scallions-clis/scallions-llop"))
   .dependsOn(main)
   .configs(IntegrationTest, End2EndTest)
   .settings(
-    name := "son2-llop",
+    name := "scallions-llop",
     commonSettings,
     integrationInConfig, end2endInConfig,
     whiteSetting, graySetting, blackSetting,
@@ -120,11 +120,11 @@ lazy val llop = (project in file("son2-clis/son2-llop"))
     )
   )
 
-lazy val rison = (project in file("son2-clis/son2-rison"))
+lazy val rison = (project in file("scallions-clis/scallions-rison"))
   .dependsOn(hocon, jackRison)
   .configs(IntegrationTest, End2EndTest)
   .settings(
-    name := "son2-rison",
+    name := "scallions-rison",
     commonSettings,
     integrationInConfig, end2endInConfig,
     whiteSetting, graySetting, blackSetting,
@@ -133,14 +133,14 @@ lazy val rison = (project in file("son2-clis/son2-rison"))
       "org.scala-lang" % "scala-library" % ScalaLibraryVersion
 
     )//,
-    //    mainClass in assembly := Some("pl.writeonly.son2.main.Main")
+    //    mainClass in assembly := Some("pl.writeonly.scallions.main.Main")
   )
 
-lazy val hocon = (project in file("son2-clis/son2-hocon"))
+lazy val hocon = (project in file("scallions-clis/scallions-hocon"))
   .dependsOn(main, jackHocon)
   .configs(IntegrationTest, End2EndTest)
   .settings(
-    name := "son2-hocon",
+    name := "scallions-hocon",
     commonSettings,
     integrationInConfig, end2endInConfig,
     whiteSetting, graySetting, blackSetting,
@@ -148,14 +148,14 @@ lazy val hocon = (project in file("son2-clis/son2-hocon"))
       "com.fasterxml.jackson.module" %% "jackson-module-scala" % JacksonVersion,
       "org.scala-lang" % "scala-library" % ScalaLibraryVersion
     )//,
-    //    mainClass in assembly := Some("pl.writeonly.son2.main.Main")
+    //    mainClass in assembly := Some("pl.writeonly.scallions.main.Main")
   )
 
-lazy val main = (project in file("son2-clis/son2-main"))
+lazy val main = (project in file("scallions-clis/scallions-main"))
   .dependsOn(specs, core, text, jack, path, patch, diff, json, impl)
   .configs(IntegrationTest, End2EndTest)
   .settings(
-    name := "son2-main",
+    name := "scallions-main",
     commonSettings,
     integrationInConfig, end2endInConfig,
     whiteSetting, graySetting, blackSetting,
@@ -163,15 +163,15 @@ lazy val main = (project in file("son2-clis/son2-main"))
     libraryDependencies ++= Seq(
       "org.scala-lang" % "scala-library" % ScalaLibraryVersion
     )//,
-    //    mainClass in assembly := Some("pl.writeonly.son2.main.Main")
+    //    mainClass in assembly := Some("pl.writeonly.scallions.main.Main")
   )
 
-lazy val impl = (project in file("son2-impl"))
+lazy val impl = (project in file("scallions-impl"))
   .aggregate(text, jack, path, patch, diff, json)
   .dependsOn(specs, core, text, jack, path, patch, diff, json)
   .configs(IntegrationTest, End2EndTest)
   .settings(
-    name := "son2-impl",
+    name := "scallions-impl",
     commonSettings,
     integrationInConfig, end2endInConfig,
     whiteSetting, graySetting, blackSetting,
@@ -180,22 +180,22 @@ lazy val impl = (project in file("son2-impl"))
     )
   )
 
-lazy val json = (project in file("son2-impl/son2-json"))
+lazy val json = (project in file("scallions-impl/scallions-json"))
   .dependsOn(specs, core, jack, path)
   .configs(IntegrationTest, End2EndTest)
   .settings(
-    name := "son2-json",
+    name := "scallions-json",
     commonSettings,
     libraryDependencies ++= Seq(
       "org.scala-lang" % "scala-library" % ScalaLibraryVersion
     )
   )
 
-lazy val path = (project in file("son2-impl/son2-path"))
+lazy val path = (project in file("scallions-impl/scallions-path"))
   .dependsOn(specs, core, jack)
   .configs(IntegrationTest, End2EndTest)
   .settings(
-    name := "son2-path",
+    name := "scallions-path",
     commonSettings,
     integrationInConfig, end2endInConfig,
     whiteSetting, graySetting, blackSetting,
@@ -211,11 +211,11 @@ lazy val path = (project in file("son2-impl/son2-path"))
     )
   )
 
-lazy val jack = (project in file("son2-impl/son2-jack"))
+lazy val jack = (project in file("scallions-impl/scallions-jack"))
   .dependsOn(specs, core)
   .configs(IntegrationTest, End2EndTest)
   .settings(
-    name := "son2-jack",
+    name := "scallions-jack",
     commonSettings,
     integrationInConfig, end2endInConfig,
     whiteSetting, graySetting, blackSetting,
@@ -230,11 +230,11 @@ lazy val jack = (project in file("son2-impl/son2-jack"))
     )
   )
 
-lazy val text = (project in file("son2-impl/son2-text"))
+lazy val text = (project in file("scallions-impl/scallions-text"))
   .dependsOn(specs, core)
   .configs(IntegrationTest, End2EndTest)
   .settings(
-    name := "son2-text",
+    name := "scallions-text",
     commonSettings,
     libraryDependencies ++= Seq(
       "org.scala-lang" % "scala-library" % ScalaLibraryVersion,
@@ -243,11 +243,11 @@ lazy val text = (project in file("son2-impl/son2-text"))
     )
   )
 
-lazy val patch = (project in file("son2-impl/son2-patch"))
+lazy val patch = (project in file("scallions-impl/scallions-patch"))
   .dependsOn(specs, core, jack)
   .configs(IntegrationTest, End2EndTest)
   .settings(
-    name := "son2-patch",
+    name := "scallions-patch",
     commonSettings,
     integrationInConfig, end2endInConfig,
     whiteSetting, graySetting, blackSetting,
@@ -257,23 +257,23 @@ lazy val patch = (project in file("son2-impl/son2-patch"))
     )
   )
 
-lazy val diff = (project in file("son2-impl/son2-diff"))
+lazy val diff = (project in file("scallions-impl/scallions-diff"))
   .dependsOn(specs, core)
   .configs(IntegrationTest, End2EndTest)
   .settings(
-    name := "son2-diff",
+    name := "scallions-diff",
     commonSettings,
     libraryDependencies ++= Seq(
       "org.scala-lang" % "scala-library" % ScalaLibraryVersion,
     )
   )
 
-lazy val core = (project in file("son2-core"))
+lazy val core = (project in file("scallions-core"))
   .aggregate(apis, funs)
   .dependsOn(specs, scallops, apis, funs)
   .configs(IntegrationTest, End2EndTest)
   .settings(
-    name := "son2-core",
+    name := "scallions-core",
     commonSettings,
     integrationInConfig, end2endInConfig,
     whiteSetting, graySetting, blackSetting,
@@ -285,11 +285,11 @@ lazy val core = (project in file("son2-core"))
     )
   )
 
-lazy val funs = (project in file("son2-core/son2-funs"))
+lazy val funs = (project in file("scallions-core/scallions-funs"))
   .dependsOn(specs, scallops, apis, ops)
   .configs(IntegrationTest, End2EndTest)
   .settings(
-    name := "son2-funs",
+    name := "scallions-funs",
     commonSettings,
     integrationInConfig, end2endInConfig,
     whiteSetting, graySetting, blackSetting,
@@ -300,11 +300,11 @@ lazy val funs = (project in file("son2-core/son2-funs"))
     )
   )
 
-lazy val apis = (project in file("son2-core/son2-apis"))
+lazy val apis = (project in file("scallions-core/scallions-apis"))
   .dependsOn(specs, scallops, pipe)
   .configs(IntegrationTest, End2EndTest)
   .settings(
-    name := "son2-apis",
+    name := "scallions-apis",
     commonSettings,
     integrationInConfig, end2endInConfig,
     whiteSetting, graySetting, blackSetting,
@@ -361,21 +361,6 @@ lazy val jackRison = (project in file("son2-subs/jackson-dataformat-rison"))
     )
   )
 
-
-//lazy val rison = (project in file("son2-subs/rison"))
-//  .dependsOn()
-//  .configs(IntegrationTest, End2EndTest)
-//  .settings(
-//    name := "rison",
-//    commonSettings,
-//    integrationInConfig, end2endInConfig,
-//    whiteSetting, graySetting, blackSetting,
-//    libraryDependencies ++= Seq(
-//      "com.fasterxml.jackson.core" % "jackson-core" % JacksonVersion,
-//      "com.fasterxml.jackson.core" % "jackson-databind" % JacksonVersion,
-//      "org.testng" % "testng" % TestngVersion % Test,
-//    )
-//  )
 
 lazy val scallops = (project in file("scallions-adds"))
   //  .enablePlugins(JacocoItPlugin)

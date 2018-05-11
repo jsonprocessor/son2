@@ -1,14 +1,14 @@
-[![Build Status](https://api.travis-ci.org/writeonly/son2.svg?branch=master)](https://travis-ci.org/writeonly/son2)
-[![Codacy grade](https://img.shields.io/codacy/grade/e27821fb6289410b8f58338c7e0bc686.svg)](https://www.codacy.com/app/writeonly/son2/dashboard)
-[![Codecov](https://img.shields.io/codecov/c/github/writeonly/son2.svg)](https://codecov.io/gh/writeonly/son2)
-[![GitHub issues](https://img.shields.io/github/issues/writeonly/son2.svg)](https://github.com/writeonly/son2/issues)
+[![Build Status](https://api.travis-ci.org/writeonly/scallions.svg?branch=master)](https://travis-ci.org/writeonly/scallions)
+[![Codacy grade](https://img.shields.io/codacy/grade/e27821fb6289410b8f58338c7e0bc686.svg)](https://www.codacy.com/app/writeonly/scallions/dashboard)
+[![Codecov](https://img.shields.io/codecov/c/github/writeonly/scallions.svg)](https://codecov.io/gh/writeonly/scallions)
+[![GitHub issues](https://img.shields.io/github/issues/writeonly/scallions.svg)](https://github.com/writeonly/scallions/issues)
 [![License][licenseImg]][licenseLink]
  
-[licenseImg]: https://img.shields.io/github/license/writeonly/son2.svg
+[licenseImg]: https://img.shields.io/github/license/writeonly/scallions.svg
 [licenseImg2]: https://img.shields.io/:license-mit-blue.svg
 [licenseLink]: LICENSE
 
-* https://circleci.com/gh/writeonly/son2
+* https://circleci.com/gh/writeonly/scallions
 
 # SON2
 
@@ -34,8 +34,8 @@ It is a simple application with:
 ## Build
 ```
 cd ~
-git clone https://github.com/writeonly/son2.git
-cd son2
+git clone https://github.com/writeonly/scallions.git
+cd scallions
 git submodule update --init --recursive
 sbt clean scalafmt::test test:scalafmt::test it:scalafmt::test jacoco it:jacoco coverage test it:test assembly coverageReport && sbt coverageAggregate && sbt stats scalastyle
 sbt clean compile assembly
@@ -44,13 +44,13 @@ sbt clean compile assembly
 ### CLI
 Add line to file ~/.bashrc
 ```
-alias son2="java -jar ~/son2/son2-clis/son2-main/target/scala-2.12/son2-main-assembly-2.8.11-SNAPSHOT.jar"
-alias son2o="son2 o"
-alias son2y="son2 y"
-alias son2x="son2 x"
-alias son2p="son2 p"
+alias scallions="java -jar ~/scallions/scallions-clis/scallions-main/target/scala-2.12/scallions-main-assembly-2.8.11-SNAPSHOT.jar"
+alias scallionso="scallions o"
+alias scallionsy="scallions y"
+alias scallionsx="scallions x"
+alias scallionsp="scallions p"
 ```
 ## Usage
 
-[usage](https://github.com/writeonly/son2/tree/master/son2-main/src/main/resources/README.md)
+[usage](https://github.com/writeonly/scallions/tree/master/scallions-main/src/main/resources/README.md)
 
