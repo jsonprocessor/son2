@@ -1,7 +1,11 @@
 package pl.writeonly.scallions.rison
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.github.hronom.jackson.dataformat.rison.{RisonFactory, RisonGenerator, RisonParser}
+import com.github.hronom.jackson.dataformat.rison.{
+  RisonFactory,
+  RisonGenerator,
+  RisonParser
+}
 import pl.writeonly.scallions.apis.config.RWTConfig
 import pl.writeonly.scalaops.pipe.Pipe._
 import pl.writeonly.scallions.hocon.ConfigOptHocon

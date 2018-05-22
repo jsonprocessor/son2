@@ -1,9 +1,8 @@
 package pl.writeonly.scallions.path.creators
 
-import pl.writeonly.scallions.path.notation.NotationCasePath
+import pl.writeonly.scallions.apis.chain.PCreatorReader
 import pl.writeonly.scallions.apis.config.RConfig
 import pl.writeonly.scallions.apis.notation.NotationReader
-import pl.writeonly.scallions.apis.pcreators.PCreatorReader
 import pl.writeonly.scallions.path.notation.NotationCasePath
 
 class PCreatorReaderPath(jack: NotationCasePath) extends PCreatorReader {

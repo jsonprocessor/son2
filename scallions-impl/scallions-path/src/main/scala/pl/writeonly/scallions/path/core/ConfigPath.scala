@@ -1,10 +1,15 @@
 package pl.writeonly.scallions.path.core
 
 import pl.writeonly.scallions.apis.config.RPath.RPath
-import pl.writeonly.scallions.apis.config.{Format, ProviderType, RPath, WStyle}
 import pl.writeonly.scallions.apis.config.RStyle.RStream
 import pl.writeonly.scallions.apis.config.WStyle.WRaw
-import pl.writeonly.scallions.apis.config._
+import pl.writeonly.scallions.apis.config.{
+  Format,
+  ProviderType,
+  RPath,
+  WStyle,
+  _
+}
 import pl.writeonly.scallions.apis.core.ConfigCore
 
 object ConfigPath extends ConfigCore {

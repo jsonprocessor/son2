@@ -1,9 +1,13 @@
 package pl.writeonly.scallions.path.notation
 
 import com.jayway.jsonpath.spi.json.JsonProvider
-import pl.writeonly.scallions.path.core.DefaultsPath
 import pl.writeonly.scallions.apis.config._
-import pl.writeonly.scallions.apis.notation.{NotationReader, NotationWriter, Value}
+import pl.writeonly.scallions.apis.notation.{
+  NotationReader,
+  NotationWriter,
+  Value
+}
+import pl.writeonly.scallions.path.core.DefaultsPath
 
 trait CreatorNotationProvider extends CreatorNotation {
 

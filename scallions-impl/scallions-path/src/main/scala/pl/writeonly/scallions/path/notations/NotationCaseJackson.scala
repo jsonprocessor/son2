@@ -1,16 +1,20 @@
 package pl.writeonly.scallions.path.notations
 
 import com.fasterxml.jackson.databind.{ObjectMapper, ObjectReader}
-import com.jayway.jsonpath.spi.json.{JacksonJsonNodeJsonProvider, JacksonJsonProvider}
+import com.jayway.jsonpath.spi.json.{
+  JacksonJsonNodeJsonProvider,
+  JacksonJsonProvider
+}
 import com.jayway.jsonpath.spi.mapper.JacksonMappingProvider
-import pl.writeonly.scallions.path.core.ProvidersPath
-import pl.writeonly.scallions.path.notation.{CreatorNotation, NotationReaderPath}
 import pl.writeonly.scallions.apis.config.{Meta, RConfig, WConfig}
 import pl.writeonly.scallions.apis.core.Formats
 import pl.writeonly.scallions.jack.core.{Jack, JackImpl, JackObject}
 import pl.writeonly.scallions.jack.notation.NotationWriterJack
 import pl.writeonly.scallions.path.core.ProvidersPath
-import pl.writeonly.scallions.path.notation.{CreatorNotation, NotationReaderPath}
+import pl.writeonly.scallions.path.notation.{
+  CreatorNotation,
+  NotationReaderPath
+}
 
 trait CreatorNotationJacksonLike extends CreatorNotation {
 

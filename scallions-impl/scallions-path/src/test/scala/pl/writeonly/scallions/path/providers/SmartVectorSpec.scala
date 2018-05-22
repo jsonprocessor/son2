@@ -1,11 +1,9 @@
 package pl.writeonly.scallions.path.providers
 
+import pl.writeonly.scalaops.specs.GrayVectorSpec
 import pl.writeonly.scallions.apis.converters.Converter
 import pl.writeonly.scallions.funs.liners.{Liner, LinerOpt}
-import pl.writeonly.scallions.funs.streamers.StreamerPipeForeach
-import pl.writeonly.scallions.path.core.{ConfigPath, ProvidersPath}
-import pl.writeonly.scalaops.specs.GrayVectorSpec
-import pl.writeonly.scallions.funs.streamers.Streamer
+import pl.writeonly.scallions.funs.streamers.{Streamer, StreamerPipeForeach}
 import pl.writeonly.scallions.path.chain.ChainNotationPairPath
 import pl.writeonly.scallions.path.core.{ConfigPath, ProvidersPath}
 

@@ -8,10 +8,9 @@ import org.unbescape.javascript.JavaScriptEscape
 import org.unbescape.json.JsonEscape
 import org.unbescape.uri.UriEscape
 import org.unbescape.xml.XmlEscape
-import pl.writeonly.scallions.text.core.{Actions, FormatsText}
 import pl.writeonly.scallions.apis.config.TConfig
-import pl.writeonly.scallions.apis.core.core.DString
-import pl.writeonly.scallions.text.core.Actions
+import pl.writeonly.scallions.apis.core.DString
+import pl.writeonly.scallions.text.core.{Actions, FormatsText}
 
 class MatcherUnbescape extends Matcher {
 

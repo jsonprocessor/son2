@@ -1,9 +1,13 @@
 package pl.writeonly.scallions.path.glue
 
-import pl.writeonly.scallions.path.creators.{PCreatorReaderPath, PCreatorWriterPath}
-import pl.writeonly.scallions.path.notations._
-import pl.writeonly.scallions.apis.chain.{ChainNotationRWT, PCreatorTranslatorFake}
-import pl.writeonly.scallions.path.creators._
+import pl.writeonly.scallions.apis.chain.{
+  ChainNotationRWT,
+  PCreatorTranslatorFake
+}
+import pl.writeonly.scallions.path.creators.{
+  PCreatorReaderPath,
+  PCreatorWriterPath
+}
 import pl.writeonly.scallions.path.notations._
 
 class ChainNotationRWTPath

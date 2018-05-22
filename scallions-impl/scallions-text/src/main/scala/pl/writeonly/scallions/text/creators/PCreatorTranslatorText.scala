@@ -1,10 +1,9 @@
 package pl.writeonly.scallions.text.creators
 
-import pl.writeonly.scallions.apis.config._
-import pl.writeonly.scallions.apis.notation.NotationTranslator
-import pl.writeonly.scallions.apis.pcreators.PCreatorTranslator
 import pl.writeonly.scalaops.pipe.Pipe._
-import pl.writeonly.scallions.apis.config.ProviderType
+import pl.writeonly.scallions.apis.chain.PCreatorTranslator
+import pl.writeonly.scallions.apis.config.{ProviderType, _}
+import pl.writeonly.scallions.apis.notation.NotationTranslator
 
 import scala.util.control.Exception.catching
 

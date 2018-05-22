@@ -5,13 +5,14 @@ import com.jayway.jsonpath.spi.mapper.JsonSmartMappingProvider
 import net.minidev.json.parser.JSONParser
 import net.minidev.json.writer.JsonReaderI
 import net.minidev.json.{JSONStyle, JSONValue}
-import pl.writeonly.scallions.path.core.ProvidersPath
-import pl.writeonly.scallions.path.notation.{CreatorNotation, NotationReaderPath}
 import pl.writeonly.scallions.apis.config.{Meta, RConfig, WConfig}
 import pl.writeonly.scallions.apis.core.Formats
 import pl.writeonly.scallions.apis.notation.{NotationWriter, Value}
 import pl.writeonly.scallions.path.core.ProvidersPath
-import pl.writeonly.scallions.path.notation.{CreatorNotation, NotationReaderPath}
+import pl.writeonly.scallions.path.notation.{
+  CreatorNotation,
+  NotationReaderPath
+}
 
 trait CreatorNotationSmart extends CreatorNotation {
 

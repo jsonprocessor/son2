@@ -1,8 +1,14 @@
 package pl.writeonly.scallions.jack.glue
 
-import pl.writeonly.scallions.apis.chain.{ChainNotationRWT, PCreatorTranslatorFake}
+import pl.writeonly.scallions.apis.chain.{
+  ChainNotationRWT,
+  PCreatorTranslatorFake
+}
 import pl.writeonly.scallions.jack.core._
-import pl.writeonly.scallions.jack.creators.{PCreatorReaderJack, PCreatorWriterJack}
+import pl.writeonly.scallions.jack.creators.{
+  PCreatorReaderJack,
+  PCreatorWriterJack
+}
 
 class ChainNotationRWTJack
     extends ChainNotationRWT(

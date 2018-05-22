@@ -1,6 +1,10 @@
 package pl.writeonly.scallions.funs.glue
 
-import pl.writeonly.scallions.funs.streamers.{Streamer, StreamerPipeAll, StreamerSourceForeach}
+import pl.writeonly.scallions.funs.streamers.{
+  Streamer,
+  StreamerPipeAll,
+  StreamerSourceForeach
+}
 import pl.writeonly.scallions.apis.config.RStyle
 import pl.writeonly.scallions.apis.config.RStyle.{RAll, RStream}
 import pl.writeonly.scallions.apis.converters.Converter

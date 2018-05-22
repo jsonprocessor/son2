@@ -3,8 +3,8 @@ package pl.writeonly.scallions.path.notation
 import com.jayway.jsonpath.{Configuration, JsonPath, ParseContext}
 import pl.writeonly.scallions.apis.config.Meta
 import pl.writeonly.scallions.apis.config.RPath.{Json, Parse, Read}
-import pl.writeonly.scallions.path.core.DefaultsPath
 import pl.writeonly.scallions.apis.notation.{NotationReader, Value}
+import pl.writeonly.scallions.path.core.DefaultsPath
 
 class NotationReaderPath(meta: Meta, val defaults: DefaultsPath)
     extends NotationReader(meta) {

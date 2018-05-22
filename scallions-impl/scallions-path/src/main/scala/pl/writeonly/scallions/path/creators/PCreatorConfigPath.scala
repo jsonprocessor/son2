@@ -1,12 +1,10 @@
 package pl.writeonly.scallions.path.creators
 
-import pl.writeonly.scallions.apis.config.WStyle.WRaw
-import pl.writeonly.scallions.apis.config._
-import pl.writeonly.scallions.apis.notation.PartialCreatorConfigSymbol
-import pl.writeonly.scallions.apis.chain.PCreatorConfig
-import pl.writeonly.scallions.path.core.ConfigPath
 import pl.writeonly.scalaops.pipe.Pipe._
-import pl.writeonly.scallions.apis.config.{ProviderType, RPath}
+import pl.writeonly.scallions.apis.chain.PCreatorConfig
+import pl.writeonly.scallions.apis.config.WStyle.WRaw
+import pl.writeonly.scallions.apis.config.{ProviderType, RPath, _}
+import pl.writeonly.scallions.apis.notation.PartialCreatorConfigSymbol
 import pl.writeonly.scallions.path.core.{ConfigPath, ProvidersPath}
 
 class PCreatorConfigPath(f: ProviderType)

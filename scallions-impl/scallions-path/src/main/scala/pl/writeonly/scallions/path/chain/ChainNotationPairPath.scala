@@ -1,8 +1,10 @@
 package pl.writeonly.scallions.path.chain
 
-import pl.writeonly.scallions.path.glue.{ChainNotationConfigPathMain, ChainNotationRWTPath}
 import pl.writeonly.scallions.apis.converters.CreatorConverter
-import pl.writeonly.scallions.path.glue.ChainNotationConfigPathMain
+import pl.writeonly.scallions.path.glue.{
+  ChainNotationConfigPathMain,
+  ChainNotationRWTPath
+}
 
 class ChainNotationPairPath
     extends CreatorConverter(

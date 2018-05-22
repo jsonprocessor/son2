@@ -2,9 +2,8 @@ package pl.writeonly.scallions.text.creators
 
 import org.apache.commons.text.StringEscapeUtils
 import org.apache.commons.text.translate.CharSequenceTranslator
-import pl.writeonly.scallions.text.core.{Actions, FormatsText}
 import pl.writeonly.scallions.apis.config.TConfig
-import pl.writeonly.scallions.text.core.Actions
+import pl.writeonly.scallions.text.core.{Actions, FormatsText}
 
 class MatcherStringEscape extends Matcher {
 

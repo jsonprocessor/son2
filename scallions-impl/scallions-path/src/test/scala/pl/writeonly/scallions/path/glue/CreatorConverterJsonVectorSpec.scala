@@ -1,7 +1,7 @@
 package pl.writeonly.scallions.path.glue
 
-import pl.writeonly.scallions.apis.config.Meta
 import pl.writeonly.scalaops.specs.GrayVectorSpec
+import pl.writeonly.scallions.apis.config.Meta
 import pl.writeonly.scallions.jack.core.FormatsJack
 import pl.writeonly.scallions.path.core.ProvidersPath
 

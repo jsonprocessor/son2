@@ -1,7 +1,10 @@
 package pl.writeonly.scallions.funs.glue
 
 import org.scalactic.{Bad, ErrorMessage, Or}
-import pl.writeonly.scallions.apis.chain.{ChainNotationCreator, ChainNotationRWT}
+import pl.writeonly.scallions.apis.chain.{
+  ChainNotationCreator,
+  ChainNotationRWT
+}
 import pl.writeonly.scallions.apis.config.RWTConfig
 import pl.writeonly.scallions.apis.converters.Converter
 import pl.writeonly.scallions.apis.chain.PCreatorConfig

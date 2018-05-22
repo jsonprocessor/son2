@@ -1,10 +1,11 @@
 package pl.writeonly.scallions.path.glue
 
-import pl.writeonly.scallions.path.core.ProvidersPath
-import pl.writeonly.scallions.path.creators.{PCreatorConfigPath, PCreatorConfigPathMain}
 import pl.writeonly.scallions.apis.chain.ChainNotationConfig
 import pl.writeonly.scallions.path.core.ProvidersPath
-import pl.writeonly.scallions.path.creators.{PCreatorConfigPath, PCreatorConfigPathMain}
+import pl.writeonly.scallions.path.creators.{
+  PCreatorConfigPath,
+  PCreatorConfigPathMain
+}
 
 class ChainNotationConfigPath
     extends ChainNotationConfig(

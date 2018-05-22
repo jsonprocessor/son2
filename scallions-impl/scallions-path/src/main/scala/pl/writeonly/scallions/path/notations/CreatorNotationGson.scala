@@ -3,13 +3,14 @@ package pl.writeonly.scallions.path.notations
 import com.google.gson.{Gson, GsonBuilder}
 import com.jayway.jsonpath.spi.json.GsonJsonProvider
 import com.jayway.jsonpath.spi.mapper.GsonMappingProvider
-import pl.writeonly.scallions.path.core.ProvidersPath
-import pl.writeonly.scallions.path.notation.{CreatorNotation, NotationReaderPath}
 import pl.writeonly.scallions.apis.config.{Meta, RConfig, WConfig}
 import pl.writeonly.scallions.apis.core.Formats
 import pl.writeonly.scallions.apis.notation.{NotationWriter, Value}
 import pl.writeonly.scallions.path.core.ProvidersPath
-import pl.writeonly.scallions.path.notation.{CreatorNotation, NotationReaderPath}
+import pl.writeonly.scallions.path.notation.{
+  CreatorNotation,
+  NotationReaderPath
+}
 
 object CreatorNotationGson extends CreatorNotation {
 

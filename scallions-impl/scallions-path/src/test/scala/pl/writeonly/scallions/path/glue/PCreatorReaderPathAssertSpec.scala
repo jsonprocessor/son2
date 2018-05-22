@@ -1,11 +1,7 @@
 package pl.writeonly.scallions.path.glue
 
-import pl.writeonly.scallions.apis.config.RConfig
-import pl.writeonly.scallions.path.core.{DefaultsPath, ProvidersPath}
-import pl.writeonly.scallions.path.creators.PCreatorReaderPath
-import pl.writeonly.scallions.path.notation._
-import pl.writeonly.scallions.path.notations.CreatorNotationTapestry
 import pl.writeonly.scalaops.specs.WhiteAssertSpec
+import pl.writeonly.scallions.apis.config.RConfig
 import pl.writeonly.scallions.path.core.{DefaultsPath, ProvidersPath}
 import pl.writeonly.scallions.path.creators.PCreatorReaderPath
 import pl.writeonly.scallions.path.notation.NotationReaderPath

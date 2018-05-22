@@ -1,14 +1,13 @@
 package pl.writeonly.scallions.path.glue
 
 import org.skyscreamer.jsonassert.JSONAssert
+import pl.writeonly.scalaops.specs.WhiteAssertSpec
 import pl.writeonly.scallions.apis.config.RStyle.RAll
 import pl.writeonly.scallions.apis.config.WStyle.WPretty
-import pl.writeonly.scallions.apis.config._
+import pl.writeonly.scallions.apis.config.{RPath, _}
 import pl.writeonly.scallions.apis.converters.Converter2
 import pl.writeonly.scallions.apis.core.Formats
 import pl.writeonly.scallions.funs.glue.Piper
-import pl.writeonly.scalaops.specs.WhiteAssertSpec
-import pl.writeonly.scallions.apis.config.RPath
 import pl.writeonly.scallions.path.core.ProvidersPath
 
 class CreatorConverterPathAssertSpec extends WhiteAssertSpec {

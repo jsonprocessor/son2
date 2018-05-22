@@ -1,8 +1,8 @@
 package pl.writeonly.scallions.text.creators
 
-import pl.writeonly.scallions.apis.config.TConfig
-import pl.writeonly.scallions.apis.core.core.DString
 import pl.writeonly.scalaops.pipe.Pipe._
+import pl.writeonly.scallions.apis.config.TConfig
+import pl.writeonly.scallions.apis.core.DString
 
 trait Matcher {
 

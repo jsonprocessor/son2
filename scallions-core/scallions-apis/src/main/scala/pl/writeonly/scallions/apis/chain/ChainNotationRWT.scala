@@ -3,7 +3,11 @@ package pl.writeonly.scallions.apis.chain
 import pl.writeonly.scallions.apis.config.Format
 import pl.writeonly.scallions.apis.config.{RConfig, RWTConfig, WConfig}
 import pl.writeonly.scallions.apis.core.{FNotationReader, FNotationWriter}
-import pl.writeonly.scallions.apis.notation.{NotationReader, NotationTranslator, NotationWriter}
+import pl.writeonly.scallions.apis.notation.{
+  NotationReader,
+  NotationTranslator,
+  NotationWriter
+}
 
 class ChainNotationRWT(val r: PCreatorReader,
                        val w: PCreatorWriter,
