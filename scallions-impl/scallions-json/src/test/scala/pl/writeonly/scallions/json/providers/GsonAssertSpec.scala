@@ -1,11 +1,9 @@
 package pl.writeonly.scallions.json.providers
 
+import pl.writeonly.scalaops.specs.WhiteAssertSpec
 import pl.writeonly.scallions.apis.config.WStyle.WPretty
 import pl.writeonly.scallions.apis.converters.{Converter, Converter2}
 import pl.writeonly.scallions.funs.liners.{Liner, LinerOpt}
-import pl.writeonly.scallions.json.core.ConfigJson
-import pl.writeonly.scallions.json.glue.CreatorConverterJson
-import pl.writeonly.scalaops.specs.WhiteAssertSpec
 import pl.writeonly.scallions.json.core.ConfigJson
 import pl.writeonly.scallions.json.glue.CreatorConverterJson
 import pl.writeonly.scallions.path.core.ProvidersPath

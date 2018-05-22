@@ -1,7 +1,7 @@
 package pl.writeonly.scallions.jack.chain
 
-import pl.writeonly.scalaops.specs.fixture.WhiteAssertSpec
 import pl.writeonly.scalaops.pipe.Pipe
+import pl.writeonly.scalaops.specs.fixture.WhiteAssertSpec
 
 class ChainReaderJackAssertSpec extends WhiteAssertSpec with Pipe {
 

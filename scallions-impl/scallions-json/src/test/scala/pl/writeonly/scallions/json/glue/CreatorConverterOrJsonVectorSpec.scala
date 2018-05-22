@@ -1,10 +1,9 @@
 package pl.writeonly.scallions.json.glue
 
 import org.scalatest.Outcome
-import pl.writeonly.scallions.apis.config.Meta
-import pl.writeonly.scallions.json.core.ProvidersJson
-import pl.writeonly.scalaops.specs.fixture.GrayVectorSpec
 import pl.writeonly.scalaops.pipe.Pipe
+import pl.writeonly.scalaops.specs.fixture.GrayVectorSpec
+import pl.writeonly.scallions.apis.config.Meta
 import pl.writeonly.scallions.jack.core.FormatsJack
 import pl.writeonly.scallions.json.core.ProvidersJson
 

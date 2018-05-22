@@ -4,8 +4,8 @@ import java.io._
 import java.net.URI
 import java.nio.charset.StandardCharsets
 
-import pl.writeonly.scallions.funs.liners.Liner
 import pl.writeonly.scalaops.pipe.Pipe._
+import pl.writeonly.scallions.funs.liners.Liner
 
 abstract class Streamer(val liner: Liner) {
 

@@ -1,7 +1,7 @@
 package pl.writeonly.scallions.main
 
-import pl.writeonly.scallions.funs.glue.Params
 import pl.writeonly.scalaops.specs.WhiteAssertSpec
+import pl.writeonly.scallions.funs.glue.Params
 
 class ParamsAssertSpec extends WhiteAssertSpec {
   val params = Params(System.in, System.out)

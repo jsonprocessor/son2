@@ -1,15 +1,13 @@
 package pl.writeonly.scallions.apis.chain
 
 import org.scalactic.{Bad, Good, Or}
-import pl.writeonly.scallions.apis.config.HasConfigOpt
-import pl.writeonly.scallions.apis.config.RWTConfig
+import pl.writeonly.scallions.apis.config.{HasConfigOpt, RWTConfig}
 import pl.writeonly.scallions.apis.converters.{
   Converter,
   Converter1,
   Converter2
 }
 import pl.writeonly.scallions.apis.notation._
-import pl.writeonly.scallions.apis.chain.PCreatorConfig
 
 class ChainNotationCreator(parser: PCreatorConfig, rwt: ChainNotationRWT)
     extends HasConfigOpt {

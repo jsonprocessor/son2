@@ -1,8 +1,8 @@
 package pl.writeonly.scallions.apis.config
 
-import RPath.RPath
+import pl.writeonly.scallions.apis.config.RPath.RPath
 import pl.writeonly.scallions.apis.config.RStyle.RStream
-import WStyle.WPretty
+import pl.writeonly.scallions.apis.config.WStyle.WPretty
 
 final case class RWTConfig(read: RConfig = RConfig(),
                            write: WConfig = WConfig(),

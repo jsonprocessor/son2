@@ -1,8 +1,7 @@
 package pl.writeonly.scallions.jack.glue
 
-import pl.writeonly.scallions.jack.core.Jack
 import pl.writeonly.scalaops.specs.GrayVectorSpec
-import pl.writeonly.scallions.jack.core.FormatsJack
+import pl.writeonly.scallions.jack.core.{FormatsJack, Jack}
 
 class CreatorConverterJackVectorSpec extends GrayVectorSpec {
 

@@ -3,9 +3,9 @@ package pl.writeonly.scallions.funs.streamers
 import java.io.{File, InputStream, OutputStream, PrintWriter}
 import java.net.URI
 
-import pl.writeonly.scallions.funs.liners.Liner
 import pl.writeonly.scalaops.ops.AutoCloseableOps
 import pl.writeonly.scalaops.ops.AutoCloseableOps.using
+import pl.writeonly.scallions.funs.liners.Liner
 
 import scala.io.Source
 

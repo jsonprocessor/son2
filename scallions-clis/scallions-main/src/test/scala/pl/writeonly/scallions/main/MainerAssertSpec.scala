@@ -3,8 +3,8 @@ package pl.writeonly.scallions.main
 import java.io.ByteArrayOutputStream
 
 import org.scalactic.Bad
-import pl.writeonly.scallions.funs.glue.Params
 import pl.writeonly.scalaops.specs.WhiteAssertSpec
+import pl.writeonly.scallions.funs.glue.Params
 import pl.writeonly.scallions.funs.streamers.Streamer
 
 class MainerAssertSpec extends WhiteAssertSpec {

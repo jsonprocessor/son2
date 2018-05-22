@@ -1,12 +1,10 @@
 package pl.writeonly.scallions.rison
 
-import pl.writeonly.scallions.apis.config._
-import pl.writeonly.scallions.apis.core.Formats
-import pl.writeonly.scallions.jack.core.{ConfigJack, ProvidersJack}
-import pl.writeonly.scalaops.specs.fixture.GrayVectorSpec
 import pl.writeonly.scalaops.pipe.Pipe
-import pl.writeonly.scallions.apis.config.{Format, WStyle}
-import pl.writeonly.scallions.jack.core.{ConfigJack, FormatsJack}
+import pl.writeonly.scalaops.specs.fixture.GrayVectorSpec
+import pl.writeonly.scallions.apis.config.{Format, WStyle, _}
+import pl.writeonly.scallions.apis.core.Formats
+import pl.writeonly.scallions.jack.core.{ConfigJack, FormatsJack, ProvidersJack}
 import pl.writeonly.scallions.json.core.ConfigJson
 import pl.writeonly.scallions.path.core.ConfigPath
 

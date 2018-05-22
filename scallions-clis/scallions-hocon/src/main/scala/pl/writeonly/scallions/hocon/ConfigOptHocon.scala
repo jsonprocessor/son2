@@ -6,8 +6,8 @@ import com.fasterxml.jackson.module.scala.DefaultScalaModule
 import com.jasonclawson.jackson.dataformat.hocon.HoconFactory
 import com.typesafe.config.{Config, ConfigFactory}
 import com.typesafe.scalalogging.StrictLogging
-import pl.writeonly.scallions.apis.config.RWTConfig
 import pl.writeonly.scalaops.pipe.Pipe._
+import pl.writeonly.scallions.apis.config.RWTConfig
 
 class ConfigOptHocon extends StrictLogging {
   def configOpt(s: String) = Option(config(s))

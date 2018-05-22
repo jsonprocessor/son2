@@ -1,15 +1,11 @@
 package pl.writeonly.scallions.funs.glue
 
+import pl.writeonly.scalaops.specs.WhiteAssertSpec
 import pl.writeonly.scallions.apis.config.RStyle.{RAll, RStream}
 import pl.writeonly.scallions.funs.streamers.{
   StreamerPipeAll,
   StreamerPipeForeach,
   StreamerSourceAll,
-  StreamerSourceForeach
-}
-import pl.writeonly.scalaops.specs.WhiteAssertSpec
-import pl.writeonly.scallions.funs.streamers.{
-  StreamerPipeAll,
   StreamerSourceForeach
 }
 

@@ -2,10 +2,9 @@ package pl.writeonly.scallions.jack.converters
 
 import com.fasterxml.jackson.core.JsonParseException
 import com.fasterxml.jackson.databind.JsonMappingException
+import pl.writeonly.scalaops.specs.WhiteAssertSpec
 import pl.writeonly.scallions.apis.converters.Converter
 import pl.writeonly.scallions.funs.liners.{Liner, LinerOpt}
-import pl.writeonly.scallions.jack.core.FormatsJack
-import pl.writeonly.scalaops.specs.WhiteAssertSpec
 import pl.writeonly.scallions.jack.core.FormatsJack
 import pl.writeonly.scallions.jack.glue.CreatorConverterJack
 

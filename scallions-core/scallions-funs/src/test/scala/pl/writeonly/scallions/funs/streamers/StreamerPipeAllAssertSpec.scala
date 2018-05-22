@@ -1,9 +1,9 @@
 package pl.writeonly.scallions.funs.streamers
 
 import org.scalatest.Outcome
-import pl.writeonly.scallions.apis.converters.ConverterFake
-import pl.writeonly.scalaops.specs.fixture.WhiteAssertSpec
 import pl.writeonly.scalaops.pipe.Pipe
+import pl.writeonly.scalaops.specs.fixture.WhiteAssertSpec
+import pl.writeonly.scallions.apis.converters.ConverterFake
 
 class StreamerPipeAllAssertSpec extends WhiteAssertSpec with Pipe {
 

@@ -5,8 +5,7 @@ import com.fasterxml.jackson.dataformat.csv.CsvMapper
 import com.fasterxml.jackson.dataformat.javaprop.JavaPropsMapper
 import com.fasterxml.jackson.dataformat.xml.XmlMapper
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper
-import pl.writeonly.scallions.apis.config.Format
-import pl.writeonly.scallions.apis.config.Meta
+import pl.writeonly.scallions.apis.config.{Format, Meta}
 
 object Jack {
   def meta(format: Format) = Meta(ProvidersJack.JACKSON, format)

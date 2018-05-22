@@ -1,9 +1,8 @@
 package pl.writeonly.scallions.jack.core
 
-import pl.writeonly.scallions.apis.config.{Format, WStyle}
 import pl.writeonly.scallions.apis.config.RStyle.RStream
 import pl.writeonly.scallions.apis.config.WStyle.WPretty
-import pl.writeonly.scallions.apis.config._
+import pl.writeonly.scallions.apis.config.{Format, WStyle, _}
 import pl.writeonly.scallions.apis.core.ConfigCore
 
 object ConfigJack extends ConfigCore {

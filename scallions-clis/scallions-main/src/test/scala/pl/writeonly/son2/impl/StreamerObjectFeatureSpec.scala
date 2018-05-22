@@ -2,9 +2,8 @@ package pl.writeonly.scallions.impl
 
 import java.io.FileNotFoundException
 
-import pl.writeonly.scallions.funs.streamers.StreamerPipeForeach
-import pl.writeonly.scallions.jack.core.FormatsJack
 import pl.writeonly.scalaops.specs.BlackSpec
+import pl.writeonly.scallions.funs.streamers.StreamerPipeForeach
 import pl.writeonly.scallions.jack.core.FormatsJack
 import pl.writeonly.scallions.jack.glue.CreatorConverterJack
 

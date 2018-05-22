@@ -4,9 +4,9 @@ import java.io.File
 import java.net.URI
 
 import org.scalatest.Outcome
-import pl.writeonly.scallions.apis.converters.ConverterFake
-import pl.writeonly.scalaops.specs.fixture.WhiteAssertSpec
 import pl.writeonly.scalaops.pipe.Pipe
+import pl.writeonly.scalaops.specs.fixture.WhiteAssertSpec
+import pl.writeonly.scallions.apis.converters.ConverterFake
 
 class StreamerPipeForeachAssertSpec extends WhiteAssertSpec with Pipe {
 

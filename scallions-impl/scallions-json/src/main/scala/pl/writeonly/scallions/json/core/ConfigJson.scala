@@ -1,12 +1,17 @@
 package pl.writeonly.scallions.json.core
 
 import pl.writeonly.scallions.apis.config.RPath.RPath
-import pl.writeonly.scallions.apis.config.{Format, ProviderType, RPath, WStyle}
 import pl.writeonly.scallions.apis.config.RStyle.RStream
 import pl.writeonly.scallions.apis.config.WStyle.WPretty
-import pl.writeonly.scallions.path.core.ProvidersPath
-import pl.writeonly.scallions.apis.config._
+import pl.writeonly.scallions.apis.config.{
+  Format,
+  ProviderType,
+  RPath,
+  WStyle,
+  _
+}
 import pl.writeonly.scallions.apis.core.{ConfigCore, Formats}
+import pl.writeonly.scallions.path.core.ProvidersPath
 
 object ConfigJson extends ConfigCore {
   def apply(s: String): RWTConfig =

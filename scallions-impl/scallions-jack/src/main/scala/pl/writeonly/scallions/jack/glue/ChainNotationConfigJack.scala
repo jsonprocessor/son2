@@ -1,7 +1,5 @@
 package pl.writeonly.scallions.jack.glue
 
-import pl.writeonly.scallions.jack.core.FormatsJack
-import pl.writeonly.scallions.jack.creators.PCreatorConfigJack
 import pl.writeonly.scallions.apis.chain.ChainNotationConfig
 import pl.writeonly.scallions.jack.core.FormatsJack
 import pl.writeonly.scallions.jack.creators.PCreatorConfigJack

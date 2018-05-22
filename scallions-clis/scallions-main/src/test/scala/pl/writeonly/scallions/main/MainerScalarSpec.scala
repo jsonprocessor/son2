@@ -2,8 +2,8 @@ package pl.writeonly.scallions.main
 
 import java.io.ByteArrayOutputStream
 
-import pl.writeonly.scallions.funs.glue.Params
 import pl.writeonly.scalaops.specs.GrayScalarSpec
+import pl.writeonly.scallions.funs.glue.Params
 import pl.writeonly.scallions.funs.streamers.Streamer
 
 class MainerScalarSpec extends GrayScalarSpec {

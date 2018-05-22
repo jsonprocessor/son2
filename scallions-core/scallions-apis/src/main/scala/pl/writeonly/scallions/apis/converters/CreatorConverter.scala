@@ -1,9 +1,8 @@
 package pl.writeonly.scallions.apis.converters
 
 import org.scalactic.{Bad, Or}
-import pl.writeonly.scallions.apis.config.{Format, ProviderType}
 import pl.writeonly.scallions.apis.chain._
-import pl.writeonly.scallions.apis.config.{Format, RWTConfig}
+import pl.writeonly.scallions.apis.config.{Format, ProviderType, RWTConfig}
 
 class CreatorConverter(creator: ChainNotationConfig, rwt: ChainNotationRWT) {
   def apply(s: ProviderType): Converter Or String =

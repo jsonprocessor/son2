@@ -1,7 +1,6 @@
 package pl.writeonly.scallions.main
 
-import pl.writeonly.scallions.funs.glue.Core
-import pl.writeonly.scallions.funs.glue.{CreatorConverterOr, Params}
+import pl.writeonly.scallions.funs.glue.{Core, CreatorConverterOr, Params}
 
 class Mainer(params: Params,
              args: Array[String],

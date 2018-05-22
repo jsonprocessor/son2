@@ -1,11 +1,9 @@
 package pl.writeonly.scallions.jack.converters
 
+import pl.writeonly.scalaops.specs.GrayVectorSpec
 import pl.writeonly.scallions.apis.converters.Converter
 import pl.writeonly.scallions.funs.liners.{Liner, LinerOpt}
-import pl.writeonly.scallions.funs.streamers.StreamerPipeForeach
-import pl.writeonly.scallions.jack.core.{ConfigJack, FormatsJack}
-import pl.writeonly.scalaops.specs.GrayVectorSpec
-import pl.writeonly.scallions.funs.streamers.Streamer
+import pl.writeonly.scallions.funs.streamers.{Streamer, StreamerPipeForeach}
 import pl.writeonly.scallions.jack.core.{ConfigJack, FormatsJack}
 import pl.writeonly.scallions.jack.glue.CreatorConverterJack
 

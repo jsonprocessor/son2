@@ -6,8 +6,8 @@ import com.github.hronom.jackson.dataformat.rison.{
   RisonGenerator,
   RisonParser
 }
-import pl.writeonly.scallions.apis.config.RWTConfig
 import pl.writeonly.scalaops.pipe.Pipe._
+import pl.writeonly.scallions.apis.config.RWTConfig
 import pl.writeonly.scallions.hocon.ConfigOptHocon
 
 class ConfigOptRison extends ConfigOptHocon {

@@ -2,9 +2,9 @@ package pl.writeonly.scallions.main
 
 import java.io.ByteArrayOutputStream
 
+import pl.writeonly.scalaops.specs.WhiteAssertSpec
 import pl.writeonly.scallions.apis.converters.ConverterFake
 import pl.writeonly.scallions.funs.glue.{Params, Piper}
-import pl.writeonly.scalaops.specs.WhiteAssertSpec
 import pl.writeonly.scallions.funs.streamers.Streamer
 
 class PiperAssertSpec extends WhiteAssertSpec {

@@ -1,10 +1,9 @@
 package pl.writeonly.scallions.jack.glue
 
 import org.scalatest.Outcome
-import pl.writeonly.scallions.jack.core.Jack
-import pl.writeonly.scalaops.specs.fixture.GrayVectorSpec
 import pl.writeonly.scalaops.pipe.Pipe
-import pl.writeonly.scallions.jack.core.FormatsJack
+import pl.writeonly.scalaops.specs.fixture.GrayVectorSpec
+import pl.writeonly.scallions.jack.core.{FormatsJack, Jack}
 
 class CreatorConverterOrJackVectorSpec extends GrayVectorSpec with Pipe {
   override type FixtureParam = CreatorConverterOrJack

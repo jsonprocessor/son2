@@ -1,8 +1,8 @@
 package pl.writeonly.scallions.funs.streamers
 
+import pl.writeonly.scalaops.pipe.Pipe._
 import pl.writeonly.scallions.apis.converters.Converter
 import pl.writeonly.scallions.funs.liners.{Liner, LinerWithTry}
-import pl.writeonly.scalaops.pipe.Pipe._
 
 import scala.io.Source
 

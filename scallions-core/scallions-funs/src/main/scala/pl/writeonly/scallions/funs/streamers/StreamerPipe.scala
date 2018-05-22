@@ -4,9 +4,9 @@ import java.io._
 import java.net.URI
 import java.util.stream.Stream
 
-import pl.writeonly.scallions.funs.liners.Liner
 import pl.writeonly.scalaops.ops.AutoCloseableOps
 import pl.writeonly.scalaops.ops.AutoCloseableOps.using
+import pl.writeonly.scallions.funs.liners.Liner
 
 abstract class StreamerPipe(liner: Liner) extends Streamer(liner) {
 

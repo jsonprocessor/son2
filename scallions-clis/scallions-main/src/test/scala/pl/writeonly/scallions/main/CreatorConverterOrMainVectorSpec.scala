@@ -1,8 +1,8 @@
 package pl.writeonly.scallions.main
 
 import org.scalatest.Outcome
-import pl.writeonly.scalaops.specs.fixture.GrayVectorSpec
 import pl.writeonly.scalaops.pipe.Pipe
+import pl.writeonly.scalaops.specs.fixture.GrayVectorSpec
 import pl.writeonly.scallions.jack.core.FormatsJack
 import pl.writeonly.scallions.json.core.ProvidersJson
 

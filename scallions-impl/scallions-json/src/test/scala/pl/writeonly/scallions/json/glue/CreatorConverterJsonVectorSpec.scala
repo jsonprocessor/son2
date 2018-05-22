@@ -1,8 +1,7 @@
 package pl.writeonly.scallions.json.glue
 
-import pl.writeonly.scallions.apis.config.Meta
-import pl.writeonly.scallions.json.core.ProvidersJson
 import pl.writeonly.scalaops.specs.GrayVectorSpec
+import pl.writeonly.scallions.apis.config.Meta
 import pl.writeonly.scallions.jack.core.FormatsJack
 import pl.writeonly.scallions.json.core.ProvidersJson
 

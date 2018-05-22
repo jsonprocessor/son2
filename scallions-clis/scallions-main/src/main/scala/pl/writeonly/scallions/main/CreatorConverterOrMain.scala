@@ -1,5 +1,8 @@
 package pl.writeonly.scallions.main
 
+import pl.writeonly.scallions.apis.chain.ChainNotationRWT
+import pl.writeonly.scallions.apis.config.RWTConfig
+import pl.writeonly.scallions.funs.glue.CreatorConverterOr
 import pl.writeonly.scallions.jack.chain.ChainReaderJack
 import pl.writeonly.scallions.jack.glue.{
   ChainNotationConfigJack,
@@ -10,15 +13,6 @@ import pl.writeonly.scallions.path.glue.{
   ChainNotationRWTPath
 }
 import pl.writeonly.scallions.text.creators.PCreatorConfigText
-import pl.writeonly.scallions.text.glue.ChainNotationRWTText
-import pl.writeonly.scallions.apis.chain.ChainNotationRWT
-import pl.writeonly.scallions.apis.config.RWTConfig
-import pl.writeonly.scallions.funs.glue.CreatorConverterOr
-import pl.writeonly.scallions.jack.glue.{
-  ChainNotationConfigJack,
-  ChainNotationRWTJack
-}
-import pl.writeonly.scallions.path.glue.ChainNotationConfigPathMain
 import pl.writeonly.scallions.text.glue.ChainNotationRWTText
 
 class CreatorConverterOrMain

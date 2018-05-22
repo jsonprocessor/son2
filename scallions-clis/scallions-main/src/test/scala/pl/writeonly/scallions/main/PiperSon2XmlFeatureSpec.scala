@@ -2,10 +2,9 @@ package pl.writeonly.scallions.main
 
 import java.io.FileNotFoundException
 
+import pl.writeonly.scalaops.specs.BlackSpec
 import pl.writeonly.scallions.funs.glue.{Params, Piper}
 import pl.writeonly.scallions.impl.{Features, Types}
-import pl.writeonly.scallions.jack.core.FormatsJack
-import pl.writeonly.scalaops.specs.BlackSpec
 import pl.writeonly.scallions.jack.core.FormatsJack
 import pl.writeonly.scallions.jack.glue.CreatorConverterJack
 

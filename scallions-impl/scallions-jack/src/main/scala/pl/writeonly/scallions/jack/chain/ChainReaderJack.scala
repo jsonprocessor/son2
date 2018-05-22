@@ -1,15 +1,14 @@
 package pl.writeonly.scallions.jack.chain
 
 import com.fasterxml.jackson.databind.JsonNode
+import pl.writeonly.scallions.apis.chain.ChainImpl
 import pl.writeonly.scallions.apis.config.{
   ConfigField,
   HasConfigOpt,
   ProviderType,
-  WStyle
+  WStyle,
+  _
 }
-import pl.writeonly.scallions.jack.core.ConfigJack
-import pl.writeonly.scallions.apis.chain.ChainImpl
-import pl.writeonly.scallions.apis.config._
 import pl.writeonly.scallions.jack.core.ConfigJack
 import pl.writeonly.scallions.jack.notation._
 

@@ -1,8 +1,8 @@
 package pl.writeonly.scallions.json.glue
 
+import pl.writeonly.scallions.apis.chain.ChainNotationConfig
 import pl.writeonly.scallions.json.creators.PCreatorConfigJson
 import pl.writeonly.scallions.path.core.ProvidersPath
-import pl.writeonly.scallions.apis.chain.ChainNotationConfig
 
 class ChainNotationConfigJson
     extends ChainNotationConfig(

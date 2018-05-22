@@ -2,8 +2,8 @@ package pl.writeonly.scallions.funs.glue
 
 import java.io.{FileInputStream, InputStream}
 
-import pl.writeonly.scallions.funs.streamers.Streamer
 import pl.writeonly.scallions.apis.converters.Converter
+import pl.writeonly.scallions.funs.streamers.Streamer
 
 class Piper(params: Params, converter: Converter) {
 
