@@ -1,4 +1,4 @@
-package pl.writeonly.son2.impl
+package pl.writeonly.scallions.impl
 
 object Types {
   val CLI = "cli"

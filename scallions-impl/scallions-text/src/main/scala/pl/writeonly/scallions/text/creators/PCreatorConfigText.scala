@@ -1,0 +1,51 @@
+package pl.writeonly.scallions.text.creators
+
+import pl.writeonly.scalaops.pipe.Pipe._
+import pl.writeonly.scallions.apis.chain.PCreatorConfig
+import pl.writeonly.scallions.apis.config.{Action, Format, RWTConfig, TConfig}
+import pl.writeonly.scallions.text.core.{Actions, FormatsText}
+
+class PCreatorConfigText extends PCreatorConfig {
+
+  private val matcher = new MatcherStringEscape()
+
+  override def isDefinedAt(s: String): Boolean =
+    s &&
+      symbolOptionPairOption(s)
+        .exists(p => p._1 && p._2)
+
+  private def symbolOptionPairOption(
+    s: String
+  ): Option[(Option[Action], Option[Format])] =
+    "^(\\w+)_(\\w+)$".r
+      .findFirstMatchIn(s)
+      .map(
+        p =>
+          Pair(
+            find1(p.group(1), Actions.ALL),
+            find2(p.group(2), FormatsText.ALL_TEXT)
+        )
+      )
+
+  private def find1(s: String, l: List[Action]): Option[Action] =
+    l.find(it => it.name.toLowerCase.startsWith(s))
+
+  private def find2(s: String, l: List[Format]): Option[Format] =
+    l.find(it => it.name.toLowerCase.startsWith(s))
+
+  override def apply(s: String) = RWTConfig(translate = translateConfig(s))
+
+  def translateConfig(s: String): TConfig =
+    symbolOptionPairOption(s)
+      .flatMap(
+        p =>
+          for {
+            p1 <- p._1
+            p2 <- p._2
+          } yield TConfig(p1, p2)
+      ) match {
+      case Some(c) => c
+      case None    => throw new IllegalArgumentException(s)
+    }
+
+}

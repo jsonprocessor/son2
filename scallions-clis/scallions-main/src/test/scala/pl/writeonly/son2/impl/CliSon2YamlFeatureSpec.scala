@@ -1,7 +1,7 @@
-package pl.writeonly.son2.impl
+package pl.writeonly.scallions.impl
 
-import pl.writeonly.son2.jack.core.FormatsJack
 import pl.writeonly.scalaops.specs.BlackSpec
+import pl.writeonly.scallions.jack.core.FormatsJack
 
 import scala.sys.process._
 
